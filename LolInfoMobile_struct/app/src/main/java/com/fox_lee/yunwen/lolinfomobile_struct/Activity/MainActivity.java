@@ -1,6 +1,5 @@
 package com.fox_lee.yunwen.lolinfomobile_struct.Activity;
 
-
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,7 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.app.Fragment;
 import android.widget.ImageView;
 
 import android.widget.Toast;
@@ -51,7 +49,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         mDrawer_layout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
-        ImageView img1 = (ImageView) findViewById(R.id.rowIcon);
+        ImageView img1 = (ImageView) findViewById(R.id.rowIcon0);
         ImageView img2 = (ImageView) findViewById(R.id.rowIcon1);
         ImageView img3 = (ImageView) findViewById(R.id.rowIcon2);
         ImageView img4 = (ImageView) findViewById(R.id.rowIcon3);
@@ -77,27 +75,16 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.rowIcon: /** Start a new Activity MyCards.java */
+            case R.id.rowIcon0: /** Start a new Activity MyCards.java */
                 Snackbar.make(v, "Click slide photo 1 succeed.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-//                public void startShowFragment(String movie){
                 LolStaggeredFragment staggeredFragment = new LolStaggeredFragment();
                 Log.d("Fragment", "The Lol staggered wallpaper layout is on:");
                 this.getFragmentManager().beginTransaction()
                         .replace(R.id.container, staggeredFragment, "Fragment")
                         .addToBackStack(null)
                         .commit();
-
-//            }
-
-//                public interface PoAdapterListener{
-//                    void startShowFragment(String movie);
-//                }
-
-//                if (context instanceof PoAdapterListener) {
-//                    ((PoAdapterListener) context).startShowFragment(mlink);
-//                }
                 break;
 
             case R.id.rowIcon1: /** AlerDialog when click on Exit */
