@@ -1,4 +1,4 @@
-<com.fox_lee.yunwen.lolinfomobile_struct.Utility.MyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.fox_lee.yunwen.lolinfimobile_struct.Utility.MyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/my_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
@@ -33,4 +33,4 @@
         </LinearLayout>
     </LinearLayout>
 
-</com.fox_lee.yunwen.lolinfomobile_struct.Utility.MyScrollView>
+</com.fox_lee.yunwen.lolinfimobile_struct.Utility.MyScrollView>

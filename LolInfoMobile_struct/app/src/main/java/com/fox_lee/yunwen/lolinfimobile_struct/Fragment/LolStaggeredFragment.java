@@ -1,4 +1,4 @@
-package com.fox_lee.yunwen.lolinfomobile_struct.Fragment;
+package com.fox_lee.yunwen.lolinfimobile_struct.Fragment;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -16,8 +16,6 @@ public class LolStaggeredFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_staggeredview, container, false);
         Log.d("Fragment","Fragment Started");
-
-
         return view;
     }
 

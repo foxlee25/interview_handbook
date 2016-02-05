@@ -1,4 +1,4 @@
-package com.fox_lee.yunwen.lolinfomobile_struct.Utility;
+package com.fox_lee.yunwen.lolinfimobile_struct.Utility;
 
 import android.content.Context;
 import android.graphics.Bitmap;

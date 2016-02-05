@@ -1,4 +1,4 @@
-package com.fox_lee.yunwen.lolinfomobile_struct.Activity;
+package com.fox_lee.yunwen.lolinfimobile_struct.Activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,7 +15,8 @@ import android.widget.ImageView;
 
 import android.widget.Toast;
 
-import com.fox_lee.yunwen.lolinfomobile_struct.Fragment.LolStaggeredFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolRecyclerViewFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolStaggeredFragment;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.rowIcon0: /** Start a new Activity MyCards.java */
+            case R.id.rowIcon0: /** Start a new fragment LolStaggeredFragment.java */
                 Snackbar.make(v, "Click slide photo 1 succeed.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
@@ -87,17 +88,23 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                         .commit();
                 break;
 
-            case R.id.rowIcon1: /** AlerDialog when click on Exit */
+            case R.id.rowIcon1: /** Start a new fragment LolRecyclerViewFragment.java */
                 Snackbar.make(v, "Click slide photo 2 succeed.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                LolRecyclerViewFragment recyclerViewFragment = new LolRecyclerViewFragment();
+                Log.d("Fragment", "The Lol RecyclerView layout is on:");
+                this.getFragmentManager().beginTransaction()
+                        .replace(R.id.container, recyclerViewFragment, "Fragment")
+                        .addToBackStack(null)
+                        .commit();
                 break;
 
-            case R.id.rowIcon2: /** AlerDialog when click on Exit */
+            case R.id.rowIcon2: /** AlerDialog when click on 3rd icon */
                 Snackbar.make(v, "Click slide photo 3 succeed.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 break;
 
-            case R.id.rowIcon3: /** AlerDialog when click on Exit */
+            case R.id.rowIcon3: /** AlerDialog when click on 4th icon */
                 Snackbar.make(v, "Click slide photo 4 succeed.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 break;
