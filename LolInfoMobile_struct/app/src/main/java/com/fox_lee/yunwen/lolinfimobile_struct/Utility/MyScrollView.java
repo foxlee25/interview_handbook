@@ -2,10 +2,12 @@ package com.fox_lee.yunwen.lolinfimobile_struct.Utility;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,6 +16,7 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
+import com.squareup.picasso.Picasso;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -200,6 +203,13 @@ public class MyScrollView extends ScrollView implements View.OnTouchListener {
                     LoadImageTask task = new LoadImageTask();
                     taskCollection.add(task);
                     task.execute(Images.imageUrls[i]);
+                    Log.d("$$$","  "+ Images.imageUrls[i]);
+//                    Picasso
+//                            .with(getContext())
+//                            .load(Images.imageUrls[i])
+//                            .fit()
+////                            .into(imageViewList.get(i));
+//                    .into(.get(i));
                 }
                 page++;
             } else {
@@ -228,7 +238,13 @@ public class MyScrollView extends ScrollView implements View.OnTouchListener {
                     imageView.setImageBitmap(bitmap);
                 } else {
                     LoadImageTask task = new LoadImageTask(imageView);
+
                     task.execute(imageUrl);
+//                    Picasso
+//                            .with(getContext())
+//                            .load(imageUrl)
+//                            .fit()
+//                            .into(imageView);
                 }
             } else {
                 imageView.setImageResource(R.drawable.empty_photo);
@@ -454,6 +470,7 @@ public class MyScrollView extends ScrollView implements View.OnTouchListener {
                 file.mkdirs();
             }
             String imagePath = imageDir + imageName;
+            Log.d("$$$", "image Path is: "+ imagePath);
             return imagePath;
         }
     }

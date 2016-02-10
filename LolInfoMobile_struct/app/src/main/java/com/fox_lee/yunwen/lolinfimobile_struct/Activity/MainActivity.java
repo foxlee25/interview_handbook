@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,7 +23,7 @@ import com.fox_lee.yunwen.lolinfomobile_struct.R;
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
     ActionBarDrawerToggle mDrawerToggle;
-
+    DrawerLayout mDrawer_layout;// = (DrawerLayout) findViewById(R.id.drawer_layout);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +103,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             case R.id.rowIcon2: /** AlerDialog when click on 3rd icon */
                 Snackbar.make(v, "Click slide photo 3 succeed.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
                 break;
 
             case R.id.rowIcon3: /** AlerDialog when click on 4th icon */
@@ -109,6 +111,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                         .setAction("Action", null).show();
                 break;
         }
+        DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawer_layout.closeDrawer(Gravity.LEFT);
     }
 
     @Override
