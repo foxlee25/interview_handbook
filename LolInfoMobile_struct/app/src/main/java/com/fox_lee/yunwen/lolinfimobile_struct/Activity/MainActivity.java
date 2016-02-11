@@ -16,6 +16,7 @@ import android.widget.ImageView;
 
 import android.widget.Toast;
 
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.CodeInterviewFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolRecyclerViewFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolStaggeredFragment;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
@@ -23,7 +24,7 @@ import com.fox_lee.yunwen.lolinfomobile_struct.R;
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
     ActionBarDrawerToggle mDrawerToggle;
-    DrawerLayout mDrawer_layout;// = (DrawerLayout) findViewById(R.id.drawer_layout);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,13 +81,13 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             case R.id.rowIcon0: /** Start a new fragment LolStaggeredFragment.java */
                 Snackbar.make(v, "Click slide photo 1 succeed.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-
-                LolStaggeredFragment staggeredFragment = new LolStaggeredFragment();
-                Log.d("Fragment", "The Lol staggered wallpaper layout is on:");
+                CodeInterviewFragment codeInterviewFragment = new CodeInterviewFragment();
+                Log.d("Fragment", "The CodeInterview RecyclerView layout is on:");
                 this.getFragmentManager().beginTransaction()
-                        .replace(R.id.container, staggeredFragment, "Fragment")
+                        .replace(R.id.container, codeInterviewFragment, "Fragment")
                         .addToBackStack(null)
                         .commit();
+
                 break;
 
             case R.id.rowIcon1: /** Start a new fragment LolRecyclerViewFragment.java */
