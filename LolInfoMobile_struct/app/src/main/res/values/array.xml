@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="titles">
+        <item>Algorithm</item>
         <item>Android</item>
         <item>IOS</item>
         <item>JAVA</item>
@@ -27,5 +28,29 @@
         <item>Expended Grid</item>
         <item>Single Select</item>
         <item>Multiple Select</item>
+    </string-array>
+
+    <string-array name="algorithm">
+        <item>1.Basics</item>
+        <item>2.Data Structure</item>
+        <item>3.Basic Sorting</item>
+        <item>4.Basic Misc</item>
+        <item>5.Part II - Coding</item>
+        <item>6.String</item>
+        <item>7.Integer Array</item>
+        <item>8.Binary Search</item>
+        <item>9.Math and Bit Manipulation</item>
+        <item>10.Reverse</item>
+        <item>11.Binary Tree</item>
+        <item>12.Backtracking</item>
+        <item>13.Dynamic Programing</item>
+    </string-array>
+
+    <string-array name="data_structure">
+        <item>Linked List</item>
+        <item>Binary Tree</item>
+        <item>Binary Search Tree</item>
+        <item>Huffman Compression</item>
+        <item>Priority Queue</item>
     </string-array>
 </resources>

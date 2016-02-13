@@ -9,13 +9,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
+import com.fox_lee.yunwen.lolinfimobile_struct.Interface.IndexCallback;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
+import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CodeInterviewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public enum ITEM_TYPE {
         ITEM_TYPE_IMAGE,
         ITEM_TYPE_TEXT
@@ -24,28 +27,43 @@ public class CodeInterviewAdapter extends RecyclerView.Adapter<RecyclerView.View
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
     private String[] mTitles;
+    private static IndexCallback indexCallback;
 
-    public CodeInterviewAdapter(Context context) {
-        mTitles = context.getResources().getStringArray(R.array.titles);
+    public void onIndexUpdate(IndexCallback indexCallback) {
+        this.indexCallback = indexCallback;
+    }
+
+    public AlgorithmAdapter(Context context) {
+        mTitles = context.getResources().getStringArray(R.array.algorithm);
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        if (viewType == ITEM_TYPE.ITEM_TYPE_IMAGE.ordinal()) {
-//            return new ImageViewHolder(mLayoutInflater.inflate(R.layout.item_image, parent, false));
-//        }
+
             return new TextViewHolder(mLayoutInflater.inflate(R.layout.item_text, parent, false));
+
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof TextViewHolder)
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+        if (holder instanceof TextViewHolder) {
             ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
-//        } else if (holder instanceof ImageViewHolder) {
-//            ((ImageViewHolder) holder).mTextView.setText(mTitles[position]);
-//        }
+            ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mContext instanceof View.OnClickListener) {
+
+                        switch (((TextViewHolder) holder).mTextView.getText().toString()) {
+                            case "2.Data Structure": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmSubFragment((mTitles[position]));
+                        }
+                    }
+                }
+            });
+        }
+
     }
 
     @Override
@@ -72,7 +90,6 @@ public class CodeInterviewAdapter extends RecyclerView.Adapter<RecyclerView.View
             Log.d("TextViewHolder", "onClick--> position = " + getPosition());
         }
     }
-
 //    public static class ImageViewHolder extends RecyclerView.ViewHolder {
 //        @Bind(R.id.text_view)
 //        TextView mTextView;

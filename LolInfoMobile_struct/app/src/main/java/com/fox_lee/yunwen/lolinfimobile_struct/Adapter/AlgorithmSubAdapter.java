@@ -9,13 +9,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
+import com.fox_lee.yunwen.lolinfimobile_struct.Interface.IndexCallback;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
+import com.squareup.picasso.Picasso;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Bind;
 
-public class LolRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public enum ITEM_TYPE {
         ITEM_TYPE_IMAGE,
         ITEM_TYPE_TEXT
@@ -24,9 +27,14 @@ public class LolRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
     private String[] mTitles;
+    private static IndexCallback indexCallback;
 
-    public LolRecyclerViewAdapter(Context context) {
-        mTitles = context.getResources().getStringArray(R.array.titles);
+    public void onIndexUpdate(IndexCallback indexCallback) {
+        this.indexCallback = indexCallback;
+    }
+
+    public AlgorithmSubAdapter(Context context) {
+        mTitles = context.getResources().getStringArray(R.array.data_structure);
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
     }
@@ -41,12 +49,19 @@ public class LolRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         if (holder instanceof TextViewHolder) {
             ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
+
         } else if (holder instanceof ImageViewHolder) {
             ((ImageViewHolder) holder).mTextView.setText(mTitles[position]);
+            Picasso
+                    .with(mContext)
+                    .load("http://7xiys0.com1.z0.glb.clouddn.com/gitbook143117686469.png")
+                    .fit()
+                    .into(((ImageViewHolder) holder).mImageView);
         }
+
     }
 
     @Override
@@ -70,9 +85,9 @@ public class LolRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         @OnClick(R.id.cv_item)
         void onItemClick() {
+            Log.d("TextViewHolder", "onClick--> position = " + getPosition());
         }
     }
-
     public static class ImageViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.text_view)
         TextView mTextView;

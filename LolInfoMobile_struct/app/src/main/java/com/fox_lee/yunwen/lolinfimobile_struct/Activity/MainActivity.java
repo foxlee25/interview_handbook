@@ -16,14 +16,44 @@ import android.widget.ImageView;
 
 import android.widget.Toast;
 
-import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.CodeInterviewFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmSubFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.CodeMenuFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolRecyclerViewFragment;
-import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolStaggeredFragment;
+//import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolStaggeredFragment;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
     ActionBarDrawerToggle mDrawerToggle;
+
+//    public void startCardViewFragment(String var){
+//        CardViewFragment cardViewFragment = new CardViewFragment();
+//        Log.d("Fragment", "Content is: " + var);
+//        getFragmentManager().beginTransaction().replace(R.id.container, cardViewFragment, "CardViewFragment")
+//                .addToBackStack("CardViewFragment").commit();
+//    }
+
+    public void startAlgorithmSubFragment(String var){
+        AlgorithmSubFragment leetCodeFragment = new AlgorithmSubFragment();
+        Log.d("Fragment", "Content is: " + var);
+        getFragmentManager().beginTransaction().replace(R.id.container, leetCodeFragment, "AlgorithmSubFragment")
+                .addToBackStack("AlgorithmSubFragment").commit();
+    }
+
+    public void startAlgorithmFragment(String var){
+        AlgorithmFragment leetCodeFragment = new AlgorithmFragment();
+        Log.d("Fragment", "Content is: " + var);
+        getFragmentManager().beginTransaction().replace(R.id.container, leetCodeFragment, "AlgorithmFragment")
+                .addToBackStack("AlgorithmFragment").commit();
+    }
+
+    public void startJavaFragment(String var){
+        AlgorithmFragment leetCodeFragment = new AlgorithmFragment();
+        Log.d("Fragment", "The Language is: " + var);
+        getFragmentManager().beginTransaction().replace(R.id.container, leetCodeFragment, "CodeFragment")
+                .addToBackStack("CodeFragment").commit();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,13 +108,13 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.rowIcon0: /** Start a new fragment LolStaggeredFragment.java */
+            case R.id.rowIcon0: /** Start a new fragment */
                 Snackbar.make(v, "Click slide photo 1 succeed.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                CodeInterviewFragment codeInterviewFragment = new CodeInterviewFragment();
-                Log.d("Fragment", "The CodeInterview RecyclerView layout is on:");
+                CodeMenuFragment codeMenuFragment = new CodeMenuFragment();
+                Log.d("Fragment", "The CodeMenu layout is on:");
                 this.getFragmentManager().beginTransaction()
-                        .replace(R.id.container, codeInterviewFragment, "Fragment")
+                        .replace(R.id.container, codeMenuFragment, "Fragment")
                         .addToBackStack(null)
                         .commit();
 
