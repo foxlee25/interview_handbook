@@ -2,18 +2,16 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="5dp">
+    android:layout_height="match_parent">
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:id="@+id/data_content"
         android:textSize="16sp"
         android:hint="data content"
-        android:background="@color/cardview_initial_background"
-        />
+        android:background="@color/cardview_initial_background" />
 
 </RelativeLayout>

@@ -56,6 +56,7 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
 
             ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
+
             ContentAdapter adapter = new ContentAdapter(mContext, values);
             ((TextViewHolder) holder).userList.setAdapter(adapter);
 
@@ -71,8 +72,6 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     }
                 }
             });
-
-
     }
 
     @Override
