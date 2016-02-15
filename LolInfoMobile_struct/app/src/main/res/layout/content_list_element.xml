@@ -8,11 +8,12 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_marginLeft="25sp"
-        android:layout_marginStart="50sp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:id="@+id/data_content"
         android:textSize="16sp"
         android:hint="data content"
+        android:background="@color/cardview_initial_background"
         />
 
 </RelativeLayout>

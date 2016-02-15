@@ -29,14 +29,12 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
     ActionBarDrawerToggle mDrawerToggle;
 
-
     public void startAlgorithmSubFragment(String[] var){
         AlgorithmSubFragment algorithmSubFragment = new AlgorithmSubFragment();
         Log.d("Fragment", "Content is: " + var);
         getFragmentManager().beginTransaction().replace(R.id.container, algorithmSubFragment, "AlgorithmSubFragment")
                 .addToBackStack("AlgorithmSubFragment").commit();
         algorithmSubFragment.changeData(var);
-
     }
 
     public void startAlgorithmFragment(String var){
@@ -98,13 +96,10 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                         .setAction("Action", null).show();
             }
         });
-
         toolbar.getMenu().clear();
     }
 
-
     public void onClick(View v) {
-
         switch (v.getId()) {
             case R.id.rowIcon0: /** Start a new fragment */
                 Snackbar.make(v, "Click slide photo 1 succeed.", Snackbar.LENGTH_LONG)
@@ -115,7 +110,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                         .replace(R.id.container, codeMenuFragment, "Fragment")
                         .addToBackStack(null)
                         .commit();
-
                 break;
 
             case R.id.rowIcon1: /** Start a new fragment LolRecyclerViewFragment.java */
@@ -132,7 +126,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             case R.id.rowIcon2: /** AlerDialog when click on 3rd icon */
                 Snackbar.make(v, "Click slide photo 3 succeed.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-
                 break;
 
             case R.id.rowIcon3: /** AlerDialog when click on 4th icon */

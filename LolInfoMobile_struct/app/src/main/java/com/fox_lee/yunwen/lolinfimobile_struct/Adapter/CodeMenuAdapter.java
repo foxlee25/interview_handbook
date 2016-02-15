@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
@@ -82,11 +81,10 @@ public class CodeMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             ButterKnife.bind(this, view);
         }
 
-        @OnClick(R.id.cv_item)
+        @OnClick(R.id.cv_text)
         void onItemClick() {
 
             Log.d("TextViewHolder", "onClick--> position = " + getPosition());
         }
     }
-
 }

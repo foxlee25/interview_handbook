@@ -6,13 +6,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.fox_lee.yunwen.lolinfimobile_struct.Interface.IndexCallback;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -50,7 +48,7 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-            return new TextViewHolder(mLayoutInflater.inflate(R.layout.item_text, parent, false));
+            return new TextViewHolder(mLayoutInflater.inflate(R.layout.item_text_list, parent, false));
 
     }
 
@@ -58,7 +56,7 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
 
             ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
-            UserAdapter adapter = new UserAdapter(mContext, values);
+            ContentAdapter adapter = new ContentAdapter(mContext, values);
             ((TextViewHolder) holder).userList.setAdapter(adapter);
 
             ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {

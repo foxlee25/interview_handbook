@@ -32,7 +32,7 @@ public class AlgorithmSubFragment extends  Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_algorithm, container, false);
+        View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
         Log.d("Fragment", "Algorithm Fragment Started");
         return view;
     }
@@ -40,7 +40,7 @@ public class AlgorithmSubFragment extends  Fragment{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.leetcode);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         algorithmsubAdapter = new AlgorithmSubAdapter(getActivity(),dataContent);
         mRecyclerView.setAdapter(algorithmsubAdapter);

@@ -8,11 +8,11 @@ import android.widget.TextView;
 
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
-public class UserAdapter extends ArrayAdapter<String> {
+public class ContentAdapter extends ArrayAdapter<String> {
     private final Context context;
     private final String[] values;
 
-    public UserAdapter(Context context, String[] values) {
+    public ContentAdapter(Context context, String[] values) {
         super(context, -1, values);
         this.context = context;
         this.values = values;
