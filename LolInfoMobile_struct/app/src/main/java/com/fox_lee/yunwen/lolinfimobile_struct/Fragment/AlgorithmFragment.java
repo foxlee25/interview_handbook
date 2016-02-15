@@ -29,6 +29,7 @@ public class AlgorithmFragment extends  Fragment{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //display details
         mRecyclerView = (RecyclerView) view.findViewById(R.id.leetcode);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
         algorithmAdapter = new AlgorithmAdapter(getActivity());

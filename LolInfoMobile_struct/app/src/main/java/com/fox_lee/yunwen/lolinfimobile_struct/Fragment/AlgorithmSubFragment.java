@@ -15,12 +15,21 @@ import com.fox_lee.yunwen.lolinfimobile_struct.Adapter.AlgorithmAdapter;
 import com.fox_lee.yunwen.lolinfimobile_struct.Adapter.AlgorithmSubAdapter;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
+import java.util.ArrayList;
+
 /**
  * Created by Yunwen on 2/11/2016.
  */
 public class AlgorithmSubFragment extends  Fragment{
     RecyclerView mRecyclerView;
     private AlgorithmSubAdapter algorithmsubAdapter;
+
+    private String[] dataContent;
+
+    public void changeData(String[] dataContent) {
+        this.dataContent = dataContent;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_algorithm, container, false);
@@ -33,11 +42,15 @@ public class AlgorithmSubFragment extends  Fragment{
         super.onViewCreated(view, savedInstanceState);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.leetcode);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        algorithmsubAdapter = new AlgorithmSubAdapter(getActivity());
+        algorithmsubAdapter = new AlgorithmSubAdapter(getActivity(),dataContent);
         mRecyclerView.setAdapter(algorithmsubAdapter);
+
+
     }
 
     private void writeBoard() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
     }
+
+
 }

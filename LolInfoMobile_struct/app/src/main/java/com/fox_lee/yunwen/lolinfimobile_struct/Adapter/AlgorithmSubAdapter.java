@@ -7,12 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
 import com.fox_lee.yunwen.lolinfimobile_struct.Interface.IndexCallback;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,44 +25,55 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         ITEM_TYPE_IMAGE,
         ITEM_TYPE_TEXT
     }
+    String[] values = new String[] { "" };
 
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
+    final ArrayList<String> list = new ArrayList<String>();
+
     private String[] mTitles;
     private static IndexCallback indexCallback;
+    private boolean show = false;
 
     public void onIndexUpdate(IndexCallback indexCallback) {
         this.indexCallback = indexCallback;
     }
 
-    public AlgorithmSubAdapter(Context context) {
-        mTitles = context.getResources().getStringArray(R.array.data_structure);
+    public AlgorithmSubAdapter(Context context, String[] var) {
+        //mTitles = context.getResources().getStringArray(R.array.data_structure);
+        mTitles = var;
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
     }
 
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == ITEM_TYPE.ITEM_TYPE_IMAGE.ordinal()) {
-            return new ImageViewHolder(mLayoutInflater.inflate(R.layout.item_image, parent, false));
-        } else {
+
             return new TextViewHolder(mLayoutInflater.inflate(R.layout.item_text, parent, false));
-        }
+
     }
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        if (holder instanceof TextViewHolder) {
-            ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
 
-        } else if (holder instanceof ImageViewHolder) {
-            ((ImageViewHolder) holder).mTextView.setText(mTitles[position]);
-            Picasso
-                    .with(mContext)
-                    .load("http://7xiys0.com1.z0.glb.clouddn.com/gitbook143117686469.png")
-                    .fit()
-                    .into(((ImageViewHolder) holder).mImageView);
-        }
+            ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
+            UserAdapter adapter = new UserAdapter(mContext, values);
+            ((TextViewHolder) holder).userList.setAdapter(adapter);
+
+            ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!show) {
+                        ((TextViewHolder) holder).userList.setVisibility(View.GONE);
+                        show = true;
+                    } else {
+                        ((TextViewHolder) holder).userList.setVisibility(View.VISIBLE);
+                        show = false;
+                    }
+                }
+            });
+
 
     }
 
@@ -74,9 +87,12 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return mTitles == null ? 0 : mTitles.length;
     }
 
+
     public static class TextViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.text_view)
         TextView mTextView;
+        @Bind(R.id.list_view)
+        ListView userList;
 
         TextViewHolder(View view) {
             super(view);
@@ -86,22 +102,6 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         @OnClick(R.id.cv_item)
         void onItemClick() {
             Log.d("TextViewHolder", "onClick--> position = " + getPosition());
-        }
-    }
-    public static class ImageViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.text_view)
-        TextView mTextView;
-        @Bind(R.id.image_view)
-        ImageView mImageView;
-
-        ImageViewHolder(View view) {
-            super(view);
-            ButterKnife.bind(this, view);
-        }
-
-        @OnClick(R.id.cv_item)
-        void onItemClick() {
-            Log.d("ImageViewHolder", "onClick--> position = " + getPosition());
         }
     }
 }

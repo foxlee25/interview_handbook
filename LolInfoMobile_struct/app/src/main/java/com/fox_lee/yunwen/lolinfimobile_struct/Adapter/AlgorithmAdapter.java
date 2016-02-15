@@ -41,9 +41,7 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
             return new TextViewHolder(mLayoutInflater.inflate(R.layout.item_text, parent, false));
-
     }
 
     @Override
@@ -54,16 +52,51 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 @Override
                 public void onClick(View v) {
                     if (mContext instanceof View.OnClickListener) {
-
                         switch (((TextViewHolder) holder).mTextView.getText().toString()) {
+                            case "1.Basics": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.basics));
+                                break;
                             case "2.Data Structure": /* start activity accordingly */
-                                ((MainActivity) mContext).startAlgorithmSubFragment((mTitles[position]));
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.data_structure));
+                                break;
+                            case "3.Basic Sorting": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.basics_sorting));
+                                break;
+                            case "4.Basic Misc": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.basics_misc));
+                                break;
+                            case "5.Part II - Coding": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.part_II_coding));
+                                break;
+                            case "6.String": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.string));
+                                break;
+                            case "7.Integer Array": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.integer_array));
+                                break;
+                            case "8.Binary Search": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.binary_search));
+                                break;
+                            case "9.Math and Bit Manipulation": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.math_and_bit_manipulation));
+                                break;
+                            case "10.Reverse": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.reverse));
+                                break;
+                            case "11.Binary Tree": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.binary_tree));
+                                break;
+                            case "12.Backtracking": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.back_tracking));
+                                break;
+                            case "13.Dynamic Programing": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.dynamic_programming));
+                                break;
                         }
                     }
                 }
             });
         }
-
     }
 
     @Override
@@ -90,20 +123,4 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             Log.d("TextViewHolder", "onClick--> position = " + getPosition());
         }
     }
-//    public static class ImageViewHolder extends RecyclerView.ViewHolder {
-//        @Bind(R.id.text_view)
-//        TextView mTextView;
-//        @Bind(R.id.image_view)
-//        ImageView mImageView;
-//
-//        ImageViewHolder(View view) {
-//            super(view);
-//            ButterKnife.bind(this, view);
-//        }
-//
-//        @OnClick(R.id.cv_item)
-//        void onItemClick() {
-//            Log.d("ImageViewHolder", "onClick--> position = " + getPosition());
-//        }
-//    }
 }

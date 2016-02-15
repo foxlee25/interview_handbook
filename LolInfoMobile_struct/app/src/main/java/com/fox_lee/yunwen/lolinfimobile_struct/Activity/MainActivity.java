@@ -1,5 +1,6 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Activity;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,25 +21,22 @@ import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmSubFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.CodeMenuFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolRecyclerViewFragment;
-//import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolStaggeredFragment;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
     ActionBarDrawerToggle mDrawerToggle;
 
-//    public void startCardViewFragment(String var){
-//        CardViewFragment cardViewFragment = new CardViewFragment();
-//        Log.d("Fragment", "Content is: " + var);
-//        getFragmentManager().beginTransaction().replace(R.id.container, cardViewFragment, "CardViewFragment")
-//                .addToBackStack("CardViewFragment").commit();
-//    }
 
-    public void startAlgorithmSubFragment(String var){
-        AlgorithmSubFragment leetCodeFragment = new AlgorithmSubFragment();
+    public void startAlgorithmSubFragment(String[] var){
+        AlgorithmSubFragment algorithmSubFragment = new AlgorithmSubFragment();
         Log.d("Fragment", "Content is: " + var);
-        getFragmentManager().beginTransaction().replace(R.id.container, leetCodeFragment, "AlgorithmSubFragment")
+        getFragmentManager().beginTransaction().replace(R.id.container, algorithmSubFragment, "AlgorithmSubFragment")
                 .addToBackStack("AlgorithmSubFragment").commit();
+        algorithmSubFragment.changeData(var);
+
     }
 
     public void startAlgorithmFragment(String var){
@@ -166,5 +164,17 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+        @Override
+    public void onBackPressed(){
+        FragmentManager fm = getFragmentManager();
+        if (fm.getBackStackEntryCount() > 0) {
+            Log.i("MainActivity", "popping backstack");
+            fm.popBackStack();
+        } else {
+            Log.i("MainActivity", "nothing on backstack, calling super");
+            super.onBackPressed();
+        }
     }
 }
