@@ -44,12 +44,10 @@ public class AlgorithmSubFragment extends  Fragment{
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         algorithmsubAdapter = new AlgorithmSubAdapter(getActivity(),dataContent);
         mRecyclerView.setAdapter(algorithmsubAdapter);
-        
+
     }
 
     private void writeBoard() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
     }
-
-
 }

@@ -21,9 +21,11 @@ import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmSubFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.CodeMenuFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolRecyclerViewFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Utility.HashMapContent;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
@@ -97,6 +99,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             }
         });
         toolbar.getMenu().clear();
+
     }
 
     public void onClick(View v) {

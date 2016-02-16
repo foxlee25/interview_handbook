@@ -10,9 +10,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.fox_lee.yunwen.lolinfimobile_struct.Interface.IndexCallback;
+import com.fox_lee.yunwen.lolinfimobile_struct.Utility.HashMapContent;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -54,24 +56,29 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+        ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
+            //R.array.mTitles[position]  mContext.getResources().getStringArray(R.array.mTitles[position])
+            //ContentAdapter adapter = new ContentAdapter(mContext, mTitles[position]);//values corresponding to mTitles
+            //((TextViewHolder) holder).userList.setAdapter(adapter);
+        HashMapContent hashMapContent = new HashMapContent();
+        HashMap hm = hashMapContent.getAir();
+        Log.d("FragmentContent", "The value is: " + mTitles[position].toString());
+        Log.d("FragmentContent", "The content is: " + hm.get(mTitles[position]).toString());
 
-            ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
+        ((TextViewHolder) holder).userList.setText(hm.get(mTitles[position]).toString());
 
-            ContentAdapter adapter = new ContentAdapter(mContext, values);
-            ((TextViewHolder) holder).userList.setAdapter(adapter);
-
-            ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (!show) {
-                        ((TextViewHolder) holder).userList.setVisibility(View.GONE);
-                        show = true;
-                    } else {
-                        ((TextViewHolder) holder).userList.setVisibility(View.VISIBLE);
-                        show = false;
-                    }
+        ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!show) {
+                    ((TextViewHolder) holder).userList.setVisibility(View.GONE);
+                    show = true;
+                } else {
+                    ((TextViewHolder) holder).userList.setVisibility(View.VISIBLE);
+                    show = false;
                 }
-            });
+            }
+        });
     }
 
     @Override
@@ -89,7 +96,7 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         @Bind(R.id.text_view)
         TextView mTextView;
         @Bind(R.id.list_view)
-        ListView userList;
+        TextView userList;
 
         TextViewHolder(View view) {
             super(view);

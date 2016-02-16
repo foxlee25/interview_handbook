@@ -17,6 +17,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
     public enum ITEM_TYPE {
         ITEM_TYPE_IMAGE,
         ITEM_TYPE_TEXT
