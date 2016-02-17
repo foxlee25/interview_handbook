@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
 import com.fox_lee.yunwen.lolinfimobile_struct.Interface.IndexCallback;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.HashMapContent;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
@@ -33,14 +34,12 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     private String[] mTitles;
     private static IndexCallback indexCallback;
-    private boolean show = false;
 
     public void onIndexUpdate(IndexCallback indexCallback) {
         this.indexCallback = indexCallback;
     }
 
     public AlgorithmSubAdapter(Context context, String[] var) {
-        //mTitles = context.getResources().getStringArray(R.array.data_structure);
         mTitles = var;
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
@@ -49,34 +48,17 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-            return new TextViewHolder(mLayoutInflater.inflate(R.layout.item_text_list, parent, false));
-
+            return new TextViewHolder(mLayoutInflater.inflate(R.layout.item_text, parent, false));
     }
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
-            //R.array.mTitles[position]  mContext.getResources().getStringArray(R.array.mTitles[position])
-            //ContentAdapter adapter = new ContentAdapter(mContext, mTitles[position]);//values corresponding to mTitles
-            //((TextViewHolder) holder).userList.setAdapter(adapter);
-        HashMapContent hashMapContent = new HashMapContent();
-        HashMap hm = hashMapContent.getAir();
         Log.d("FragmentContent", "The value is: " + mTitles[position].toString());
-        Log.d("FragmentContent", "The content is: " + hm.get(mTitles[position]).toString());
-
-        ((TextViewHolder) holder).userList.setText(hm.get(mTitles[position]).toString());
-
         ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!show) {
-                    ((TextViewHolder) holder).userList.setVisibility(View.GONE);
-                    show = true;
-                } else {
-                    ((TextViewHolder) holder).userList.setVisibility(View.VISIBLE);
-                    show = false;
-                }
+                ((MainActivity) mContext).startContentFragment(mTitles[position].toString());
             }
         });
     }
@@ -95,15 +77,13 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public static class TextViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.text_view)
         TextView mTextView;
-        @Bind(R.id.list_view)
-        TextView userList;
 
         TextViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
         }
 
-        @OnClick(R.id.cv_item)
+        @OnClick(R.id.cv_text)
         void onItemClick() {
             Log.d("TextViewHolder", "onClick--> position = " + getPosition());
         }

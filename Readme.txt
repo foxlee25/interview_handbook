@@ -44,3 +44,4 @@ Left slide drawer layout:
 	(Create new branch)
 	(branch 1)Click the third imageView("Search For Shows" this time) to get doc RecyclerView layout (For Interview question app).
 	(branch 2)Click the third imageView("Search For Shows" this time) to get doc RecyclerView layout (For LOL informations app).
+-----------------02-16------------

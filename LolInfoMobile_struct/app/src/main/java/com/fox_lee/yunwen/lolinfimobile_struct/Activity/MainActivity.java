@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmSubFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.CodeMenuFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.ContentFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolRecyclerViewFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.HashMapContent;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
@@ -30,6 +31,14 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
     ActionBarDrawerToggle mDrawerToggle;
+
+    public void startContentFragment(String var){
+        ContentFragment contentFragment = new ContentFragment();
+        Log.d("Fragment", "Content is: " + var);
+        getFragmentManager().beginTransaction().replace(R.id.container, contentFragment, "AlgorithmSubFragment")
+                .addToBackStack("AlgorithmSubFragment").commit();
+        contentFragment.changeData(var);
+    }
 
     public void startAlgorithmSubFragment(String[] var){
         AlgorithmSubFragment algorithmSubFragment = new AlgorithmSubFragment();
