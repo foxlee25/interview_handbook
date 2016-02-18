@@ -1,6 +1,8 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Activity;
 
 import android.app.FragmentManager;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,7 +24,10 @@ import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.CodeMenuFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.ContentFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolRecyclerViewFragment;
-import com.fox_lee.yunwen.lolinfimobile_struct.Utility.HashMapContent;
+import com.fox_lee.yunwen.lolinfimobile_struct.Model.Algorithm;
+import com.fox_lee.yunwen.lolinfimobile_struct.Model.HashMapContent;
+import com.fox_lee.yunwen.lolinfimobile_struct.Utility.AlgorithmRepo;
+import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DBHelper;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 import java.util.ArrayList;
@@ -31,6 +36,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
     ActionBarDrawerToggle mDrawerToggle;
+    //private DBHelper dbHelper;
 
     public void startContentFragment(String var){
         ContentFragment contentFragment = new ContentFragment();
@@ -73,12 +79,13 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer_layout,toolbar, R.string.openDrawer, R.string.closeDrawer) {
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer_layout, toolbar, R.string.openDrawer, R.string.closeDrawer) {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 Toast.makeText(getApplicationContext(), "Drawer is opened", Toast.LENGTH_SHORT).show();
             }
+
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
@@ -109,6 +116,62 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         });
         toolbar.getMenu().clear();
 
+        //create database
+        HashMapContent hashMapContent = new HashMapContent();
+        HashMap hm = hashMapContent.getAir();
+        String[] sth = getResources().getStringArray(R.array.basics);
+        DBHelper dbHelper = new DBHelper(this);
+        SQLiteDatabase db=dbHelper.getReadableDatabase();
+
+        AlgorithmRepo repo = new AlgorithmRepo(this);
+        Algorithm algorithm = new Algorithm();
+        for (int cnt = 0; cnt < sth.length; cnt++){
+            algorithm.age = 0;
+            algorithm.topic = sth[cnt];
+            algorithm.content = hm.get(sth[cnt]).toString();
+            algorithm.algorithm_ID = 0;
+            // int algorithm_Id = repo.insert(algorithm);
+            //insert a column
+
+            Log.d("MainActivity", "The " + " Topic is: " + algorithm.topic);
+            Log.d("MainActivity", "The content is: " + algorithm.content);
+            repo.insert(algorithm);
+        }
+
+
+//        String selectQuery="SELECT "+
+//                algorithm.KEY_ID+","+
+//                algorithm.KEY_content+","+
+//                algorithm.KEY_topic+","+
+//                algorithm.KEY_age+" FROM "+algorithm.TABLE;
+//
+//        Cursor c = db.rawQuery(selectQuery,null);
+
+//        int id[] = new int[c.getCount()];
+//        int i = 0;
+//        if (c.getCount() > 0)
+//        {
+//            c.moveToFirst();
+//            do {
+//                id[i] = c.getInt(c.getColumnIndex(algorithm.topic));
+//                i++;
+//                Log.d("MainActivity", "The " + i + " Topic is: " + c.getString(c.getColumnIndex(algorithm.topic)));
+//                Log.d("MainActivity", "The content is: " + c.getString(c.getColumnIndex(algorithm.content)));
+//            } while (c.moveToNext());
+//            c.close();
+//        }
+//
+//        db.close();
+//        repo.delete(1);
+//        repo.delete(2);
+//        repo.delete(3);
+        //select value and display
+
+
+        ArrayList<HashMap<String, String>> studentList =  repo.getAlgorithmList();
+
+
+        Log.d("","");
     }
 
     public void onClick(View v) {

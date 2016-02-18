@@ -46,7 +46,7 @@
     <string-array name="basics_sorting">
         <item>Bubble Sort</item>
         <item>Selection Sort</item>
-        <item>insertion Sort</item>
+        <item>Insertion Sort</item>
         <item>Merge Sort</item>
         <item>Quick Sort</item>
         <item>Heap Sort</item>
@@ -80,7 +80,7 @@
         <item>First Missing Positive</item>
         <item>2 Sum</item>
         <item>3 Sum</item>
-        <item>3 Sum Closet</item>
+        <item>3 Sum Closest</item>
         <item>Remove Duplicates from Sorted Array</item>
         <item>Remove Duplicates from Sorted Array II</item>
         <item>Merge Sorted Array</item>
