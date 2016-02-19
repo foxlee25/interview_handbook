@@ -10,7 +10,7 @@ public class HashMapContent {
         private static HashMap map = new HashMap();
 
         public HashMapContent(){
-            //this.map = map;
+
             this.map.put("Basics", "第一节主要总结一些算法要数据结构方面的基础知识，如基本的数据结构和基础算法。\n" +
                     "\n" +
                     "本节主要由以下章节构成。");
