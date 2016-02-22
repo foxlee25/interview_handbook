@@ -79,16 +79,22 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                             case "9.Math and Bit Manipulation":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.math_and_bit_manipulation));
                                 break;
-                            case "10.Reverse":
+                            case "10.Linked List":
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.linked_list));
+                                break;
+                            case "11.Reverse":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.reverse));
                                 break;
-                            case "11.Binary Tree":
+                            case "12.Binary Tree":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.binary_tree));
                                 break;
-                            case "12.Backtracking":
+                            case "13.Binary Search Tree":
+                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.binary_search_tree));
+                                break;
+                            case "14.Backtracking":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.back_tracking));
                                 break;
-                            case "13.Dynamic Programing":
+                            case "15.Dynamic Programing":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.dynamic_programming));
                                 break;
                         }
