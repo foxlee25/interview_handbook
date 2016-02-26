@@ -1,8 +1,7 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Activity;
 
 import android.app.FragmentManager;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,20 +23,13 @@ import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmSubFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.CodeMenuFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.ContentFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.DbFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolRecyclerViewFragment;
-import com.fox_lee.yunwen.lolinfimobile_struct.Model.Algorithm;
-import com.fox_lee.yunwen.lolinfimobile_struct.Model.HashMapContent;
-import com.fox_lee.yunwen.lolinfimobile_struct.Utility.AlgorithmRepo;
-import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DBHelper;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
     ActionBarDrawerToggle mDrawerToggle;
-    //private DBHelper dbHelper;
 
     public void startContentFragment(String var){
         ContentFragment contentFragment = new ContentFragment();
@@ -116,62 +109,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         });
         toolbar.getMenu().clear();
 
-        //create database
-        HashMapContent hashMapContent = new HashMapContent();
-        HashMap hm = hashMapContent.getAir();
-        String[] sth = getResources().getStringArray(R.array.basics);
-        DBHelper dbHelper = new DBHelper(this);
-        SQLiteDatabase db=dbHelper.getReadableDatabase();
-
-        AlgorithmRepo repo = new AlgorithmRepo(this);
-        Algorithm algorithm = new Algorithm();
-        for (int cnt = 0; cnt < sth.length; cnt++){
-            algorithm.age = 0;
-            algorithm.topic = sth[cnt];
-            algorithm.content = hm.get(sth[cnt]).toString();
-            algorithm.algorithm_ID = 0;
-            // int algorithm_Id = repo.insert(algorithm);
-            //insert a column
-
-            Log.d("MainActivity", "The " + " Topic is: " + algorithm.topic);
-            Log.d("MainActivity", "The content is: " + algorithm.content);
-            repo.insert(algorithm);
-        }
-
-
-//        String selectQuery="SELECT "+
-//                algorithm.KEY_ID+","+
-//                algorithm.KEY_content+","+
-//                algorithm.KEY_topic+","+
-//                algorithm.KEY_age+" FROM "+algorithm.TABLE;
-//
-//        Cursor c = db.rawQuery(selectQuery,null);
-
-//        int id[] = new int[c.getCount()];
-//        int i = 0;
-//        if (c.getCount() > 0)
-//        {
-//            c.moveToFirst();
-//            do {
-//                id[i] = c.getInt(c.getColumnIndex(algorithm.topic));
-//                i++;
-//                Log.d("MainActivity", "The " + i + " Topic is: " + c.getString(c.getColumnIndex(algorithm.topic)));
-//                Log.d("MainActivity", "The content is: " + c.getString(c.getColumnIndex(algorithm.content)));
-//            } while (c.moveToNext());
-//            c.close();
-//        }
-//
-//        db.close();
-//        repo.delete(1);
-//        repo.delete(2);
-//        repo.delete(3);
-        //select value and display
-
-
-        ArrayList<HashMap<String, String>> studentList =  repo.getAlgorithmList();
-
-
-        Log.d("","");
     }
 
     public void onClick(View v) {
@@ -206,6 +143,11 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             case R.id.rowIcon3: /** AlerDialog when click on 4th icon */
                 Snackbar.make(v, "Click slide photo 4 succeed.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                DbFragment dbFragment = new DbFragment();
+                this.getFragmentManager().beginTransaction()
+                        .replace(R.id.container, dbFragment, "Fragment")
+                        .addToBackStack(null)
+                        .commit();
                 break;
         }
         DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -215,8 +157,9 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        MenuInflater mnuInflater = getMenuInflater();
+        mnuInflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -227,9 +170,18 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_about) {
+            // START THE about activity
+            Intent startActivity = new Intent(this, AboutActivity.class);
+            startActivity(startActivity);
             return true;
         }
+        if (id == R.id.action_settings) {
+            // to do
+
+            return true;
+        }
+
 
         return super.onOptionsItemSelected(item);
     }

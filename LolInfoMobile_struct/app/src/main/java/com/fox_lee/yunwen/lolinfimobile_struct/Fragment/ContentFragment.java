@@ -60,7 +60,7 @@ public class ContentFragment extends  Fragment{
                 cv.setText("public " + frag2[0]);
                 tv2.setText("删除链表" + frag2[1]);
                 cv1.setVisibility(View.GONE);
-
+                cv2.setVisibility(View.GONE);
 
                 break;
             case "Bubble Sort":
@@ -70,6 +70,7 @@ public class ContentFragment extends  Fragment{
                 cv.setText("#!/usr/bin/env python" + frag2[0]);
                 tv2.setText("Reference" + frag2[1]);
                 cv1.setVisibility(View.GONE);
+                cv2.setVisibility(View.GONE);
                 break;
             case "Selection Sort":
                 Log.d("Content Fragment", "Selection Sort");
@@ -79,6 +80,7 @@ public class ContentFragment extends  Fragment{
                 cv.setText("#!/usr/bin/env python" + frag2[0]);
                 tv2.setText("性质：" + frag2[1]);
                 cv1.setVisibility(View.GONE);
+                cv2.setVisibility(View.GONE);
                 break;
             case "Insertion Sort":
                 Log.d("Content Fragment", "Selection Sort");
@@ -100,7 +102,7 @@ public class ContentFragment extends  Fragment{
                         "核心：基于插入排序，使数组中任意间隔为h的元素都是有序的，即将全部元素分为h个区域使用插入排序。其实现可类似于插入排序但使用不同增量。更高效的原因是它权衡了 子数组的规模和有序性。\n" +
                         "\n" +
                         "实现(C++):");
-
+                cv2.setVisibility(View.GONE);
                 cv1.setText( "template\n" +
                         "void shell_sort(T arr[], int len) {\n" +
                         "    int gap, i, j;\n" +
@@ -129,6 +131,7 @@ public class ContentFragment extends  Fragment{
                 tv2.setText("原地归并：" + frag3[0] + "辅助函数：用于将已排序好的两个数组归并。");
                 cv1.setText(frag4[0]);
                 tv3.setText("时间复杂度为NlogN，但是空间复杂度为N。" + frag4[1]);
+                cv2.setVisibility(View.GONE);
                 break;
             case "Quick Sort":
                 frag1 = hm.get(dataContent).toString().split("#!/usr/bin/env python");
@@ -138,6 +141,7 @@ public class ContentFragment extends  Fragment{
                 cv.setText("#!/usr/bin/env python" + frag2[0]);
                 tv2.setText("递归 " + frag2[1]);
                 cv1.setVisibility(View.GONE);
+                cv2.setVisibility(View.GONE);
                 break;
 
             case "Bit Manipulation":
@@ -152,6 +156,7 @@ public class ContentFragment extends  Fragment{
                         "\n" +
                         "移位操作" + frag2[1]);
                 cv1.setVisibility(View.GONE);
+                cv2.setVisibility(View.GONE);
                 break;
             case "strStr":
                 frag1 = hm.get(dataContent).toString().split("strstr ");
@@ -1479,7 +1484,6 @@ public class ContentFragment extends  Fragment{
                 cv2.setVisibility(View.GONE);
                 break;
         }
-
     }
 
     private void writeBoard() {

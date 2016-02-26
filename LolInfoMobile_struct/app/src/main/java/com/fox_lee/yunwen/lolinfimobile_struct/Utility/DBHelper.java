@@ -8,8 +8,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.fox_lee.yunwen.lolinfimobile_struct.Model.Algorithm;
-
 /**
  * Created by ifanr on 2015/3/29.
  */

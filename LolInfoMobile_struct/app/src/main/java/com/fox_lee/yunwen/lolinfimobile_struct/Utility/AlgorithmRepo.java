@@ -3,13 +3,12 @@ package com.fox_lee.yunwen.lolinfimobile_struct.Utility;
 /**
  * Created by Yunwen on 2/15/2016.
  */
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-
-import com.fox_lee.yunwen.lolinfimobile_struct.Model.Algorithm;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,7 +32,6 @@ public class AlgorithmRepo {
         values.put(Algorithm.KEY_topic,algorithm.topic);
         //
         long algorithm_Id=db.insert(Algorithm.TABLE,null,values);
-
         db.close();
         return (int)algorithm_Id;
     }
@@ -45,7 +43,6 @@ public class AlgorithmRepo {
     }
     public void update(Algorithm algorithm){
         SQLiteDatabase db=dbHelper.getWritableDatabase();
-
         ContentValues values=new ContentValues();
 
         values.put(Algorithm.KEY_age,algorithm.age);
@@ -80,7 +77,7 @@ public class AlgorithmRepo {
         return algorithmList;
     }
 
-    public Algorithm getStudentById(int Id){
+    public Algorithm getColumnById(int Id){
         SQLiteDatabase db=dbHelper.getReadableDatabase();
         String selectQuery="SELECT "+
                 Algorithm.KEY_ID + "," +
@@ -99,8 +96,6 @@ public class AlgorithmRepo {
                 algorithm.content =cursor.getString(cursor.getColumnIndex(Algorithm.KEY_content));
                 algorithm.topic  =cursor.getString(cursor.getColumnIndex(Algorithm.KEY_topic));
                 algorithm.age =cursor.getInt(cursor.getColumnIndex(Algorithm.KEY_age));
-                Log.d("MainActivity", "The " + " Topic is: " + cursor.getString(cursor.getColumnIndex(algorithm.topic)));
-                Log.d("MainActivity", "The content is: " + cursor.getString(cursor.getColumnIndex(algorithm.content)));
             }while(cursor.moveToNext());
         }
         cursor.close();
@@ -131,6 +126,32 @@ public class AlgorithmRepo {
                 algorithm.age =cursor.getInt(cursor.getColumnIndex(Algorithm.KEY_age));
                 Log.d("MainActivity", "The " + " Topic is: " + cursor.getString(cursor.getColumnIndex(algorithm.topic)));
                 Log.d("MainActivity", "The content is: " + cursor.getString(cursor.getColumnIndex(algorithm.content)));
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return algorithm;
+    }
+
+    public Algorithm getColumnByTopic(String topic){
+        SQLiteDatabase db=dbHelper.getReadableDatabase();
+        String selectQuery="SELECT "+
+                Algorithm.KEY_ID + "," +
+                Algorithm.KEY_content + "," +
+                Algorithm.KEY_topic + "," +
+                Algorithm.KEY_age +
+                " FROM " + Algorithm.TABLE
+                + " WHERE " +
+                Algorithm.KEY_topic + "=?";
+        int iCount=0;
+        Algorithm algorithm=new Algorithm();
+        Cursor cursor=db.rawQuery(selectQuery,new String[]{String.valueOf(topic)});
+        if(cursor.moveToFirst()){
+            do{
+                algorithm.algorithm_ID =cursor.getInt(cursor.getColumnIndex(Algorithm.KEY_ID));
+                algorithm.content =cursor.getString(cursor.getColumnIndex(Algorithm.KEY_content));
+                algorithm.topic  =cursor.getString(cursor.getColumnIndex(Algorithm.KEY_topic));
+                algorithm.age =cursor.getInt(cursor.getColumnIndex(Algorithm.KEY_age));
             }while(cursor.moveToNext());
         }
         cursor.close();

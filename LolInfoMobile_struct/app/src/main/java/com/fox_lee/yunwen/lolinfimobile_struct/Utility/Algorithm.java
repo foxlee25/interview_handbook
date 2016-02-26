@@ -1,4 +1,4 @@
-package com.fox_lee.yunwen.lolinfimobile_struct.Model;
+package com.fox_lee.yunwen.lolinfimobile_struct.Utility;
 
 /**
  * Created by Yunwen on 2/15/2016.
