@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
 import com.fox_lee.yunwen.lolinfimobile_struct.Interface.IndexCallback;
@@ -51,10 +52,13 @@ public class CodeMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             @Override
             public void onClick(View v) {
                 if (mContext instanceof View.OnClickListener) {
-
                     switch (((TextViewHolder) holder).mTextView.getText().toString()) {
                         case "Algorithm": /* start activity accordingly */
                             ((MainActivity) mContext).startAlgorithmFragment(mTitles[position]);
+                            break;
+                        default:
+                            Toast.makeText(mContext, "Coming soon", Toast.LENGTH_SHORT).show();
+                            break;
                     }
                 }
             }
@@ -83,7 +87,6 @@ public class CodeMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         @OnClick(R.id.cv_text)
         void onItemClick() {
-
             Log.d("TextViewHolder", "onClick--> position = " + getPosition());
         }
     }

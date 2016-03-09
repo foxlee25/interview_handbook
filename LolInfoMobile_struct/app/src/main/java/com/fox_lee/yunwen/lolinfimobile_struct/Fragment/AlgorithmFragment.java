@@ -19,6 +19,7 @@ import com.fox_lee.yunwen.lolinfomobile_struct.R;
 public class AlgorithmFragment extends  Fragment{
     RecyclerView mRecyclerView;
     private AlgorithmAdapter algorithmAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);

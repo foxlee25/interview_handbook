@@ -4,38 +4,47 @@
     android:layout_height="match_parent"
     android:layout_gravity="left"
     android:orientation="vertical"
-    android:weightSum="6">
+    android:weightSum="17">
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="135dp"
+        android:layout_height="0dp"
+        android:layout_weight="4"
         android:id="@+id/rowIcon0"
         android:clickable="true"
         android:scaleType="fitXY"
-        android:src="@drawable/empty_photo"/>
+        android:src="@drawable/menu_favorites_selected_crop"/>
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="135dp"
+        android:layout_height="0dp"
+        android:layout_weight="4"
         android:id="@+id/rowIcon1"
         android:clickable="true"
         android:scaleType="fitXY"
-        android:src="@drawable/test"/>
+        android:src="@drawable/empty_photo"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="135dp"
+        android:layout_height="0dp"
+        android:layout_weight="4"
         android:id="@+id/rowIcon2"
         android:clickable="true"
-        android:src="@drawable/menu_search_for_shows_selected_crop"/>
+        android:scaleType="fitXY"
+        android:src="@drawable/nav_bar_red"/>
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="135dp"
+        android:layout_height="0dp"
+        android:layout_weight="4"
         android:id="@+id/rowIcon3"
         android:clickable="true"
-        android:src="@drawable/menu_favorites_selected_crop"/>
+        android:scaleType="fitXY"
+        android:src="@drawable/empty_photo"/>
+
     <TextView
         android:id="@+id/text2"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="@drawable/nav_bar_red"
         android:layout_marginLeft="2dp"
         android:paddingLeft="3dp"

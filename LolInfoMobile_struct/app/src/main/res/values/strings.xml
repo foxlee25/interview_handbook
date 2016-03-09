@@ -16,4 +16,20 @@
     </string>
     <string name="cardview_radius_seekbar_text">Radius</string>
     <string name="cardview_elevation_seekbar_text">Elevation</string>
+
+    <string name="basics">1.Basics</string>
+    <string name="data_structure">2.Data Structure</string>
+    <string name="basic_sorting">3.Basic Sorting</string>
+    <string name="basic_misc">4.Basic Misc</string>
+    <string name="coding">5.Part II - Coding</string>
+    <string name="string">6.String</string>
+    <string name="integer_array">7.Integer Array</string>
+    <string name="binary_search">8.Binary Search</string>
+    <string name="math_and_bit_manipulation">9.Math and Bit Manipulation</string>
+    <string name="linked_list">10.Linked List</string>
+    <string name="reverse">11.Reverse</string>
+    <string name="binary_tree">12.Binary Tree</string>
+    <string name="binary_search_tree">13.Binary Search Tree</string>
+    <string name="backtracking">14.Backtracking</string>
+    <string name="dynamic_programing">15.Dynamic Programing</string>
 </resources>

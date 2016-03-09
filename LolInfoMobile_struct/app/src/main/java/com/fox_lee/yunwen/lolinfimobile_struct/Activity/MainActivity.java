@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void startContentFragment(String var){
         ContentFragment contentFragment = new ContentFragment();
         Log.d("Fragment", "Content is: " + var);
+
         getFragmentManager().beginTransaction().replace(R.id.container, contentFragment, "AlgorithmSubFragment")
                 .addToBackStack("AlgorithmSubFragment").commit();
         contentFragment.changeData(var);
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void startAlgorithmSubFragment(String[] var){
         AlgorithmSubFragment algorithmSubFragment = new AlgorithmSubFragment();
         Log.d("Fragment", "Content is: " + var);
+
         getFragmentManager().beginTransaction().replace(R.id.container, algorithmSubFragment, "AlgorithmSubFragment")
                 .addToBackStack("AlgorithmSubFragment").commit();
         algorithmSubFragment.changeData(var);
@@ -50,15 +52,9 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void startAlgorithmFragment(String var){
         AlgorithmFragment leetCodeFragment = new AlgorithmFragment();
         Log.d("Fragment", "Content is: " + var);
+
         getFragmentManager().beginTransaction().replace(R.id.container, leetCodeFragment, "AlgorithmFragment")
                 .addToBackStack("AlgorithmFragment").commit();
-    }
-
-    public void startJavaFragment(String var){
-        AlgorithmFragment leetCodeFragment = new AlgorithmFragment();
-        Log.d("Fragment", "The Language is: " + var);
-        getFragmentManager().beginTransaction().replace(R.id.container, leetCodeFragment, "CodeFragment")
-                .addToBackStack("CodeFragment").commit();
     }
 
     @Override
@@ -76,13 +72,13 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                Toast.makeText(getApplicationContext(), "Drawer is opened", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Drawer is opened", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-                Toast.makeText(getApplicationContext(), "Drawer is closed", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Drawer is closed", Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -93,7 +89,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         ImageView img2 = (ImageView) findViewById(R.id.rowIcon1);
         ImageView img3 = (ImageView) findViewById(R.id.rowIcon2);
         ImageView img4 = (ImageView) findViewById(R.id.rowIcon3);
-
         img1.setOnClickListener(this);
         img2.setOnClickListener(this);
         img3.setOnClickListener(this);
@@ -108,16 +103,15 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             }
         });
         toolbar.getMenu().clear();
-
     }
 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.rowIcon0: /** Start a new fragment */
-                Snackbar.make(v, "Click slide photo 1 succeed.", Snackbar.LENGTH_LONG)
+                Snackbar.make(v, "Open coding interview ", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                clearBackStack();
                 CodeMenuFragment codeMenuFragment = new CodeMenuFragment();
-                Log.d("Fragment", "The CodeMenu layout is on:");
                 this.getFragmentManager().beginTransaction()
                         .replace(R.id.container, codeMenuFragment, "Fragment")
                         .addToBackStack(null)
@@ -125,29 +119,28 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 break;
 
             case R.id.rowIcon1: /** Start a new fragment LolRecyclerViewFragment.java */
-                Snackbar.make(v, "Click slide photo 2 succeed.", Snackbar.LENGTH_LONG)
+                Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                LolRecyclerViewFragment recyclerViewFragment = new LolRecyclerViewFragment();
-                Log.d("Fragment", "The Lol RecyclerView layout is on:");
-                this.getFragmentManager().beginTransaction()
-                        .replace(R.id.container, recyclerViewFragment, "Fragment")
-                        .addToBackStack(null)
-                        .commit();
+//                LolRecyclerViewFragment recyclerViewFragment = new LolRecyclerViewFragment();
+//                this.getFragmentManager().beginTransaction()
+//                        .replace(R.id.container, recyclerViewFragment, "Fragment")
+//                        .addToBackStack(null)
+//                        .commit();
                 break;
 
             case R.id.rowIcon2: /** AlerDialog when click on 3rd icon */
-                Snackbar.make(v, "Click slide photo 3 succeed.", Snackbar.LENGTH_LONG)
+                Snackbar.make(v, "Coming Soon.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 break;
 
             case R.id.rowIcon3: /** AlerDialog when click on 4th icon */
-                Snackbar.make(v, "Click slide photo 4 succeed.", Snackbar.LENGTH_LONG)
+                Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                DbFragment dbFragment = new DbFragment();
-                this.getFragmentManager().beginTransaction()
-                        .replace(R.id.container, dbFragment, "Fragment")
-                        .addToBackStack(null)
-                        .commit();
+//                DbFragment dbFragment = new DbFragment();
+//                this.getFragmentManager().beginTransaction()
+//                        .replace(R.id.container, dbFragment, "Fragment")
+//                        .addToBackStack(null)
+//                        .commit();
                 break;
         }
         DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -178,22 +171,26 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         }
         if (id == R.id.action_settings) {
             // to do
-
             return true;
         }
-
 
         return super.onOptionsItemSelected(item);
     }
 
-        @Override
+    private void clearBackStack() {
+        FragmentManager manager = getFragmentManager();
+        if (manager.getBackStackEntryCount() > 0) {
+            FragmentManager.BackStackEntry first = manager.getBackStackEntryAt(0);
+            manager.popBackStack(first.getId(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        }
+    }
+
+    @Override
     public void onBackPressed(){
         FragmentManager fm = getFragmentManager();
         if (fm.getBackStackEntryCount() > 0) {
-            Log.i("MainActivity", "popping backstack");
             fm.popBackStack();
         } else {
-            Log.i("MainActivity", "nothing on backstack, calling super");
             super.onBackPressed();
         }
     }

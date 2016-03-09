@@ -10,5 +10,4 @@ public interface IndexCallback {
     void StartAlgorithmSubFragment(ArrayList<String> var[]);
     void StartJavaFragment(String var);
     void StartCardViewFragment(String var);
-
 }

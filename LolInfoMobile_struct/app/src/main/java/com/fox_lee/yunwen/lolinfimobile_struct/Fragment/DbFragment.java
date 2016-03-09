@@ -70,10 +70,10 @@ public class DbFragment extends ListFragment implements View.OnClickListener{
 
             if(_student_id==0){
                 _student_id=repo.insert(student);
-                Toast.makeText(v.getContext(), "New Student Insert", Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "New Content Insert", Toast.LENGTH_SHORT).show();
             }else{
                 repo.update(student);
-                Toast.makeText(v.getContext(),"Student Record updated",Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(),"Content Record updated",Toast.LENGTH_SHORT).show();
             }
 
         }else if (v== v.findViewById(R.id.btnDelete)){

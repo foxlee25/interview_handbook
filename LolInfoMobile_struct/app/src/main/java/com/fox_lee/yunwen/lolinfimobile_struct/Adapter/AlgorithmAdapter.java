@@ -97,6 +97,8 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                             case "15.Dynamic Programing":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.dynamic_programming));
                                 break;
+                            default:
+                                break;
                         }
                     }
                 }
