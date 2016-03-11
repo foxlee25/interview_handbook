@@ -81,9 +81,9 @@ public class DbFragment extends ListFragment implements View.OnClickListener{
             AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
             Algorithm student = new Algorithm();
             //student = repo.getColumnById(_student_id);
-            student = repo.getColumnByTopic("Reference");
+            student = repo.getColumnByTopic("Name");
             repo.delete(student.algorithm_ID);
-            Toast.makeText(v.getContext(), "Student Record Deleted", Toast.LENGTH_SHORT);
+            Toast.makeText(v.getContext(), "Record Deleted", Toast.LENGTH_SHORT);
         }else {
             // button list
             Log.d("DbFragment","btn list all clicked");
@@ -98,7 +98,7 @@ public class DbFragment extends ListFragment implements View.OnClickListener{
                 ListAdapter adapter = new SimpleAdapter( v.getContext(),studentList, R.layout.view_student_entry, new String[] { "id","topic"}, new int[] {R.id.student_Id, R.id.student_name});
                 setListAdapter(adapter);
             }else{
-                Toast.makeText(v.getContext(), "No student!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "No Content!", Toast.LENGTH_SHORT).show();
             }
         }
     }

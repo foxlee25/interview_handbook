@@ -9,10 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
-        android:id="@+id/rowIcon0"
+        android:id="@+id/rowIconCoding"
         android:clickable="true"
         android:scaleType="fitXY"
-        android:src="@drawable/menu_favorites_selected_crop"/>
+        android:src="@drawable/menu_code_blue"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -20,16 +20,18 @@
         android:id="@+id/rowIcon1"
         android:clickable="true"
         android:scaleType="fitXY"
-        android:src="@drawable/empty_photo"/>
+        android:background="@color/cardview_initial_background"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
-        android:id="@+id/rowIcon2"
+        android:id="@+id/rowIconFavorite"
         android:clickable="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/nav_bar_red"/>
+        android:src="@drawable/menu_favorite_blue"
+
+        android:background="@color/cardview_initial_background"/>
+        <!--android:scaleType="fitXY"/>-->
 
     <ImageView
         android:layout_width="match_parent"
@@ -38,7 +40,7 @@
         android:id="@+id/rowIcon3"
         android:clickable="true"
         android:scaleType="fitXY"
-        android:src="@drawable/empty_photo"/>
+        android:background="@color/cardview_initial_background"/>
 
     <TextView
         android:id="@+id/text2"
@@ -46,8 +48,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@drawable/nav_bar_red"
-        android:layout_marginLeft="2dp"
-        android:paddingLeft="3dp"
+        android:scaleType="fitXY"
         android:text="Version 1.0" />
 
 

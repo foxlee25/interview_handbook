@@ -3,21 +3,30 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
 import com.fox_lee.yunwen.lolinfimobile_struct.Model.HashMapContent;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
+
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 
 /**
  * Created by Yunwen on 2/11/2016.
  */
-public class ContentFragment extends  Fragment{
+
+//implements View.OnClickListener
+public class ContentFragment extends  Fragment {
     String dataContent;
     String[] frag1;
     String[] frag2;
@@ -32,7 +41,7 @@ public class ContentFragment extends  Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.item_text_list, container, false);
+        View view = inflater.inflate(R.layout.detail_content_list, container, false);
         Log.d("Fragment", "Content Fragment Started");
         return view;
     }
@@ -51,8 +60,40 @@ public class ContentFragment extends  Fragment{
         TextView tv3= (TextView) view.findViewById(R.id.text_view3);
         TextView cv2 = (TextView) view.findViewById(R.id.code_view2);
         TextView tv4= (TextView) view.findViewById(R.id.text_view4);
+        Button btnAnswer= (Button) view.findViewById(R.id.btn_getAnswer);
+        final TextView tvAnswer = (TextView) view.findViewById(R.id.text_getAnswer);
+        final ImageView imgAnswer = (ImageView) view.findViewById(R.id.img_getAnswer);
 
         switch (dataContent) {
+            case "Basics":
+                cv.setVisibility(View.GONE);
+                cv1.setVisibility(View.GONE);
+                cv2.setVisibility(View.GONE);
+                tv4.setText("Question: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                btnAnswer.setVisibility(view.VISIBLE);
+                tvAnswer.setText("性质：\n" +
+                        "\n" +
+                        "交换操作和数组中导致的数量相同\n" +
+                        "比较次数>=倒置数量，<=倒置的数量加上数组的大小减一\n" +
+                        "每次交换都改变了两个顺序颠倒的元素的位置，即减少了一对倒置，倒置数量为0时即完成排序。\n" +
+                        "每次交换对应着一次比较，且1到N-1之间的每个i都可能需要一次额外的记录(a[i]未到达数组左端时)\n" +
+                        "最坏情况下需要~N^2/2次比较和~N^2/2次交换，最好情况下需要N-1次比较和0次交换。\n" +
+                        "平均情况下需要~N^2/4次比较和~N^2/4次交换\n" +
+                        "希尔排序\n" +
+                        "\n" +
+                        "核心：基于插入排序，使数组中任意间隔为h的元素都是有序的，即将全部元素分为h个区域使用插入排序。其实现可类似于插入排序但使用不同增量。更高效的原因是它权衡了 子数组的规模和有序性。\n" +
+                        "\n" +
+                        "实现(C++):");
+                
+                btnAnswer.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        tvAnswer.setVisibility(v.VISIBLE);
+                        imgAnswer.setVisibility(v.GONE);
+                    }
+                });
+
+                break;
             case "Linked List":
                 frag1 = hm.get(dataContent).toString().split("public ");
                 frag2 = frag1[1].split("删除链表", 2);
@@ -61,7 +102,6 @@ public class ContentFragment extends  Fragment{
                 tv2.setText("删除链表" + frag2[1]);
                 cv1.setVisibility(View.GONE);
                 cv2.setVisibility(View.GONE);
-
                 break;
             case "Bubble Sort":
                 frag1 = hm.get(dataContent).toString().split("#!/usr/bin/env python");

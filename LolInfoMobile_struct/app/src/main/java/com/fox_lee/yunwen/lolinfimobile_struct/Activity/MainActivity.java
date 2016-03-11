@@ -24,7 +24,6 @@ import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.CodeMenuFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.ContentFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.DbFragment;
-import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.LolRecyclerViewFragment;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
@@ -85,9 +84,9 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         mDrawer_layout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
-        ImageView img1 = (ImageView) findViewById(R.id.rowIcon0);
+        ImageView img1 = (ImageView) findViewById(R.id.rowIconCoding);
         ImageView img2 = (ImageView) findViewById(R.id.rowIcon1);
-        ImageView img3 = (ImageView) findViewById(R.id.rowIcon2);
+        ImageView img3 = (ImageView) findViewById(R.id.rowIconFavorite);
         ImageView img4 = (ImageView) findViewById(R.id.rowIcon3);
         img1.setOnClickListener(this);
         img2.setOnClickListener(this);
@@ -107,7 +106,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.rowIcon0: /** Start a new fragment */
+            case R.id.rowIconCoding: /** Start a new fragment */
                 Snackbar.make(v, "Open coding interview ", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 clearBackStack();
@@ -119,18 +118,24 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 break;
 
             case R.id.rowIcon1: /** Start a new fragment LolRecyclerViewFragment.java */
-                Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
+                Snackbar.make(v, "Open Sample coding interview ", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-//                LolRecyclerViewFragment recyclerViewFragment = new LolRecyclerViewFragment();
-//                this.getFragmentManager().beginTransaction()
-//                        .replace(R.id.container, recyclerViewFragment, "Fragment")
-//                        .addToBackStack(null)
-//                        .commit();
+                clearBackStack();
+                CodeMenuFragment sampleMenuFragment = new CodeMenuFragment();
+                this.getFragmentManager().beginTransaction()
+                        .replace(R.id.container, sampleMenuFragment, "Fragment")
+                        .addToBackStack(null)
+                        .commit();
                 break;
 
-            case R.id.rowIcon2: /** AlerDialog when click on 3rd icon */
-                Snackbar.make(v, "Coming Soon.", Snackbar.LENGTH_LONG)
+            case R.id.rowIconFavorite: /** AlerDialog when click on 3rd icon */
+                Snackbar.make(v, "Open Favorite List", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                DbFragment dbFragment = new DbFragment();
+                this.getFragmentManager().beginTransaction()
+                        .replace(R.id.container, dbFragment, "Fragment")
+                        .addToBackStack(null)
+                        .commit();
                 break;
 
             case R.id.rowIcon3: /** AlerDialog when click on 4th icon */
@@ -171,6 +176,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         }
         if (id == R.id.action_settings) {
             // to do
+            Toast.makeText(this,"Coming Sonn",Toast.LENGTH_SHORT).show();
             return true;
         }
 

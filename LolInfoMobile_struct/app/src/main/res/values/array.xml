@@ -19,22 +19,20 @@
         <item>2.Data Structure</item>
         <item>3.Basic Sorting</item>
         <item>4.Basic Misc</item>
-        <item>5.Part II - Coding</item>
-        <item>6.String</item>
-        <item>7.Integer Array</item>
-        <item>8.Binary Search</item>
-        <item>9.Math and Bit Manipulation</item>
-        <item>10.Linked List</item>
-        <item>11.Reverse</item>
-        <item>12.Binary Tree</item>
-        <item>13.Binary Search Tree</item>
-        <item>14.Backtracking</item>
-        <item>15.Dynamic Programing</item>
+        <item>5.String</item>
+        <item>6.Integer Array</item>
+        <item>7.Binary Search</item>
+        <item>8.Math and Bit Manipulation</item>
+        <item>9.Linked List</item>
+        <item>10.Reverse</item>
+        <item>11.Binary Tree</item>
+        <item>12.Binary Search Tree</item>
+        <item>13.Backtracking</item>
+        <item>14.Dynamic Programing</item>
     </string-array>
 
     <string-array name="basics">
         <item>Basics</item>
-        <item>Reference</item>
     </string-array>
 
     <string-array name="data_structure">

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="165dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="left"
+    android:orientation="vertical"
+    android:weightSum="17">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:id="@+id/rowIcon0"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/menu_favorites_selected_crop"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:id="@+id/rowIcon1"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/empty_photo"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:id="@+id/rowIcon2"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/nav_bar_red"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:id="@+id/rowIcon3"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/empty_photo"/>
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/nav_bar_red"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="3dp"
+        android:text="Version 1.0" />
+
+
+</LinearLayout>
