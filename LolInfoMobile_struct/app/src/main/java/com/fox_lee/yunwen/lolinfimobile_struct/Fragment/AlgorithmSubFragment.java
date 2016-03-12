@@ -23,9 +23,7 @@ import java.util.ArrayList;
 public class AlgorithmSubFragment extends  Fragment{
     RecyclerView mRecyclerView;
     private AlgorithmSubAdapter algorithmsubAdapter;
-
     private String[] dataContent;
-
     public void changeData(String[] dataContent) {
         this.dataContent = dataContent;
     }
@@ -44,7 +42,6 @@ public class AlgorithmSubFragment extends  Fragment{
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         algorithmsubAdapter = new AlgorithmSubAdapter(getActivity(),dataContent);
         mRecyclerView.setAdapter(algorithmsubAdapter);
-
     }
 
     private void writeBoard() {

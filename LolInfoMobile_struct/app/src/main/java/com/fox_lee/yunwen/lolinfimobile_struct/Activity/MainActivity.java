@@ -71,13 +71,11 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-//                Toast.makeText(getApplicationContext(), "Drawer is opened", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-//                Toast.makeText(getApplicationContext(), "Drawer is closed", Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -141,11 +139,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             case R.id.rowIcon3: /** AlerDialog when click on 4th icon */
                 Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-//                DbFragment dbFragment = new DbFragment();
-//                this.getFragmentManager().beginTransaction()
-//                        .replace(R.id.container, dbFragment, "Fragment")
-//                        .addToBackStack(null)
-//                        .commit();
+
                 break;
         }
         DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -179,7 +173,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             Toast.makeText(this,"Coming Sonn",Toast.LENGTH_SHORT).show();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

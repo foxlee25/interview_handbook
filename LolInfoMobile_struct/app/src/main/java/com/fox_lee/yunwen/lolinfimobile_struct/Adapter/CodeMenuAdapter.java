@@ -63,7 +63,6 @@ public class CodeMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 }
             }
         });
-
     }
 
     @Override

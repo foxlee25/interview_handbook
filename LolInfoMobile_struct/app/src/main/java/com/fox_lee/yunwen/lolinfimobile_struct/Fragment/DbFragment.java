@@ -51,51 +51,50 @@ public class DbFragment extends ListFragment implements View.OnClickListener{
     }
 
     public void onClick(View v){
-        int _student_id =0;
+        int _algorithm_id =0;
         if (v == v.findViewById(R.id.btnAdd)){
             //when click Add, go to the next activity; but we want to add a row ("title","content")
 
             Log.d("DbFragment","btn add clicked");
 
             AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
-            Algorithm student = new Algorithm();
+            Algorithm algorithm = new Algorithm();
+            algorithm = repo.getColumnById(_algorithm_id);
+            Log.d("MainActivity","The id is: " + _algorithm_id);
 
-            student = repo.getColumnById(_student_id);
-            Log.d("MainActivity","The id is: " + _student_id);
+            algorithm.age = 25;
+            algorithm.content = "Email";
+            algorithm.topic = "Name";
+            algorithm.algorithm_ID=_algorithm_id;
 
-            student.age = 25;
-            student.content = "Email";
-            student.topic = "Name";
-            student.algorithm_ID=_student_id;
-
-            if(_student_id==0){
-                _student_id=repo.insert(student);
+            if(_algorithm_id==0){
+                _algorithm_id=repo.insert(algorithm);
                 Toast.makeText(v.getContext(), "New Content Insert", Toast.LENGTH_SHORT).show();
             }else{
-                repo.update(student);
+                repo.update(algorithm);
                 Toast.makeText(v.getContext(),"Content Record updated",Toast.LENGTH_SHORT).show();
             }
 
         }else if (v== v.findViewById(R.id.btnDelete)){
 
             AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
-            Algorithm student = new Algorithm();
-            //student = repo.getColumnById(_student_id);
-            student = repo.getColumnByTopic("Name");
-            repo.delete(student.algorithm_ID);
+            Algorithm algorithm = new Algorithm();
+            //algorithm = repo.getColumnById(_student_id);
+            algorithm = repo.getColumnByTopic("Name");
+            repo.delete(algorithm.algorithm_ID);
             Toast.makeText(v.getContext(), "Record Deleted", Toast.LENGTH_SHORT);
         }else {
             // button list
             Log.d("DbFragment","btn list all clicked");
             AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
-            Algorithm student = new Algorithm();
-            Log.d("MainActivity","The id is: " + _student_id);
-            student = repo.getColumnById(_student_id);
-            ArrayList<HashMap<String, String>> studentList =  repo.getAlgorithmList();
+            Algorithm algorithm = new Algorithm();
+            Log.d("MainActivity","The id is: " + _algorithm_id);
+            algorithm = repo.getColumnById(_algorithm_id);
+            ArrayList<HashMap<String, String>> algorithmList =  repo.getAlgorithmList();
 
-            if(studentList.size()!=0) {
+            if(algorithmList.size()!=0) {
                 ListView lv = getListView();
-                ListAdapter adapter = new SimpleAdapter( v.getContext(),studentList, R.layout.view_student_entry, new String[] { "id","topic"}, new int[] {R.id.student_Id, R.id.student_name});
+                ListAdapter adapter = new SimpleAdapter( v.getContext(),algorithmList, R.layout.view_student_entry, new String[] { "id","topic"}, new int[] {R.id.student_Id, R.id.student_name});
                 setListAdapter(adapter);
             }else{
                 Toast.makeText(v.getContext(), "No Content!", Toast.LENGTH_SHORT).show();
