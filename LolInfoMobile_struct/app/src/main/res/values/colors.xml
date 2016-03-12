@@ -7,4 +7,5 @@
     <color name="colorRed">#F0001F</color>
     <color name="colorLightGrey">#BDBDBD</color>
     <color name="cardview_initial_background">#71C3DE</color>
+    <color name="colorBlack">#FF000000</color>
 </resources>

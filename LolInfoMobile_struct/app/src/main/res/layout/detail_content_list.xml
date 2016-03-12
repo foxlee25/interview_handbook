@@ -16,48 +16,15 @@
         <TextView
             android:id="@+id/text_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_vertical_margin"/>
 
         <TextView
-            android:id="@+id/code_view"
+            android:id="@+id/text_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorLightGrey"
-            android:layout_below="@+id/text_view"/>
-
-        <TextView
-            android:id="@+id/text_view2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/code_view"/>
-
-        <TextView
-            android:id="@+id/code_view1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorLightGrey"
-            android:layout_below="@+id/text_view2"/>
-
-        <TextView
-            android:id="@+id/text_view3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/code_view1"/>
-
-        <TextView
-            android:id="@+id/code_view2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:background="@color/colorLightGrey"
-            android:layout_below="@+id/text_view3"/>
-
-        <TextView
-            android:id="@+id/text_view4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/code_view2"
-            android:textColor="@color/colorPrimary"/>
+            android:layout_below="@+id/text_view"
+            android:textColor="@color/colorBlack"/>
 
         <Button
             android:id="@+id/btn_getAnswer"
@@ -65,13 +32,14 @@
             android:layout_height="wrap_content"
             android:text="Answer"
             android:visibility="gone"
-            android:layout_below="@+id/text_view4"/>
+            android:layout_below="@+id/text_title"/>
 
         <ImageView
             android:id="@+id/img_getAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/test"
+            android:visibility="gone"
             android:layout_below="@+id/btn_getAnswer"/>
 
         <TextView
@@ -79,6 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
+            android:padding="@dimen/activity_vertical_margin"
             android:layout_below="@+id/btn_getAnswer"/>
 
     </RelativeLayout>

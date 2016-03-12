@@ -163,10 +163,8 @@
         <item>Triangle</item>
         <item>Knapsack</item>
         <item>Backpack</item>
-        <item>Matrix</item>
         <item>Minimum Path Sum</item>
         <item>Unique Paths</item>
-        <item>Sequence</item>
         <item>Climbing Stairs</item>
         <item>Jump Game</item>
     </string-array>
