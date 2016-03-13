@@ -4,40 +4,53 @@
     android:layout_height="match_parent"
     android:layout_gravity="left"
     android:orientation="vertical"
-    android:weightSum="6">
+    android:weightSum="17">
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="135dp"
-        android:id="@+id/rowIcon0"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:id="@+id/rowIconCoding"
         android:clickable="true"
-        android:src="@drawable/menu_trending_shows_selected_crop"/>
+        android:scaleType="fitXY"
+        android:src="@drawable/menu_code_blue"/>
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="135dp"
+        android:layout_height="0dp"
+        android:layout_weight="4"
         android:id="@+id/rowIcon1"
         android:clickable="true"
-        android:src="@drawable/menu_full_schedule_selected_crop"/>
+        android:scaleType="fitXY"
+        android:background="@color/cardview_initial_background"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="135dp"
-        android:id="@+id/rowIcon2"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:id="@+id/rowIconFavorite"
         android:clickable="true"
-        android:src="@drawable/menu_search_for_shows_selected_crop"/>
+        android:src="@drawable/menu_favorite_blue"
+        android:background="@color/cardview_initial_background"/>
+        <!--android:scaleType="fitXY"/>-->
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="135dp"
+        android:layout_height="0dp"
+        android:layout_weight="4"
         android:id="@+id/rowIcon3"
         android:clickable="true"
-        android:src="@drawable/menu_favorites_selected_crop"/>
+        android:scaleType="fitXY"
+        android:background="@color/cardview_initial_background"/>
+
     <TextView
         android:id="@+id/text2"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:background="@drawable/nav_bar_red"
-        android:layout_marginLeft="2dp"
-        android:paddingLeft="3dp"
-        android:text="Version 1.0" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorPrimary"
+        android:scaleType="fitXY"
+        android:textColor="@color/colorWhite"
+        android:textAlignment="center"
+        android:text="Version 1.1" />
 
 
 </LinearLayout>

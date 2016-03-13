@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="titles">
+        <item>Algorithm</item>
         <item>Android</item>
         <item>IOS</item>
         <item>JAVA</item>
@@ -13,19 +14,159 @@
         <item>SWIFT</item>
     </string-array>
 
-    <string-array name="items">
-        <item>Normal List</item>
-        <item>Normal Grid</item>
-        <item>Normal Staggered</item>
-        <item>Multiple List</item>
-        <item>Multiple Grid</item>
-        <item>Header Bottom List</item>
-        <item>Header Bottom Grid</item>
-        <item>Anim List</item>
-        <item>Anim Grid</item>
-        <item>Expended List</item>
-        <item>Expended Grid</item>
-        <item>Single Select</item>
-        <item>Multiple Select</item>
+    <string-array name="algorithm">
+        <item>1.Basics</item>
+        <item>2.Data Structure</item>
+        <item>3.Basic Sorting</item>
+        <item>4.Basic Misc</item>
+        <item>5.String</item>
+        <item>6.Integer Array</item>
+        <item>7.Binary Search</item>
+        <item>8.Math and Bit Manipulation</item>
+        <item>9.Linked List</item>
+        <item>10.Reverse</item>
+        <item>11.Binary Tree</item>
+        <item>12.Binary Search Tree</item>
+        <item>13.Backtracking</item>
+        <item>14.Dynamic Programing</item>
     </string-array>
+
+    <string-array name="basics">
+        <item>Basics</item>
+    </string-array>
+
+    <string-array name="data_structure">
+        <item>Linked List</item>
+        <item>Binary Tree</item>
+        <item>Binary Search Tree</item>
+        <item>Huffman Compression</item>
+        <item>Priority Queue</item>
+    </string-array>
+
+    <string-array name="basics_sorting">
+        <item>Bubble Sort</item>
+        <item>Selection Sort</item>
+        <item>Insertion Sort</item>
+        <item>Merge Sort</item>
+        <item>Quick Sort</item>
+        <item>Heap Sort</item>
+        <item>Bucket Sort</item>
+        <item>Counting Sort</item>
+    </string-array>
+
+    <string-array name="basics_misc">
+        <item>Bit Manipulation</item>
+    </string-array>
+
+    <string-array name="part_II_coding">
+        <item>Part II - Coding</item>
+    </string-array>
+
+    <string-array name="string">
+        <item>strStr</item>
+        <item>Two Strings Are Anagrams</item>
+        <item>Compare Strings</item>
+        <item>Anagrams</item>
+        <item>Longest Common Substring</item>
+    </string-array>
+
+    <string-array name="integer_array">
+        <item>Remove Element</item>
+        <item>Zero Sum Subarray</item>
+        <item>Subarray Sum K</item>
+        <item>Subarray Sum Closest</item>
+        <item>Product of Array Exclude Itself</item>
+        <item>Partition Array</item>
+        <item>First Missing Positive</item>
+        <item>2 Sum</item>
+        <item>3 Sum</item>
+        <item>3 Sum Closest</item>
+        <item>Remove Duplicates from Sorted Array</item>
+        <item>Remove Duplicates from Sorted Array II</item>
+        <item>Merge Sorted Array</item>
+        <item>Merge Sorted Array II</item>
+    </string-array>
+
+    <string-array name="binary_search">
+        <item>Binary Search</item>
+        <item>Search Insert Position</item>
+        <item>Search for a Range</item>
+        <item>First Bad Version</item>
+        <item>Search a 2D Matrix</item>
+        <item>Find Peak Element</item>
+        <item>Search in Rotated Sorted Array</item>
+        <item>Find Minimum in Rotated Sorted Array</item>
+        <item>Search a 2D Matrix II</item>
+        <item>Median of two Sorted Arrays</item>
+        <item>Sqrt x</item>
+        <item>Wood Cut</item>
+    </string-array>
+
+    <string-array name="math_and_bit_manipulation">
+        <item>Single Number</item>
+        <item>Single Number II</item>
+        <item>Single Number III</item>
+        <item>O(1) Check Power of 2</item>
+        <item>Convert Integer A to Integer B</item>
+        <item>Factorial Trailing Zeroes</item>
+    </string-array>
+
+    <string-array name="linked_list">
+        <item>Remove Duplicates from Sorted List</item>
+        <item>Remove Duplicates from Sorted List II</item>
+        <item>Partition List</item>
+        <item>Two Lists Sum</item>
+        <item>Two Lists Sum Advanced</item>
+        <item>Remove Nth Node From End of List</item>
+        <item>Linked List Cycle</item>
+        <item>Linked List Cycle II</item>
+        <item>Reverse Linked List</item>
+        <item>Reverse Linked List II</item>
+        <item>Merge Two Sorted Lists</item>
+        <item>Merge k Sorted Lists</item>
+        <item>Sort List</item>
+        <item>Reorder List</item>
+    </string-array>
+
+    <string-array name="reverse">
+        <item>Recover Rotated Sorted Array</item>
+        <item>Rotate String</item>
+        <item>Reverse Words in a String</item>
+    </string-array>
+
+    <string-array name="binary_tree">
+        <item>Binary Tree Preorder Traversal</item>
+        <item>Binary Tree Inorder Traversal</item>
+        <item>Binary Tree Postorder Traversal</item>
+        <item>Binary Tree Level Order Traversal</item>
+        <item>Maximum Depth of Binary Tree</item>
+        <item>Balanced Binary Tree</item>
+        <item>Binary Tree Maximum Path Sum</item>
+        <item>Lowest Common Ancestor</item>
+    </string-array>
+
+    <string-array name="binary_search_tree">
+        <item>Insert Node in a Binary Search Tree</item>
+        <item>Validate Binary Search Tree</item>
+        <item>Search Range in Binary Search Tree</item>
+        <item>Convert Sorted Array to Binary Search Tree</item>
+        <item>Convert Sorted List to Binary Search Tree</item>
+        <item>Binary Search Tree Iterator</item>
+    </string-array>
+
+    <string-array name="back_tracking">
+        <item>Subsets</item>
+        <item>Permutation</item>
+    </string-array>
+
+    <string-array name="dynamic_programming">
+        <item>Triangle</item>
+        <item>Knapsack</item>
+        <item>Backpack</item>
+        <item>Minimum Path Sum</item>
+        <item>Unique Paths</item>
+        <item>Climbing Stairs</item>
+        <item>Jump Game</item>
+    </string-array>
+
 </resources>

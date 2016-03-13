@@ -36,7 +36,7 @@ public class LolRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         if (viewType == ITEM_TYPE.ITEM_TYPE_IMAGE.ordinal()) {
             return new ImageViewHolder(mLayoutInflater.inflate(R.layout.item_image, parent, false));
         } else {
-            return new TextViewHolder(mLayoutInflater.inflate(R.layout.item_text, parent, false));
+            return new TextViewHolder(mLayoutInflater.inflate(R.layout.detail_content_list, parent, false));
         }
     }
 
@@ -70,7 +70,6 @@ public class LolRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         @OnClick(R.id.cv_item)
         void onItemClick() {
-            Log.d("TextViewHolder", "onClick--> position = " + getPosition());
         }
     }
 
