@@ -51,7 +51,6 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
-        Log.d("FragmentContent", "The value is: " + mTitles[position].toString());
         ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -12,15 +12,24 @@ import com.fox_lee.yunwen.lolinfomobile_struct.R;
  */
 public class AboutActivity extends AppCompatActivity {
 
-    private TextView tv;
+    private TextView tvTitle;
+    private TextView tvVersion;
+    private TextView tvAuthor;
+    private TextView tvLicense;
     private ImageView iv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting_detail);
+        setContentView(R.layout.activity_about);
 
-        tv = (TextView) findViewById(R.id.tv_about);
-        tv.setText(R.string.license_text);
+        tvTitle = (TextView) findViewById(R.id.tv_about_title);
+        tvTitle.setText(R.string.about_title);
+        tvVersion = (TextView) findViewById(R.id.tv_about_version);
+        tvVersion.setText(R.string.about_version);
+        tvAuthor = (TextView) findViewById(R.id.tv_about_author);
+        tvAuthor.setText(R.string.about_author);
+        tvLicense = (TextView) findViewById(R.id.tv_about_license);
+        tvLicense.setText(R.string.about_license);
         //iv.setImageDrawable(R.drawable.);
     }
 }

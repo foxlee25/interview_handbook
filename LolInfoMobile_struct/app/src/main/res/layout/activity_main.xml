@@ -6,11 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/colorPearlWhite"
     tools:context="com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPearlWhite"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -19,30 +21,30 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay">
-            <TextView
-                android:id="@+id/title"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="30dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textAlignment="center"
-                android:textColor="#ffffff"
-                android:textSize="30sp" />
+            <!--<TextView-->
+                <!--android:id="@+id/title"-->
+                <!--android:layout_marginStart="5dp"-->
+                <!--android:layout_marginLeft="30dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/app_name"-->
+                <!--android:textAlignment="center"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="30sp" />-->
         </android.support.v7.widget.Toolbar>
 
         <FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:background="@color/colorWhite">
+            android:background="@color/colorPearlWhite">
         </FrameLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-    <include
-        android:id="@+id/slide_drawer"
-        layout="@layout/slide_drawer" />
+    <!--<include-->
+        <!--android:id="@+id/slide_drawer"-->
+        <!--layout="@layout/slide_drawer" />-->
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

@@ -15,20 +15,19 @@
     </string-array>
 
     <string-array name="algorithm">
-        <item>1.Basics</item>
-        <item>2.Data Structure</item>
-        <item>3.Basic Sorting</item>
-        <item>4.Basic Misc</item>
-        <item>5.String</item>
-        <item>6.Integer Array</item>
-        <item>7.Binary Search</item>
-        <item>8.Math and Bit Manipulation</item>
-        <item>9.Linked List</item>
-        <item>10.Reverse</item>
-        <item>11.Binary Tree</item>
-        <item>12.Binary Search Tree</item>
-        <item>13.Backtracking</item>
-        <item>14.Dynamic Programing</item>
+        <item>Data Structure</item>
+        <item>Basic Sorting</item>
+        <item>Basic Misc</item>
+        <item>String</item>
+        <item>Integer Array</item>
+        <item>Binary Search</item>
+        <item>Math and Bit Manipulation</item>
+        <item>Linked List</item>
+        <item>Reverse</item>
+        <item>Binary Tree</item>
+        <item>Binary Search Tree</item>
+        <item>Backtracking</item>
+        <item>Dynamic Programing</item>
     </string-array>
 
     <string-array name="basics">
@@ -105,7 +104,6 @@
     <string-array name="math_and_bit_manipulation">
         <item>Single Number</item>
         <item>Single Number II</item>
-        <item>Single Number III</item>
         <item>O(1) Check Power of 2</item>
         <item>Convert Integer A to Integer B</item>
         <item>Factorial Trailing Zeroes</item>
@@ -161,12 +159,4492 @@
 
     <string-array name="dynamic_programming">
         <item>Triangle</item>
-        <item>Knapsack</item>
         <item>Backpack</item>
         <item>Minimum Path Sum</item>
         <item>Unique Paths</item>
         <item>Climbing Stairs</item>
         <item>Jump Game</item>
     </string-array>
+
+<string-array name="linked_list_">
+        <item name = "definition"> linked list is a linear collection of data elements,
+            called nodes pointing to the next node by means of pointer. It is a data
+            structure consisting of a group of nodes which together represent a sequence.
+            Under the simplest form, each node is composed of data and a reference (in other words,
+            a link) to the next node in the sequence; more complex variants add additional links.
+            This structure allows for efficient insertion or removal of elements from any position
+            in the sequence.</item>
+        <item name = "code">
+            class ListNode {\n
+            \t     int val;\n
+            \t   ListNode next;\n
+            \t ListNode(int x) {\n
+            \t\t val = x;\n
+            \t\t next = null;\n
+        \t }\n
+  }</item>
+</string-array>
+<string-array name="binary_tree_">
+        <item name = "definition"> binary tree is a tree data structure in which each node has at
+            most two children, which are referred to as the left child and the right child.
+            A recursive definition using just set theory notions is that a (non-empty) binary
+            tree is a triple (L, S, R), where L and R are binary trees or the empty set and S is a
+            singleton set. Some authors allow the binary tree to be the empty set as well.
+           </item>
+        <item name = "code">
+            public class TreeNode {\n
+            \t int val;\n
+            \t TreeNode left;\n
+            \t TreeNode right;\n
+            \t TreeNode(int x) { val = x; }\n
+         }</item>
+</string-array>
+<string-array name="binary_search_tree_">
+        <item name = "definition">  binary search trees (BST), sometimes called ordered or sorted
+            binary trees, are a particular type of containers: data structures that store "items"
+            (such as numbers, names etc.) in memory. They allow fast lookup, addition and removal
+            of items, and can be used to implement either dynamic sets of items, or lookup tables
+            that allow finding an item by its key (e.g., finding the phone number of a person by
+            name).</item>
+        <item name = "code">
+          /**
+ * Definition for a binary tree node.\n
+ * public class TreeNode {\n
+ *     int val;\n
+ *     TreeNode left;\n
+ *     TreeNode right;\n
+ *     TreeNode(int x) { val = x; }\n
+ * }\n
+ */\n
+public class Solution {\n
+    public boolean isValidBST(TreeNode root) {\n
+     \t   return isValidBST(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);\n
+    }\n
+    public boolean isValidBST(TreeNode root, double min, double max){\n
+
+    \t    if(root == null) return true;\n
+    \t     double value = root.val * 1.0;\n
+    \t    if(root.val &lt; = min || root.val >= max) return false;\n
+
+    \t    return isValidBST(root.left, min, value) &amp;&amp; isValidBST(root.right, value, max);\n
+    }\n
+}</item>
+</string-array>
+
+<string-array name="huffman_compression_">
+        <item name = "definition"> Huffman coding is an entropy encoding algorithm used for lossless
+            data compression. The term refers to the use of a variable-length code table for encoding
+            a source symbol (such as a character in a file) where the variable-length code table has
+            been derived in a particular way based on the estimated probability of occurrence for
+            each possible value of the source symbol.</item>
+        <item name = "code">
+public final class HuffmanCompress {\n
+\n
+	\t public static void main(String[] args) throws IOException {\n
+	\t\	// Show what command line arguments to use\n
+	\t\	if (args.length == 0) {\n
+	\t\t		System.err.println("Usage: java HuffmanCompress InputFile OutputFile");\n
+	\t\t		System.exit(1);\n
+	\t\t		return;\n
+	\t\	}\n
+\n
+	\t\t	// Otherwise, compress\n
+	\t\t	File inputFile = new File(args[0]);\n
+	\t\t	File outputFile = new File(args[1]);\n
+\n
+	\t\t	// Read input file once to compute symbol frequencies\n
+	\t\t	// The resulting generated code is optimal for static Huffman coding and also canonical\n
+	\t\t	FrequencyTable freq = getFrequencies(inputFile);\n
+	\t\t	freq.increment(256);  // EOF symbol gets a frequency of 1\n
+	\t\t	CodeTree code = freq.buildCodeTree();\n
+	\t\t	CanonicalCode canonCode = new CanonicalCode(code, 257);\n
+	\t\t	code = canonCode.toCodeTree();  // Replace code tree with canonical one. For each symbol, the code value may change but the code length stays the same.\n
+\n
+	\t\t	// Read input file again, compress with Huffman coding, and write output file\n
+	\t\t	InputStream in = new BufferedInputStream(new FileInputStream(inputFile));\n
+	\t\t	BitOutputStream out = new BitOutputStream(new BufferedOutputStream(new FileOutputStream(outputFile)));\n
+	\t\t	try {\n
+	\t\t		writeCode(out, canonCode);\n
+	\t\t		compress(code, in, out);\n
+	\t	} finally {\n
+	\t\t		out.close();\n
+	\t\t		in.close();\n
+	\t	}\n
+	}\n
+\n
+	\t private static FrequencyTable getFrequencies(File file) throws IOException {\n
+	\t\t	FrequencyTable freq = new FrequencyTable(new int[257]);\n
+	\t\t	InputStream input = new BufferedInputStream(new FileInputStream(file));\n
+	\t\t	try {\n
+	\t\t\t		while (true) {\n
+	\t\t\t			int b = input.read();\n
+	\t\t\t			if (b == -1)\n
+	\t\t\t\t				break;\n
+	\t\t\t			freq.increment(b);\n
+	\t\t		}\n
+	\t	} finally {\n
+	\t\t		input.close();\n
+	\t	}\n
+	\t\t	return freq;\n
+	}\n
+\n
+	\t static void writeCode(BitOutputStream out, CanonicalCode canonCode) throws IOException {\n
+	\t\t	for (int i = 0; i &lt; canonCode.getSymbolLimit(); i++) {\n
+	\t\t\t		int val = canonCode.getCodeLength(i);\n
+	\t\t\t		// For this file format, we only support codes up to 255 bits long\n
+	\t\t\t		if (val >= 256)\n
+	\t\t\t\t			throw new RuntimeException("The code for a symbol is too long");\n
+\n
+	\t\t\t		// Write value as 8 bits in big endian\n
+	\t\t\t		for (int j = 7; j >= 0; j--)\n
+	\t\t\t\t			out.write((val >>> j) &amp; 1);\n
+	\t\t	}\n
+	\t }\n
+	\t static void compress(CodeTree code, InputStream in, BitOutputStream out) throws IOException {\n
+	\t\t	HuffmanEncoder enc = new HuffmanEncoder(out);\n
+	\t\t	enc.codeTree = code;\n
+	\t\t	while (true) {\n
+	\t\t		int b = in.read();\n
+	\t\t		if (b == -1)\n
+	\t\t			break;\n
+	\t\t		enc.write(b);\n
+	\t	}\n
+	\t	enc.write(256);  // EOF\n
+	}\n
+}</item>
+</string-array>
+
+<string-array name="priority_queue_">
+        <item name = "definition">priority queue is an abstract data type which is like a regular
+            queue or stack data structure, but where additionally each element has a "priority"
+            associated with it. In a priority queue, an element with high priority is served before
+            an element with low priority. If two elements have the same priority, they are served
+            according to their order in the queue.</item>
+        <item name = "code">
+public class PriorityQueueTest {\n
+\n
+\t	static class PQsort implements Comparator &lt;Integer> {\n
+\n
+\t\t		public int compare(Integer one, Integer two) {\n
+\t\t\t			return two - one;\n
+\t\t		}\n
+\t	}\n
+\n
+\t	public static void main(String[] args) {\n
+\t\t		int[] ia = { 1, 10, 5, 3, 4, 7, 6, 9, 8 };\n
+\t\t		PriorityQueue &lt;Integer> pq1 = new PriorityQueue &lt;Integer>();\n
+\n
+\t\t		// use offer() method to add elements to the PriorityQueue pq1\n
+\t\t		for (int x : ia) {\n
+\t\t\t			pq1.offer(x);\n
+\t\t		}\n
+\n
+\t\t		System.out.println("pq1: " + pq1);\n
+\n
+\t\t		PQsort pqs = new PQsort();\n
+\t\t		PriorityQueue &lt;Integer> pq2 = new PriorityQueue &lt;Integer>(10, pqs);\n
+\t\t		// In this particular case, we can simply use Collections.reverseOrder()\n
+\t\t		// instead of self-defined comparator\n
+\t\t		for (int x : ia) {\n
+\t\t\t			pq2.offer(x);\n
+\t\t		}\n
+\n
+\t\t		System.out.println("pq2: " + pq2);\n
+\n
+\t\t		// print size\n
+\t\t		System.out.println("size: " + pq2.size());\n
+\t\t		// return highest priority element in the queue without removing it\n
+\t\t		System.out.println("peek: " + pq2.peek());\n
+\t\t		// print size\n
+\t\t		System.out.println("size: " + pq2.size());\n
+\t\t		// return highest priority element and removes it from the queue\n
+\t\t		System.out.println("poll: " + pq2.poll());\n
+\t\t		// print size\n
+\t\t		System.out.println("size: " + pq2.size());\n
+\n
+\t\t		System.out.print("pq2: " + pq2);\n
+\n
+\t	}\n
+}</item>
+</string-array>
+<string-array name="bubble_sort_">
+        <item name = "definition"> Bubble sort, sometimes referred to as sinking sort, is a simple
+            sorting algorithm that repeatedly steps through the list to be sorted, compares each
+            pair of adjacent items and swaps them if they are in the wrong order. The pass through
+            the list is repeated until no swaps are needed, which indicates that the list is sorted.
+            The algorithm, which is a comparison sort, is named for the way smaller elements
+            "bubble" to the top of the list. Although the algorithm is simple, it is too slow and
+            impractical for most problems even when compared to insertion sort.[1] It can be
+            practical if the input is usually in sort order but may occasionally have some
+            out-of-order elements nearly in position.</item>
+        <item name = "code">
+class BubbleSort {\n
+\t  public static void main(String []args) {\n
+\t\t    int n, c, d, swap;\n
+\t\t    Scanner in = new Scanner(System.in);\n
+\n
+\t\t    System.out.println("Input number of integers to sort");\n
+\t\t    n = in.nextInt();\n
+\n
+\t\t    int array[] = new int[n];\n
+\n
+\t\t    System.out.println("Enter " + n + " integers");\n
+\n
+ \t\t   for (c = 0; c &lt; n; c++)\n
+            \t\t\t    array[c] = in.nextInt();\n
+\n
+ \t\t   for (c = 0; c &lt; ( n - 1 ); c++) {\n
+ \t\t\t     for (d = 0; d &lt; n - c - 1; d++) {\n
+  \t\t\t      if (array[d] > array[d+1]) /* For descending order use &lt; */\n
+        {\n
+  \t\t\t\t        swap       = array[d];\n
+   \t\t\t\t       array[d]   = array[d+1];\n
+   \t\t\t\t      array[d+1] = swap;\n
+     \t\t\t   }\n
+   \t\t   }\n
+  \t  }\n
+\n
+  \t  System.out.println("Sorted list of numbers");\n
+\n
+  \t  for (c = 0; c &lt; n; c++)\n
+  \t    System.out.println(array[c]);\n
+  }\n
+}</item>
+</string-array>
+<string-array name="selection_sort_">
+        <item name = "definition">selection sort is a sorting algorithm, specifically an in-place
+            comparison sort. It has O(n2) time complexity, making it inefficient on large lists,
+            and generally performs worse than the similar insertion sort. Selection sort is noted
+            for its simplicity, and it has performance advantages over more complicated algorithms
+            in certain situations, particularly where auxiliary memory is limited.</item>
+        <item name = "code">
+       public class MySelectionSort {\n
+\t    public static int[] doSelectionSort(int[] arr){\n
+\n
+\t\t        for (int i = 0; i &lt; arr.length - 1; i++)\n
+\t\t        {\n
+\t\t\t            int index = i;\n
+ \t\t\t           for (int j = i + 1; j &lt; arr.length; j++)\n
+ \t\t\t\t               if (arr[j] &lt; arr[index])\n
+  \t\t\t\t                  index = j;\n
+\n
+   \t\t\t         int smallerNumber = arr[index];\n
+   \t\t\t         arr[index] = arr[i];\n
+   \t\t\t         arr[i] = smallerNumber;\n
+   \t\t     }\n
+    \t\t    return arr;\n
+  \t  }\n
+\n
+\t    public static void main(String a[]){\n
+\n
+\t\t        int[] arr1 = {10,34,2,56,7,67,88,42};\n
+\t\t        int[] arr2 = doSelectionSort(arr1);\n
+\t\t        for(int i:arr2){\n
+\t\t\t            System.out.print(i);\n
+\t\t\t            System.out.print(", ");\n
+\t\t        }\n
+\t    }\n
+}\n
+</item>
+</string-array><string-array name="insertion_sort_">
+        <item name = "definition"> Insertion sort is a simple sorting algorithm that builds the
+            final sorted array (or list) one item at a time. It is much less efficient on large
+            lists than more advanced algorithms such as quicksort, heapsort, or merge sort. However,
+            insertion sort provides several advantages:\n
+            1.Simple implementation: Bentley shows a three-line C version, and a five-line optimized
+            version.\n
+            2.Efficient for (quite) small data sets, much like other quadratic sorting algorithms.\n
+            3.More efficient in practice than most other simple quadratic (i.e., O(n2)) algorithms
+            such as selection sort or bubble sort.\n
+            4.Adaptive, i.e., efficient for data sets that are already substantially sorted: the
+            time complexity is O(nk) when each element in the input is no more than k places away
+            from its sorted position.\n
+            5.Stable; i.e., does not change the relative order of elements with equal keys.\n
+            6.In-place; i.e., only requires a constant amount O(1) of additional memory space.\n
+            7.Online; i.e., can sort a list as it receives it.\n</item>
+        <item name = "code">
+           public class MyInsertionSort {\n
+
+    public static void main(String[] args) {\n
+
+\t        int[] input = { 4, 2, 9, 6, 23, 12, 34, 0, 1 };\n
+\t        insertionSort(input);\n
+    }\n
+\n
+    private static void printNumbers(int[] input) {\n
+\n
+ \t       for (int i = 0; i &lt; input.length; i++) {\n
+ \t\t           System.out.print(input[i] + ", ");\n
+ \t       }\n
+ \t       System.out.println("\n");\n
+    }\n
+    public static void insertionSort(int array[]) {\n
+ \t       int n = array.length;\n
+ \t       for (int j = 1; j &lt; n; j++) {\n
+ \t\t           int key = array[j];\n
+ \t\t           int i = j-1;\n
+ \t\t           while ( (i > -1) &amp;&amp; ( array [i] > key ) ) {\n
+ \t\t\t               array [i+1] = array [i];\n
+  \t\t\t              i--;\n
+ \t\t           }\n
+ \t\t           array[i+1] = key;\n
+ \t\t           printNumbers(array);\n
+ \t       }\n
+    }\n
+}
+</item>
+</string-array><string-array name="merge_sort_">
+        <item name = "definition"> merge sort (also commonly spelled mergesort) is an efficient,
+            general-purpose, comparison-based sorting algorithm. Most implementations produce a
+            stable sort, which means that the implementation preserves the input order of equal
+            elements in the sorted output. Mergesort is a divide and conquer algorithm that was
+            invented by John von Neumann in 1945. A detailed description and analysis of  bottom-up
+            mergesort appeared in a report by Goldstine and Neumann as early as 1948.</item>
+        <item name = "code">
+        TopDownMergeSort(A[], B[], n){\n
+\t    TopDownSplitMerge(A, 0, n, B);\n
+}\n
+
+// iBegin is inclusive; iEnd is exclusive (A[iEnd] is not in the set).
+TopDownSplitMerge(A[], iBegin, iEnd, B[]){\n
+\t    if(iEnd - iBegin &lt; 2)                   // if run size == 1\n
+\t\t        return;                                 //   consider it sorted\n
+\t    // recursively split runs into two halves until run size == 1,\n
+ \t   // then merge them and return back up the call chain\n
+ \t   iMiddle = (iEnd + iBegin) / 2;              // iMiddle = mid point\n
+\t    TopDownSplitMerge(A, iBegin,  iMiddle, B);  // split / merge left  half\n
+\t    TopDownSplitMerge(A, iMiddle,    iEnd, B);  // split / merge right half\n
+\t    TopDownMerge(A, iBegin, iMiddle, iEnd, B);  // merge the two half runs\n
+\t    CopyArray(B, iBegin, iEnd, A);              // copy the merged runs back to A\n
+}\n
+\n
+//  Left half is A[iBegin :iMiddle-1].\n
+// Right half is A[iMiddle:iEnd-1   ].\n
+TopDownMerge(A[], iBegin, iMiddle, iEnd, B[])\n
+{\n
+\t    i = iBegin, j = iMiddle;\n
+\n
+\t    // While there are elements in the left or right runs...\n
+\t    for (k = iBegin; k &lt; iEnd; k++) {\n
+\t\t        // If left run head exists and is &lt;= existing right run head.\n
+ \t\t       if (i &lt; iMiddle &amp;&amp;(j >= iEnd || A[i] &lt;= A[j])) {\n
+ \t\t\t           B[k] = A[i];\n
+  \t\t\t          i = i + 1;\n
+  \t\t      } else {\n
+  \t\t\t          B[k] = A[j];\n
+   \t\t\t         j = j + 1;\n
+  \t\t      }\n
+  \t  }\n
+}\n
+\n
+CopyArray(B[], iBegin, iEnd, A[]){\n
+\t    for(k = iBegin; k &lt; iEnd; k++)\n
+\t\t        A[k] = B[k];\n
+}\n
+\t        //Bottom-up implementation\n
+\t            //**********************************************//\n
+\t            void BottomUpMergeSort(A[], B[], n)\n
+{\n
+ \t // Each 1-element run in A is already "sorted".\n
+\t  // Make successively longer sorted runs of length 2, 4, 8, 16... until whole array is sorted.\n
+\t  for (width = 1; width &lt; n; width = 2 * width)\n
+\t    {\n
+\t\t      // Array A is full of runs of length width.\n
+\t\t      for (i = 0; i &lt; n; i = i + 2 * width)\n
+\t\t        {\n
+\t\t\t          // Merge two runs: A[i:i+width-1] and A[i+width:i+2*width-1] to B[]\n
+\t\t\t          // or copy A[i:n-1] to B[] ( if(i+width >= n) )\n
+\t\t\t          BottomUpMerge(A, i, min(i+width, n), min(i+2*width, n), B);\n
+\t\t        }\n
+\t\t      // Now work array B is full of runs of length 2*width.\n
+\t\t      // Copy array B to array A for next iteration.\n
+\t\t      // A more efficient implementation would swap the roles of A and B.\n
+\t\t      CopyArray(B, A, n);\n
+\t\t      // Now array A is full of runs of length 2*width.\n
+ \t   }\n
+}\n
+
+\t//  Left run is A[iLeft :iRight-1].\n
+\t// Right run is A[iRight:iEnd-1  ].\n
+\tBottomUpMerge(A[], iLeft, iRight, iEnd, B[])\n
+{\n
+\t    i = iLeft, j = iRight;\n
+\t    // While there are elements in the left or right runs...\n
+\t    for (k = iLeft; k &lt; iEnd; k++) {\n
+\t\t        // If left run head exists and is &lt;= existing right run head.\n
+ \t\t       if (i &lt; iRight &amp;&amp; (j >= iEnd || A[i] &lt;= A[j])) {\n
+\t\t\t            B[k] = A[i];\n
+\t\t\t            i = i + 1;\n
+\t\t        } else {\n
+\t\t\t            B[k] = A[j];\n
+\t\t\t            j = j + 1;\n
+\t\t        }\n
+\t    }\n
+}\n
+
+void CopyArray(B[], A[], n){\n
+\t    for(i = 0; i &lt; n; i++)\n
+\t\t        A[i] = B[i];\n
+}\n
+        </item>
+</string-array>
+<string-array name="quick_sort_">
+        <item name = "definition"> Quicksort (sometimes called partition-exchange sort) is an
+            efficient sorting algorithm, serving as a systematic method for placing the elements of
+            an array in order. Developed by Tony Hoare in 1959, with his work published in 1961, it
+            is still a commonly used algorithm for sorting. When implemented well, it can be about
+            two or three times faster than its main competitors, merge sort and heapsort.</item>
+        <item name = "code">
+            public class MyQuickSort {\n
+\n
+\t    private int array[];\n
+\t    private int length;\n
+\t
+\t    public void sort(int[] inputArr) {\n
+\t
+ \t\t       if (inputArr == null || inputArr.length == 0) {\n
+\t\t            return;\n
+ \t       }\n
+\t\t        this.array = inputArr;\n
+\t\t        length = inputArr.length;\n
+\t\t        quickSort(0, length - 1);\n
+\t    }\n
+\n
+\t    private void quickSort(int lowerIndex, int higherIndex) {\n
+\n
+\t\t        int i = lowerIndex;\n
+\t\t        int j = higherIndex;\n
+\t\t        // calculate pivot number, I am taking pivot as middle index number\n
+\t\t        int pivot = array[lowerIndex+(higherIndex-lowerIndex)/2];\n
+\t\t        // Divide into two arrays\n
+\t\t        while (i &lt;= j) {\n
+\t\t            /**\n
+\t\t\t             * In each iteration, we will identify a number from left side which\n
+\t\t\t             * is greater then the pivot value, and also we will identify a number\n
+\t\t\t             * from right side which is less then the pivot value. Once the search\n
+\t\t\t             * is done, then we exchange both numbers.\n
+\t\t\t             */\n
+\t\t\t            while (array[i] &lt; pivot) {\n
+\t\t\t\t                i++;\n
+\t\t\t            }\n
+\t\t\t            while (array[j] > pivot) {\n
+ \t\t\t\t               j--;\n
+\t\t\t            }\n
+\t\t\t            if (i &lt;= j) {\n
+\t\t\t\t                exchangeNumbers(i, j);\n
+ \t\t\t\t               //move index to next position on both sides\n
+ \t\t\t\t               i++;\n
+ \t\t\t\t               j--;\n
+ \t\t\t           }\n
+  \t\t      }\n
+        // call quickSort() method recursively\n
+  \t\t      if (lowerIndex &lt; j)\n
+   \t\t\t         quickSort(lowerIndex, j);\n
+   \t\t     if (i &lt; higherIndex)\n
+    \t\t\t        quickSort(i, higherIndex);\n
+ \t\t   }\n
+\n
+\t\t    private void exchangeNumbers(int i, int j) {\n
+\t\t\t        int temp = array[i];\n
+\t\t\t        array[i] = array[j];\n
+\t\t\t        array[j] = temp;\n
+\t\t    }\n
+\n
+\t\t    public static void main(String a[]){\n
+\n
+ \t\t       MyQuickSort sorter = new MyQuickSort();\n
+ \t\t       int[] input = {24,2,45,20,56,75,2,56,99,53,12};\n
+  \t\t      sorter.sort(input);\n
+  \t\t      for(int i:input){\n
+  \t\t\t          System.out.print(i);\n
+  \t\t\t          System.out.print(" ");\n
+  \t\t      }\n
+ \t   }\n
+}
+</item>
+</string-array>
+<string-array name="heap_sort_">
+        <item name = "definition">  heapsort is a comparison-based sorting algorithm. Heapsort can
+            be thought of as an improved selection sort: like that algorithm, it divides its input
+            into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by
+            extracting the largest element and moving that to the sorted region. The improvement
+            consists of the use of a heap data structure rather than a linear-time search to find
+            the maximum.</item>
+        <item name = "code">
+          public class HeapSort\n
+{\n
+    private static int N;\n
+    /* Sort Function */\n
+    public static void sort(int arr[])\n
+    {\n
+        heapify(arr);\n
+        for (int i = N; i > 0; i--)\n
+        {\n
+            swap(arr,0, i);\n
+            N = N-1;\n
+            maxheap(arr, 0);\n
+        }\n
+    }\n
+    /* Function to build a heap */\n
+    public static void heapify(int arr[])\n
+    {\n
+        N = arr.length-1;\n
+        for (int i = N/2; i >= 0; i--)\n
+            maxheap(arr, i);\n
+    }\n
+    /* Function to swap largest element in heap */\n
+    public static void maxheap(int arr[], int i)\n
+    {\n
+        int left = 2*i ;\n
+        int right = 2*i + 1;\n
+        int max = i;\n
+        if (left &lt;= N &amp;&amp; arr[left] > arr[i])\n
+            max = left;\n
+        if (right &lt;= N &amp;&amp; arr[right] > arr[max])\n
+            max = right;\n
+\n
+        if (max != i)\n
+        {\n
+            swap(arr, i, max);\n
+            maxheap(arr, max);\n
+        }\n
+    }\n
+    /* Function to swap two numbers in an array */\n
+    public static void swap(int arr[], int i, int j)\n
+    {\n
+        int tmp = arr[i];\n
+        arr[i] = arr[j];\n
+        arr[j] = tmp;\n
+    }\n
+    /* Main method */\n
+    public static void main(String[] args)\n
+    {\n
+        Scanner scan = new Scanner( System.in );\n
+        System.out.println("Heap Sort Test\n");\n
+        int n, i;\n
+        /* Accept number of elements */\n
+        System.out.println("Enter number of integer elements");\n
+        n = scan.nextInt();\n
+        /* Make array of n elements */\n
+        int arr[] = new int[ n ];\n
+        /* Accept elements */\n
+        System.out.println("\nEnter "+ n +" integer elements");\n
+        for (i = 0; i &lt; n; i++)\n
+            arr[i] = scan.nextInt();\n
+        /* Call method sort */\n
+        sort(arr);\n
+        /* Print sorted Array */\n
+        System.out.println("\nElements after sorting ");\n
+        for (i = 0; i &lt; n; i++)\n
+            System.out.print(arr[i]+" ");\n
+        System.out.println();\n
+    }\n
+}</item>
+</string-array>
+<string-array name="bucket_sort_">
+        <item name = "definition">
+        Bucket sort, or bin sort, is a sorting algorithm that works by distributing the elements of
+            an array into a number of buckets. Each bucket is then sorted individually, either using
+            a different sorting algorithm, or by recursively applying the bucket sorting algorithm.
+            It is a distribution sort, and is a cousin of radix sort in the most to least
+            significant digit flavour. Bucket sort is a generalization of pigeonhole sort.
+            Bucket sort can be implemented with comparisons and therefore can also be considered a
+            comparison sort algorithm. The computational complexity estimates involve the number of
+            buckets.
+
+            Bucket sort works as follows:
+            1.Set up an array of initially empty "buckets".
+            2.Scatter: Go over the original array, putting each object in its bucket.
+            3.Sort each non-empty bucket.
+            4.Gather: Visit the buckets in order and put all elements back into the original array.
+        </item>
+        <item name = "code">
+        public class BucketSort{\n
+\n
+   public static void sort(int[] a, int maxVal) {\n
+      int [] bucket=new int[maxVal+1];\n
+\n
+      for (int i=0; i&lt;bucket.length; i++) {\n
+         bucket[i]=0;\n
+      }\n
+\n
+      for (int i=0; i&lt;a.length; i++) {\n
+         bucket[a[i]]++;\n
+      }\n
+\n
+      int outPos=0;\n
+      for (int i=0; i&lt;bucket.length; i++) {\n
+         for (int j=0; j&lt;bucket[i]; j++) {\n
+            a[outPos++]=i;\n
+         }\n
+      }\n
+   }\n
+\n
+   public static void main(String[] args) {\n
+      int maxVal=5;\n
+      int [] data= {5,3,0,2,4,1,0,5,2,3,1,4};\n
+\n
+      System.out.println("Before: " + Arrays.toString(data));\n
+      sort(data,maxVal);\n
+      System.out.println("After:  " + Arrays.toString(data));\n
+   }\n
+}
+        </item>
+</string-array>
+<string-array name="counting_sort_">
+        <item name = "definition">
+            counting sort is an algorithm for sorting a collection of objects according to keys
+            that are small integers; that is, it is an integer sorting algorithm. It operates by
+            counting the number of objects that have each distinct key value, and using arithmetic
+            on those counts to determine the positions of each key value in the output sequence.
+            Its running time is linear in the number of items and the difference between the maximum
+            and minimum key values, so it is only suitable for direct use in situations where the
+            variation in keys is not significantly greater than the number of items. However, it is
+            often used as a subroutine in another sorting algorithm, radix sort, that can handle
+            larger keys more efficiently.
+        </item>
+        <item name ="code">
+                int[] countingSort(int[] a, int k) {\n
+        int c[] = new int[k];\n
+        for (int i = 0; i &lt; a.length; i++)\n
+            c[a[i]]++;\n
+        for (int i = 1; i &lt; k; i++)\n
+            c[i] += c[i-1];\n
+        int b[] = new int[a.length];\n
+        for (int i = a.length-1; i >= 0; i--)\n
+            b[--c[a[i]]] = a[i];\n
+        return b;\n
+    }\n
+        </item>
+</string-array>
+
+<string-array name="bit_manipulation_">
+        <item name ="definition">Majority Element II
+\n
+Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times. The algorithm should run in linear time and in O(1) space.
+\n
+Hint:\n
+
+How many majority elements could it possibly have?\n
+Do you have a better hint? Suggest it!\n
+
+        </item>
+        <item name ="code">
+public List&lt;Integer&gt; majorityElement(int[] nums) {\n
+        List&lt;Integer&gt; rt = new ArrayList&lt;Integer&gt;();\n
+        if (nums == null || nums.length == 0) {\n
+            return rt;\n
+        }\n
+        int m1 = nums[0];\n
+        int m2 = 0;\n
+        int c1 = 1;\n
+        int c2 = 0;\n
+        for (int i = 1; i &lt; nums.length; i++) {\n
+            int x = nums[i];\n
+            if (x == m1) {\n
+                c1++;\n
+            } else if (x == m2) {\n
+                c2++;\n
+            } else if (c1 == 0) {\n
+                m1 = x;\n
+                c1 = 1;\n
+            } else if (c2 == 0) {\n
+                m2 = x;\n
+                c2 = 1;\n
+            } else {\n
+                c1--;\n
+                c2--;\n
+            }\n
+        }\n
+        c1 = 0;\n
+        c2 = 0;\n
+        for (int i = 0; i &lt; nums.length; i++) {\n
+            if (m1 == nums[i]) {\n
+                c1++;\n
+            } else if (m2 == nums[i]) {\n
+                c2++;\n
+            }\n
+        }\n
+        if (c1 &gt; nums.length / 3) {\n
+            rt.add(m1);\n
+        }\n
+        if (c2 &gt; nums.length / 3) {\n
+            rt.add(m2);\n
+        }\n
+        return rt;\n
+    }\n
+        </item>
+</string-array>
+
+<string-array name="strStr_">
+        <item name="definition">
+            strstr (a.k.a find sub string), is a useful function in string operation.
+You task is to implement this function.
+\n
+For a given source string and a target string,
+you should output the "first" index(from 0) of target string in source string.
+\n
+If target is not exist in source, just return -1.
+\n
+Example\n
+If source="source" and target="target", return -1.
+\n
+If source="abcdabcdefg" and target="bcd", return 1.
+\n
+Challenge
+O(n) time.
+\n
+Clarification
+Do I need to implement KMP Algorithm in an interview?
+\n
+                the interviewer just want to test your basic implementation ability.
+        </item>
+        <item name="code">
+/**\n
+ * http://www.jiuzhang.com//solutions/implement-strstr\n
+ */\n
+class Solution {\n
+    /**\n
+     * Returns a index to the first occurrence of target in source,\n
+     * or -1  if target is not part of source.\n
+     * @param source string to be scanned.\n
+     * @param target string containing the sequence of characters to match.\n
+     */\n
+    public int strStr(String source, String target) {\n
+        if (source == null || target == null) {\n
+            return -1;\n
+        }\n
+
+        int i, j;\n
+        for (i = 0; i &lt; source.length() - target.length() + 1; i++) {\n
+            for (j = 0; j &lt; target.length(); j++) {\n
+                if (source.charAt(i + j) != target.charAt(j)) {\n
+                    break;\n
+                } //if\n
+            } //for j\n
+            if (j == target.length()) {\n
+                return i;\n
+            }\n
+        } //for i\n
+\n
+        // did not find the target\n
+        return -1;\n
+    }\n
+}\n
+        </item>
+</string-array>
+
+<string-array name="two_string_are_anagrams_">
+    <item name="definition">
+Write a method anagram(s,t) to decide if two strings are anagrams or not.
+\n
+Example\n
+Given s="abcd", t="dcab", return true.
+\n
+Challenge
+O(n) time, O(1) extra space
+    </item>
+    <item name="code">
+final static int LETTERS_LEN = 256;	\n
+
+	public static boolean isAnagram(String s1, String s2) {\n
+		if (s1 == null || s2 == null)\n
+			return false;\n
+		int len = s1.length();\n
+		if (len != s2.length() || len &lt; 2)\n
+			return false;\n
+
+		int[] letters = new int[LETTERS_LEN];\n
+
+		for (int i = 0; i &lt; len; i++) {\n
+			letters[s1.charAt(i)]++;\n
+			letters[s2.charAt(i)]--;\n
+		}\n
+
+		for (int i = 0; i &lt; LETTERS_LEN; i++) {\n
+			if (letters[i] != 0) {\n
+				return false;\n
+			}\n
+		}\n
+		return true;\n
+	}\n
+    </item>
+</string-array>
+
+<string-array name="compare_strings_">
+    <item name="definition">
+Compare two strings A and B, determine whether A contains all of the characters in B.
+\n
+The characters in string A and B are all Upper Case letters.
+\n
+Example\n
+For A = "ABCD", B = "ABC", return true.
+\n
+For A = "ABCD" B = "AABC", return false.
+    </item>
+    <item name="code">
+ public int compareVersion(String version1, String version2) {\n
+    String[] arr1 = version1.split("\\.");\n
+    String[] arr2 = version2.split("\\.");\n
+
+    int i=0;\n
+    while(i&lt;arr1.length || i&lt;arr2.length){\n
+        if(i&lt;arr1.length &amp;&amp; i&lt;arr2.length){\n
+            if(Integer.parseInt(arr1[i]) &lt; Integer.parseInt(arr2[i])){\n
+                return -1;\n
+            }else if(Integer.parseInt(arr1[i]) > Integer.parseInt(arr2[i])){\n
+                return 1;\n
+            }\n
+        } else if(i&lt;arr1.length){\n
+            if(Integer.parseInt(arr1[i]) != 0){\n
+                return 1;\n
+            }\n
+        } else if(i&lt;arr2.length){\n
+           if(Integer.parseInt(arr2[i]) != 0){\n
+                return -1;\n
+            }\n
+        }\n
+        i++;\n
+    }\n
+    return 0;\n
+}\n
+    </item>
+</string-array>
+
+<string-array name = "anagrams_">
+    <item name="definition">
+Given an array of strings, return all groups of strings that are anagrams.
+\n
+Example\n
+Given ["lint", "intl", "inlt", "code"], return ["lint", "inlt", "intl"].
+\n
+Given ["ab", "ba", "cd", "dc", "e"], return ["ab", "ba", "cd", "dc"].\n
+Note\n
+All inputs will be in lower-case
+    </item>
+    <item name="code">
+
+public class Solution {\n
+    public List&lt;String&gt; anagrams(String[] strs) {\n
+        HashMap&lt;String, LinkedList&lt;String&gt;&gt; dict = new HashMap&lt;&gt;();\n
+        for (int i = 0; i &lt; strs.length; i++) {\n
+            String s = strs[i];\n
+            char[] chars = s.toCharArray();\n
+            Arrays.sort(chars);\n
+            String sortedString = String.valueOf(chars);\n
+            if (dict.containsKey(sortedString)) {\n
+                dict.get(sortedString).add(s);\n
+            } else {\n
+                LinkedList&lt;String&gt; list = new LinkedList&lt;&gt;();\n
+                list.add(s);\n
+                dict.put(sortedString, list);\n
+            }\n
+        }\n
+        List&lt;String> ret = new LinkedList&lt;&gt;();\n
+        for (LinkedList&lt;String&gt; list : dict.values()) {\n
+            if (list.size() &gt; 1)\n
+                ret.addAll(list);\n
+        }\n
+        return ret;\n
+    }\n
+}\n
+    </item>
+</string-array>
+
+<string-array name="longest_common_substring_">
+<item name="definition">
+Given two strings, find the longest common substring.
+Return the length of it.\n
+\n
+Example\n
+Given A="ABCD", B="CBCE", return 2.\n
+Note\n
+The characters in substring should occur continuously in original string.\n
+This is different with subsequence.
+</item>
+<item name="code">
+    public class Solution {\n
+    /**\n
+     * @param A, B: Two string.\n
+     * @return: the length of the longest common substring.\n
+     */\n
+    public int longestCommonSubstring(String A, String B) {\n
+        // write your code here\n
+        int maxlen = 0;\n
+        int xlen = A.length();\n
+        int ylen = B.length();\n
+        for(int i = 0; i &lt; xlen; ++i)\n
+	    {\n
+		    for(int j = 0; j &lt; ylen; ++j)\n
+		    {\n
+			    int len = 0;\n
+                while (i + len &lt; xlen &amp;&amp; j + len &lt; ylen &amp;&amp;
+                    A.charAt(i + len) == B.charAt(j + len))\n
+                        len ++;\n
+			    if(len > maxlen)\n
+				    maxlen = len;\n
+		    }\n
+	    }\n
+        return maxlen;\n
+    }\n
+}
+</item>
+</string-array>
+
+<string-array name="remove_element_">
+    <item name="definition">
+    Given an array and a value, remove all occurrences of that value in place and return the new length.
+        The order of elements can be changed, and the elements after the new length do not matter.\n
+        Example\n
+        Given an array [0,4,4,0,0,2,4,4], value=4\n
+\n
+        return 4 and front four elements of the array is [0,0,0,2]\n
+    </item>
+    <item name="code">
+        public class Solution {\n
+    public int removeElement(int[] A, int elem) {\n
+        int count = 0;\n
+        for(int i=0; i&lt;A.length; i++){\n
+            if(A[i] != elem){\n
+                A[count] = A[i];\n
+                count++;\n
+            }\n
+        }\n
+        return count;\n
+    }\n
+}\n
+    </item>
+</string-array>
+<string-array name="zero_sum_subarray_">
+<item name="definition">
+    Given an integer array, find a subarray where the sum of numbers is zero.
+    Your code  should return the index of the first number and the index of the last number.
+    </item>
+    <item name="code">
+        public class Solution {\n
+    /**\n
+     * @param nums: A list of integers\n
+     * @return: A integer indicate the sum of max subarray\n
+     */\n
+    public int maxSubArray(ArrayList&lt;Integer&gt; nums) {\n
+        // -1 is not proper for illegal input\n
+        if (nums == null || nums.isEmpty()) return -1;\n
+\n
+        int sum = 0, maxSub = Integer.MIN_VALUE;\n
+        for (int num : nums) {\n
+            // drop negtive sum\n
+            sum = Math.max(sum, 0);\n
+            sum += num;\n
+            // update maxSub\n
+            maxSub = Math.max(maxSub, sum);\n
+        }\n
+        return maxSub;\n
+    }\n
+}
+    </item>
+</string-array>
+
+<string-array name="subarray_sum_k_">
+    <item name="definition">
+Given an nonnegative integer array, find a subarray where the sum of numbers is k.
+Your code should return the index of the first number and the index of the last number.
+\n
+Example\n
+Given [1, 4, 20, 3, 10, 5], sum k = 33, return [2, 4].
+    </item>
+    <item name="code">
+          public class Solution {\n
+    public int maxSubArrayLen(int[] nums, int k) {\n
+        if (nums==null || nums.length==0) return 0;\n
+        HashMap&lt;Integer, Integer&gt; map = new HashMap&lt;Integer, Integer&gt;();\n
+        map.put(0, -1);\n
+        int sum = 0;\n
+        int maxLen = Integer.MIN_VALUE;\n
+        for (int i=0; i&lt;nums.length; i++) {\n
+            sum += nums[i];\n
+            if (!map.containsKey(sum)) {\n
+                map.put(sum, i);\n
+            }\n
+            if (map.containsKey(sum-k)) {\n
+                int index = map.get(sum-k);\n
+                maxLen = Math.max(maxLen, i-index);\n
+            }\n
+        }\n
+        return maxLen==Integer.MIN_VALUE? 0 : maxLen;\n
+    }\n
+}
+    </item>
+</string-array>
+
+<string-array name="subarray_sum_closest_">
+    <item name="definition">
+Given an integer array, find a subarray with sum closest to zero. Return the indexes of the first number and last number.
+    </item>
+    <item name="code">
+ class Pair {\n
+    int sum;\n
+    int index;\n
+    public Pair(int s, int i) {\n
+        sum = s;\n
+        index = i;\n
+    }\n
+}\n
+
+public class Solution {\n
+    /**\n
+     * @param nums: A list of integers\n
+     * @return: A list of integers includes the index of the first number\n
+     *          and the index of the last number\n
+     */\n
+    public int[] subarraySumClosest(int[] nums) {\n
+        int[] res = new int[2];\n
+        if (nums == null || nums.length == 0) {\n
+            return res;\n
+        }\n
+\n
+        int len = nums.length;\n
+        if(len == 1) {\n
+            res[0] = res[1] = 0;\n
+            return res;\n
+        }\n
+        Pair[] sums = new Pair[len+1];\n
+        int prev = 0;\n
+        sums[0] = new Pair(0, 0);\n
+        for (int i = 1; i &lt;= len; i++) {\n
+            sums[i] = new Pair(prev + nums[i-1], i);\n
+            prev = sums[i].sum;\n
+        }\n
+        Arrays.sort(sums, new Comparator&lt;Pair&gt;() {\n
+           public int compare(Pair a, Pair b) {\n
+               return a.sum - b.sum;\n
+           }\n
+        });\n
+        int ans = Integer.MAX_VALUE;\n
+        for (int i = 1; i &lt;= len; i++) {\n
+\n
+            if (ans > sums[i].sum - sums[i-1].sum) {\n
+                ans = sums[i].sum - sums[i-1].sum;\n
+                int[] temp = new int[]{sums[i].index - 1, sums[i - 1].index - 1};\n
+                Arrays.sort(temp);\n
+                res[0] = temp[0] + 1;\n
+                res[1] = temp[1];\n
+            }\n
+        }\n
+        return res;\n
+    }\n
+}
+    </item>
+</string-array>
+
+<string-array name="product_of_array_exclude_itself_">
+    <item name="definition">
+Given an integers array A.
+\n
+Define B[i] = A[0] * ... * A[i-1] * A[i+1] * ... * A[n-1], calculate B WITHOUT divide operation.
+\n
+Example\n
+For A=[1, 2, 3], return [6, 3, 2].
+    </item>
+    <item name="code">
+                public int[] productExceptSelf(int[] nums) {\n
+    int[] result = new int[nums.length];\n
+    int[] t1 = new int[nums.length];\n
+    int[] t2 = new int[nums.length];\n
+    t1[0]=1;\n
+    t2[nums.length-1]=1;\n
+\n
+    //scan from left to right\n
+    for(int i=0; i&lt;nums.length-1; i++){\n
+        t1[i+1] = nums[i] * t1[i];\n
+    }\n
+\n
+    //scan from right to left\n
+    for(int i=nums.length-1; i&gt;0; i--){\n
+        t2[i-1] = t2[i] * nums[i];\n
+    }\n
+\n
+    //multiply\n
+    for(int i=0; i&lt;nums.length; i++){\n
+        result[i] = t1[i] * t2[i];\n
+    }\n
+    return result;\n
+}
+    </item>
+</string-array>
+
+<string-array name="partition_array_">
+<item name="definition">
+Given an array nums of integers and an int k, partition the array
+(i.e move the elements in "nums") such that:
+\n
+All elements &lt; k are moved to the left\n
+All elements &gt;= k are moved to the right\n
+Return the partitioning index, i.e the first index i nums[i] &gt;= k.
+\n
+Example\n
+If nums=[3,2,2,1] and k=2, a valid answer is 1.\n
+
+Note\n
+You should do really partition in array nums instead of just
+counting the numbers of integers smaller than k.
+\n
+If all elements in nums are smaller than k, then return nums.length
+\n
+Challenge\n
+Can you partition the array in-place and in O(n)?
+</item>
+<item name="code">
+        public class Solution {\n
+	/**\n
+     *@param nums: The integer array you should partition\n
+     *@param k: As description\n
+     *return: The index after partition\n
+     */\n
+    public int partitionArray(int[] nums, int k) {\n
+	    //write your code here\n
+	    if(nums == null || nums.length == 0){\n
+            return 0;\n
+        }\n
+        // //dummy number\n
+        // nums.add(k);\n
+\n
+        int i = 0;\n
+        int j = nums.length - 1;\n
+	    for(; i &lt;= j; i++){\n
+	        if(nums[i]&lt; k){\n
+	            continue;\n
+	        }\n
+\n
+	        while(j >= i &amp;&amp; nums[j] &gt;= k){\n
+	            j --;\n
+	        }//while\n
+\n
+	        //i points to a number &gt;= k\n
+	        //j points to a number &lt; k\n
+	        //swap i and j\n
+	        if(j >= 0 &amp;&amp; i &lt; j){\n
+	            int tmp = nums[i];\n
+    	        nums[i] = nums[j];\n
+    	        nums[j] = tmp;\n
+    	        j --;\n
+	        }\n
+\n
+	    }//for\n
+\n
+	   // nums.remove(j + 1);\n
+	    return j + 1;\n
+    }//partitionArray\n
+}
+</item>
+</string-array>
+
+<string-array name="first_missing_positive_">
+<item name="definition">
+Given an unsorted integer array, find the first missing positive integer.
+\n
+For example,\n
+Given [1,2,0] return 3,\n
+and [3,4,-1,1] return 2.
+</item>
+<item name="code">
+int firstMissingPositiveAnd0(int A[]) {\n
+	int n = A.length;\n
+	for (int i = 0; i &lt; n; i++) {\n
+		// when the ith element is not i\n
+		while (A[i] != i) {\n
+			// no need to swap when ith element is out of range [0,n]\n
+			if (A[i] &lt; 0 || A[i] >= n)\n
+				break;\n
+\n
+			//handle duplicate elements\n
+			if(A[i]==A[A[i]])\n
+                    		break;\n
+			// swap elements\n
+			int temp = A[i];\n
+			A[i] = A[temp];\n
+			A[temp] = temp;\n
+		}\n
+	}\n
+	for (int i = 0; i &lt; n; i++) {\n
+		if (A[i] != i)\n
+			return i;\n
+	}\n
+	return n;\n
+}\n
+</item>
+</string-array>
+
+<string-array name="two_sum_">
+<item name="definition">
+Given an array of integers, find two numbers such that they add up to a specific target number.
+\n
+The function twoSum should return indices of the two numbers
+such that they add up to the target, where index1 must be less than index2.
+Please note that your returned answers (both index1 and index2) are not zero-based.
+\n
+You may assume that each input would have exactly one solution.
+\n
+Input: numbers={2, 7, 11, 15}, target=9\n
+Output: index1=1, index2=2
+</item>
+<item name="code">
+public static int[] twoSum(int[] numbers, int target) {\n
+	int[] ret = new int[2];\n
+	for (int i = 0; i &lt; numbers.length; i++) {\n
+		for (int j = i + 1; j &lt; numbers.length; j++) {\n
+			if (numbers[i] + numbers[j] == target) {\n
+				ret[0] = i + 1;\n
+				ret[1] = j + 1;\n
+			}\n
+		}\n
+	}\n
+	return ret;\n
+}
+</item>
+</string-array>
+
+<string-array name="three_sum_">
+<item name="definition">
+Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0?
+Find all unique triplets in the array which gives the sum of zero.
+\n
+Example\n
+For example, given array S = {-1 0 1 2 -1 -4}, A solution set is:
+\n
+(-1, 0, 1)\n
+(-1, -1, 2)\n
+Note\n
+Elements in a triplet (a,b,c) must be in non-descending order. (ie, a ≤ b ≤ c)
+\n
+The solution set must not contain duplicate triplets.
+</item>
+<item name="code">
+public class Solution {\n
+    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; threeSum(int[] num) {\n
+        //sort array\n
+        Arrays.sort(num);\n
+        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+        ArrayList&lt;Integer&gt; each = new ArrayList&lt;Integer&gt;();\n
+        for(int i=0; i&lt;num.length; i++){\n
+            if(num[i] &gt; 0) break;\n
+\n
+            for(int j=i+1; j&lt;num.length; j++){\n
+                if(num[i] + num[j] &gt; 0 &amp;&amp; num[j] &gt; 0) break;\n
+\n
+                for(int k=j+1; k&lt;num.length; k++){\n
+                  if(num[i] + num[j] + num[k] == 0) {\n
+                      each.add(num[i]);\n
+                      each.add(num[j]);\n
+                      each.add(num[k]);\n
+                      result.add(each);\n
+                      each.clear();\n
+                  }\n
+                }\n
+            }\n
+        }\n
+        return result;\n
+    }\n
+}
+</item>
+</string-array>
+
+<string-array name="three_sum_closet_">
+<item name="definition">
+Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.
+\n
+    For example, given array S = {-1 2 1 -4}, and target = 1.
+\n
+    The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
+</item>
+<item name="code">
+public int threeSumClosest(int[] nums, int target) {\n
+    int min = Integer.MAX_VALUE;\n
+	int result = 0;\n
+\n
+	Arrays.sort(nums);\n
+\n
+	for (int i = 0; i &lt; nums.length; i++) {\n
+		int j = i + 1;\n
+		int k = nums.length - 1;\n
+		while (j &lt; k) {\n
+			int sum = nums[i] + nums[j] + nums[k];\n
+			int diff = Math.abs(sum - target);\n
+\n
+			if(diff == 0) return sum;\n
+\n
+			if (diff &lt; min) {\n
+				min = diff;\n
+				result = sum;\n
+			}\n
+			if (sum &lt;= target) {\n
+				j++;\n
+			} else {\n
+				k--;\n
+			}\n
+		}\n
+	}\n
+\n
+	return result;\n
+}
+</item>
+</string-array>
+
+<string-array name="remove_duplicates_from_sorted_array_">
+<item name="definition">
+Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
+\n
+Do not allocate extra space for another array, you must do this in place with constant memory.
+\n
+For example,\n
+Given input array A = [1,1,2],
+\n
+Your function should return length = 2, and A is now [1,2].
+</item>
+<item name="code">
+/**\n
+ *\n
+ * Remove Duplicates from Sorted Array\n
+ *\n
+ * Given a sorted array, remove the duplicates in place such that each element appear\n
+ * only once and return the new length.\n
+ *\n
+ * Do not allocate extra space for another array, you must do this in place with\n
+ * constant memory.\n
+ *\n
+ * For example, Given input array A = [1,1,2],\n
+ *\n
+ * Your function should return length = 2, and A is now [1,2].\n
+ *\n
+ */\n
+public class S26 {\n
+\n
+	public static void main(String[] args) {\n
+		int[] A = {1, 1, 2};\n
+		System.out.println(removeDuplicates(A));\n
+	}\n
+\n
+	public static int removeDuplicates(int[] A) {\n
+		int len = A.length;\n
+        if(len &lt; 2){\n
+        	return len;\n
+        }\n
+\n
+        int i = 0, j = 1;\n
+        while(i&lt;len &amp;&amp; j&lt;len){\n
+        	if(A[i] == A[j]){\n
+        		j++;\n
+        	}else{\n
+        		i++;\n
+        		A[i] = A[j];\n
+        		j++;\n
+        	}\n
+        }\n
+        //\n
+        return i+1;\n
+    }\n
+}
+</item>
+</string-array>
+
+<string-array name="remove_duplicates_from_sorted_array_two_">
+<item name="definition">
+Follow up for "Remove Duplicates":
+What if duplicates are allowed at most twice?
+\n
+For example,\n
+Given sorted array A = [1,1,1,2,2,3],
+\n
+Your function should return length = 5, and A is now [1,1,2,2,3].
+Example\n
+</item>
+<item name="code">
+public class Solution {\n
+    public int removeDuplicates(int[] A) {\n
+        if(A == null || A.length == 0)\n
+            return 0;\n
+        int pre = A[0];\n
+        boolean flag = false;\n
+        int count = 0;\n
+        for(int i=1; i&lt;A.length; i++){\n
+            int curr = A[i];\n
+            if(curr == pre){\n
+                if(!flag){\n
+                	flag = true;\n
+                    continue;\n
+                }else{\n
+                    count++;\n
+                }\n
+            }else{\n
+                pre = curr;\n
+                flag = false;\n
+            }\n
+        }\n
+        return A.length - count;\n
+    }\n
+}
+</item>
+</string-array>
+
+<string-array name="merge_sorted_array_">
+<item name="definition">
+Merge two given sorted integer array A and B into a new sorted integer array.
+\n
+Example\n
+A=[1,2,3,4]
+\n
+B=[2,4,5,6]
+\n
+return [1,2,2,3,4,4,5,6]
+\n
+Challenge\n
+How can you optimize your algorithm if one array is very large and the other is very small?
+</item>
+<item name="code">
+class Solution {
+    /**\n
+     * @param A: sorted integer array A which has m elements,\n
+     *           but size of A is m+n\n
+     * @param B: sorted integer array B which has n elements\n
+     * @return: void\n
+     */\n
+    public void mergeSortedArray(int[] A, int m, int[] B, int n) {\n
+        int i = m-1, j = n-1, index = m + n - 1;\n
+        while (i >= 0 &amp;&amp; j >= 0) {\n
+            if (A[i] > B[j]) {\n
+                A[index--] = A[i--];\n
+            } else {\n
+                A[index--] = B[j--];\n
+            }\n
+        }\n
+        while (i >= 0) {\n
+            A[index--] = A[i--];\n
+        }\n
+        while (j >= 0) {\n
+            A[index--] = B[j--];\n
+        }\n
+    }\n
+}\n
+</item>
+</string-array>
+
+<string-array name="merge_sorted_array_two_">
+<item name="definition">
+Given two sorted integer arrays A and B, merge B into A as one sorted array.
+\n
+Note\n
+You may assume that A has enough space (size that is greater or equal to m + n) to hold additional elements from B. The number of elements initialized in A and B are mand n respectively.
+\n
+Example\n
+A = [1, 2, 3, empty, empty] B = [4,5]
+\n
+After merge, A will be filled as [1,2,3,4,5]
+</item>
+<item name="code">
+class Solution {\n
+    /**\n
+     * @param A: sorted integer array A which has m elements,\n
+     *           but size of A is m+n\n
+     * @param B: sorted integer array B which has n elements\n
+     * @return: void\n
+     */\n
+    public void mergeSortedArray(int A[], int m, int B[], int n) {\n
+        int index = n + m;\n
+\n
+        while (m > 0 &amp;&amp; n > 0) {\n
+            if (A[m - 1] > B[n - 1]) {\n
+                A[--index] = A[--m];\n
+            } else {\n
+                A[--index] = B[--n];\n
+            }\n
+        }\n
+        while (n > 0) {\n
+            A[--index] = B[--n];\n
+        }\n
+        while (m > 0) {\n
+            A[--index] = A[--m];\n
+        }\n
+    }\n
+};
+</item>
+</string-array>
+
+<string-array name="binary_search_">
+<item name="definition">
+Binary search is a famous question in algorithm.
+\n
+For a given sorted array (ascending order) and a target number, find the first index of this number in O(log n) time complexity.
+\n
+If the target number does not exist in the array, return -1.
+\n
+Example\n
+If the array is [1, 2, 3, 3, 4, 5, 10], for given target 3, return 2.
+\n
+Challenge\n
+If the count of numbers is bigger than MAXINT, can your code work properly?
+</item>
+<item name="code">
+    class Solution {\n
+    /**\n
+     * @param nums: The integer array.\n
+     * @param target: Target to find.\n
+     * @return: The first position of target. Position starts from 0.\n
+     */\n
+    public int binarySearch(int[] nums, int target) {\n
+        if (nums == null || nums.length == 0) {\n
+            return -1;\n
+        }\n
+\n
+        int start = 0;\n
+        int end = nums.length - 1;\n
+        int mid;\n
+        while (start + 1 &lt; end) {\n
+            mid = start + (end - start) / 2; // avoid overflow when (end + start)\n
+            if (target &lt; nums[mid]) {\n
+                end = mid;\n
+            } else if (target > nums[mid]) {\n
+                start = mid;\n
+            } else {\n
+                end = mid;\n
+            }\n
+        }\n
+\n
+        if (nums[start] == target) {\n
+            return start;\n
+        }\n
+        if (nums[end] == target) {\n
+            return end;\n
+        }\n
+\n
+        return -1;\n
+    }\n
+}\n
+</item>
+</string-array>
+
+<string-array name="search_insert_position_">
+<item name="definition">
+Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+\n
+You may assume no duplicates in the array.
+\n
+Example\n
+[1,3,5,6], 5 → 2\n
+[1,3,5,6], 2 → 1\n
+[1,3,5,6], 7 → 4\n
+[1,3,5,6], 0 → 0
+</item>
+<item name="code">
+    public class Solution {\n
+    /**\n
+     * param A : an integer sorted array\n
+     * param target :  an integer to be inserted\n
+     * return : an integer\n
+     */\n
+    public int searchInsert(int[] A, int target) {\n
+        if (A == null) {\n
+            return -1;\n
+        }\n
+        if (A.length == 0) {\n
+            return 0;\n
+        }\n
+\n
+        int start = 0, end = A.length - 1;\n
+        int mid;\n
+\n
+        while (start + 1 &lt; end) {\n
+            mid = start + (end - start) / 2;\n
+            if (A[mid] == target) {\n
+                return mid; // no duplicates, if not `end = target;`\n
+            } else if (A[mid] &lt; target) {\n
+                start = mid;\n
+            } else {\n
+                end = mid;\n
+            }\n
+        }\n
+\n
+        if (A[start] >= target) {\n
+            return start;\n
+        } else if (A[end] >= target) {\n
+            return end; // in most cases\n
+        } else {\n
+            return end + 1; // A[end] &lt; target;\n
+        }\n
+    }\n
+}
+</item>
+</string-array>
+
+<string-array name="search_for_a_range_">
+<item name="definition">
+Given a sorted array of integers, find the starting and ending position of a given target value.
+\n
+Your algorithm\'s runtime complexity must be in the order of O(log n).
+\n
+If the target is not found in the array, return [-1, -1].
+\n
+Example\n
+Given [5, 7, 7, 8, 8, 10] and target value 8,\n
+return [3, 4].
+</item>
+<item name="code">
+public class Solution {\n
+    /**\n
+     *@param A : an integer sorted array\n
+     *@param target :  an integer to be inserted\n
+     *return : a list of length 2, [index1, index2]\n
+     */\n
+    public ArrayList searchRange(ArrayList A, int target) {\n
+        ArrayList result = new ArrayList();\n
+        int start, end, mid;\n
+        result.add(-1);\n
+        result.add(-1);\n
+\n
+        if (A == null || A.size() == 0) {\n
+            return result;\n
+        }\n
+\n
+        // search for left bound\n
+        start = 0;\n
+        end = A.size() - 1;\n
+        while (start + 1 &lt; end) {\n
+            mid = start + (end - start) / 2;\n
+            if (A.get(mid) == target) {\n
+                end = mid; // set end = mid to find the minimum mid\n
+            } else if (A.get(mid) > target) {\n
+                end = mid;\n
+            } else {\n
+                start = mid;\n
+            }\n
+        }\n
+        if (A.get(start) == target) {\n
+            result.set(0, start);\n
+        } else if (A.get(end) == target) {\n
+            result.set(0, end);\n
+        } else {\n
+            return result;\n
+        }\n
+\n
+        // search for right bound\n
+        start = 0;\n
+        end = A.size() - 1;\n
+        while (start + 1 &lt; end) {\n
+            mid = start + (end - start) / 2;\n
+            if (A.get(mid) == target) {\n
+                start = mid; // set start = mid to find the maximum mid\n
+            } else if (A.get(mid) > target) {\n
+                end = mid;\n
+            } else {\n
+                start = mid;\n
+            }\n
+        }\n
+        if (A.get(end) == target) {\n
+            result.set(1, end);\n
+        } else if (A.get(start) == target) {\n
+            result.set(1, start);\n
+        } else {\n
+            return result;\n
+        }\n
+\n
+        return result;\n
+        // write your code here\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="first_bad_version_">
+<item name="definition">
+The code base version is an integer start from 1 to n. One day, someone committed a bad version in the code case, so it caused this version and the following versions are all failed in the unit tests. Find the first bad version.
+\n
+You can call isBadVersion to help you determine which version is the first bad one. The details interface can be found in the code\'s annotation part.
+</item>
+<item name="code">
+/**\n
+ * public class VersionControl {\n
+ *     public static boolean isBadVersion(int k);\n
+ * }\n
+ * you can use VersionControl.isBadVersion(k) to judge wether\n
+ * the kth code version is bad or not.\n
+*/\n
+class Solution {\n
+    /**\n
+     * @param n: An integers.\n
+     * @return: An integer which is the first bad version.\n
+     */\n
+    public int findFirstBadVersion(int n) {\n
+        // write your code here\n
+        if (n == 0) {\n
+            return -1;\n
+        }\n
+\n
+        int start = 1, end = n, mid;\n
+        while (start + 1 &lt; end) {\n
+            mid = start + (end - start)/2;\n
+            if (VersionControl.isBadVersion(mid) == false) {\n
+                start = mid;\n
+            } else {\n
+                end = mid;\n
+            }\n
+        }\n
+\n
+        if (VersionControl.isBadVersion(start) == true) {\n
+            return start;\n
+        } else if (VersionControl.isBadVersion(end) == true) {\n
+            return end;\n
+        } else {\n
+            return -1; // not found\n
+        }\n
+    }\n
+}
+</item>
+</string-array>
+
+<string-array name="search_a_2D_matrix_">
+<item name="definition">
+Write an efficient algorithm that searches for a value in an m x n matrix.
+\n
+This matrix has the following properties:\n
+    * Integers in each row are sorted from left to right.\n
+    * The first integer of each row is greater than the last integer of the previous row.\n
+Example\n
+Consider the following matrix:
+\n
+[
+    [1, 3, 5, 7],\n
+    [10, 11, 16, 20],\n
+    [23, 30, 34, 50]
+]
+\n
+Given target = 3, return true.
+\n
+Challenge\n
+O(log(n) + log(m)) time
+</item>
+
+<item name="code">
+    public class Solution {\n
+    public boolean searchMatrix(int[][] matrix, int target) {\n
+        if(matrix==null || matrix.length==0 || matrix[0].length==0)\n
+            return false;\n
+\n
+        int m = matrix.length;\n
+        int n = matrix[0].length;\n
+\n
+        int start = 0;\n
+        int end = m*n-1;\n
+\n
+        while(start&lt;=end){\n
+            int mid=(start+end)/2;\n
+            int midX=mid/n;\n
+            int midY=mid%n;\n
+\n
+            if(matrix[midX][midY]==target)\n
+                return true;\n
+
+            if(matrix[midX][midY]&lt;target){\n
+                start=mid+1;\n
+            }else{\n
+                end=mid-1;\n
+            }\n
+        }\n
+\n
+        return false;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="find_peak_element_">
+<item name="definition">
+There is an integer array which has the following features:
+\n
+    * The numbers in adjacent positions are different.
+\n
+    * A[0] &lt; A[1] &amp;&amp; A[A.length - 2] &gt; A[A.length - 1].
+\n
+We define a position P is a peek if A[P] &gt; A[P-1] &amp;&amp; A[P] &gt; A[P+1].
+\n
+Find a peak element in this array. Return the index of the peak.
+\n
+Note
+The array may contains multiple peeks, find any of them.
+\n
+Example
+[1, 2, 1, 3, 4, 5, 7, 6]
+\n
+return index 1 (which is number 2)  or 6 (which is number 7)
+\n
+Challenge\n
+Time complexity O(logN)
+</item>
+<item name="code">
+class Solution {\n
+    /**\n
+     * @param A: An integers array.\n
+     * @return: return any of peek positions.\n
+     */\n
+    public int findPeak(int[] A) {\n
+        // write your code here\n
+        if (A == null) {\n
+            return -1;\n
+        }\n
+        if (A.length == 0) {\n
+            return 0;\n
+        }\n
+\n
+        int start = 0, end = A.length - 1, mid = end / 2;\n
+        while (start + 1 &lt; end) {\n
+            mid = start + (end - start)/2;\n
+            if (A[mid] &lt; A[mid - 1]) {\n
+                end = mid;\n
+            } else if (A[mid] &lt; A[mid + 1]) {\n
+                start = mid;\n
+            } else {\n
+                return mid;\n
+            }\n
+        }\n
+\n
+        mid = (A[start] &gt; A[end]) ? start : end;\n
+        return mid;\n
+    }\n
+}
+</item>
+</string-array>
+
+<string-array name="search_in_rotated_sorted_array_">
+<item name="definition">
+There is an integer array which has the following features:
+\n
+    * The numbers in adjacent positions are different.
+\n
+    * A[0] &lt; A[1] &amp;&amp; A[A.length - 2] &gt; A[A.length - 1].
+\n
+We define a position P is a peek if A[P] &gt; A[P-1] &amp;&amp; A[P] &gt; A[P+1].
+\n
+Find a peak element in this array. Return the index of the peak.
+\n
+Note\n
+The array may contains multiple peeks, find any of them.
+\n
+Example\n
+[1, 2, 1, 3, 4, 5, 7, 6]
+\n
+return index 1 (which is number 2)  or 6 (which is number 7)
+\n
+Challenge\n
+Time complexity O(logN)
+</item>
+<item name="code">
+public class Solution {\n
+    /**\n
+     *@param A : an integer rotated sorted array\n
+     *@param target :  an integer to be searched\n
+     *return : an integer\n
+     */\n
+    public int search(int[] A, int target) {\n
+        // write your code here\n
+        if (A == null || A.length == 0) {\n
+            return -1;\n
+        }\n
+\n
+        int start = 0, end = A.length - 1, mid = 0;\n
+        while (start + 1 &lt; end) {\n
+            mid = start + (end - start)/2;\n
+            if (A[mid] == target) {\n
+                return mid;\n
+            }\n
+            if (A[start] &lt; A[mid]) {//part 1\n
+                if (A[start] &lt;= target &amp;&amp; target &lt;= A[mid]) {\n
+                    end = mid;\n
+                } else {\n
+                    start = mid;\n
+                }\n
+            } else { //part 2\n
+                if (A[mid] &lt;= target &amp;&amp; target &lt;= A[end]) {\n
+                    start = mid;\n
+                } else {\n
+                    end = mid;\n
+                }\n
+            }\n
+        } // end while\n
+\n
+        if (A[start] == target) {\n
+            return start;\n
+        } else if (A[end] == target) {\n
+            return end;\n
+        } else {\n
+            return -1; // not found\n
+        }\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="find_minimum_in_rotated_sorted_array_">
+<item name="definition">
+Suppose a sorted array is rotated at some pivot unknown to you beforehand.
+\n
+(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+\n
+Find the minimum element.
+\n
+You may assume no duplicate exists in the array.
+\n
+Example\n
+Given [4,5,6,7,0,1,2] return 0
+</item>
+<item name="code">
+public class Solution {\n
+    /**\n
+     * @param num: a rotated sorted array\n
+     * @return: the minimum number in the array\n
+     */\n
+    public int findMin(int[] nums) {\n
+        if (nums == null || nums.length == 0) {\n
+            return -1;\n
+        }\n
+\n
+        int start = 0, end = nums.length - 1;\n
+        int target = nums[nums.length - 1];\n
+\n
+        // find the first element &lt;= target\n
+        while (start + 1 &lt; end) {\n
+            int mid = start + (end - start) / 2;\n
+            if (nums[mid] &lt;= target) {\n
+                end = mid;\n
+            } else {\n
+                start = mid;\n
+            }\n
+        }\n
+        if (nums[start] &lt;= target) {\n
+            return nums[start];\n
+        } else {\n
+            return nums[end];\n
+        }\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="search_a_2D_matrix_two_">
+<item name="definition">
+Write an efficient algorithm that searches for a value in an m x n matrix, return the occurrence of it.\n
+This matrix has the following properties:\n
+    * Integers in each row are sorted from left to right.\n
+    * Integers in each column are sorted from up to bottom.\n
+    * No duplicate integers in each row or column.\n
+Example\n
+Consider the following matrix:\n
+[
+    [1, 3, 5, 7],\n
+    [2, 4, 7, 8],\n
+    [3, 5, 9, 10]
+]
+Given target = 3, return 2.\n
+Challenge\n
+O(m+n) time and O(1) extra space
+</item>
+<item name="code">
+public class Solution {\n
+    /**\n
+     * @param matrix: A list of lists of integers\n
+     * @param: A number you want to search in the matrix\n
+     * @return: An integer indicate the occurrence of target in the given matrix\n
+     */\n
+    public int searchMatrix(int[][] matrix, int target) {\n
+        int occurence = 0;\n
+\n
+        if (matrix == null || matrix.length == 0) {\n
+            return occurence;\n
+        }\n
+        if (matrix[0] == null || matrix[0].length == 0) {\n
+            return occurence;\n
+        }\n
+\n
+        int row = matrix.length - 1;\n
+        int column = matrix[0].length - 1;\n
+        int index_row = 0, index_column = column;\n
+        int number;\n
+\n
+        if (target &lt; matrix[0][0] || target &gt; matrix[row][column]) {\n
+            return occurence;\n
+        }\n
+\n
+        while (index_row &lt; row + 1 &amp;&amp; index_column + 1 > 0) {\n
+            number = matrix[index_row][index_column];\n
+            if (target == number) {\n
+                occurence++;\n
+                index_column--;\n
+            } else if (target &lt; number) {\n
+                index_column--;\n
+            } else if (target &gt; number) {\n
+                index_row++;\n
+            }\n
+        }\n
+        return occurence;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="median_of_two_sorted_arrays_">
+<item name="definition">
+There are two sorted arrays A and B of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+\n
+Example\n
+For A = [1,2,3,4,5,6] B = [2,3,4,5], the median is 3.5
+\n
+For A = [1,2,3] B = [4,5], the median is 3
+\n
+Challenge\n
+Time Complexity O(logn)
+</item>
+<item name="code">
+class Solution {\n
+    /**\n
+     * @param A: An integer array.\n
+     * @param B: An integer array.\n
+     * @return: a double whose format is *.5 or *.0\n
+     */\n
+    public double findMedianSortedArrays(int[] A, int[] B) {\n
+        // write your code here\n
+        int len = A.length + B.length;\n
+        if (len % 2 == 0) {\n
+            return (findKth(A, 0, B, 0, len/2) + findKth(A, 0, B, 0, len/2+1)) / 2.0;\n
+        } else {\n
+            return findKth(A, 0, B, 0, len/2 + 1);\n
+        }\n
+    }\n
+\n
+    //find kth number of two sorted array\n
+    public static int findKth(int[] A, int A_start, int[] B, int B_start, int k) {\n
+        if (A_start >= A.length) {\n
+            return B[B_start + k - 1];\n
+        }\n
+        if (B_start >= B.length) {\n
+            return A[A_start + k - 1];\n
+        }\n
+        if (k == 1) {\n
+            return Math.min(A[A_start], B[B_start]);\n
+        }\n
+\n
+        int A_key = (A_start + k/2 - 1 &lt; A.length) // if one array is too short
+                    ? A[A_start + k/2 - 1] : Integer.MAX_VALUE; // trick\n
+        int B_key = (B_start + k/2 - 1 &lt; B.length) // if one array is too short
+                    ? B[B_start + k/2 - 1] : Integer.MAX_VALUE; // trick\n
+\n
+        if (A_key &lt; B_key) {\n
+            return findKth(A, A_start + k/2, B, B_start, k - k/2);\n
+        } else {\n
+            return findKth(A, A_start, B, B_start + k/2, k - k/2);\n
+        }\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="sqrt_x_">
+<item name="definition">
+Implement int sqrt(int x).
+\n
+Compute and return the square root of x.
+</item>
+<item name="code">
+public class Solution {\n
+    public int sqrt(int x) {\n
+        long i = 0;\n
+        long j = x / 2 + 1;\n
+        while (i &lt;= j) {\n
+            long mid = (i + j) / 2;\n
+            if (mid * mid == x)\n
+                return (int)mid;\n
+            if (mid * mid &lt; x)\n
+                i = mid + 1;\n
+            else\n
+                j = mid - 1;\n
+        }\n
+        return (int)j;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="wood_cut_">
+<item name="definition">
+Given n pieces of wood with length L[i] (integer array).
+Cut them into small pieces to guarantee you could have equal or more than k pieces with the same length.
+What is the longest length you can get from the n pieces of wood?
+Given L &amp; k, return the maximum length of the small pieces.
+\n
+Example\n
+For L=[232, 124, 456], k=7, return 114.
+\n
+Note\n
+You couldn\'t cut wood into float length.
+\n
+Challenge\n
+O(n log Len), where Len is the longest length of the wood.
+</item>
+<item name="code">
+public class Solution {\n
+    /**\n
+     *@param L: Given n pieces of wood with length L[i]\n
+     *@param k: An integer\n
+     *return: The maximum length of the small pieces.\n
+     */\n
+    public int woodCut(int[] L, int k) {\n
+        int max = 0;\n
+        for (int i = 0; i &lt; L.length; i++) {\n
+            max = Math.max(max, L[i]);\n
+        }\n
+\n
+        // find the largest length that can cut more than k pieces of wood.\n
+        int start = 1, end = max;\n
+        while (start + 1 &lt; end) {\n
+            int mid = start + (end - start) / 2;\n
+            if (count(L, mid) &gt;= k) {\n
+                start = mid;\n
+            } else {\n
+                end = mid;\n
+            }\n
+        }\n
+\n
+        if (count(L, end) &gt;= k) {\n
+            return end;\n
+        }\n
+        if (count(L, start) &gt;= k) {\n
+            return start;\n
+        }\n
+        return 0;\n
+    }\n
+\n
+    private int count(int[] L, int length) {\n
+        int sum = 0;\n
+        for (int i = 0; i &lt; L.length; i++) {\n
+            sum += L[i] / length;\n
+        }\n
+        return sum;\n
+    }\n
+}
+</item>
+</string-array>
+
+<string-array name="single_number_">
+<item name="definition">
+Given an array of integers, every element appears twice except for one. Find that single one.
+\n
+Note:\n
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+</item>
+<item name="code">
+    public int singleNumber(int[] A) {\n
+	HashSet&lt;Integer&gt; set = new HashSet&lt;Integer&gt;();\n
+	for (int n : A) {\n
+		if (!set.add(n))\n
+			set.remove(n);\n
+	}\n
+	Iterator&lt;Integer&gt; it = set.iterator();\n
+	return it.next();\n
+}
+</item>
+</string-array>
+<string-array name="single_number_two_">
+<item name="definition">
+Given an array of integers, every element appears three times except for one. Find that single one.
+\n
+Note:\n
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+</item>
+<item name="code">
+    int singleNumber(int A[], int n) {\n
+          vector&lt;int&gt; bit(32,0);\n
+\n
+          for(int i =0; i&lt; n; ++i)\n
+          {\n
+              int k=1;\n
+              for(int j =0; j&lt;32; ++j)\n
+              {\n
+                 int rotated;\n
+                 if((rotated = A[i]&gt;&gt;j) == 0) break;\n
+                 bit[j] += rotated &amp; k;\n
+             }\n
+         }\n
+\n
+         int target=0;\n
+         for(int i =0; i&lt;32; ++i)\n
+         {\n
+             target += (bit[i]%3 &lt;&lt;i);\n
+         }\n
+         return target;\n
+     }
+</item>
+</string-array>
+
+<string-array name="o_1_check_power_of_2_source_">
+<item name="definition">
+Using O(1) time to check whether an integer n is a power of 2.
+\n
+Example\n
+For n=4, return true;
+\n
+For n=5, return false;
+\n
+Challenge
+O(1) time
+</item>
+<item name="code">
+    class Solution {\n
+    /*\n
+     * @param n: An integer\n
+     * @return: True or false\n
+     */\n
+    public boolean checkPowerOf2(int n) {\n
+        if (n &lt; 1) {\n
+            return false;\n
+        } else {\n
+            return (n &amp; (n - 1)) == 0;\n
+        }\n
+    }\n
+};
+</item>
+</string-array>
+<string-array name="convert_integer_a_to_integer_b_">
+<item name="definition">
+Determine the number of bits required to convert integer A to integer B
+\n
+Example\n
+Given n = 31, m = 14,return 2
+\n
+(31)10=(11111)2
+\n
+(14)10=(01110)2
+</item>
+<item name="code">
+    class Solution {\n
+    /**\n
+     *@param a, b: Two integer\n
+     *return: An integer\n
+     */\n
+    public static int bitSwapRequired(int a, int b) {\n
+        int count = 0;\n
+        int a_xor_b = a ^ b;\n
+        while (a_xor_b != 0) {\n
+            ++count;\n
+            a_xor_b &amp;= (a_xor_b - 1);\n
+        }\n
+        return count;\n
+    }\n
+};\n
+</item>
+</string-array>
+<string-array name="factorial_trailing_zeroes_">
+<item name="definition">
+Write an algorithm which computes the number of trailing zeros in n factorial.
+\n
+Example\n
+11! = 39916800, so the out should be 2
+\n
+Challenge\n
+O(log N) time
+</item>
+<item name="code">
+    public class Solution {\n
+    public int trailingZeroes(int n) {\n
+        if (n &lt;0) {\n
+            return -1;\n
+        }\n
+        int count = 0;\n
+        for (; n &gt; 0; n /= 5) {\n
+            count += (n / 5);\n
+        }\n
+        return count;\n
+    }\n
+}\n
+</item>
+</string-array>
+
+<string-array name="remove_duplicates_from_sorted_list_">
+<item name="definition">
+Given a sorted linked list, delete all duplicates such that each element appear only once.
+\n
+Example\n
+Given 1->1->2, return 1->2.\n
+Given 1->1->2->3->3, return 1->2->3.
+</item>
+<item name="code">
+    /**\n
+ * http://www.jiuzhang.com/solutions/remove-duplicates-from-sorted-list/\n
+ */\n
+
+public class Solution {\n
+    public ListNode deleteDuplicates(ListNode head) {\n
+        if (head == null) {\n
+            return null;\n
+        }\n
+        ListNode node = head;\n
+        while (node.next != null) {\n
+            if (node.val == node.next.val) {\n
+                node.next = node.next.next;\n
+            } else {\n
+                node = node.next;\n
+            }\n
+        }\n
+        return head;\n
+    }\n
+}\n
+</item>
+</string-array>
+<string-array name="remove_duplicates_from_sorted_list_two_">
+<item name="definition">
+Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
+\n
+Example\n
+Given 1->2->3->3->4->4->5, return 1->2->5.\n
+Given 1->1->1->2->3, return 2->3.
+</item>
+<item name="code">
+public ListNode deleteDuplicates(ListNode head) {\n
+    ListNode t = new ListNode(0);\n
+    t.next = head;\n
+    ListNode p = t;\n
+    while(p.next!=null&amp;&amp;p.next.next!=null){\n
+        if(p.next.val == p.next.next.val){\n
+            int dup = p.next.val;\n
+            while(p.next!=null&amp;&amp;p.next.val==dup){\n
+                p.next = p.next.next;\n
+            }\n
+        }else{\n
+            p=p.next;\n
+        }\n
+    }\n
+    return t.next;\n
+}
+</item>
+</string-array>
+<string-array name="partition_list_">
+<item name="definition">
+Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
+\n
+You should preserve the original relative order of the nodes in each of the two partitions.
+\n
+For example,\n
+Given 1->4->3->2->5->2->null and x = 3,\n
+return 1->2->2->4->3->5->null.
+</item>
+<item name="code">
+    public class Solution {\n
+    public ListNode partition(ListNode head, int x) {\n
+        if(head == null) return null;\n
+\n
+        ListNode fakeHead1 = new ListNode(0);\n
+        ListNode fakeHead2 = new ListNode(0);\n
+        fakeHead1.next = head;\n
+\n
+        ListNode p = head;\n
+        ListNode prev = fakeHead1;\n
+        ListNode p2 = fakeHead2;\n
+
+        while(p != null){\n
+            if(p.val &lt; x){\n
+                p = p.next;\n
+                prev = prev.next;\n
+            }else{\n
+                p2.next = p;\n
+                prev.next = p.next;\n
+                p = prev.next;\n
+                p2 = p2.next;\n
+            }\n
+        }\n
+        // close the list\n
+        p2.next = null;\n
+        prev.next = fakeHead2.next;\n
+        return fakeHead1.next;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="two_lists_sum_">
+<item name="definition">
+You have two numbers represented by a linked list, where each node contains a single digit.
+The digits are stored in reverse order, such that the 1’s digit is at the head of the list.
+Write a function that adds the two numbers and returns the sum as a linked list.
+\n
+Example\n
+Given two lists, 3->1->5->null and 5->9->2->null, return 8->0->8->null
+</item>
+<item name="code">
+    public class Solution {\n
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {\n
+       int carry =0;\n
+        ListNode newHead = new ListNode(0);\n
+        ListNode p1 = l1, p2 = l2, p3=newHead;\n
+        while(p1 != null || p2 != null){\n
+            if(p1 != null){\n
+                carry += p1.val;\n
+                p1 = p1.next;\n
+            }\n
+            if(p2 != null){\n
+                carry += p2.val;\n
+                p2 = p2.next;\n
+            }\n
+            p3.next = new ListNode(carry%10);\n
+            p3 = p3.next;\n
+            carry /= 10;\n
+        }\n
+        if(carry==1)\n
+            p3.next=new ListNode(1);\n
+        return newHead.next;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="two_lists_sum_advanced_">
+<item name="definition">
+Given two numbers represented by two linked lists, write a function that returns sum list.
+The sum list is linked list representation of addition of two input numbers.
+\n
+Example
+\n
+Input:\n
+  First  List: 5->6->3  // represents number 563\n
+  Second List: 8->4->2  // represents number 842\n
+Output\n
+  Resultant list: 1->4->0->5  // represents number 1405
+\n
+Challenge
+\n
+Not allowed to modify the lists.
+Not allowed to use explicit extra space.
+</item>
+<item name="code">
+    // Java program to delete a given node in linked list under given constraints
+\n
+class LinkedList {\n
+\n
+    static Node head1, head2;
+\n
+    static class Node {
+\n
+        int data;\n
+        Node next;\n
+\n
+        Node(int d) {\n
+            data = d;\n
+            next = null;\n
+        }\n
+    }\n
+\n
+    /* Adds contents of two linked lists and return the head node of resultant list */\n
+    Node addTwoLists(Node first, Node second) {\n
+        Node res = null; // res is head node of the resultant list\n
+        Node prev = null;\n
+        Node temp = null;\n
+        int carry = 0, sum;\n
+\n
+        while (first != null || second != null) //while both lists exist{\n
+            // Calculate value of next digit in resultant list.\n
+            // The next digit is sum of following things\n
+            // (i)  Carry\n
+            // (ii) Next digit of first list (if there is a next digit)\n
+            // (ii) Next digit of second list (if there is a next digit)\n
+            sum = carry + (first != null ? first.data : 0)\n
+                    + (second != null ? second.data : 0);\n
+\n
+            // update carry for next calulation\n
+            carry = (sum >= 10) ? 1 : 0;\n
+\n
+            // update sum if it is greater than 10\n
+            sum = sum % 10;\n
+\n
+            // Create a new node with sum as data\n
+            temp = new Node(sum);\n
+\n
+            // if this is the first node then set it as head of\n
+            // the resultant list\n
+            if (res == null) {\n
+                res = temp;\n
+            } else // If this is not the first node then connect it to the rest.{\n
+                prev.next = temp;\n
+            }\n
+\n
+            // Set prev for next insertion\n
+            prev = temp;\n
+\n
+            // Move first and second pointers to next nodes\n
+            if (first != null) {\n
+                first = first.next;\n
+            }\n
+            if (second != null) {\n
+                second = second.next;\n
+            }\n
+        }\n
+\n
+        if (carry > 0) {\n
+            temp.next = new Node(carry);\n
+        }\n
+\n
+        // return head of the resultant list\n
+        return res;\n
+    }\n
+    /* Utility function to print a linked list */\n
+\n
+    void printList(Node head) {\n
+        while (head != null) {\n
+            System.out.print(head.data + " ");\n
+            head = head.next;\n
+        }\n
+        System.out.println("");\n
+    }\n
+\n
+    public static void main(String[] args) {\n
+        LinkedList list = new LinkedList();\n
+\n
+        // creating first list\n
+        list.head1 = new Node(7);\n
+        list.head1.next = new Node(5);\n
+        list.head1.next.next = new Node(9);\n
+        list.head1.next.next.next = new Node(4);\n
+        list.head1.next.next.next.next = new Node(6);\n
+        System.out.print("First List is ");\n
+        list.printList(head1);\n
+\n
+        // creating seconnd list\n
+        list.head2 = new Node(8);\n
+        list.head2.next = new Node(4);\n
+        System.out.print("Second List is ");\n
+        list.printList(head2);\n
+\n
+        // add the two lists and see the result\n
+        Node rs = list.addTwoLists(head1, head2);\n
+        System.out.print("Resultant List is ");\n
+        list.printList(rs);\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="remove_nth_node_from_end_of_list_">
+<item name="definition">
+Given a linked list, remove the nth node from the end of list and return its head.
+\n
+Note\n
+The minimum number of nodes in list is n.
+\n
+Example\n
+Given linked list: 1->2->3->4->5->null, and n = 2.
+\n
+After removing the second node from the end, the linked list becomes 1->2->3->5->null.
+\n
+Challenge\n
+O(n) time
+</item>
+<item name="code">
+public ListNode removeNthFromEnd(ListNode head, int n) {\n
+    if(head == null)\n
+        return null;\n
+\n
+    //get length of list\n
+    ListNode p = head;\n
+    int len = 0;\n
+    while(p != null){\n
+        len++;\n
+        p = p.next;\n
+    }\n
+\n
+    //if remove first node\n
+    int fromStart = len-n+1;\n
+    if(fromStart==1)\n
+        return head.next;\n
+\n
+    //remove non-first node\n
+    p = head;\n
+    int i=0;\n
+    while(p!=null){\n
+        i++;\n
+        if(i==fromStart-1){\n
+            p.next = p.next.next;\n
+        }\n
+        p=p.next;\n
+    }\n
+\n
+    return head;\n
+}
+</item>
+</string-array>
+<string-array name="linked_list_cycle_">
+<item name="definition">
+Given a linked list, determine if it has a cycle in it.
+\n
+Example\n
+Given -21->10->4->5, tail connects to node index 1, return true
+\n
+Challenge\n
+Follow up:\n
+Can you solve it without using extra space?
+</item>
+<item name="code">
+    public class Solution {\n
+    public Boolean hasCycle(ListNode head) {\n
+        if (head == null || head.next == null) {\n
+            return false;\n
+        }\n
+\n
+        ListNode fast, slow;\n
+        fast = head.next;\n
+        slow = head;\n
+        while (fast != slow) {\n
+            if(fast==null || fast.next==null)\n
+                return false;\n
+            fast = fast.next.next;\n
+            slow = slow.next;\n
+        }\n
+        return true;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="linked_list_cycle_two_">
+<item name="definition">
+Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+\n
+Example\n
+Given -21->10->4->5, tail connects to node index 1，return node 10
+\n
+Challenge\n
+Follow up:\n
+Can you solve it without using extra space?
+</item>
+<item name="code">
+public class Solution {\n
+    public ListNode detectCycle(ListNode head) {\n
+        if (head == null || head.next==null) {\n
+            return null;\n
+        }\n
+\n
+        ListNode fast, slow;\n
+        fast = head.next;\n
+        slow = head;\n
+        while (fast != slow) {\n
+            if(fast==null || fast.next==null)\n
+                return null;\n
+            fast = fast.next.next;\n
+            slow = slow.next;\n
+        }\n
+\n
+        while (head != slow.next) {\n
+            head = head.next;\n
+            slow = slow.next;\n
+        }\n
+        return head;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="reverse_linked_list_">
+<item name="definition">
+Reverse a linked list.
+\n
+Example\n
+For linked list 1->2->3, the reversed linked list is 3->2->1
+\n
+Challenge\n
+Reverse it in-place and in one-pass
+</item>
+<item name="code">
+    /**\n
+ * Definition for ListNode.\n
+ * public class ListNode {\n
+ *     int val;\n
+ *     ListNode next;\n
+ *     ListNode(int val) {\n
+ *         this.val = val;\n
+ *         this.next = null;\n
+ *     }\n
+ * }\n
+ */\n
+public class Solution {\n
+    /**\n
+     * @param head: The head of linked list.\n
+     * @return: The new head of reversed linked list.\n
+     */\n
+    public ListNode reverse(ListNode head) {\n
+        ListNode prev = null;\n
+        while (head != null) {\n
+            ListNode temp = head.next;\n
+            head.next = prev;\n
+            prev = head;\n
+            head = temp;\n
+        }\n
+        return prev;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="reverse_linked_list_two">
+<item name="definition">
+Reverse a linked list from position m to n.
+\n
+Note\n
+Given m, n satisfy the following condition: 1 ≤ m ≤ n ≤ length of list.
+\n
+Example\n
+Given 1->2->3->4->5->NULL, m = 2 and n = 4, return 1->4->3->2->5->NULL.
+\n
+Challenge\n
+Reverse it in-place and in one-pass
+</item>
+<item name="code">
+/**\n
+ * Definition for ListNode\n
+ * public class ListNode {\n
+ *     int val;\n
+ *     ListNode next;\n
+ * }\n
+ */\n
+public class Solution {\n
+    public ListNode reverseBetween(ListNode head, int m, int n) {\n
+        if (m >= n || head == null) {\n
+            return head;\n
+        }\n
+\n
+        ListNode dummy = new ListNode(0);\n
+        dummy.next = head;\n
+        head = dummy;\n
+\n
+        for (int i = 1; i &lt; m; i++) {\n
+            if (head == null) {\n
+                return null;\n
+            }\n
+            head = head.next;\n
+        }\n
+\n
+        ListNode premNode = head;\n
+        ListNode mNode = head.next;\n
+        ListNode nNode = mNode, postnNode = mNode.next;\n
+        for (int i = m; i &lt; n; i++) {\n
+            if (postnNode == null) {\n
+                return null;\n
+            }\n
+            ListNode temp = postnNode.next;\n
+            postnNode.next = nNode;\n
+            nNode = postnNode;\n
+            postnNode = temp;\n
+        }\n
+        mNode.next = postnNode;\n
+        premNode.next = nNode;\n
+\n
+        return dummy.next;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="merge_two_sorted_lists">
+<item name="definition">
+Merge two sorted linked lists and return it as a new list.
+The new list should be made by splicing together the nodes of the first two lists.
+\n
+Example\n
+Given 1->3->8->11->15->null, 2->null , return 1->2->3->8->11->15->null
+</item>
+<item name="code">
+public class Solution {\n
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {\n
+        ListNode dummy = new ListNode(0);\n
+        ListNode lastNode = dummy;\n
+\n
+        while (l1 != null &amp;&amp; l2 != null) {\n
+            if (l1.val &lt; l2.val) {\n
+                lastNode.next = l1;\n
+                l1 = l1.next;\n
+            } else {\n
+                lastNode.next = l2;\n
+                l2 = l2.next;\n
+            }\n
+            lastNode = lastNode.next;\n
+        }\n
+\n
+        if (l1 != null) {\n
+            lastNode.next = l1;\n
+        } else {\n
+            lastNode.next = l2;\n
+        }\n
+\n
+        return dummy.next;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="merge_k_sorted_lists">
+<item name="definition">
+Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+</item>
+<item name="code">
+    /**\n
+ * Definition for ListNode.\n
+ * public class ListNode {\n
+ *     int val;\n
+ *     ListNode next;\n
+ *     ListNode(int val) {\n
+    *         this.val = val;\n
+ *         this.next = null;\n
+ *     }\n
+ * }\n
+ */\n
+public class Solution {\n
+    /**\n
+     * @param lists: a list of ListNode\n
+     * @return: The head of one sorted list.\n
+     */\n
+    public ListNode mergeKLists(List&lt;ListNode&gt; lists) {\n
+        if (lists.size() == 0) {\n
+            return null;\n
+        }\n
+        return mergeHelper(lists, 0, lists.size() - 1);\n
+    }\n
+\n
+    private ListNode mergeHelper(List&lt;ListNode&gt; lists, int start, int end) {\n
+        if (start == end) {\n
+            return lists.get(start);\n
+        }\n
+\n
+        int mid = start + (end - start) / 2;\n
+        ListNode left = mergeHelper(lists, start, mid);\n
+        ListNode right = mergeHelper(lists, mid + 1, end);\n
+        return mergeTwoLists(left, right);\n
+    }\n
+\n
+    private ListNode mergeTwoLists(ListNode list1, ListNode list2) {\n
+        ListNode dummy = new ListNode(0);\n
+        ListNode tail = dummy;\n
+        while (list1 != null &amp;&amp; list2 != null) {\n
+            if (list1.val &lt; list2.val) {\n
+                tail.next = list1;\n
+                tail = list1;\n
+                list1 = list1.next;\n
+            } else {\n
+                tail.next = list2;\n
+                tail = list2;\n
+                list2 = list2.next;\n
+            }\n
+        }\n
+        if (list1 != null) {\n
+            tail.next = list1;\n
+        } else {\n
+            tail.next = list2;\n
+        }\n
+\n
+        return dummy.next;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="sort_list_">
+<item name="definition">
+Sort a linked list in O(n log n) time using constant space complexity.
+</item>
+<item name="code">
+// version 1: Merge Sort\n
+public class Solution {\n
+    private ListNode findMiddle(ListNode head) {\n
+        ListNode slow = head, fast = head.next;\n
+        while (fast != null &amp;&amp; fast.next != null) {\n
+            fast = fast.next.next;\n
+            slow = slow.next;\n
+        }\n
+        return slow;\n
+    }\n
+\n
+    private ListNode merge(ListNode head1, ListNode head2) {\n
+        ListNode dummy = new ListNode(0);\n
+        ListNode tail = dummy;\n
+        while (head1 != null &amp;&amp; head2 != null) {\n
+            if (head1.val &lt; head2.val) {\n
+                tail.next = head1;\n
+                head1 = head1.next;\n
+            } else {\n
+                tail.next = head2;\n
+                head2 = head2.next;\n
+            }\n
+            tail = tail.next;\n
+        }\n
+        if (head1 != null) {\n
+            tail.next = head1;\n
+        } else {\n
+            tail.next = head2;\n
+        }\n
+
+        return dummy.next;\n
+    }\n
+\n
+    public ListNode sortList(ListNode head) {\n
+        if (head == null || head.next == null) {\n
+            return head;\n
+        }\n
+\n
+        ListNode mid = findMiddle(head);\n
+
+        ListNode right = sortList(mid.next);\n
+        mid.next = null;\n
+        ListNode left = sortList(head);\n
+
+        return merge(left, right);\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="recorder_list_">
+<item name="definition">
+Given a singly linked list L: L0→L1→…→Ln-1→Ln, reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→… You must do this in-place without altering the nodes\' values. For example, Given {1,2,3,4}, reorder it to {1,4,2,3}.
+</item>
+<item name="code">
+public class Solution {\n
+    private ListNode reverse(ListNode head) {\n
+        ListNode newHead = null;\n
+        while (head != null) {\n
+            ListNode temp = head.next;\n
+            head.next = newHead;\n
+            newHead = head;\n
+            head = temp;\n
+        }\n
+        return newHead;\n
+    }\n
+\n
+    private void merge(ListNode head1, ListNode head2) {\n
+        int index = 0;\n
+        ListNode dummy = new ListNode(0);\n
+        while (head1 != null &amp;&amp; head2 != null) {\n
+            if (index % 2 == 0) {\n
+                dummy.next = head1;\n
+                head1 = head1.next;\n
+            } else {\n
+                dummy.next = head2;\n
+                head2 = head2.next;\n
+            }\n
+            dummy = dummy.next;\n
+            index ++;\n
+        }\n
+        if (head1 != null) {\n
+            dummy.next = head1;\n
+        } else {\n
+            dummy.next = head2;\n
+        }\n
+    }\n
+\n
+    private ListNode findMiddle(ListNode head) {\n
+        ListNode slow = head, fast = head.next;\n
+        while (fast != null &amp;&amp; fast.next != null) {\n
+            fast = fast.next.next;\n
+            slow = slow.next;\n
+        }\n
+        return slow;\n
+    }\n
+\n
+    public void reorderList(ListNode head) {\n
+        if (head == null || head.next == null) {\n
+            return;\n
+        }\n
+\n
+        ListNode mid = findMiddle(head);\n
+        ListNode tail = reverse(mid.next);\n
+        mid.next = null;\n
+\n
+        merge(head, tail);\n
+    }\n
+}
+</item>
+</string-array>
+
+<string-array name="recover_rotated_sorted_array_">
+<item name="definition">
+Given a rotated sorted array, recover it to sorted array in-place.
+\n
+Example\n
+[4, 5, 1, 2, 3] -> [1, 2, 3, 4, 5]
+\n
+Challenge\n
+In-place, O(1) extra space and O(n) time.
+\n
+Clarification\n
+What is rotated array:
+\n
+    - For example, the orginal array is [1,2,3,4], The rotated array of it can be [1,2,3,4], [2,3,4,1], [3,4,1,2], [4,1,2,3]
+</item>
+<item name="code">
+    public class Solution {\n
+    /**\n
+     * @param nums: The rotated sorted array\n
+     * @return: The recovered sorted array\n
+     */\n
+    public void recoverRotatedSortedArray(ArrayList nums) {\n
+        if (nums == null || nums.size() &lt;= 1) {\n
+            return;\n
+        }\n
+\n
+        int pos = 1;\n
+        while (pos &lt; nums.size()) { // find the break point\n
+            if (nums.get(pos - 1) > nums.get(pos)) {\n
+                break;\n
+            }\n
+            pos++;\n
+        }\n
+        myRotate(nums, 0, pos - 1);\n
+        myRotate(nums, pos, nums.size() - 1);\n
+        myRotate(nums, 0, nums.size() - 1);\n
+    }\n
+\n
+    private void myRotate(ArrayList nums, int left, int right) { // in-place rotate\n
+        while (left &lt; right) {\n
+            int temp = nums.get(left);\n
+            nums.set(left, nums.get(right));\n
+            nums.set(right, temp);\n
+            left++;\n
+            right--;\n
+        }\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="rotate_string_">
+<item name="definition">
+Given a string and an offset, rotate string by offset. (rotate from left to right)
+\n
+Example\n
+Given "abcdefg"
+\n
+for offset=0, return "abcdefg"\n
+
+for offset=1, return "gabcdef"
+\n
+for offset=2, return "fgabcde"
+\n
+for offset=3, return "efgabcd"
+\n
+...
+</item>
+<item name="code">
+public class Solution {\n
+    public String reverseWords(String s) {\n
+        if (s == null || s.length() == 0) {\n
+            return "";\n
+        }\n
+\n
+        String[] array = s.split(" ");\n
+        StringBuilder sb = new StringBuilder();\n
+\n
+        for (int i = array.length - 1; i >= 0; --i) {\n
+            if (!array[i].equals("")) {\n
+                sb.append(array[i]).append(" ");\n
+            }\n
+        }\n
+\n
+        //remove the last " "\n
+        return sb.length() == 0 ? "" : sb.substring(0, sb.length() - 1);\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="reverse_words_in_a_string">
+<item name="definition">
+Given an input string, reverse the string word by word.
+\n
+For example,\n
+Given s = \"the sky is blue\",\n
+return \"blue is sky the\".
+\n
+Example\n
+Clarification\n
+
+ - What constitutes a word?
+A sequence of non-space characters constitutes a word.
+\n
+ - Could the input string contain leading or trailing spaces?
+Yes. However, your reversed string should not contain leading or trailing spaces.
+\n
+ - How about multiple spaces between two words?
+Reduce them to a single space in the reversed string.
+</item>
+<item name="code">
+    public void rotate(int[] nums, int k) {\n
+    if(k > nums.length)\n
+        k=k%nums.length;\n
+\n
+    int[] result = new int[nums.length];\n
+\n
+    for(int i=0; i &lt; k; i++){\n
+        result[i] = nums[nums.length-k+i];\n
+    }\n
+\n
+    int j=0;\n
+    for(int i=k; i&lt;nums.length; i++){\n
+        result[i] = nums[j];\n
+        j++;\n
+    }\n
+    System.arraycopy( result, 0, nums, 0, nums.length );\n
+}
+</item>
+</string-array>
+<string-array name="binary_tree_preorder_traversal_">
+<item name="definition">
+Given a binary tree, return the preorder traversal of its nodes\' values.
+\n
+For example:\n
+Given binary tree {1,#,2,3},
+\n
+ 1  \n
+   \  \n
+     2  \n
+    /  \n
+  3  \n
+return [1,2,3].
+\n
+ Note: Recursive solution is trivial, could you do it iteratively?
+</item>
+<item name="code">
+    public class Solution {\n
+    public List&lt;Integer&gt; preorderTraversal(TreeNode root) {\n
+        Stack&lt;TreeNode&gt; stack = new Stack&lt;TreeNode&gt;();\n
+        List&lt;Integer&gt; preorder = new ArrayList&lt;Integer&gt;();\n
+\n
+        if (root == null) {\n
+            return preorder;\n
+        }\n
+\n
+        stack.push(root);\n
+        while (!stack.empty()) {\n
+            TreeNode node = stack.pop();\n
+            preorder.add(node.val);\n
+            if (node.right != null) {\n
+                stack.push(node.right);\n
+            }\n
+            if (node.left != null) {\n
+                stack.push(node.left);\n
+            }\n
+        }\n
+\n
+        return preorder;\n
+    }\n
+}\n
+\n
+//Version 1: Traverse\n
+public class Solution {\n
+    public ArrayList&lt;Integer&gt; preorderTraversal(TreeNode root) {\n
+        ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();\n
+        traverse(root, result);\n
+        return result;\n
+    }\n
+\n
+    private void traverse(TreeNode root, ArrayList&lt;Integer&gt; result) {\n
+        if (root == null) {\n
+            return;\n
+        }\n
+        result.add(root.val);\n
+        traverse(root.left, result);\n
+        traverse(root.right, result);\n
+    }\n
+}\n
+</item>
+</string-array>
+<string-array name="binary_tree_inorder_traversal_">
+<item name="definition">
+Given a binary tree, return the inorder traversal of its nodes\' values.
+\n
+Example\n
+Given binary tree {1,#,2,3},
+\n
+   1  \n
+    \  \n
+     2  \n
+    /  \n
+   3  \n
+\n
+return [1,3,2].
+\n
+Challenge\n
+Can you do it without recursion?
+</item>
+<item name="code">
+    public class Solution {\n
+    /**\n
+     * @param root: The root of binary tree.\n
+     * @return: Inorder in ArrayList which contains node values.\n
+     */\n
+    public ArrayList&lt;Integer&gt;inorderTraversal(TreeNode root) {\n
+        Stack&lt;TreeNode&gt; stack = new Stack&lt;TreeNode&gt;();\n
+        ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();\n
+        TreeNode curt = root;\n
+        while (curt != null || !stack.empty()) {\n
+            while (curt != null) {\n
+                stack.add(curt);\n
+                curt = curt.left;\n
+            }\n
+            curt = stack.peek();\n
+            stack.pop();\n
+            result.add(curt.val);\n
+            curt = curt.right;\n
+        }\n
+        return result;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="binary_tree_postorder_traversal_">
+<item name="definition">
+Given a binary tree, return the postorder traversal of its nodes\' values.
+For example:\n
+Given binary tree {1,#,2,3},\n
+1 \n
+  \ \n
+   2 \n
+  / \n
+ 3 \n
+return [3,2,1].\n
+ Note: Recursive solution is trivial, could you do it iteratively?
+</item>
+<item name="code">
+    //Recursive\n
+public ArrayList&lt;Integer&gt; postorderTraversal(TreeNode root) {\n
+    ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();\n
+    if (root == null) {\n
+        return result;\n
+    }\n
+    result.addAll(postorderTraversal(root.left));\n
+    result.addAll(postorderTraversal(root.right));\n
+    result.add(root.val);\n
+    return result;\n
+}\n
+//Iterative\n
+public ArrayList&lt;Integer&gt; postorderTraversal(TreeNode root) {\n
+    ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();\n
+    Stack&lt;TreeNode&gt; stack = new Stack&lt;TreeNode&gt;();\n
+    TreeNode prev = null; // previously traversed node\n
+    TreeNode curr = root;\n
+    if (root == null) {\n
+        return result;\n
+    }\n
+    stack.push(root);\n
+    while (!stack.empty()) {\n
+        curr = stack.peek();\n
+        if (prev == null || prev.left == curr || prev.right == curr) { // traverse down the tree\n
+            if (curr.left != null) {\n
+                stack.push(curr.left);\n
+            } else if (curr.right != null) {\n
+                stack.push(curr.right);\n
+            }\n
+        } else if (curr.left == prev) { // traverse up the tree from the left\n
+            if (curr.right != null) {\n
+                stack.push(curr.right);\n
+            }\n
+        } else { // traverse up the tree from the right\n
+            result.add(curr.val);\n
+            stack.pop();\n
+        }\n
+        prev = curr;\n
+    }\n
+\n
+    return result;\n
+}
+</item>
+</string-array>
+<string-array name="binary_tree_level_order_traversal_">
+<item name="definition">
+Given a binary tree, return the level order traversal of its nodes\' values. (ie, from left to right, level by level). For example: Given binary tree {3,9,20,#,#,15,7}, 3 / \ 9 20 / \ 15 7 return its level order traversal as: [ [3], [9,20], [15,7] ]
+</item>
+<item name="code">
+    // version 1: BFS\n
+public class Solution {\n
+    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; levelOrder(TreeNode root) {\n
+        ArrayList result = new ArrayList();\n
+        if (root == null) {\n
+            return result;\n
+        }\n
+\n
+        Queue&lt;TreeNode&gt; queue = new LinkedList&lt;TreeNode&gt;();\n
+        queue.offer(root);\n
+\n
+        while (!queue.isEmpty()) {\n
+            ArrayList&lt;Integer&gt; level = new ArrayList&lt;Integer&gt;();\n
+            int size = queue.size();\n
+            for (int i = 0; i &lt; size; i++) {\n
+                TreeNode head = queue.poll();\n
+                level.add(head.val);\n
+                if (head.left != null) {\n
+                    queue.offer(head.left);\n
+                }\n
+                if (head.right != null) {\n
+                    queue.offer(head.right);\n
+                }\n
+            }\n
+            result.add(level);\n
+        }\n
+        return result;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="maximum_depth_of_binary_tree_">
+<item name="definition">
+Given a binary tree, find its maximum depth.\n
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.\n
+Example\n
+Given a binary tree as follow:\n
+        1 \n
+     /     \ \n
+   2       3 \n
+          /    \ \n
+        4      5 \n
+The maximum depth is 3
+</item>
+<item name="code">
+    public class Solution {\n
+    public int maxDepth(TreeNode root) {\n
+        if (root == null) {\n
+            return 0;\n
+        }\n
+\n
+        int left = maxDepth(root.left);\n
+        int right = maxDepth(root.right);\n
+        return Math.max(left, right) + 1;\n
+    }\n
+}\n
+\n
+// version 2: Traverse\n
+\n
+/**\n
+ * Definition of TreeNode:\n
+ * public class TreeNode {\n
+ *     public int val;\n
+ *     public TreeNode left, right;\n
+ *     public TreeNode(int val) {\n
+ *         this.val = val;\n
+ *         this.left = this.right = null;\n
+ *     }\n
+ * }\n
+ */\n
+public class Solution {\n
+    /**\n
+     * @param root: The root of binary tree.\n
+     * @return: An integer.\n
+     */\n
+    private int depth;\n
+\n
+    public int maxDepth(TreeNode root) {\n
+        depth = 0;\n
+        helper(root, 1);\n
+        return depth;\n
+    }\n
+    private void helper(TreeNode node, int curtDepth) {\n
+        if (node == null) {\n
+            return;\n
+        }\n
+        if (curtDepth &gt; depth) {\n
+            depth = curtDepth;\n
+        }\n
+        helper(node.left, curtDepth + 1);\n
+        helper(node.right, curtDepth + 1);\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="balanced_binary_tree_">
+<item name="definition">
+Given a binary tree, determine if it is height-balanced.
+\n
+For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
+\n
+Example
+\n
+Given binary tree A={3,9,20,#,#,15,7}, B={3,#,20,15,7}
+\n
+A)  3            B)    3 \n
+   / \                  \ \n
+  9  20                 20 \n
+    /  \                / \ \n
+   15   7              15  7 \n
+\n
+The binary tree A is a height-balanced binary tree, but B is not.
+</item>
+<item name="code">
+    // Version 1: with ResultType\n
+/**\n
+ * Definition of TreeNode:\n
+ * public class TreeNode {\n
+ *     public int val;\n
+ *     public TreeNode left, right;\n
+ *     public TreeNode(int val) {\n
+ *         this.val = val;\n
+ *         this.left = this.right = null;\n
+ *     }\n
+ * }\n
+ */\n
+class ResultType {\n
+    public boolean isBalanced;\n
+    public int maxDepth;\n
+    public ResultType(boolean isBalanced, int maxDepth) {\n
+        this.isBalanced = isBalanced;\n
+        this.maxDepth = maxDepth;\n
+    }\n
+}\n
+\n
+public class Solution {\n
+    /**\n
+     * @param root: The root of binary tree.\n
+     * @return: True if this Binary tree is Balanced, or false.\n
+     */\n
+    public boolean isBalanced(TreeNode root) {\n
+        return helper(root).isBalanced;\n
+    }\n
+\n
+    private ResultType helper(TreeNode root) {\n
+        if (root == null) {\n
+            return new ResultType(true, 0);\n
+        }\n
+\n
+        ResultType left = helper(root.left);\n
+        ResultType right = helper(root.right);\n
+\n
+        // subtree not balance\n
+        if (!left.isBalanced || !right.isBalanced) {\n
+            return new ResultType(false, -1);\n
+        }\n
+\n
+        // root not balance\n
+        if (Math.abs(left.maxDepth - right.maxDepth) &gt; 1) {\n
+            return new ResultType(false, -1);\n
+        }\n
+\n
+        return new ResultType(true, Math.max(left.maxDepth, right.maxDepth) + 1);\n
+    }\n
+}\n
+\n
+// Version 2: without ResultType\n
+public class Solution {\n
+    public boolean isBalanced(TreeNode root) {\n
+        return maxDepth(root) != -1;\n
+    }\n
+\n
+    private int maxDepth(TreeNode root) {\n
+        if (root == null) {\n
+            return 0;\n
+        }\n
+\n
+        int left = maxDepth(root.left);\n
+        int right = maxDepth(root.right);\n
+        if (left == -1 || right == -1 || Math.abs(left-right) > 1) {\n
+            return -1;\n
+        }\n
+        return Math.max(left, right) + 1;\n
+    }\n
+}\n
+</item>
+</string-array>
+<string-array name="binary_tree_maximum_path_sum_">
+<item name="definition">
+Given a binary tree, find the maximum path sum.
+\n
+The path may start and end at any node in the tree.
+Example\n
+Given the below binary tree,
+\n
+       1 \n
+      / \ \n
+     2   3 \n
+Return 6. \n
+</item>
+<item name="code">
+public class Solution {\n
+    private class ResultType {\n
+        // singlePath:\n
+        // maxPath:\n
+        int singlePath, maxPath;\n
+        ResultType(int singlePath, int maxPath) {\n
+            this.singlePath = singlePath;\n
+            this.maxPath = maxPath;\n
+        }\n
+    }\n
+\n
+    private ResultType helper(TreeNode root) {\n
+        if (root == null) {\n
+            return new ResultType(0, Integer.MIN_VALUE);\n
+        }\n
+        // Divide\n
+        ResultType left = helper(root.left);\n
+        ResultType right = helper(root.right);\n
+\n
+        // Conquer\n
+        int singlePath = Math.max(left.singlePath, right.singlePath) + root.val;\n
+        singlePath = Math.max(singlePath, 0);\n
+\n
+        int maxPath = Math.max(left.maxPath, right.maxPath);\n
+        maxPath = Math.max(maxPath, left.singlePath + right.singlePath + root.val);\n
+\n
+        return new ResultType(singlePath, maxPath);\n
+    }\n
+\n
+    public int maxPathSum(TreeNode root) {\n
+        ResultType result = helper(root);\n
+        return result.maxPath;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="lowest_common_ancestor_">
+<item name="definition">
+Given the root and two nodes in a Binary Tree. Find the lowest common ancestor(LCA) of the two nodes.
+The lowest common ancestor is the node with largest depth which is the ancestor of both nodes.
+Example\n
+        4 \n
+    /     \ \n
+  3         7 \n
+          /     \ \n
+        5         6 \n
+For 3 and 5, the LCA is 4.\n
+For 5 and 6, the LCA is 7.\n
+For 6 and 7, the LCA is 7.\n
+</item>
+<item name="code">
+Version 1: Traditional Method
+\n
+public class Solution {\n
+    private ArrayList&lt;TreeNode&gt; getPath2Root(TreeNode node) {\n
+        ArrayList&lt;TreeNode&gt; list = new ArrayList&lt;TreeNode&gt;();\n
+        while (node != null) {\n
+            list.add(node);\n
+            node = node.parent;\n
+        }\n
+        return list;\n
+    }\n
+    public TreeNode lowestCommonAncestor(TreeNode node1, TreeNode node2) {\n
+        ArrayList&lt;TreeNode&gt; list1 = getPath2Root(node1);\n
+        ArrayList&lt;TreeNode&gt; list2 = getPath2Root(node2);\n
+\n
+        int i, j;\n
+        for (i = list1.size() - 1, j = list2.size() - 1; i >= 0 &amp;&amp; j >= 0; i--, j--) {\n
+            if (list1.get(i) != list2.get(j)) {\n
+                return list1.get(i).parent;\n
+            }\n
+        }\n
+        return list1.get(i+1);\n
+    }\n
+}\n
+Version 2: Divide &amp; Conquer\n
+public class Solution {\n
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode node1, TreeNode node2) {\n
+        if (root == null || root == node1 || root == node2) {\n
+            return root;\n
+        }\n
+        // Divide\n
+        TreeNode left = lowestCommonAncestor(root.left, node1, node2);\n
+        TreeNode right = lowestCommonAncestor(root.right, node1, node2);\n
+        // Conquer\n
+        if (left != null &amp;&amp; right != null) {\n
+            return root;\n
+        }\n
+        if (left != null) {\n
+            return left;\n
+        }\n
+        if (right != null) {\n
+            return right;\n
+        }\n
+        return null;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="insert_node_in_a_binary_search_tree_">
+<item name="definition">
+Given a binary search tree  and a new tree node, insert the node into the tree. You should keep the tree still be a valid binary search tree.
+\n
+Example\n
+Given binary search tree as follow:\n
+     2 \n
+  /    \ \n
+1        4 \n
+         / \n
+       3 \n
+after Insert node 6, the tree should be:\n
+     2 \n
+  /    \ \n
+1        4 \n
+         /   \ \n
+       3        6 \n
+Challenge\n
+Do it without recursion
+</item>
+<item name="code">
+    version 1:\n
+\n
+/**\n
+ * Definition of TreeNode:\n
+ * public class TreeNode {\n
+ *     public int val;\n
+ *     public TreeNode left, right;\n
+ *     public TreeNode(int val) {\n
+ *         this.val = val;\n
+ *         this.left = this.right = null;\n
+ *     }\n
+ * }\n
+ */\n
+public class Solution {\n
+    /**\n
+     * @param root: The root of the binary search tree.\n
+     * @param node: insert this node into the binary search tree\n
+     * @return: The root of the new binary search tree.\n
+     */\n
+    public TreeNode insertNode(TreeNode root, TreeNode node) {\n
+        if (root == null) {\n
+            root = node;\n
+            return root;\n
+        }\n
+        TreeNode tmp = root;\n
+        TreeNode last = null;\n
+        while (tmp != null) {\n
+            last = tmp;\n
+            if (tmp.val > node.val) {\n
+                tmp = tmp.left;\n
+            } else {\n
+                tmp = tmp.right;\n
+            }\n
+        }\n
+        if (last != null) {\n
+            if (last.val > node.val) {\n
+                last.left = node;\n
+            } else {\n
+                last.right = node;\n
+            }\n
+        }\n
+        return root;\n
+    }\n
+}\n
+version 2:\n
+/**\n
+ * Definition of TreeNode:\n
+ * public class TreeNode {\n
+ *     public int val;\n
+ *     public TreeNode left, right;\n
+ *     public TreeNode(int val) {\n
+ *         this.val = val;\n
+ *         this.left = this.right = null;\n
+ *     }\n
+ * }\n
+ */\n
+public class Solution {\n
+    /**\n
+     * @param root: The root of the binary search tree.\n
+     * @param node: insert this node into the binary search tree\n
+     * @return: The root of the new binary search tree.\n
+     */\n
+    public TreeNode insertNode(TreeNode root, TreeNode node) {\n
+        if (root == null) {\n
+            return node;\n
+        }\n
+        if (root.val > node.val) {\n
+            root.left = insertNode(root.left, node);\n
+        } else {\n
+            root.right = insertNode(root.right, node);\n
+        }\n
+        return root;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="validate_binary_search_tree_">
+<item name="definition">
+Given a binary tree, determine if it is a valid binary search tree (BST).
+\n
+Assume a BST is defined as follows:
+\n
+The left subtree of a node contains only nodes with keys less than the node\'s key.\n
+The right subtree of a node contains only nodes with keys greater than the node\'s key.\n
+Both the left and right subtrees must also be binary search trees.\n
+Example\n
+An example:\n
+\n
+   1\n
+  / \\n
+ 2   3\n
+    /\n
+   4\n
+    \\n
+     5\n
+The above binary tree is serialized as \"{1,2,3,#,#,4,#,#,5}\".
+</item>
+<item name="code">
+// version 1 Traverse\n
+public class Solution {\n
+    private int lastVal = Integer.MIN_VALUE;\n
+    private boolean firstNode = true;\n
+    public boolean isValidBST(TreeNode root) {\n
+        if (root == null) {\n
+            return true;\n
+        }\n
+        if (!isValidBST(root.left)) {\n
+            return false;\n
+        }\n
+        if (!firstNode &amp;&amp; lastVal &gt;= root.val) {\n
+            return false;\n
+        }\n
+        firstNode = false;\n
+        lastVal = root.val;\n
+        if (!isValidBST(root.right)) {\n
+            return false;\n
+        }\n
+        return true;\n
+    }\n
+}\n
+\n
+// version 2  Divide and Conquer\n
+class ResultType {\n
+    boolean is_bst;\n
+    int maxValue, minValue;\n
+\n
+    ResultType(boolean is_bst, int maxValue, int minValue) {\n
+        this.is_bst = is_bst;\n
+        this.maxValue = maxValue;\n
+        this.minValue = minValue;\n
+    }\n
+}\n
+\n
+public class Solution {\n
+    /**\n
+     * @param root: The root of binary tree.\n
+     * @return: True if the binary tree is BST, or false\n
+     */\n
+    public boolean isValidBST(TreeNode root) {\n
+        ResultType r = validateHelper(root);\n
+        return r.is_bst;\n
+    }\n
+\n
+    private ResultType validateHelper(TreeNode root) {\n
+        if (root == null) {\n
+            return new ResultType(true, Integer.MIN_VALUE, Integer.MAX_VALUE);\n
+        }\n
+\n
+        ResultType left = validateHelper(root.left);\n
+        ResultType right = validateHelper(root.right);\n
+\n
+        if (!left.is_bst || !right.is_bst) {\n
+            // if is_bst is false then minValue and maxValue are useless\n
+            return new ResultType(false, 0, 0);\n
+        }\n
+\n
+        if (root.left != null &amp;&amp; left.maxValue &gt;= root.val ||\n
+              root.right != null &amp;&amp; right.minValue &lt;= root.val) {\n
+            return new ResultType(false, 0, 0);\n
+        }\n
+\n
+        return new ResultType(true,\n
+                              Math.max(root.val, right.maxValue),\n
+                              Math.min(root.val, left.minValue));\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="search_range_in_binary_search_tree_">
+<item name="definition">
+Given two values k1 and k2 (where k1 &lt; k2) and a root pointer to a Binary Search Tree.
+Find all the keys of tree in range k1 to k2. i.e. print all x such that k1&lt;=x&lt;=k2 and x is a key of given BST.
+Return all the keys in ascending order.\n
+Example\n
+For example, if k1 = 10 and k2 = 22, then your function should print 12, 20 and 22.\n
+          20 \n
+       /        \ \n
+    8           22 \n
+  /     \ \n
+4       12 \n
+</item>
+<item name="code">
+/**\n
+ * Definition of TreeNode:\n
+ * public class TreeNode {\n
+ *     public int val;\n
+ *     public TreeNode left, right;\n
+ *     public TreeNode(int val) {\n
+ *         this.val = val;\n
+ *         this.left = this.right = null;\n
+ *     }\n
+ * }\n
+ */\n
+public class Solution {\n
+    private ArrayList&lt;Integer&gt; results;\n
+    /**\n
+     * @param root: The root of the binary search tree.\n
+     * @param k1 and k2: range k1 to k2.\n
+     * @return: Return all keys that k1&lt;=key&lt;=k2 in increasing order.\n
+     */\n
+    public ArrayList&lt;Integer&gt; searchRange(TreeNode root, int k1, int k2) {\n
+        results = new ArrayList&lt;Integer&gt;();\n
+        helper(root, k1, k2);\n
+        return results;\n
+    }\n
+\n
+    private void helper(TreeNode root, int k1, int k2) {\n
+        if (root == null) {\n
+            return;\n
+        }\n
+        if (root.val &gt; k1) {\n
+            helper(root.left, k1, k2);\n
+        }\n
+        if (root.val &gt;= k1 &amp;&amp; root.val &lt;= k2) {\n
+            results.add(root.val);\n
+        }\n
+        if (root.val &lt; k2) {\n
+            helper(root.right, k1, k2);\n
+        }\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="convert_sorted_array_to_binary_search_tree_">
+<item name="definition">
+Given two values k1 and k2 (where k1 &lt; k2) and a root pointer to a Binary Search Tree.
+Find all the keys of tree in range k1 to k2. i.e. print all x such that k1&lt;=x&lt;=k2 and x is a key of given BST.
+Return all the keys in ascending order.\n
+Example\n
+For example, if k1 = 10 and k2 = 22, then your function should print 12, 20 and 22.\n
+          20 \n
+       /        \ \n
+    8           22 \n
+  /     \ \n
+4       12 \n
+</item>
+<item name="code">
+public class Solution {\n
+    private TreeNode buildTree(int[] num, int start, int end) {\n
+        if (start > end) {\n
+            return null;\n
+        }\n
+\n
+        TreeNode node = new TreeNode(num[(start + end) / 2]);\n
+        node.left = buildTree(num, start, (start + end) / 2 - 1);\n
+        node.right = buildTree(num, (start + end) / 2 + 1, end);\n
+        return node;\n
+    }\n
+\n
+    public TreeNode sortedArrayToBST(int[] num) {\n
+        if (num == null) {\n
+            return null;\n
+        }\n
+        return buildTree(num, 0, num.length - 1);\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="convert_sorted_list_to_binary_search_tree_">
+<item name="definition">
+Given a singly linked list where elements are sorted in ascending order,
+convert it to a height balanced BST.
+</item>
+<item name="code">
+
+public class Solution {\n
+    private ListNode current;\n
+\n
+    private int getListLength(ListNode head) {\n
+        int size = 0;\n
+\n
+        while (head != null) {\n
+            size++;\n
+            head = head.next;\n
+        }\n
+\n
+        return size;\n
+    }\n
+\n
+    public TreeNode sortedListToBST(ListNode head) {\n
+        int size;\n
+\n
+        current = head;\n
+        size = getListLength(head);\n
+\n
+        return sortedListToBSTHelper(size);\n
+    }\n
+\n
+    public TreeNode sortedListToBSTHelper(int size) {\n
+        if (size &lt;= 0) {\n
+            return null;\n
+        }\n
+\n
+        TreeNode left = sortedListToBSTHelper(size / 2);\n
+        TreeNode root = new TreeNode(current.val);\n
+        current = current.next;\n
+        TreeNode right = sortedListToBSTHelper(size - 1 - size / 2);\n
+\n
+        root.left = left;\n
+        root.right = right;\n
+\n
+        return root;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="binary_search_tree_iterator_">
+<item name="definition">
+Design an iterator over a binary search tree with the following rules:
+ - Elements are visited in ascending order (i.e. an in-order traversal)\n
+ - next() and hasNext() queries run in O(1) time in average.\n
+Example\n
+For the following binary search tree, in-order traversal by using iterator is [1, 6, 10, 11, 12]\n
+           10 \n
+         /    \ \n
+        1      11 \n
+         \       \ \n
+             6       12 \n
+Challenge\n
+Extra memory usage O(h), h is the height of the tree.\n
+Super Star: Extra memory usage O(1)
+</item>
+<item name="code">
+    /**\n
+ * Definition of TreeNode:\n
+ * public class TreeNode {\n
+ *     public int val;\n
+ *     public TreeNode left, right;\n
+ *     public TreeNode(int val) {\n
+ *         this.val = val;\n
+ *         this.left = this.right = null;\n
+ *     }\n
+ * }\n
+ * Example of iterate a tree:\n
+ * Solution iterator = new Solution(root);\n
+ * while (iterator.hasNext()) {\n
+ *    TreeNode node = iterator.next();\n
+ *    do something for node\n
+ * }\n
+ */\n
+public class Solution {\n
+    private Stack stack = new Stack&lt;&gt;();\n
+    private TreeNode curt;\n
+\n
+    // @param root: The root of binary tree.\n
+    public Solution(TreeNode root) {\n
+        curt = root;\n
+    }\n
+\n
+    //@return: True if there has next node, or false\n
+    public boolean hasNext() {\n
+        return (curt != null || !stack.isEmpty()); //important to judge curt != null\n
+    }\n
+\n
+    //@return: return next node\n
+    public TreeNode next() {\n
+        while (curt != null) {\n
+            stack.push(curt);\n
+            curt = curt.left;\n
+        }\n
+\n
+        curt = stack.pop();\n
+        TreeNode node = curt;\n
+        curt = curt.right;\n
+\n
+        return node;\n
+    }\n
+}
+</item>
+</string-array>
+
+<string-array name="subsets_">
+<item name="definition">
+Given a set of distinct integers, return all possible subsets.\n
+Note\n
+Elements in a subset must be in non-descending order.
+The solution set must not contain duplicate subsets.\n
+Example\n
+If S = [1,2,3], a solution is:\n
+[\n
+  [3],\n
+  [1],\n
+  [2],\n
+  [1,2,3],\n
+  [1,3],\n
+  [2,3],\n
+  [1,2],\n
+  []\n
+]
+</item>
+<item name="code">
+    public class Solution {\n
+    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; subsets(int[] num) {\n
+        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+        if(num == null || num.length == 0) {\n
+            return result;\n
+        }\n
+        ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();\n
+        Arrays.sort(num);\n
+        subsetsHelper(result, list, num, 0);\n
+\n
+        return result;\n
+    }\n
+\n
+    private void subsetsHelper(ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result,\n
+        ArrayList&lt;Integer&gt; list, int[] num, int pos) {\n
+\n
+        result.add(new ArrayList&lt;Integer&gt;(list));\n
+\n
+        for (int i = pos; i &lt; num.length; i++) {\n
+\n
+            list.add(num[i]);\n
+            subsetsHelper(result, list, num, i + 1);\n
+            list.remove(list.size() - 1);\n
+        }\n
+    }\n
+}\n
+\n
+// Non Recursion\n
+class Solution {\n
+    /**\n
+     * @param S: A set of numbers.\n
+     * @return: A list of lists. All valid subsets.\n
+     */\n
+    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; subsets(int[] nums) {\n
+        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+        int n = nums.length;\n
+        Arrays.sort(nums);\n
+\n
+        // 1 &lt;&lt; n is 2^n\n
+        // each subset equals to an binary integer between 0 .. 2^n - 1\n
+        // 0 -&gt; 000 -&gt; []\n
+        // 1 -&gt; 001 -&gt; [1]\n
+        // 2 -&gt; 010 -&gt; [2]\n
+        // ..\n
+        // 7 -&gt; 111 -&gt; [1,2,3]\n
+        for (int i = 0; i &lt; (1 &lt;&lt; n); i++) {\n
+            ArrayList&lt;Integer&gt; subset = new ArrayList&lt;Integer&gt;();\n
+            for (int j = 0; j &lt; n; j++) {\n
+                // check whether the jth digit in i\'s binary representation is 1\n
+                if ((i &amp; (1 &lt;&lt; j)) != 0) {\n
+                    subset.add(nums[j]);\n
+                }\n
+            }\n
+            result.add(subset);\n
+        }\n
+        return result;\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="permutation_">
+<item name="definition">
+Given a list of numbers, return all possible permutations.\n
+Example\n
+For nums [1,2,3], the permutaions are:\n
+[\n
+    [1,2,3],\n
+    [1,3,2],\n
+    [2,1,3],\n
+    [2,3,1],\n
+    [3,1,2],\n
+    [3,2,1]\n
+]\n
+Challenge\n
+Do it without recursion
+</item>
+<item name="code">
+public class Solution {\n
+    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permute(int[] num) {\n
+         ArrayList&lt;ArrayList&lt;Integer&gt;&gt; rst = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+         if (num == null || num.length == 0) {\n
+             return rst;\n
+         }\n
+\n
+         ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();\n
+         helper(rst, list, num);\n
+         return rst;\n
+    }\n
+\n
+    public void helper(ArrayList&lt;ArrayList&lt;Integer&gt;&gt; rst, ArrayList&lt;Integer&gt; list, int[] num){\n
+        if(list.size() == num.length) {\n
+            rst.add(new ArrayList&lt;Integer&gt;(list));\n
+            return;\n
+        }\n
+\n
+        for(int i = 0; i&lt;num.length; i++){\n
+            if(list.contains(num[i])){\n
+                continue;\n
+            }\n
+            list.add(num[i]);\n
+            helper(rst, list, num);\n
+            list.remove(list.size() - 1);\n
+        }\n
+    }\n
+}\n
+// Non-Recursion\n
+class Solution {\n
+    /**\n
+     * @param nums: A list of integers.\n
+     * @return: A list of permutations.\n
+     */\n
+    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permute(ArrayList&lt;Integer&gt; nums) {\n
+        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permutations\n
+             = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+        if (nums == null || nums.size() == 0) {\n
+            return permutations;\n
+        }\n
+\n
+        int n = nums.size();\n
+        ArrayList&lt;Integer&gt; stack = new ArrayList&lt;Integer&gt;();\n
+\n
+        stack.add(-1);\n
+        while (stack.size() != 0) {\n
+            Integer last = stack.get(stack.size() - 1);\n
+            stack.remove(stack.size() - 1);\n
+\n
+            // increase the last number\n
+            int next = -1;\n
+            for (int i = last + 1; i &lt; n; i++) {\n
+                if (!stack.contains(i)) {\n
+                    next = i;\n
+                    break;\n
+                }\n
+            }\n
+            if (next == -1) {\n
+                continue;\n
+            }\n
+\n
+            // generate the next permutation\n
+            stack.add(next);\n
+            for (int i = 0; i &lt; n; i++) {\n
+                if (!stack.contains(i)) {\n
+                    stack.add(i);\n
+                }\n
+            }\n
+\n
+            // copy to permutations set\n
+            ArrayList&lt;Integer&gt; permutation = new ArrayList&lt;Integer&gt;();\n
+            for (int i = 0; i &lt; n; i++) {\n
+                permutation.add(nums.get(stack.get(i)));\n
+            }\n
+            permutations.add(permutation);\n
+        }\n
+        return permutations;\n
+    }\n
+}
+</item>
+</string-array>
+
+<string-array name="triangle_">
+<item name="definition">
+        Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.
+\n
+        Note\n
+        Bonus point if you are able to do this using only O(n) extra space, where n is the total number of rows in the triangle.
+\n
+        Example\n
+        For example, given the following triangle
+\n
+        [\n
+        [2],\n
+        [3,4],\n
+        [6,5,7],\n
+        [4,1,8,3]\n
+        ]\n
+        The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
+</item>
+<item name="code">
+    // version 0: top-down\n
+public class Solution {\n
+    /**\n
+     * @param triangle: a list of lists of integers.\n
+     * @return: An integer, minimum path sum.\n
+     */\n
+    public int minimumTotal(int[][] triangle) {\n
+        if (triangle == null || triangle.length == 0) {\n
+            return -1;\n
+        }\n
+        if (triangle[0] == null || triangle[0].length == 0) {\n
+            return -1;\n
+        }\n
+\n
+        // state: f[x][y] = minimum path value from 0,0 to x,y\n
+        int n = triangle.length;\n
+        int[][] f = new int[n][n];\n
+\n
+        // initialize\n
+        f[0][0] = triangle[0][0];\n
+        for (int i = 1; i &lt; n; i++) {\n
+            f[i][0] = f[i - 1][0] + triangle[i][0];\n
+            f[i][i] = f[i - 1][i - 1] + triangle[i][i];\n
+        }\n
+\n
+        // top down\n
+        for (int i = 1; i &lt; n; i++) {\n
+            for (int j = 1; j &lt; i; j++) {\n
+                f[i][j] = Math.min(f[i - 1][j], f[i - 1][j - 1]) + triangle[i][j];\n
+            }\n
+        }\n
+\n
+        // answer\n
+        int best = f[n - 1][0];\n
+        for (int i = 1; i &lt; n; i++) {\n
+            best = Math.min(best, f[n - 1][i]);\n
+        }\n
+        return best;\n
+    }\n
+}\n
+\n
+//Version 1: Bottom-Up\n
+public class Solution {\n
+    /**\n
+     * @param triangle: a list of lists of integers.\n
+     * @return: An integer, minimum path sum.\n
+     */\n
+    public int minimumTotal(int[][] triangle) {\n
+        if (triangle == null || triangle.length == 0) {\n
+            return -1;\n
+        }\n
+        if (triangle[0] == null || triangle[0].length == 0) {\n
+            return -1;\n
+        }\n
+        // state: f[x][y] = minimum path value from x,y to bottom\n
+        int n = triangle.length;\n
+        int[][] f = new int[n][n];\n
+\n
+        // initialize\n
+        for (int i = 0; i &lt; n; i++) {\n
+            f[n - 1][i] = triangle[n - 1][i];\n
+        }\n
+        // bottom up\n
+        for (int i = n - 2; i &gt;= 0; i--) {\n
+            for (int j = 0; j &lt;= i; j++) {\n
+                f[i][j] = Math.min(f[i + 1][j], f[i + 1][j + 1]) + triangle[i][j];\n
+            }\n
+        }\n
+        // answer\n
+        return f[0][0];\n
+    }\n
+}\n
+//Version 2 : Memorize Search\n
+public class Solution {\n
+    private int n;\n
+    private int[][] minSum;\n
+    private int[][] triangle;\n
+\n
+    private int search(int x, int y) {\n
+        if (x &gt;= n) {\n
+            return 0;\n
+        }\n
+\n
+        if (minSum[x][y] != Integer.MAX_VALUE) {\n
+            return minSum[x][y];\n
+        }\n
+\n
+        minSum[x][y] = Math.min(search(x + 1, y), search(x + 1, y + 1))\n
+            + triangle[x][y];\n
+        return minSum[x][y];\n
+    }\n
+\n
+    public int minimumTotal(int[][] triangle) {\n
+        if (triangle == null || triangle.length == 0) {\n
+            return -1;\n
+        }\n
+        if (triangle[0] == null || triangle[0].length == 0) {\n
+            return -1;\n
+        }\n
+\n
+        this.n = triangle.length;\n
+        this.triangle = triangle;\n
+        this.minSum = new int[n][n];\n
+\n
+        for (int i = 0; i &lt; n; i++) {\n
+            for (int j = 0; j &lt; n; j++) {\n
+                minSum[i][j] = Integer.MAX_VALUE;\n
+            }\n
+        }\n
+        return search(0, 0);\n
+    }\n
+}\n
+</item>
+</string-array>
+<string-array name="backpack_">
+<item name="definition">
+Given n items with size A[i], an integer m denotes the size of a backpack. How full you can fill this backpack?
+\n
+Note\n
+You can not divide any item into small pieces.
+\n
+Example\n
+If we have 4 items with size [2, 3, 5, 7], the backpack size is 11, we can select 2, 3 and 5, so that the max size we can fill this backpack is 10. If the backpack size is 12. we can select [2, 3, 7] so that we can fulfill the backpack.
+\n
+You function should return the max size we can fill in the given backpack.
+</item>
+<item name="code">
+public class Solution {\n
+    /**\n
+     * @param m: An integer m denotes the size of a backpack\n
+     * @param A: Given n items with size A[i]\n
+     * @return: The maximum size\n
+     */\n
+    public int backPack(int m, int[] A) {\n
+        boolean f[][] = new boolean[A.length + 1][m + 1];\n
+        for (int i = 0; i &lt;= A.length; i++) {\n
+            for (int j = 0; j &lt;= m; j++) {\n
+                f[i][j] = false;\n
+            }\n
+        }\n
+        f[0][0] = true;\n
+        for (int i = 0; i &lt; A.length; i++) {\n
+            for (int j = 0; j &lt;= m; j++) {\n
+                f[i + 1][j] = f[i][j];\n
+                if (j &gt;= A[i] &amp;&amp; f[i][j - A[i]]) {\n
+                    f[i + 1][j] = true;\n
+                }\n
+            } // for j\n
+        } // for i\n
+\n
+        for (int i = m; i &gt;= 0; i--) {\n
+            if (f[A.length][i]) {\n
+                return i;\n
+            }\n
+        }\n
+        return 0;\n
+    }\n
+}\n
+</item>
+</string-array>
+<string-array name="minimum_path_sum">
+<item name="definition">
+Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.
+\n
+Note\n
+You can only move either down or right at any point in time.
+</item>
+<item name="code">
+    public class Solution {\n
+    public int minPathSum(int[][] grid) {\n
+        if (grid == null || grid.length == 0 || grid[0].length == 0) {\n
+            return 0;\n
+        }\n
+\n
+        int M = grid.length;\n
+        int N = grid[0].length;\n
+        int[][] sum = new int[M][N];\n
+\n
+        sum[0][0] = grid[0][0];\n
+\n
+        for (int i = 1; i &lt; M; i++) {\n
+            sum[i][0] = sum[i - 1][0] + grid[i][0];\n
+        }\n
+\n
+        for (int i = 1; i &lt; N; i++) {\n
+            sum[0][i] = sum[0][i - 1] + grid[0][i];\n
+        }\n
+\n
+        for (int i = 1; i &lt; M; i++) {\n
+            for (int j = 1; j &lt; N; j++) {\n
+                sum[i][j] = Math.min(sum[i - 1][j], sum[i][j - 1]) + grid[i][j];\n
+            }\n
+        }\n
+\n
+        return sum[M - 1][N - 1];\n
+    }\n
+}\n
+</item>
+</string-array>
+<string-array name="unique_paths_">
+<item name="definition">
+A robot is located at the top-left corner of a m x n grid (marked \'Start\' in the diagram below).
+\n
+The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked \'Finish\' in the diagram below).
+\n
+How many possible unique paths are there?
+\n
+Note\n
+m and n will be at most 100.
+</item>
+<item name="code">
+public class Solution {\n
+    public int uniquePaths(int m, int n) {\n
+        if (m == 0 || n == 0) {\n
+            return 0;\n
+        }\n
+        int[][] sum = new int[m][n];\n
+        for (int i = 0; i &lt; m; i++) {\n
+            sum[i][0] = 1;\n
+        }\n
+        for (int i = 0; i &lt; n; i++) {\n
+            sum[0][i] = 1;\n
+        }\n
+        for (int i = 1; i &lt; m; i++) {\n
+            for (int j = 1; j &lt; n; j++) {\n
+                sum[i][j] = sum[i - 1][j] + sum[i][j - 1];\n
+            }\n
+        }\n
+        return sum[m - 1][n - 1];\n
+    }\n
+}
+</item>
+</string-array>
+<string-array name="climbing_stairs_">
+<item name="definition">
+You are climbing a stair case. It takes n steps to reach to the top.
+\n
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+\n
+Example\n
+Given an example n=3 , 1+1+1=2+1=1+2=3
+\n
+return 3
+</item>
+<item name="code">
+public class Solution {\n
+    public int climbStairs(int n) {\n
+        if (n &lt;= 1) {\n
+            return 1;\n
+        }\n
+        int last = 1, lastlast = 1;\n
+        int now = 0;\n
+        for (int i = 2; i &lt;= n; i++) {\n
+            now = last + lastlast;\n
+            lastlast = last;\n
+            last = now;\n
+        }\n
+        return now;\n
+    }\n
+}
+</item>
+</string-array>
+
+<string-array name="jump_game_">
+<item name="definition">
+Given an array of non-negative integers, you are initially positioned at the first index of the array.
+\n
+Each element in the array represents your maximum jump length at that position.
+\n
+Determine if you are able to reach the last index.
+\n
+Example\n
+A = [2,3,1,1,4], return true.
+\n
+A = [3,2,1,0,4], return false.
+</item>
+<item name="code">
+// version 1: Dynamic Programming\n
+public class Solution {\n
+    public boolean canJump(int[] A) {\n
+        boolean[] can = new boolean[A.length];\n
+        can[0] = true;\n
+\n
+        for (int i = 1; i &lt; A.length; i++) {\n
+            for (int j = 0; j &lt; i; j++) {\n
+                if (can[j] &amp;&amp; j + A[j] &gt;= i) {\n
+                    can[i] = true;\n
+                    break;\n
+                }\n
+            }\n
+        }\n
+\n
+        return can[A.length - 1];\n
+    }\n
+}\n
+    \n
+// version 2: Greedy\n
+public class Solution {\n
+    public boolean canJump(int[] A) {\n
+        // think it as merging n intervals\n
+        if (A == null || A.length == 0) {\n
+            return false;\n
+        }\n
+        int farthest = A[0];\n
+        for (int i = 1; i &lt; A.length; i++) {\n
+            if (i &lt;= farthest &amp;&amp; A[i] + i &gt;= farthest) {\n
+                farthest = A[i] + i;\n
+            }\n
+        }\n
+        return farthest &gt;= A.length - 1;\n
+    }\n
+}\n
+</item>
+</string-array>
 
 </resources>

@@ -23,8 +23,7 @@ import java.util.HashMap;
 //implements View.OnClickListener
 public class ContentFragment extends  Fragment {
     private String dataContent;
-    private String[] frag1;
-
+    private String[] strings;
     private static boolean showingFirst = true;
 
     public void changeData(String dataContent) {
@@ -34,15 +33,13 @@ public class ContentFragment extends  Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.detail_content_list, container, false);
-        Log.d("Fragment", "Content Fragment Started");
         return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        Log.d("ContentFragment", "The title is: " + dataContent);
+        showingFirst = true;
         HashMapContent hashMapContent = new HashMapContent();
         HashMap hm =  hashMapContent.getAir();
         TextView tv = (TextView) view.findViewById(R.id.text_view);
@@ -69,439 +66,450 @@ public class ContentFragment extends  Fragment {
         });
 
         switch (dataContent) {
-            case "Basics":
-                tvAnswer.setText(hm.get(dataContent).toString() + hm.get("Reference").toString());
-                tvTitle.setText("Summary of leetcode and lintcode solution");
+            case "Linked List":
+                strings = getResources().getStringArray(R.array.linked_list_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
-
+            case "Binary Tree":
+                strings = getResources().getStringArray(R.array.binary_tree_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
+                break;
+            case "Binary Search Tree":
+                strings = getResources().getStringArray(R.array.binary_search_tree_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
+                break;
+            case "Priority Queue":
+                strings = getResources().getStringArray(R.array.priority_queue_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
+                break;
+            case "Huffman Compression":
+                strings = getResources().getStringArray(R.array.huffman_compression_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
+                break;
             case "Bubble Sort":
-                frag1 = hm.get(dataContent).toString().split("如下所示：");
-
-                tvTitle.setText(frag1[0]+"如下所示：");
-                tvAnswer.setText(frag1[1]);
+                strings = getResources().getStringArray(R.array.bubble_sort_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Selection Sort":
-                frag1 = hm.get(dataContent).toString().split("如下所示：");
-
-                tvTitle.setText(frag1[0] + "如下所示：");
-                tvAnswer.setText(frag1[1]);
+                strings = getResources().getStringArray(R.array.selection_sort_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Insertion Sort":
-                frag1 = hm.get(dataContent).toString().split("如下所示：");
-
-                tvTitle.setText(frag1[0] + "如下所示：");
-                tvAnswer.setText(frag1[1]);
+                strings = getResources().getStringArray(R.array.insertion_sort_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
-
             case "Merge Sort":
-                frag1 = hm.get(dataContent).toString().split("分治应用。");
-
-                tvTitle.setText(frag1[0] + "分治应用。");
-                tvAnswer.setText(frag1[1]);
+                strings = getResources().getStringArray(R.array.merge_sort_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Quick Sort":
-                frag1 = hm.get(dataContent).toString().split("实现如下所示：", 2);
-
-                tvTitle.setText(frag1[0] + "实现如下所示：");
-                tvAnswer.setText(frag1[1]);
+                strings = getResources().getStringArray(R.array.quick_sort_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
+                break;
+            case "Heap Sort":
+                strings = getResources().getStringArray(R.array.heap_sort_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
+                break;
+            case "Bucket Sort":
+                strings = getResources().getStringArray(R.array.bucket_sort_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
+                break;
+            case "Counting Sort":
+                strings = getResources().getStringArray(R.array.counting_sort_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
+                break;
+            case "Bit Manipulation":
+                strings = getResources().getStringArray(R.array.bit_manipulation_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "strStr":
-                frag1 = hm.get(dataContent).toString().split("题解\n" +
-                        "\n" +
-                        "对于字符串查找问题，可使用双重for循环解决，效率更高的则为KMP算法。\n" +
-                        "\n" +
-                        "Java", 2);
-
-                tvTitle.setText(frag1[0] + "\n"+"Java");
-                tvAnswer.setText(frag1[1]);
+                strings = getResources().getStringArray(R.array.strStr_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Two Strings Are Anagrams":
-                frag1 = hm.get(dataContent).toString().split("变形题。", 2);
-
-                tvTitle.setText(frag1[0]+"变形题。");
-                tvAnswer.setText(frag1[1]);
+                strings = getResources().getStringArray(R.array.two_string_are_anagrams_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Compare Strings":
-                frag1 = hm.get(dataContent).toString().split("哈希表。", 2);
-
-                tvTitle.setText(frag1[0] + "哈希表。");
-                tvAnswer.setText(frag1[1]);
+                strings = getResources().getStringArray(R.array.compare_strings_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Anagrams":
-                frag1 = hm.get(dataContent).toString().split("case", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0] + "case");
-                tvAnswer.setText(frag1[1]);
+                strings = getResources().getStringArray(R.array.anagrams_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Longest Common Substring":
-                frag1 = hm.get(dataContent).toString().split("subsequence.", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0] + "subsequence.");
-                tvAnswer.setText(frag1[1]);
+                strings = getResources().getStringArray(R.array.longest_common_substring_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Remove Element":
-                frag1 = hm.get(dataContent).toString().split("题解1", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0] + "");
-                tvAnswer.setText("题解1"+frag1[1]);
+                strings = getResources().getStringArray(R.array.remove_element_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Zero Sum Subarray":
-                frag1 = hm.get(dataContent).toString().split("to zero.", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0] + "to zero.");
-                tvAnswer.setText(frag1[1]);
+                strings = getResources().getStringArray(R.array.zero_sum_subarray_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Subarray Sum K":
-                frag1 = hm.get(dataContent).toString().split("题解1", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解1"+frag1[1]);
-
-                break;
-            case "Product of Array Exclude Itself":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0] );
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.subarray_sum_k_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Subarray Sum Closest":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0] );
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.subarray_sum_closest_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
-
+            case "Product of Array Exclude Itself":
+                strings = getResources().getStringArray(R.array.product_of_array_exclude_itself_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
+                break;
             case "Partition Array":
-                frag1 = hm.get(dataContent).toString().split("题解1", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解1"+frag1[1]);
+                strings = getResources().getStringArray(R.array.partition_array_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "First Missing Positive":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.first_missing_positive_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "2 Sum":
-                frag1 = hm.get(dataContent).toString().split("题解1", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解1"+frag1[1]);
+                strings = getResources().getStringArray(R.array.two_sum_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "3 Sum":
-                frag1 = hm.get(dataContent).toString().split("题解1", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解1"+frag1[1]);
+                strings = getResources().getStringArray(R.array.three_sum_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "3 Sum Closest":
-                frag1 = hm.get(dataContent).toString().split("题解1", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解1"+frag1[1]);
+                strings = getResources().getStringArray(R.array.three_sum_closet_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Remove Duplicates from Sorted Array":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.remove_duplicates_from_sorted_array_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Remove Duplicates from Sorted Array II":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.remove_duplicates_from_sorted_array_two_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Merge Sorted Array":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.merge_sorted_array_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Merge Sorted Array II":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.merge_sorted_array_two_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Binary Search":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.binary_search_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Search Insert Position":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                //frag2 = frag1[1].split("源码解析", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.search_insert_position_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Search for a Range":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.search_for_a_range_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "First Bad Version":
-                frag1 = hm.get(dataContent).toString().split("题 Search for", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题 Search for"+frag1[1]);
+                strings = getResources().getStringArray(R.array.first_bad_version_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Search a 2D Matrix":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.search_a_2D_matrix_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Find Peak Element":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.find_peak_element_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Search in Rotated Sorted Array":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.search_in_rotated_sorted_array_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Find Minimum in Rotated Sorted Array":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);                break;
-
+                strings = getResources().getStringArray(R.array.find_minimum_in_rotated_sorted_array_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
+                break;
             case "Search a 2D Matrix II":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.search_a_2D_matrix_two_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Median of two Sorted Arrays":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.median_of_two_sorted_arrays_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Sqrt x":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.sqrt_x_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Wood Cut":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.wood_cut_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Single Number":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.single_number_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Single Number II":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.single_number_two_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "O(1) Check Power of 2":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.o_1_check_power_of_2_source_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Convert Integer A to Integer B":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.convert_integer_a_to_integer_b_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Factorial Trailing Zeroes":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.factorial_trailing_zeroes_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Remove Duplicates from Sorted List":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.remove_duplicates_from_sorted_list_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Remove Duplicates from Sorted List II":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.remove_duplicates_from_sorted_list_two_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Partition List":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.partition_list_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Two Lists Sum":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.two_lists_sum_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
-
+            case "Two Lists Sum Advanced":
+                strings = getResources().getStringArray(R.array.two_lists_sum_advanced_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
+                break;
             case "Remove Nth Node From End of List":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.remove_nth_node_from_end_of_list_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Linked List Cycle":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.linked_list_cycle_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Linked List Cycle II":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.linked_list_cycle_two_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Reverse Linked List":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.reverse_linked_list_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Reverse Linked List II":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.reverse_linked_list_two);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Merge Two Sorted Lists":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.merge_two_sorted_lists);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Merge k Sorted Lists":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.merge_k_sorted_lists);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Sort List":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.sort_list_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Reorder List":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.recorder_list_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Recover Rotated Sorted Array":
-                frag1 = hm.get(dataContent).toString().split("首先", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("首先" + frag1[1]);
+                strings = getResources().getStringArray(R.array.recover_rotated_sorted_array_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Rotate String":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.rotate_string_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Reverse Words in a String":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.reverse_words_in_a_string);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Binary Tree Preorder Traversal":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.binary_tree_preorder_traversal_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Binary Tree Inorder Traversal":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.binary_tree_inorder_traversal_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Binary Tree Postorder Traversal":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.binary_tree_postorder_traversal_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Binary Tree Level Order Traversal":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.binary_tree_level_order_traversal_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Maximum Depth of Binary Tree":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.maximum_depth_of_binary_tree_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Balanced Binary Tree":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.balanced_binary_tree_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Binary Tree Maximum Path Sum":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.binary_tree_maximum_path_sum_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Lowest Common Ancestor":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.lowest_common_ancestor_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Insert Node in a Binary Search Tree":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.insert_node_in_a_binary_search_tree_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Validate Binary Search Tree":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.validate_binary_search_tree_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Search Range in Binary Search Tree":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.search_range_in_binary_search_tree_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Convert Sorted Array to Binary Search Tree":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.convert_sorted_array_to_binary_search_tree_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Convert Sorted List to Binary Search Tree":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.convert_sorted_list_to_binary_search_tree_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Binary Search Tree Iterator":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.binary_search_tree_iterator_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Subsets":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.subsets_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Permutation":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.permutation_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Triangle":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.triangle_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Backpack":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.backpack_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Minimum Path Sum":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.minimum_path_sum);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Unique Paths":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.unique_paths_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Climbing Stairs":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解" + frag1[1]);
+                strings = getResources().getStringArray(R.array.climbing_stairs_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             case "Jump Game":
-                frag1 = hm.get(dataContent).toString().split("题解", 2);
-                tvTitle.setText(frag1[0]);
-                tvAnswer.setText("题解"+frag1[1]);
+                strings = getResources().getStringArray(R.array.jump_game_);
+                tvTitle.setText(strings[0]);
+                tvAnswer.setText(strings[1]);
                 break;
             default:
                 tv.setText(hm.get(dataContent).toString());
@@ -511,7 +519,6 @@ public class ContentFragment extends  Fragment {
                 break;
         }
     }
-
     private void writeBoard() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
     }

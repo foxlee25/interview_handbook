@@ -52,46 +52,46 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 public void onClick(View v) {
                     if (mContext instanceof View.OnClickListener) {
                         switch (((TextViewHolder) holder).mTextView.getText().toString()) {
-                            case "1.Basics":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.basics));
-                                break;
-                            case "2.Data Structure":
+//                            case "Basics":
+//                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.basics));
+//                                break;
+                            case "Data Structure":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.data_structure));
                                 break;
-                            case "3.Basic Sorting":
+                            case "Basic Sorting":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.basics_sorting));
                                 break;
-                            case "4.Basic Misc":
+                            case "Basic Misc":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.basics_misc));
                                 break;
-                            case "5.String":
+                            case "String":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.string));
                                 break;
-                            case "6.Integer Array":
+                            case "Integer Array":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.integer_array));
                                 break;
-                            case "7.Binary Search":
+                            case "Binary Search":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.binary_search));
                                 break;
-                            case "8.Math and Bit Manipulation":
+                            case "Math and Bit Manipulation":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.math_and_bit_manipulation));
                                 break;
-                            case "9.Linked List":
+                            case "Linked List":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.linked_list));
                                 break;
-                            case "10.Reverse":
+                            case "Reverse":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.reverse));
                                 break;
-                            case "11.Binary Tree":
+                            case "Binary Tree":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.binary_tree));
                                 break;
-                            case "12.Binary Search Tree":
+                            case "Binary Search Tree":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.binary_search_tree));
                                 break;
-                            case "13.Backtracking":
+                            case "Backtracking":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.back_tracking));
                                 break;
-                            case "14.Dynamic Programing":
+                            case "Dynamic Programing":
                                 ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.dynamic_programming));
                                 break;
                             default:

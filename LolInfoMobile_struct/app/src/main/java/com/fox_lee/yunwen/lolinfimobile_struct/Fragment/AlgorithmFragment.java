@@ -23,7 +23,7 @@ public class AlgorithmFragment extends  Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
-        Log.d("Fragment", "Algorithm Fragment Started");
+
         return view;
     }
 
@@ -32,6 +32,7 @@ public class AlgorithmFragment extends  Fragment{
         super.onViewCreated(view, savedInstanceState);
         //display details
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
         algorithmAdapter = new AlgorithmAdapter(getActivity());
         mRecyclerView.setAdapter(algorithmAdapter);

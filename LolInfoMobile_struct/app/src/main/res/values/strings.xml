@@ -17,26 +17,40 @@
     <string name="cardview_radius_seekbar_text">Radius</string>
     <string name="cardview_elevation_seekbar_text">Elevation</string>
 
-    <string name="basics">1.Basics</string>
-    <string name="data_structure">2.Data Structure</string>
-    <string name="basic_sorting">3.Basic Sorting</string>
-    <string name="basic_misc">4.Basic Misc</string>
-    <string name="coding">5.Part II - Coding</string>
-    <string name="string">6.String</string>
-    <string name="integer_array">7.Integer Array</string>
-    <string name="binary_search">8.Binary Search</string>
-    <string name="math_and_bit_manipulation">9.Math and Bit Manipulation</string>
-    <string name="linked_list">10.Linked List</string>
-    <string name="reverse">11.Reverse</string>
-    <string name="binary_tree">12.Binary Tree</string>
-    <string name="binary_search_tree">13.Binary Search Tree</string>
-    <string name="backtracking">14.Backtracking</string>
-    <string name="dynamic_programing">15.Dynamic Programing</string>
+    <string name="basics">Basics</string>
+    <string name="data_structure">Data Structure</string>
+    <string name="basic_sorting">Basic Sorting</string>
+    <string name="basic_misc">Basic Misc</string>
+    <string name="coding">Part II - Coding</string>
+    <string name="string">String</string>
+    <string name="integer_array">Integer Array</string>
+    <string name="binary_search">Binary Search</string>
+    <string name="math_and_bit_manipulation">Math and Bit Manipulation</string>
+    <string name="linked_list">Linked List</string>
+    <string name="reverse">Reverse</string>
+    <string name="binary_tree">Binary Tree</string>
+    <string name="binary_search_tree">Binary Search Tree</string>
+    <string name="backtracking">Backtracking</string>
+    <string name="dynamic_programing">Dynamic Programing</string>
 
-    <string name="license_text">You are free to:
-Share — copy and redistribute the material in any medium or format
-Adapt — remix, transform, and build upon the material
-for any purpose, even commercially.
-The licensor cannot revoke these freedoms as long as you follow the license terms.</string>
+    <string name="license_text">copy right: all rights reversed</string>
+    <string name="about_title">About</string>
+    <string name="about_version">Engine Version:  V1\nDatabase Version:  20160315</string>
+    <string name="about_author">Developer:  Ji Li, Yunwen Lei</string>
+    <string name="about_license">2016 LolInfi,Inc.\nAll Rights Reserved</string>
     <string name="license_link">http://creativecommons.org/licenses/by-sa/4.0/</string>
+
+    <string name="binary_search_tree_c">public boolean isValidBST(TreeNode root) {
+    return isValidBST(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+}
+
+public boolean isValidBST(TreeNode p, double min, double max){
+    if(p==null)
+        return true;
+
+    if(p.val &lt;= min || p.val >= max)
+        return false;
+
+    return isValidBST(p.left, min, p.val) &amp;&amp; isValidBST(p.right, p.val, max);
+} </string>
 </resources>

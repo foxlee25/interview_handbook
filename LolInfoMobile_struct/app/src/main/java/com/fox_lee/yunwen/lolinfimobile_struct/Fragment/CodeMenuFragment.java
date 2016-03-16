@@ -24,7 +24,7 @@ public class CodeMenuFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
-        Log.d("Fragment", "RecyclerView Fragment Started");
+
         return view;
     }
 

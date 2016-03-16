@@ -3,6 +3,7 @@ package com.fox_lee.yunwen.lolinfimobile_struct.Activity;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
@@ -28,12 +29,11 @@ import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
-    ActionBarDrawerToggle mDrawerToggle;
+//    ActionBarDrawerToggle mDrawerToggle;
+    boolean doubleBackToExitPressedOnce = false;
 
     public void startContentFragment(String var){
         ContentFragment contentFragment = new ContentFragment();
-        Log.d("Fragment", "Content is: " + var);
-
         getFragmentManager().beginTransaction().replace(R.id.container, contentFragment, "AlgorithmSubFragment")
                 .addToBackStack("AlgorithmSubFragment").commit();
         contentFragment.changeData(var);
@@ -41,8 +41,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
     public void startAlgorithmSubFragment(String[] var){
         AlgorithmSubFragment algorithmSubFragment = new AlgorithmSubFragment();
-        Log.d("Fragment", "Content is: " + var);
-
         getFragmentManager().beginTransaction().replace(R.id.container, algorithmSubFragment, "AlgorithmSubFragment")
                 .addToBackStack("AlgorithmSubFragment").commit();
         algorithmSubFragment.changeData(var);
@@ -50,8 +48,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
     public void startAlgorithmFragment(String var){
         AlgorithmFragment leetCodeFragment = new AlgorithmFragment();
-        Log.d("Fragment", "Content is: " + var);
-
         getFragmentManager().beginTransaction().replace(R.id.container, leetCodeFragment, "AlgorithmFragment")
                 .addToBackStack("AlgorithmFragment").commit();
     }
@@ -60,46 +56,49 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.menu_icon);
+//        toolbar.setNavigationIcon(R.drawable.menu_icon);
 
-        DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer_layout, toolbar, R.string.openDrawer, R.string.closeDrawer) {
+//            @Override
+//            public void onDrawerOpened(View drawerView) {
+//                super.onDrawerOpened(drawerView);
+//            }
+//
+//            @Override
+//            public void onDrawerClosed(View drawerView) {
+//                super.onDrawerClosed(drawerView);
+//            }
+//        };
+//        mDrawer_layout.setDrawerListener(mDrawerToggle);
+//        mDrawerToggle.syncState();
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer_layout, toolbar, R.string.openDrawer, R.string.closeDrawer) {
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-            }
-        };
-
-        mDrawer_layout.setDrawerListener(mDrawerToggle);
-        mDrawerToggle.syncState();
-
-        ImageView img1 = (ImageView) findViewById(R.id.rowIconCoding);
-        ImageView img2 = (ImageView) findViewById(R.id.rowIcon1);
-        ImageView img3 = (ImageView) findViewById(R.id.rowIconFavorite);
-        ImageView img4 = (ImageView) findViewById(R.id.rowIcon3);
-        img1.setOnClickListener(this);
-        img2.setOnClickListener(this);
-        img3.setOnClickListener(this);
-        img4.setOnClickListener(this);
+//        ImageView img1 = (ImageView) findViewById(R.id.rowIconCoding);
+//        ImageView img2 = (ImageView) findViewById(R.id.rowIcon1);
+//        ImageView img3 = (ImageView) findViewById(R.id.rowIconFavorite);
+//        ImageView img4 = (ImageView) findViewById(R.id.rowIcon3);
+//        img1.setOnClickListener(this);
+//        img2.setOnClickListener(this);
+//        img3.setOnClickListener(this);
+//        img4.setOnClickListener(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Coming Soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
         toolbar.getMenu().clear();
+
+        AlgorithmFragment algorithmFragment = new AlgorithmFragment();
+        this.getFragmentManager().beginTransaction()
+                .replace(R.id.container, algorithmFragment, "Fragment")
+                .addToBackStack(null)
+                .commit();
     }
 
     public void onClick(View v) {
@@ -108,22 +107,16 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 Snackbar.make(v, "Open coding interview ", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 clearBackStack();
-                CodeMenuFragment codeMenuFragment = new CodeMenuFragment();
+                AlgorithmFragment algorithmFragment = new AlgorithmFragment();
                 this.getFragmentManager().beginTransaction()
-                        .replace(R.id.container, codeMenuFragment, "Fragment")
+                        .replace(R.id.container, algorithmFragment, "Fragment")
                         .addToBackStack(null)
                         .commit();
                 break;
 
             case R.id.rowIcon1: /** Start a new fragment LolRecyclerViewFragment.java */
-                Snackbar.make(v, "Open Sample coding interview ", Snackbar.LENGTH_LONG)
+                Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                clearBackStack();
-                CodeMenuFragment sampleMenuFragment = new CodeMenuFragment();
-                this.getFragmentManager().beginTransaction()
-                        .replace(R.id.container, sampleMenuFragment, "Fragment")
-                        .addToBackStack(null)
-                        .commit();
                 break;
 
             case R.id.rowIconFavorite: /** AlerDialog when click on 3rd icon */
@@ -168,11 +161,11 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             startActivity(startActivity);
             return true;
         }
-        if (id == R.id.action_settings) {
-            // to do
-            Toast.makeText(this,"Coming Sonn",Toast.LENGTH_SHORT).show();
-            return true;
-        }
+//        if (id == R.id.action_settings) {
+//            // to do
+//            Toast.makeText(this,"Coming Sonn",Toast.LENGTH_SHORT).show();
+//            return true;
+//        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -187,10 +180,24 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     @Override
     public void onBackPressed(){
         FragmentManager fm = getFragmentManager();
-        if (fm.getBackStackEntryCount() > 0) {
+        if (fm.getBackStackEntryCount() > 1) {
             fm.popBackStack();
-        } else {
-            super.onBackPressed();
         }
+        else {
+            //super.onBackPressed();
+        }
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Quickly click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 350);
     }
 }
