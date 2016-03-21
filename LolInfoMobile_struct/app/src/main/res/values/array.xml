@@ -4001,23 +4001,23 @@ For example, if k1 = 10 and k2 = 22, then your function should print 12, 20 and 
 </item>
 <item name="code">
 public class Solution {\n
-    private TreeNode buildTree(int[] num, int start, int end) {\n
-        if (start > end) {\n
-            return null;\n
-        }\n
+\t    private TreeNode buildTree(int[] num, int start, int end) {\n
+\t\t        if (start > end) {\n
+\t\t\t            return null;\n
+\t\t        }\n
 \n
-        TreeNode node = new TreeNode(num[(start + end) / 2]);\n
-        node.left = buildTree(num, start, (start + end) / 2 - 1);\n
-        node.right = buildTree(num, (start + end) / 2 + 1, end);\n
-        return node;\n
-    }\n
+\t\t        TreeNode node = new TreeNode(num[(start + end) / 2]);\n
+\t\t        node.left = buildTree(num, start, (start + end) / 2 - 1);\n
+\t\t        node.right = buildTree(num, (start + end) / 2 + 1, end);\n
+\t\t        return node;\n
+\t    }\n
 \n
-    public TreeNode sortedArrayToBST(int[] num) {\n
-        if (num == null) {\n
-            return null;\n
-        }\n
-        return buildTree(num, 0, num.length - 1);\n
-    }\n
+\t    public TreeNode sortedArrayToBST(int[] num) {\n
+\t\t        if (num == null) {\n
+\t\t\t            return null;\n
+\t\t        }\n
+\t\t        return buildTree(num, 0, num.length - 1);\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -4027,45 +4027,44 @@ Given a singly linked list where elements are sorted in ascending order,
 convert it to a height balanced BST.
 </item>
 <item name="code">
-
 public class Solution {\n
-    private ListNode current;\n
+\t    private ListNode current;\n
 \n
-    private int getListLength(ListNode head) {\n
-        int size = 0;\n
+\t    private int getListLength(ListNode head) {\n
+\t\t        int size = 0;\n
 \n
-        while (head != null) {\n
-            size++;\n
-            head = head.next;\n
-        }\n
+\t\t        while (head != null) {\n
+\t\t\t            size++;\n
+\t\t\t            head = head.next;\n
+\t\t        }\n
 \n
-        return size;\n
-    }\n
+\t\t        return size;\n
+\t    }\n
 \n
-    public TreeNode sortedListToBST(ListNode head) {\n
-        int size;\n
+\t    public TreeNode sortedListToBST(ListNode head) {\n
+\t\t        int size;\n
 \n
-        current = head;\n
-        size = getListLength(head);\n
+\t\t        current = head;\n
+\t\t        size = getListLength(head);\n
 \n
-        return sortedListToBSTHelper(size);\n
-    }\n
+\t\t        return sortedListToBSTHelper(size);\n
+\t    }\n
 \n
-    public TreeNode sortedListToBSTHelper(int size) {\n
-        if (size &lt;= 0) {\n
-            return null;\n
-        }\n
+\t    public TreeNode sortedListToBSTHelper(int size) {\n
+\t\t        if (size &lt;= 0) {\n
+\t\t\t            return null;\n
+\t\t        }\n
 \n
-        TreeNode left = sortedListToBSTHelper(size / 2);\n
-        TreeNode root = new TreeNode(current.val);\n
-        current = current.next;\n
-        TreeNode right = sortedListToBSTHelper(size - 1 - size / 2);\n
+\t\t        TreeNode left = sortedListToBSTHelper(size / 2);\n
+\t\t        TreeNode root = new TreeNode(current.val);\n
+\t\t        current = current.next;\n
+\t\t        TreeNode right = sortedListToBSTHelper(size - 1 - size / 2);\n
 \n
-        root.left = left;\n
-        root.right = right;\n
+\t\t        root.left = left;\n
+\t\t        root.right = right;\n
 \n
-        return root;\n
-    }\n
+\t\t        return root;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -4104,32 +4103,32 @@ Super Star: Extra memory usage O(1)
  * }\n
  */\n
 public class Solution {\n
-    private Stack stack = new Stack&lt;&gt;();\n
-    private TreeNode curt;\n
+\t    private Stack stack = new Stack&lt;&gt;();\n
+\t    private TreeNode curt;\n
 \n
-    // @param root: The root of binary tree.\n
-    public Solution(TreeNode root) {\n
-        curt = root;\n
-    }\n
+\t    // @param root: The root of binary tree.\n
+\t    public Solution(TreeNode root) {\n
+\t\t        curt = root;\n
+\t    }\n
 \n
-    //@return: True if there has next node, or false\n
-    public boolean hasNext() {\n
-        return (curt != null || !stack.isEmpty()); //important to judge curt != null\n
-    }\n
+\t    //@return: True if there has next node, or false\n
+\t    public boolean hasNext() {\n
+\t\t        return (curt != null || !stack.isEmpty()); //important to judge curt != null\n
+\t    }\n
 \n
-    //@return: return next node\n
-    public TreeNode next() {\n
-        while (curt != null) {\n
-            stack.push(curt);\n
-            curt = curt.left;\n
-        }\n
+\t    //@return: return next node\n
+\t    public TreeNode next() {\n
+\t\t        while (curt != null) {\n
+\t\t\t            stack.push(curt);\n
+\t\t\t            curt = curt.left;\n
+\t\t        }\n
 \n
-        curt = stack.pop();\n
-        TreeNode node = curt;\n
-        curt = curt.right;\n
+\t\t        curt = stack.pop();\n
+\t\t        TreeNode node = curt;\n
+\t\t        curt = curt.right;\n
 \n
-        return node;\n
-    }\n
+\t\t        return node;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -4155,62 +4154,62 @@ If S = [1,2,3], a solution is:\n
 </item>
 <item name="code">
     public class Solution {\n
-    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; subsets(int[] num) {\n
-        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
-        if(num == null || num.length == 0) {\n
-            return result;\n
-        }\n
-        ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();\n
-        Arrays.sort(num);\n
-        subsetsHelper(result, list, num, 0);\n
+\t    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; subsets(int[] num) {\n
+\t\t        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+\t\t        if(num == null || num.length == 0) {\n
+\t\t\t            return result;\n
+\t\t        }\n
+\t\t        ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();\n
+\t\t        Arrays.sort(num);\n
+\t\t        subsetsHelper(result, list, num, 0);\n
 \n
-        return result;\n
-    }\n
+\t\t        return result;\n
+\t    }\n
 \n
-    private void subsetsHelper(ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result,\n
-        ArrayList&lt;Integer&gt; list, int[] num, int pos) {\n
+\t    private void subsetsHelper(ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result,\n
+\t\t        ArrayList&lt;Integer&gt; list, int[] num, int pos) {\n
 \n
-        result.add(new ArrayList&lt;Integer&gt;(list));\n
+\t\t        result.add(new ArrayList&lt;Integer&gt;(list));\n
 \n
-        for (int i = pos; i &lt; num.length; i++) {\n
+\t\t        for (int i = pos; i &lt; num.length; i++) {\n
 \n
-            list.add(num[i]);\n
-            subsetsHelper(result, list, num, i + 1);\n
-            list.remove(list.size() - 1);\n
-        }\n
-    }\n
+\t\t\t            list.add(num[i]);\n
+\t\t\t            subsetsHelper(result, list, num, i + 1);\n
+\t\t\t            list.remove(list.size() - 1);\n
+\t\t        }\n
+\t    }\n
 }\n
 \n
 // Non Recursion\n
 class Solution {\n
-    /**\n
-     * @param S: A set of numbers.\n
-     * @return: A list of lists. All valid subsets.\n
-     */\n
-    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; subsets(int[] nums) {\n
-        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
-        int n = nums.length;\n
-        Arrays.sort(nums);\n
+\t    /**\n
+\t     * @param S: A set of numbers.\n
+\t     * @return: A list of lists. All valid subsets.\n
+\t     */\n
+\t    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; subsets(int[] nums) {\n
+\t\t        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+\t\t        int n = nums.length;\n
+\t\t        Arrays.sort(nums);\n
 \n
-        // 1 &lt;&lt; n is 2^n\n
-        // each subset equals to an binary integer between 0 .. 2^n - 1\n
-        // 0 -&gt; 000 -&gt; []\n
-        // 1 -&gt; 001 -&gt; [1]\n
-        // 2 -&gt; 010 -&gt; [2]\n
-        // ..\n
-        // 7 -&gt; 111 -&gt; [1,2,3]\n
-        for (int i = 0; i &lt; (1 &lt;&lt; n); i++) {\n
-            ArrayList&lt;Integer&gt; subset = new ArrayList&lt;Integer&gt;();\n
-            for (int j = 0; j &lt; n; j++) {\n
-                // check whether the jth digit in i\'s binary representation is 1\n
-                if ((i &amp; (1 &lt;&lt; j)) != 0) {\n
-                    subset.add(nums[j]);\n
-                }\n
-            }\n
-            result.add(subset);\n
-        }\n
-        return result;\n
-    }\n
+\t\t        // 1 &lt;&lt; n is 2^n\n
+\t\t        // each subset equals to an binary integer between 0 .. 2^n - 1\n
+\t\t        // 0 -&gt; 000 -&gt; []\n
+\t\t        // 1 -&gt; 001 -&gt; [1]\n
+\t\t        // 2 -&gt; 010 -&gt; [2]\n
+\t\t        // ..\n
+\t\t        // 7 -&gt; 111 -&gt; [1,2,3]\n
+\t\t        for (int i = 0; i &lt; (1 &lt;&lt; n); i++) {\n
+\t\t\t            ArrayList&lt;Integer&gt; subset = new ArrayList&lt;Integer&gt;();\n
+\t\t\t            for (int j = 0; j &lt; n; j++) {\n
+\t\t\t\t                // check whether the jth digit in i\'s binary representation is 1\n
+\t\t\t\t                if ((i &amp; (1 &lt;&lt; j)) != 0) {\n
+\t\t\t\t\t                    subset.add(nums[j]);\n
+\t\t\t\t                }\n
+\t\t\t            }\n
+\t\t\t            result.add(subset);\n
+\t\t        }\n
+\t\t        return result;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -4232,83 +4231,83 @@ Do it without recursion
 </item>
 <item name="code">
 public class Solution {\n
-    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permute(int[] num) {\n
-         ArrayList&lt;ArrayList&lt;Integer&gt;&gt; rst = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
-         if (num == null || num.length == 0) {\n
-             return rst;\n
-         }\n
+\t    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permute(int[] num) {\n
+\t\t         ArrayList&lt;ArrayList&lt;Integer&gt;&gt; rst = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+\t\t         if (num == null || num.length == 0) {\n
+\t\t\t             return rst;\n
+\t\t         }\n
 \n
-         ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();\n
-         helper(rst, list, num);\n
-         return rst;\n
-    }\n
+\t\t         ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();\n
+\t\t         helper(rst, list, num);\n
+\t\t         return rst;\n
+\t    }\n
 \n
-    public void helper(ArrayList&lt;ArrayList&lt;Integer&gt;&gt; rst, ArrayList&lt;Integer&gt; list, int[] num){\n
-        if(list.size() == num.length) {\n
-            rst.add(new ArrayList&lt;Integer&gt;(list));\n
-            return;\n
-        }\n
+\t    public void helper(ArrayList&lt;ArrayList&lt;Integer&gt;&gt; rst, ArrayList&lt;Integer&gt; list, int[] num){\n
+\t\t        if(list.size() == num.length) {\n
+\t\t\t            rst.add(new ArrayList&lt;Integer&gt;(list));\n
+\t\t\t            return;\n
+\t\t        }\n
 \n
-        for(int i = 0; i&lt;num.length; i++){\n
-            if(list.contains(num[i])){\n
-                continue;\n
-            }\n
-            list.add(num[i]);\n
-            helper(rst, list, num);\n
-            list.remove(list.size() - 1);\n
-        }\n
-    }\n
+\t\t        for(int i = 0; i&lt;num.length; i++){\n
+\t\t\t            if(list.contains(num[i])){\n
+\t\t\t\t                continue;\n
+\t\t\t            }\n
+\t\t\t            list.add(num[i]);\n
+ \t\t\t           helper(rst, list, num);\n
+ \t\t\t           list.remove(list.size() - 1);\n
+\t\t        }\n
+\t    }\n
 }\n
 // Non-Recursion\n
 class Solution {\n
-    /**\n
-     * @param nums: A list of integers.\n
-     * @return: A list of permutations.\n
-     */\n
-    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permute(ArrayList&lt;Integer&gt; nums) {\n
-        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permutations\n
-             = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
-        if (nums == null || nums.size() == 0) {\n
-            return permutations;\n
-        }\n
+\t    /**\n
+\t     * @param nums: A list of integers.\n
+\t     * @return: A list of permutations.\n
+\t     */\n
+\t    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permute(ArrayList&lt;Integer&gt; nums) {\n
+\t\t        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permutations\n
+\t\t             = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+\t\t        if (nums == null || nums.size() == 0) {\n
+\t\t\t            return permutations;\n
+\t\t        }\n
 \n
-        int n = nums.size();\n
-        ArrayList&lt;Integer&gt; stack = new ArrayList&lt;Integer&gt;();\n
+\t\t        int n = nums.size();\n
+\t\t        ArrayList&lt;Integer&gt; stack = new ArrayList&lt;Integer&gt;();\n
 \n
-        stack.add(-1);\n
-        while (stack.size() != 0) {\n
-            Integer last = stack.get(stack.size() - 1);\n
-            stack.remove(stack.size() - 1);\n
+\t\t        stack.add(-1);\n
+\t\t        while (stack.size() != 0) {\n
+\t\t\t            Integer last = stack.get(stack.size() - 1);\n
+\t\t\t            stack.remove(stack.size() - 1);\n
 \n
-            // increase the last number\n
-            int next = -1;\n
-            for (int i = last + 1; i &lt; n; i++) {\n
-                if (!stack.contains(i)) {\n
-                    next = i;\n
-                    break;\n
-                }\n
-            }\n
-            if (next == -1) {\n
-                continue;\n
-            }\n
+\t\t            // increase the last number\n
+\t\t            int next = -1;\n
+\t\t            for (int i = last + 1; i &lt; n; i++) {\n
+\t\t\t                if (!stack.contains(i)) {\n
+\t\t\t\t                    next = i;\n
+\t\t\t\t                    break;\n
+\t\t\t                }\n
+\t\t            }\n
+\t\t            if (next == -1) {\n
+\t\t\t                continue;\n
+\t\t            }\n
 \n
-            // generate the next permutation\n
-            stack.add(next);\n
-            for (int i = 0; i &lt; n; i++) {\n
-                if (!stack.contains(i)) {\n
-                    stack.add(i);\n
-                }\n
-            }\n
+\t\t            // generate the next permutation\n
+\t\t            stack.add(next);\n
+\t\t            for (int i = 0; i &lt; n; i++) {\n
+\t\t\t                if (!stack.contains(i)) {\n
+\t\t\t\t                    stack.add(i);\n
+\t\t\t                }\n
+\t\t            }\n
 \n
-            // copy to permutations set\n
-            ArrayList&lt;Integer&gt; permutation = new ArrayList&lt;Integer&gt;();\n
-            for (int i = 0; i &lt; n; i++) {\n
-                permutation.add(nums.get(stack.get(i)));\n
-            }\n
-            permutations.add(permutation);\n
-        }\n
-        return permutations;\n
-    }\n
+\t\t            // copy to permutations set\n
+\t\t            ArrayList&lt;Integer&gt; permutation = new ArrayList&lt;Integer&gt;();\n
+\t\t            for (int i = 0; i &lt; n; i++) {\n
+\t\t\t                permutation.add(nums.get(stack.get(i)));\n
+\t\t            }\n
+\t\t            permutations.add(permutation);\n
+\t\t        }\n
+\t\t        return permutations;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -4334,115 +4333,115 @@ class Solution {\n
 <item name="code">
     // version 0: top-down\n
 public class Solution {\n
-    /**\n
-     * @param triangle: a list of lists of integers.\n
-     * @return: An integer, minimum path sum.\n
-     */\n
-    public int minimumTotal(int[][] triangle) {\n
-        if (triangle == null || triangle.length == 0) {\n
-            return -1;\n
-        }\n
-        if (triangle[0] == null || triangle[0].length == 0) {\n
-            return -1;\n
-        }\n
+\t    /**\n
+\t     * @param triangle: a list of lists of integers.\n
+\t     * @return: An integer, minimum path sum.\n
+\t     */\n
+\t    public int minimumTotal(int[][] triangle) {\n
+\t\t        if (triangle == null || triangle.length == 0) {\n
+\t\t\t            return -1;\n
+ \t\t       }\n
+\t\t        if (triangle[0] == null || triangle[0].length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
 \n
-        // state: f[x][y] = minimum path value from 0,0 to x,y\n
-        int n = triangle.length;\n
-        int[][] f = new int[n][n];\n
+\t\t        // state: f[x][y] = minimum path value from 0,0 to x,y\n
+\t\t        int n = triangle.length;\n
+\t\t        int[][] f = new int[n][n];\n
 \n
-        // initialize\n
-        f[0][0] = triangle[0][0];\n
-        for (int i = 1; i &lt; n; i++) {\n
-            f[i][0] = f[i - 1][0] + triangle[i][0];\n
-            f[i][i] = f[i - 1][i - 1] + triangle[i][i];\n
-        }\n
+\t\t        // initialize\n
+\t\t        f[0][0] = triangle[0][0];\n
+\t\t        for (int i = 1; i &lt; n; i++) {\n
+\t\t\t            f[i][0] = f[i - 1][0] + triangle[i][0];\n
+\t\t\t            f[i][i] = f[i - 1][i - 1] + triangle[i][i];\n
+\t\t        }\n
 \n
-        // top down\n
-        for (int i = 1; i &lt; n; i++) {\n
-            for (int j = 1; j &lt; i; j++) {\n
-                f[i][j] = Math.min(f[i - 1][j], f[i - 1][j - 1]) + triangle[i][j];\n
-            }\n
-        }\n
+\t\t        // top down\n
+\t\t        for (int i = 1; i &lt; n; i++) {\n
+\t\t\t            for (int j = 1; j &lt; i; j++) {\n
+\t\t\t\t                f[i][j] = Math.min(f[i - 1][j], f[i - 1][j - 1]) + triangle[i][j];\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        // answer\n
-        int best = f[n - 1][0];\n
-        for (int i = 1; i &lt; n; i++) {\n
-            best = Math.min(best, f[n - 1][i]);\n
-        }\n
-        return best;\n
-    }\n
+\t\t        // answer\n
+\t\t        int best = f[n - 1][0];\n
+\t\t        for (int i = 1; i &lt; n; i++) {\n
+\t\t\t            best = Math.min(best, f[n - 1][i]);\n
+\t\t        }\n
+\t\t        return best;\n
+\t    }\n
 }\n
 \n
 //Version 1: Bottom-Up\n
 public class Solution {\n
-    /**\n
-     * @param triangle: a list of lists of integers.\n
-     * @return: An integer, minimum path sum.\n
-     */\n
-    public int minimumTotal(int[][] triangle) {\n
-        if (triangle == null || triangle.length == 0) {\n
-            return -1;\n
-        }\n
-        if (triangle[0] == null || triangle[0].length == 0) {\n
-            return -1;\n
-        }\n
-        // state: f[x][y] = minimum path value from x,y to bottom\n
-        int n = triangle.length;\n
-        int[][] f = new int[n][n];\n
+\t    /**\n
+\t     * @param triangle: a list of lists of integers.\n
+\t     * @return: An integer, minimum path sum.\n
+\t     */\n
+\t    public int minimumTotal(int[][] triangle) {\n
+\t\t        if (triangle == null || triangle.length == 0) {\n
+ \t\t\t           return -1;\n
+\t\t        }\n
+\t\t        if (triangle[0] == null || triangle[0].length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
+\t\t        // state: f[x][y] = minimum path value from x,y to bottom\n
+\t\t        int n = triangle.length;\n
+\t\t        int[][] f = new int[n][n];\n
 \n
-        // initialize\n
-        for (int i = 0; i &lt; n; i++) {\n
-            f[n - 1][i] = triangle[n - 1][i];\n
-        }\n
-        // bottom up\n
-        for (int i = n - 2; i &gt;= 0; i--) {\n
-            for (int j = 0; j &lt;= i; j++) {\n
-                f[i][j] = Math.min(f[i + 1][j], f[i + 1][j + 1]) + triangle[i][j];\n
-            }\n
-        }\n
-        // answer\n
-        return f[0][0];\n
-    }\n
+\t\t        // initialize\n
+\t\t        for (int i = 0; i &lt; n; i++) {\n
+\t\t\t            f[n - 1][i] = triangle[n - 1][i];\n
+\t\t        }\n
+\t\t        // bottom up\n
+\t\t        for (int i = n - 2; i &gt;= 0; i--) {\n
+\t\t\t            for (int j = 0; j &lt;= i; j++) {\n
+\t\t\t\t                f[i][j] = Math.min(f[i + 1][j], f[i + 1][j + 1]) + triangle[i][j];\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        // answer\n
+\t\t        return f[0][0];\n
+\t    }\n
 }\n
 //Version 2 : Memorize Search\n
 public class Solution {\n
-    private int n;\n
-    private int[][] minSum;\n
-    private int[][] triangle;\n
+\t    private int n;\n
+\t    private int[][] minSum;\n
+\t    private int[][] triangle;\n
 \n
-    private int search(int x, int y) {\n
-        if (x &gt;= n) {\n
-            return 0;\n
-        }\n
+\t    private int search(int x, int y) {\n
+\t\t        if (x &gt;= n) {\n
+\t\t\t            return 0;\n
+\t\t        }\n
 \n
-        if (minSum[x][y] != Integer.MAX_VALUE) {\n
-            return minSum[x][y];\n
-        }\n
+\t\t        if (minSum[x][y] != Integer.MAX_VALUE) {\n
+\t\t\t            return minSum[x][y];\n
+\t\t        }\n
 \n
-        minSum[x][y] = Math.min(search(x + 1, y), search(x + 1, y + 1))\n
-            + triangle[x][y];\n
-        return minSum[x][y];\n
-    }\n
+\t\t        minSum[x][y] = Math.min(search(x + 1, y), search(x + 1, y + 1))\n
+\t\t            + triangle[x][y];\n
+\t\t        return minSum[x][y];\n
+\t    }\n
 \n
-    public int minimumTotal(int[][] triangle) {\n
-        if (triangle == null || triangle.length == 0) {\n
-            return -1;\n
-        }\n
-        if (triangle[0] == null || triangle[0].length == 0) {\n
-            return -1;\n
-        }\n
+\t    public int minimumTotal(int[][] triangle) {\n
+\t\t        if (triangle == null || triangle.length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
+\t\t        if (triangle[0] == null || triangle[0].length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
 \n
-        this.n = triangle.length;\n
-        this.triangle = triangle;\n
-        this.minSum = new int[n][n];\n
+\t\t        this.n = triangle.length;\n
+\t\t        this.triangle = triangle;\n
+\t\t        this.minSum = new int[n][n];\n
 \n
-        for (int i = 0; i &lt; n; i++) {\n
-            for (int j = 0; j &lt; n; j++) {\n
-                minSum[i][j] = Integer.MAX_VALUE;\n
-            }\n
-        }\n
-        return search(0, 0);\n
-    }\n
+\t\t        for (int i = 0; i &lt; n; i++) {\n
+\t\t\t            for (int j = 0; j &lt; n; j++) {\n
+\t\t\t\t                minSum[i][j] = Integer.MAX_VALUE;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return search(0, 0);\n
+\t    }\n
 }\n
 </item>
 </string-array>
@@ -4460,35 +4459,35 @@ You function should return the max size we can fill in the given backpack.
 </item>
 <item name="code">
 public class Solution {\n
-    /**\n
-     * @param m: An integer m denotes the size of a backpack\n
-     * @param A: Given n items with size A[i]\n
-     * @return: The maximum size\n
-     */\n
-    public int backPack(int m, int[] A) {\n
-        boolean f[][] = new boolean[A.length + 1][m + 1];\n
-        for (int i = 0; i &lt;= A.length; i++) {\n
-            for (int j = 0; j &lt;= m; j++) {\n
-                f[i][j] = false;\n
-            }\n
-        }\n
-        f[0][0] = true;\n
-        for (int i = 0; i &lt; A.length; i++) {\n
-            for (int j = 0; j &lt;= m; j++) {\n
-                f[i + 1][j] = f[i][j];\n
-                if (j &gt;= A[i] &amp;&amp; f[i][j - A[i]]) {\n
-                    f[i + 1][j] = true;\n
-                }\n
-            } // for j\n
-        } // for i\n
+\t    /**\n
+\t     * @param m: An integer m denotes the size of a backpack\n
+\t     * @param A: Given n items with size A[i]\n
+\t     * @return: The maximum size\n
+\t     */\n
+\t    public int backPack(int m, int[] A) {\n
+\t\t        boolean f[][] = new boolean[A.length + 1][m + 1];\n
+\t\t        for (int i = 0; i &lt;= A.length; i++) {\n
+\t\t\t            fo\tr (int j = 0; j &lt;= m; j++) {\n
+\t\t\t\t                f[i][j] = false;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        f[0][0] = true;\n
+\t\t        for (int i = 0; i &lt; A.length; i++) {\n
+\t\t\t            fo\tr (int j = 0; j &lt;= m; j++) {\n
+ \t\t\t\t               f[i + 1][j] = f[i][j];\n
+ \t\t\t\t               if (j &gt;= A[i] &amp;&amp; f[i][j - A[i]]) {\n
+ \t\t\t\t\t                   f[i + 1][j] = true;\n
+ \t\t\t\t               }\n
+ \t\t\t           } // for j\n
+\t\t        } // for i\n
 \n
-        for (int i = m; i &gt;= 0; i--) {\n
-            if (f[A.length][i]) {\n
-                return i;\n
-            }\n
-        }\n
-        return 0;\n
-    }\n
+ \t\t       for (int i = m; i &gt;= 0; i--) {\n
+ \t\t\t           if (f\t[A.length][i]) {\n
+ \t\t\t\t               return i;\n
+ \t\t\t           }\n
+ \t\t       }\n
+ \t\t       return 0;\n
+ \t   }\n
 }\n
 </item>
 </string-array>
@@ -4501,33 +4500,33 @@ You can only move either down or right at any point in time.
 </item>
 <item name="code">
     public class Solution {\n
-    public int minPathSum(int[][] grid) {\n
-        if (grid == null || grid.length == 0 || grid[0].length == 0) {\n
-            return 0;\n
-        }\n
+\t    public int minPathSum(int[][] grid) {\n
+\t\t        if (grid == null || grid.length == 0 || grid[0].length == 0) {\n
+\t\t\t            return 0;\n
+\t\t        }\n
 \n
-        int M = grid.length;\n
-        int N = grid[0].length;\n
-        int[][] sum = new int[M][N];\n
+\t\t        int M = \tgrid.length;\n
+\t\t        int N = grid[0].length;\n
+\t\t        int[][] sum = new int[M][N];\n
 \n
-        sum[0][0] = grid[0][0];\n
+\t\t        sum[0][0] = grid[0][0];\n
 \n
-        for (int i = 1; i &lt; M; i++) {\n
-            sum[i][0] = sum[i - 1][0] + grid[i][0];\n
-        }\n
+\t\t        for (int i = 1; i &lt; M; i++) {\n
+\t\t\t            sum[i][0] = sum[i - 1][0] + grid[i][0];\n
+\t\t        }\n
 \n
-        for (int i = 1; i &lt; N; i++) {\n
-            sum[0][i] = sum[0][i - 1] + grid[0][i];\n
-        }\n
+\t\t        for (int i = 1; i &lt; N; i++) {\n
+\t\t\t            sum[0][i] = sum[0][i - 1] + grid[0][i];\n
+\t\t        }\n
 \n
-        for (int i = 1; i &lt; M; i++) {\n
-            for (int j = 1; j &lt; N; j++) {\n
-                sum[i][j] = Math.min(sum[i - 1][j], sum[i][j - 1]) + grid[i][j];\n
-            }\n
-        }\n
+\t\t        for (int i = 1; i &lt; M; i++) {\n
+\t\t\t            for (int j = 1; j &lt; N; j++) {\n
+\t\t\t\t                sum[i][j] = Math.min(sum[i - 1][j], sum[i][j - 1]) + grid[i][j];\n
+ \t\t\t           }\n
+\t\t        }\n
 \n
-        return sum[M - 1][N - 1];\n
-    }\n
+\t\t        return sum[M - 1][N - 1];\n
+\t    }\n
 }\n
 </item>
 </string-array>
@@ -4544,24 +4543,24 @@ m and n will be at most 100.
 </item>
 <item name="code">
 public class Solution {\n
-    public int uniquePaths(int m, int n) {\n
-        if (m == 0 || n == 0) {\n
-            return 0;\n
-        }\n
-        int[][] sum = new int[m][n];\n
-        for (int i = 0; i &lt; m; i++) {\n
-            sum[i][0] = 1;\n
-        }\n
-        for (int i = 0; i &lt; n; i++) {\n
-            sum[0][i] = 1;\n
-        }\n
-        for (int i = 1; i &lt; m; i++) {\n
-            for (int j = 1; j &lt; n; j++) {\n
-                sum[i][j] = sum[i - 1][j] + sum[i][j - 1];\n
-            }\n
-        }\n
-        return sum[m - 1][n - 1];\n
-    }\n
+\t    public int uniquePaths(int m, int n) {\n
+\t\t        if (m == 0 || n == 0) {\n
+\t\t\t            return 0;\n
+\t\t        }\n
+\t\t        int[][] sum = new int[m][n];\n
+\t\t        for (int i = 0; i &lt; m; i++) {\n
+\t\t\t            sum[i][0] = 1;\n
+\t\t        }\n
+\t\t        for (int i = 0; i &lt; n; i++) {\n
+\t\t\t            sum[0][i] = 1;\n
+\t\t        }\n
+\t\t        for (int i = 1; i &lt; m; i++) {\n
+\t\t\t            for (int j = 1; j &lt; n; j++) {\n
+\t\t\t\t                sum[i][j] = sum[i - 1][j] + sum[i][j - 1];\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return sum[m - 1][n - 1];\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -4578,19 +4577,19 @@ return 3
 </item>
 <item name="code">
 public class Solution {\n
-    public int climbStairs(int n) {\n
-        if (n &lt;= 1) {\n
-            return 1;\n
-        }\n
-        int last = 1, lastlast = 1;\n
-        int now = 0;\n
-        for (int i = 2; i &lt;= n; i++) {\n
-            now = last + lastlast;\n
-            lastlast = last;\n
-            last = now;\n
-        }\n
-        return now;\n
-    }\n
+\t    public int climbStairs(int n) {\n
+\t\t        if (n &lt;= 1) {\n
+\t\t\t            return 1;\n
+\t\t        }\n
+\t\t        int last = 1, lastlast = 1;\n
+\t\t        int now = 0;\n
+\t\t        for (int i = 2; i &lt;= n; i++) {\n
+\t\t\t            now = last + lastlast;\n
+\t\t\t            lastlast = last;\n
+\t\t\t            last = now;\n
+\t\t        }\n
+\t\t        return now;\n
+    \t   }\n
 }
 </item>
 </string-array>
@@ -4611,38 +4610,38 @@ A = [3,2,1,0,4], return false.
 <item name="code">
 // version 1: Dynamic Programming\n
 public class Solution {\n
-    public boolean canJump(int[] A) {\n
-        boolean[] can = new boolean[A.length];\n
-        can[0] = true;\n
+\t    public boolean canJump(int[] A) {\n
+\t\t        boolean[] can = new boolean[A.length];\n
+\t\t        can[0] = true;\n
 \n
-        for (int i = 1; i &lt; A.length; i++) {\n
-            for (int j = 0; j &lt; i; j++) {\n
-                if (can[j] &amp;&amp; j + A[j] &gt;= i) {\n
-                    can[i] = true;\n
-                    break;\n
-                }\n
-            }\n
-        }\n
+\t\t        for (int i = 1; i &lt; A.length; i++) {\n
+ \t\t\t           for (int j = 0; j &lt; i; j++) {\n
+ \t\t\t\t               if (can[j] &amp;&amp; j + A[j] &gt;= i) {\n
+\t\t\t\t\t                    can[i] = true;\n
+\t\t\t\t\t                    break;\n
+\t\t\t\t                }\n
+ \t\t\t           }\n
+ \t\t       }\n
 \n
-        return can[A.length - 1];\n
-    }\n
+\t\t        return can[A.length - 1];\n
+\t    }\n
 }\n
     \n
 // version 2: Greedy\n
 public class Solution {\n
-    public boolean canJump(int[] A) {\n
-        // think it as merging n intervals\n
-        if (A == null || A.length == 0) {\n
-            return false;\n
-        }\n
-        int farthest = A[0];\n
-        for (int i = 1; i &lt; A.length; i++) {\n
-            if (i &lt;= farthest &amp;&amp; A[i] + i &gt;= farthest) {\n
-                farthest = A[i] + i;\n
-            }\n
-        }\n
-        return farthest &gt;= A.length - 1;\n
-    }\n
+\t    public boolean canJump(int[] A) {\n
+\t\t        // think it as merging n intervals\n
+\t\t        if (A == null || A.length == 0) {\n
+\t\t\t            return false;\n
+\t\t        }\n
+\t\t        int farthest = A[0];\n
+\t\t        for (int i = 1; i &lt; A.length; i++) {\n
+\t\t\t            if (i &lt;= farthest &amp;&amp; A[i] + i &gt;= farthest) {\n
+\t\t\t\t                farthest = A[i] + i;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return farthest &gt;= A.length - 1;\n
+\t    }\n
 }\n
 </item>
 </string-array>

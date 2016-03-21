@@ -84,16 +84,15 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 //        img3.setOnClickListener(this);
 //        img4.setOnClickListener(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Coming Soon", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Coming Soon", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
         toolbar.getMenu().clear();
-
         AlgorithmFragment algorithmFragment = new AlgorithmFragment();
         this.getFragmentManager().beginTransaction()
                 .replace(R.id.container, algorithmFragment, "Fragment")
@@ -132,7 +131,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             case R.id.rowIcon3: /** AlerDialog when click on 4th icon */
                 Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-
                 break;
         }
         DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -187,6 +185,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             //super.onBackPressed();
         }
         if (doubleBackToExitPressedOnce) {
+            MainActivity.this.finish();
             super.onBackPressed();
             return;
         }

@@ -68,8 +68,7 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public int getItemCount() {
         return mTitles == null ? 0 : mTitles.length;
     }
-
-
+    
     public static class TextViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.text_view)
         TextView mTextView;

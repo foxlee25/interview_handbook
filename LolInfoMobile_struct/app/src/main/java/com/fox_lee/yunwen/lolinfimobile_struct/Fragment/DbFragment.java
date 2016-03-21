@@ -94,7 +94,7 @@ public class DbFragment extends ListFragment implements View.OnClickListener{
 
             if(algorithmList.size()!=0) {
                 ListView lv = getListView();
-                ListAdapter adapter = new SimpleAdapter( v.getContext(),algorithmList, R.layout.view_student_entry, new String[] { "id","topic"}, new int[] {R.id.student_Id, R.id.student_name});
+                ListAdapter adapter = new SimpleAdapter( v.getContext(),algorithmList, R.layout.view_db_entry, new String[] { "id","topic"}, new int[] {R.id.student_Id, R.id.student_name});
                 setListAdapter(adapter);
             }else{
                 Toast.makeText(v.getContext(), "No Content!", Toast.LENGTH_SHORT).show();
