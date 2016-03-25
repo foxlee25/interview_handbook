@@ -11,13 +11,23 @@
     <RelativeLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin">
+        android:layout_margin="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/img_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/favorite_red_rev"
+            android:padding="@dimen/activity_vertical_margin"/>
+
 
         <TextView
             android:id="@+id/text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/img_favorite"
             android:padding="@dimen/activity_vertical_margin"/>
 
         <TextView
@@ -39,6 +49,7 @@
             android:id="@+id/img_getAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:src="@drawable/test"
             android:visibility="gone"
             android:layout_below="@+id/btn_getAnswer"/>
 
@@ -48,7 +59,6 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:padding="@dimen/activity_vertical_margin"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:layout_below="@+id/btn_getAnswer"/>
 
     </RelativeLayout>

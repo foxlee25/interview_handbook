@@ -42,9 +42,9 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <!--<include-->
-        <!--android:id="@+id/slide_drawer"-->
-        <!--layout="@layout/slide_drawer" />-->
+    <include
+        android:id="@+id/slide_drawer"
+        layout="@layout/slide_drawer" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

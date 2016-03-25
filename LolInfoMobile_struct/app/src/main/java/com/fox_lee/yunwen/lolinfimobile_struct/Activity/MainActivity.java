@@ -4,26 +4,29 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
-import android.view.MenuInflater;
-import android.view.View;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmSubFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmSubFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.ContentFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.DbFragment;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
-public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-//    ActionBarDrawerToggle mDrawerToggle;
+    ActionBarDrawerToggle mDrawerToggle;
     boolean doubleBackToExitPressedOnce = false;
 
     public void startContentFragment(String var){
@@ -52,41 +55,42 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        toolbar.setNavigationIcon(R.drawable.menu_icon);
+        toolbar.setNavigationIcon(R.drawable.menu_icon);
 
-//        DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer_layout, toolbar, R.string.openDrawer, R.string.closeDrawer) {
-//            @Override
-//            public void onDrawerOpened(View drawerView) {
-//                super.onDrawerOpened(drawerView);
-//            }
-//
-//            @Override
-//            public void onDrawerClosed(View drawerView) {
-//                super.onDrawerClosed(drawerView);
-//            }
-//        };
-//        mDrawer_layout.setDrawerListener(mDrawerToggle);
-//        mDrawerToggle.syncState();
+        DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer_layout, toolbar, R.string.openDrawer, R.string.closeDrawer) {
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
 
-//        ImageView img1 = (ImageView) findViewById(R.id.rowIconCoding);
-//        ImageView img2 = (ImageView) findViewById(R.id.rowIcon1);
-//        ImageView img3 = (ImageView) findViewById(R.id.rowIconFavorite);
-//        ImageView img4 = (ImageView) findViewById(R.id.rowIcon3);
-//        img1.setOnClickListener(this);
-//        img2.setOnClickListener(this);
-//        img3.setOnClickListener(this);
-//        img4.setOnClickListener(this);
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+            }
+        };
+        mDrawer_layout.setDrawerListener(mDrawerToggle);
+        mDrawerToggle.syncState();
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Coming Soon", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+        ImageView img1 = (ImageView) findViewById(R.id.rowIconCoding);
+        ImageView img2 = (ImageView) findViewById(R.id.rowIcon1);
+        ImageView img3 = (ImageView) findViewById(R.id.rowIconFavorite);
+        ImageView img4 = (ImageView) findViewById(R.id.rowIcon3);
+        img1.setOnClickListener(this);
+        img2.setOnClickListener(this);
+        img3.setOnClickListener(this);
+        img4.setOnClickListener(this);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Coming Soon", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
         toolbar.getMenu().clear();
+
         AlgorithmFragment algorithmFragment = new AlgorithmFragment();
         this.getFragmentManager().beginTransaction()
                 .replace(R.id.container, algorithmFragment, "Fragment")
@@ -115,16 +119,17 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             case R.id.rowIconFavorite: /** AlerDialog when click on 3rd icon */
                 Snackbar.make(v, "Open Favorite List", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-//                DbFragment dbFragment = new DbFragment();
-//                this.getFragmentManager().beginTransaction()
-//                        .replace(R.id.container, dbFragment, "Fragment")
-//                        .addToBackStack(null)
-//                        .commit();
+                DbFragment dbFragment = new DbFragment();
+                this.getFragmentManager().beginTransaction()
+                        .replace(R.id.container, dbFragment, "Fragment")
+                        .addToBackStack(null)
+                        .commit();
                 break;
 
             case R.id.rowIcon3: /** AlerDialog when click on 4th icon */
                 Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
                 break;
         }
         DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -179,7 +184,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             //super.onBackPressed();
         }
         if (doubleBackToExitPressedOnce) {
-            MainActivity.this.finish();
             super.onBackPressed();
             return;
         }

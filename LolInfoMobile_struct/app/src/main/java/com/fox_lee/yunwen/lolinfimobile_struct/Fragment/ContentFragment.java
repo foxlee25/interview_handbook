@@ -1,19 +1,22 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Fragment;
+
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.fox_lee.yunwen.lolinfimobile_struct.Utility.Algorithm;
+import com.fox_lee.yunwen.lolinfimobile_struct.Utility.AlgorithmRepo;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
-import java.util.HashMap;
+//import com.fox_lee.yunwen.lolinfimobile_struct.Model.HashMapContent;
 
 /**
  * Created by Yunwen on 2/11/2016.
@@ -39,13 +42,37 @@ public class ContentFragment extends  Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         showingFirst = true;
-
+//        HashMapContent hashMapContent = new HashMapContent();
+//        HashMap hm =  hashMapContent.getAir();
+        ImageView imageFavorite = (ImageView) view.findViewById(R.id.img_favorite);
         TextView tv = (TextView) view.findViewById(R.id.text_view);
         TextView tvTitle= (TextView) view.findViewById(R.id.text_title);
         Button btnAnswer= (Button) view.findViewById(R.id.btn_getAnswer);
         final TextView tvAnswer = (TextView) view.findViewById(R.id.text_getAnswer);
         final ImageView imgAnswer = (ImageView) view.findViewById(R.id.img_getAnswer);
 
+        imageFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int _algorithm_id =0;
+                AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
+                Algorithm algorithm = new Algorithm();
+                algorithm = repo.getColumnById(_algorithm_id);
+
+                algorithm.age = 25;
+                algorithm.content = "Email";
+                algorithm.topic = dataContent;
+                algorithm.algorithm_ID=_algorithm_id;
+
+                if(_algorithm_id==0){
+                    _algorithm_id=repo.insert(algorithm);
+                    Toast.makeText(v.getContext(), "New Content Insert", Toast.LENGTH_SHORT).show();
+                }else{
+                    repo.update(algorithm);
+                    Toast.makeText(v.getContext(),"Content Record updated",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         btnAnswer.setVisibility(view.VISIBLE);
         imgAnswer.setVisibility(view.VISIBLE);
         btnAnswer.setOnClickListener(new View.OnClickListener() {
@@ -510,6 +537,7 @@ public class ContentFragment extends  Fragment {
                 tvAnswer.setText(strings[1]);
                 break;
             default:
+//                tv.setText(hm.get(dataContent).toString());
                 btnAnswer.setVisibility(view.GONE);
                 imgAnswer.setVisibility(view.GONE);
                 tvAnswer.setVisibility(view.GONE);
