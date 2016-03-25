@@ -25,6 +25,7 @@ public class AboutActivity extends AppCompatActivity {
     private TextView tvVersion;
     private TextView tvAuthor;
     private TextView tvLicense;
+    private TextView tvJiuzhang;
     private ImageView iv;
 
     @Override
@@ -38,6 +39,8 @@ public class AboutActivity extends AppCompatActivity {
         tvVersion.setText(R.string.about_version);
         tvAuthor = (TextView) findViewById(R.id.tv_about_author);
         tvAuthor.setText(R.string.about_author);
+        tvJiuzhang = (TextView) findViewById(R.id.tv_about_jiuzhang);
+        tvJiuzhang.setText(R.string.about_jiuzhang_usage);
         tvLicense = (TextView) findViewById(R.id.tv_about_license);
         tvLicense.setText(R.string.about_license);
     }
