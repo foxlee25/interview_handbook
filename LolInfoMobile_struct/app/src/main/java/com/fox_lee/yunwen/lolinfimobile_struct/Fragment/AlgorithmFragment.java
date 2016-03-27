@@ -32,7 +32,6 @@ public class AlgorithmFragment extends  Fragment{
         super.onViewCreated(view, savedInstanceState);
         //display details
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
         algorithmAdapter = new AlgorithmAdapter(getActivity());
         mRecyclerView.setAdapter(algorithmAdapter);

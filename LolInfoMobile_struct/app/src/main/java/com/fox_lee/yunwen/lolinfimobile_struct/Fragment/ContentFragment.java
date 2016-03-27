@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.fox_lee.yunwen.lolinfimobile_struct.Model.HashMapContent;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 import java.util.HashMap;
@@ -40,8 +39,7 @@ public class ContentFragment extends  Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         showingFirst = true;
-        HashMapContent hashMapContent = new HashMapContent();
-        HashMap hm =  hashMapContent.getAir();
+
         TextView tv = (TextView) view.findViewById(R.id.text_view);
         TextView tvTitle= (TextView) view.findViewById(R.id.text_title);
         Button btnAnswer= (Button) view.findViewById(R.id.btn_getAnswer);
@@ -512,7 +510,6 @@ public class ContentFragment extends  Fragment {
                 tvAnswer.setText(strings[1]);
                 break;
             default:
-                tv.setText(hm.get(dataContent).toString());
                 btnAnswer.setVisibility(view.GONE);
                 imgAnswer.setVisibility(view.GONE);
                 tvAnswer.setVisibility(view.GONE);

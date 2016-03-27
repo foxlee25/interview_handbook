@@ -167,7 +167,7 @@
     </string-array>
 
 <string-array name="linked_list_">
-        <item name = "definition"> linked list is a linear collection of data elements,
+        <item name = "definition"> Linked list is a linear collection of data elements,
             called nodes pointing to the next node by means of pointer. It is a data
             structure consisting of a group of nodes which together represent a sequence.
             Under the simplest form, each node is composed of data and a reference (in other words,
@@ -185,7 +185,7 @@
   }</item>
 </string-array>
 <string-array name="binary_tree_">
-        <item name = "definition"> binary tree is a tree data structure in which each node has at
+        <item name = "definition"> Binary tree is a tree data structure in which each node has at
             most two children, which are referred to as the left child and the right child.
             A recursive definition using just set theory notions is that a (non-empty) binary
             tree is a triple (L, S, R), where L and R are binary trees or the empty set and S is a
@@ -200,7 +200,7 @@
          }</item>
 </string-array>
 <string-array name="binary_search_tree_">
-        <item name = "definition">  binary search trees (BST), sometimes called ordered or sorted
+        <item name = "definition">  Binary search trees (BST), sometimes called ordered or sorted
             binary trees, are a particular type of containers: data structures that store "items"
             (such as numbers, names etc.) in memory. They allow fast lookup, addition and removal
             of items, and can be used to implement either dynamic sets of items, or lookup tables
@@ -217,17 +217,17 @@
  * }\n
  */\n
 public class Solution {\n
-    public boolean isValidBST(TreeNode root) {\n
-     \t   return isValidBST(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);\n
-    }\n
-    public boolean isValidBST(TreeNode root, double min, double max){\n
+\t    public boolean isValidBST(TreeNode root) {\n
+     \t\t   return isValidBST(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);\n
+\t    }\n
+\t    public boolean isValidBST(TreeNode root, double min, double max){\n
 
-    \t    if(root == null) return true;\n
-    \t     double value = root.val * 1.0;\n
-    \t    if(root.val &lt; = min || root.val >= max) return false;\n
-
-    \t    return isValidBST(root.left, min, value) &amp;&amp; isValidBST(root.right, value, max);\n
-    }\n
+\t    \t    if(root == null) return true;\n
+\t    \t     double value = root.val * 1.0;\n
+\t    \t    if(root.val &lt; = min || root.val >= max) return false;\n
+\n
+\t    \t    return isValidBST(root.left, min, value) &amp;&amp; isValidBST(root.right, value, max);\n
+\t    }\n
 }</item>
 </string-array>
 
@@ -315,7 +315,7 @@ public final class HuffmanCompress {\n
 </string-array>
 
 <string-array name="priority_queue_">
-        <item name = "definition">priority queue is an abstract data type which is like a regular
+        <item name = "definition">Priority queue is an abstract data type which is like a regular
             queue or stack data structure, but where additionally each element has a "priority"
             associated with it. In a priority queue, an element with high priority is served before
             an element with low priority. If two elements have the same priority, they are served
@@ -412,7 +412,7 @@ class BubbleSort {\n
 }</item>
 </string-array>
 <string-array name="selection_sort_">
-        <item name = "definition">selection sort is a sorting algorithm, specifically an in-place
+        <item name = "definition">Selection sort is a sorting algorithm, specifically an in-place
             comparison sort. It has O(n2) time complexity, making it inefficient on large lists,
             and generally performs worse than the similar insertion sort. Selection sort is noted
             for its simplicity, and it has performance advantages over more complicated algorithms
@@ -494,7 +494,7 @@ class BubbleSort {\n
 }
 </item>
 </string-array><string-array name="merge_sort_">
-        <item name = "definition"> merge sort (also commonly spelled mergesort) is an efficient,
+        <item name = "definition"> Merge sort (also commonly spelled mergesort) is an efficient,
             general-purpose, comparison-based sorting algorithm. Most implementations produce a
             stable sort, which means that the implementation preserves the input order of equal
             elements in the sorted output. Mergesort is a divide and conquer algorithm that was
@@ -664,81 +664,80 @@ void CopyArray(B[], A[], n){\n
 </item>
 </string-array>
 <string-array name="heap_sort_">
-        <item name = "definition">  heapsort is a comparison-based sorting algorithm. Heapsort can
+    <item name = "definition">  Heapsort is a comparison-based sorting algorithm. Heapsort can
             be thought of as an improved selection sort: like that algorithm, it divides its input
             into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by
             extracting the largest element and moving that to the sorted region. The improvement
             consists of the use of a heap data structure rather than a linear-time search to find
             the maximum.</item>
-        <item name = "code">
-          public class HeapSort\n
+    <item name = "code">public class HeapSort\n
 {\n
-    private static int N;\n
-    /* Sort Function */\n
-    public static void sort(int arr[])\n
-    {\n
-        heapify(arr);\n
-        for (int i = N; i > 0; i--)\n
-        {\n
-            swap(arr,0, i);\n
-            N = N-1;\n
-            maxheap(arr, 0);\n
-        }\n
-    }\n
-    /* Function to build a heap */\n
-    public static void heapify(int arr[])\n
-    {\n
-        N = arr.length-1;\n
-        for (int i = N/2; i >= 0; i--)\n
-            maxheap(arr, i);\n
-    }\n
-    /* Function to swap largest element in heap */\n
-    public static void maxheap(int arr[], int i)\n
-    {\n
-        int left = 2*i ;\n
-        int right = 2*i + 1;\n
-        int max = i;\n
-        if (left &lt;= N &amp;&amp; arr[left] > arr[i])\n
-            max = left;\n
-        if (right &lt;= N &amp;&amp; arr[right] > arr[max])\n
-            max = right;\n
+\t    private static int N;\n
+\t    /* Sort Function */\n
+\t    public static void sort(int arr[])\n
+\t    {\n
+\t\t        heapify(arr);\n
+\t\t        for (int i = N; i > 0; i--)\n
+\t\t        {\n
+\t\t\t            swap(arr,0, i);\n
+\t\t\t            N = N-1;\n
+\t\t\t            maxheap(arr, 0);\n
+\t\t        }\n
+\t    }\n
+\t    /* Function to build a heap */\n
+\t    public static void heapify(int arr[])\n
+\t    {\n
+\t\t        N = arr.length-1;\n
+\t\t        for (int i = N/2; i >= 0; i--)\n
+\t\t\t            maxheap(arr, i);\n
+\t    }\n
+ \t   /* Function to swap largest element in heap */\n
+ \t   public static void maxheap(int arr[], int i)\n
+ \t   {\n
+ \t\t       int left = 2*i ;\n
+ \t\t       int right = 2*i + 1;\n
+ \t\t       int max = i;\n
+ \t\t       if (left &lt;= N &amp;&amp; arr[left] > arr[i])\n
+ \t\t\t           max = left;\n
+  \t\t      if (right &lt;= N &amp;&amp; arr[right] > arr[max])\n
+  \t\t\t          max = right;\n
 \n
-        if (max != i)\n
-        {\n
-            swap(arr, i, max);\n
-            maxheap(arr, max);\n
-        }\n
-    }\n
-    /* Function to swap two numbers in an array */\n
-    public static void swap(int arr[], int i, int j)\n
-    {\n
-        int tmp = arr[i];\n
-        arr[i] = arr[j];\n
-        arr[j] = tmp;\n
-    }\n
-    /* Main method */\n
-    public static void main(String[] args)\n
-    {\n
-        Scanner scan = new Scanner( System.in );\n
-        System.out.println("Heap Sort Test\n");\n
-        int n, i;\n
-        /* Accept number of elements */\n
-        System.out.println("Enter number of integer elements");\n
-        n = scan.nextInt();\n
-        /* Make array of n elements */\n
-        int arr[] = new int[ n ];\n
-        /* Accept elements */\n
-        System.out.println("\nEnter "+ n +" integer elements");\n
-        for (i = 0; i &lt; n; i++)\n
-            arr[i] = scan.nextInt();\n
-        /* Call method sort */\n
-        sort(arr);\n
-        /* Print sorted Array */\n
-        System.out.println("\nElements after sorting ");\n
-        for (i = 0; i &lt; n; i++)\n
-            System.out.print(arr[i]+" ");\n
-        System.out.println();\n
-    }\n
+ \t\t       if (max != i)\n
+  \t\t      {\n
+  \t\t\t          swap(arr, i, max);\n
+  \t\t\t          maxheap(arr, max);\n
+  \t\t      }\n
+  \t  }\n
+  \t  /* Function to swap two numbers in an array */\n
+  \t  public static void swap(int arr[], int i, int j)\n
+  \t  {\n
+  \t\t      int tmp = arr[i];\n
+  \t\t      arr[i] = arr[j];\n
+  \t\t      arr[j] = tmp;\n
+  \t  }\n
+  \t  /* Main method */\n
+  \t  public static void main(String[] args)\n
+  \t  {\n
+  \t\t\      Scanner scan = new Scanner( System.in );\n
+  \t\t      System.out.println("Heap Sort Test\n");\n
+  \t\t      int n, i;\n
+  \t\t      /* Accept number of elements */\n
+  \t\t      System.out.println("Enter number of integer elements");\n
+  \t\t      n = scan.nextInt();\n
+  \t\t      /* Make array of n elements */\n
+  \t\t      int arr[] = new int[ n ];\n
+  \t\t      /* Accept elements */\n
+  \t\t      System.out.println("\nEnter "+ n +" integer elements");\n
+  \t\t      for (i = 0; i &lt; n; i++)\n
+  \t\t\t          arr[i] = scan.nextInt();\n
+  \t\t      /* Call method sort */\n
+  \t\t      sort(arr);\n
+  \t\t      /* Print sorted Array */\n
+  \t\t      System.out.println("\nElements after sorting ");\n
+  \t\t      for (i = 0; i &lt; n; i++)\n
+  \t\t\t          System.out.print(arr[i]+" ");\n
+  \t\t      System.out.println();\n
+  \t  }\n
 }</item>
 </string-array>
 <string-array name="bucket_sort_">
@@ -747,53 +746,52 @@ void CopyArray(B[], A[], n){\n
             an array into a number of buckets. Each bucket is then sorted individually, either using
             a different sorting algorithm, or by recursively applying the bucket sorting algorithm.
             It is a distribution sort, and is a cousin of radix sort in the most to least
-            significant digit flavour. Bucket sort is a generalization of pigeonhole sort.
+            significant digit flavour. Bucket sort is a generalization of pigeonhole sort.\n
             Bucket sort can be implemented with comparisons and therefore can also be considered a
             comparison sort algorithm. The computational complexity estimates involve the number of
             buckets.
-
-            Bucket sort works as follows:
-            1.Set up an array of initially empty "buckets".
-            2.Scatter: Go over the original array, putting each object in its bucket.
-            3.Sort each non-empty bucket.
+            \n
+            Bucket sort works as follows:\n
+            1.Set up an array of initially empty "buckets".\n
+            2.Scatter: Go over the original array, putting each object in its bucket.\n
+            3.Sort each non-empty bucket.\n
             4.Gather: Visit the buckets in order and put all elements back into the original array.
         </item>
-        <item name = "code">
-        public class BucketSort{\n
+        <item name = "code">public class BucketSort{\n
 \n
-   public static void sort(int[] a, int maxVal) {\n
-      int [] bucket=new int[maxVal+1];\n
+\t   public static void sort(int[] a, int maxVal) {\n
+\t\t      int [] bucket=new int[maxVal+1];\n
 \n
-      for (int i=0; i&lt;bucket.length; i++) {\n
-         bucket[i]=0;\n
-      }\n
+\t\t      for (int i=0; i&lt;bucket.length; i++) {\n
+\t\t\t         bucket[i]=0;\n
+\t\t      }\n
 \n
-      for (int i=0; i&lt;a.length; i++) {\n
-         bucket[a[i]]++;\n
-      }\n
+\t\t      for (int i=0; i&lt;a.length; i++) {\n
+\t\t\t         bucket[a[i]]++;\n
+\t\t      }\n
 \n
-      int outPos=0;\n
-      for (int i=0; i&lt;bucket.length; i++) {\n
-         for (int j=0; j&lt;bucket[i]; j++) {\n
-            a[outPos++]=i;\n
-         }\n
-      }\n
-   }\n
+\t\t      int outPos=0;\n
+\t\t      for (int i=0; i&lt;bucket.length; i++) {\n
+\t\t\t         for (int j=0; j&lt;bucket[i]; j++) {\n
+\t\t\t\t            a[outPos++]=i;\n
+\t\t\t         }\n
+\t\t      }\n
+\t   }\n
 \n
-   public static void main(String[] args) {\n
-      int maxVal=5;\n
-      int [] data= {5,3,0,2,4,1,0,5,2,3,1,4};\n
+\t   public static void main(String[] args) {\n
+\t\t      int maxVal=5;\n
+\t\t      int [] data= {5,3,0,2,4,1,0,5,2,3,1,4};\n
 \n
-      System.out.println("Before: " + Arrays.toString(data));\n
-      sort(data,maxVal);\n
-      System.out.println("After:  " + Arrays.toString(data));\n
-   }\n
+\t\t      System.out.println("Before: " + Arrays.toString(data));\n
+\t\t      sort(data,maxVal);\n
+\t\t      System.out.println("After:  " + Arrays.toString(data));\n
+\t   }\n
 }
         </item>
 </string-array>
 <string-array name="counting_sort_">
         <item name = "definition">
-            counting sort is an algorithm for sorting a collection of objects according to keys
+            Counting sort is an algorithm for sorting a collection of objects according to keys
             that are small integers; that is, it is an integer sorting algorithm. It operates by
             counting the number of objects that have each distinct key value, and using arithmetic
             on those counts to determine the positions of each key value in the output sequence.
@@ -805,15 +803,15 @@ void CopyArray(B[], A[], n){\n
         </item>
         <item name ="code">
                 int[] countingSort(int[] a, int k) {\n
-        int c[] = new int[k];\n
-        for (int i = 0; i &lt; a.length; i++)\n
-            c[a[i]]++;\n
-        for (int i = 1; i &lt; k; i++)\n
-            c[i] += c[i-1];\n
-        int b[] = new int[a.length];\n
-        for (int i = a.length-1; i >= 0; i--)\n
-            b[--c[a[i]]] = a[i];\n
-        return b;\n
+\t        int c[] = new int[k];\n
+\t        for (int i = 0; i &lt; a.length; i++)\n
+\t\t            c[a[i]]++;\n
+\t        for (int i = 1; i &lt; k; i++)\n
+\t\t            c[i] += c[i-1];\n
+\t        int b[] = new int[a.length];\n
+\t        for (int i = a.length-1; i >= 0; i--)\n
+\t\t            b[--c[a[i]]] = a[i];\n
+\t        return b;\n
     }\n
         </item>
 </string-array>
@@ -824,61 +822,59 @@ void CopyArray(B[], A[], n){\n
 Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times. The algorithm should run in linear time and in O(1) space.
 \n
 Hint:\n
-
 How many majority elements could it possibly have?\n
 Do you have a better hint? Suggest it!\n
-
         </item>
         <item name ="code">
 public List&lt;Integer&gt; majorityElement(int[] nums) {\n
-        List&lt;Integer&gt; rt = new ArrayList&lt;Integer&gt;();\n
-        if (nums == null || nums.length == 0) {\n
-            return rt;\n
-        }\n
-        int m1 = nums[0];\n
-        int m2 = 0;\n
-        int c1 = 1;\n
-        int c2 = 0;\n
-        for (int i = 1; i &lt; nums.length; i++) {\n
-            int x = nums[i];\n
-            if (x == m1) {\n
-                c1++;\n
-            } else if (x == m2) {\n
-                c2++;\n
-            } else if (c1 == 0) {\n
-                m1 = x;\n
-                c1 = 1;\n
-            } else if (c2 == 0) {\n
-                m2 = x;\n
-                c2 = 1;\n
-            } else {\n
-                c1--;\n
-                c2--;\n
-            }\n
-        }\n
-        c1 = 0;\n
-        c2 = 0;\n
-        for (int i = 0; i &lt; nums.length; i++) {\n
-            if (m1 == nums[i]) {\n
-                c1++;\n
-            } else if (m2 == nums[i]) {\n
-                c2++;\n
-            }\n
-        }\n
-        if (c1 &gt; nums.length / 3) {\n
-            rt.add(m1);\n
-        }\n
-        if (c2 &gt; nums.length / 3) {\n
-            rt.add(m2);\n
-        }\n
-        return rt;\n
+\t        List&lt;Integer&gt; rt = new ArrayList&lt;Integer&gt;();\n
+\t        if (nums == null || nums.length == 0) {\n
+\t\t            return rt;\n
+\t        }\n
+\t        int m1 = nums[0];\n
+\t        int m2 = 0;\n
+\t        int c1 = 1;\n
+\t        int c2 = 0;\n
+\t        for (int i = 1; i &lt; nums.length; i++) {\n
+\t\t            int x = nums[i];\n
+\t\t            if (x == m1) {\n
+\t\t\t                c1++;\n
+\t\t            } else if (x == m2) {\n
+\t\t\t                c2++;\n
+\t\t            } else if (c1 == 0) {\n
+\t\t\t                m1 = x;\n
+\t\t\t                c1 = 1;\n
+\t\t            } else if (c2 == 0) {\n
+\t\t\t                m2 = x;\n
+\t\t\t                c2 = 1;\n
+\t\t            } else {\n
+\t\t\t                c1--;\n
+\t\t\t                c2--;\n
+\t\t            }\n
+\t        }\n
+\t        c1 = 0;\n
+\t        c2 = 0;\n
+\t        for (int i = 0; i &lt; nums.length; i++) {\n
+\t\t            if (m1 == nums[i]) {\n
+\t\t\t                c1++;\n
+\t\t            } else if (m2 == nums[i]) {\n
+\t\t\t                c2++;\n
+\t\t            }\n
+\t        }\n
+\t        if (c1 &gt; nums.length / 3) {\n
+\t\t            rt.add(m1);\n
+\t        }\n
+\t        if (c2 &gt; nums.length / 3) {\n
+\t\t            rt.add(m2);\n
+\t        }\n
+\t        return rt;\n
     }\n
         </item>
 </string-array>
 
 <string-array name="strStr_">
         <item name="definition">
-            strstr (a.k.a find sub string), is a useful function in string operation.
+            Strstr (a.k.a find sub string), is a useful function in string operation.
 You task is to implement this function.
 \n
 For a given source string and a target string,
@@ -891,10 +887,10 @@ If source="source" and target="target", return -1.
 \n
 If source="abcdabcdefg" and target="bcd", return 1.
 \n
-Challenge
+Challenge\n
 O(n) time.
 \n
-Clarification
+Clarification\n
 Do I need to implement KMP Algorithm in an interview?
 \n
                 the interviewer just want to test your basic implementation ability.
@@ -904,32 +900,32 @@ Do I need to implement KMP Algorithm in an interview?
  * http://www.jiuzhang.com//solutions/implement-strstr\n
  */\n
 class Solution {\n
-    /**\n
-     * Returns a index to the first occurrence of target in source,\n
-     * or -1  if target is not part of source.\n
-     * @param source string to be scanned.\n
-     * @param target string containing the sequence of characters to match.\n
-     */\n
-    public int strStr(String source, String target) {\n
-        if (source == null || target == null) {\n
-            return -1;\n
-        }\n
+\t    /**\n
+\t     * Returns a index to the first occurrence of target in source,\n
+\t     * or -1  if target is not part of source.\n
+\t     * @param source string to be scanned.\n
+\t     * @param target string containing the sequence of characters to match.\n
+\t     */\n
+\t    public int strStr(String source, String target) {\n
+\t\t        if (source == null || target == null) {\n
+\t\t            return -1;\n
+\t        }\n
 
-        int i, j;\n
-        for (i = 0; i &lt; source.length() - target.length() + 1; i++) {\n
-            for (j = 0; j &lt; target.length(); j++) {\n
-                if (source.charAt(i + j) != target.charAt(j)) {\n
-                    break;\n
-                } //if\n
-            } //for j\n
-            if (j == target.length()) {\n
-                return i;\n
-            }\n
-        } //for i\n
+\t        int i, j;\n
+\t        for (i = 0; i &lt; source.length() - target.length() + 1; i++) {\n
+\t\t            for (j = 0; j &lt; target.length(); j++) {\n
+\t\t\t                if (source.charAt(i + j) != target.charAt(j)) {\n
+\t\t\t\t                    break;\n
+\t\t\t                } //if\n
+\t\t            } //for j\n
+\t\t            if (j == target.length()) {\n
+\t\t\t                return i;\n
+\t\t            }\n
+\t\t        } //for i\n
 \n
-        // did not find the target\n
-        return -1;\n
-    }\n
+\t\t        // did not find the target\n
+\t\t        return -1;\n
+\t    }\n
 }\n
         </item>
 </string-array>
@@ -948,25 +944,25 @@ O(n) time, O(1) extra space
 final static int LETTERS_LEN = 256;	\n
 
 	public static boolean isAnagram(String s1, String s2) {\n
-		if (s1 == null || s2 == null)\n
-			return false;\n
-		int len = s1.length();\n
-		if (len != s2.length() || len &lt; 2)\n
-			return false;\n
+\t		if (s1 == null || s2 == null)\n
+\t\t			return false;\n
+\t		int len = s1.length();\n
+\t		if (len != s2.length() || len &lt; 2)\n
+\t\t			return false;\n
 
-		int[] letters = new int[LETTERS_LEN];\n
+\t		int[] letters = new int[LETTERS_LEN];\n
 
-		for (int i = 0; i &lt; len; i++) {\n
-			letters[s1.charAt(i)]++;\n
-			letters[s2.charAt(i)]--;\n
-		}\n
+\t		for (int i = 0; i &lt; len; i++) {\n
+\t\t			letters[s1.charAt(i)]++;\n
+\t\t			letters[s2.charAt(i)]--;\n
+\t		}\n
 
-		for (int i = 0; i &lt; LETTERS_LEN; i++) {\n
-			if (letters[i] != 0) {\n
-				return false;\n
-			}\n
-		}\n
-		return true;\n
+\t		for (int i = 0; i &lt; LETTERS_LEN; i++) {\n
+\t\t			if (letters[i] != 0) {\n
+\t\t\t				return false;\n
+\t\t			}\n
+\t		}\n
+\t		return true;\n
 	}\n
     </item>
 </string-array>
@@ -983,30 +979,30 @@ For A = "ABCD", B = "ABC", return true.
 For A = "ABCD" B = "AABC", return false.
     </item>
     <item name="code">
- public int compareVersion(String version1, String version2) {\n
-    String[] arr1 = version1.split("\\.");\n
-    String[] arr2 = version2.split("\\.");\n
+ public int compareVersion(String version1, String version2) {\n\t
+ \t   String[] arr1 = version1.split("\\.");\n
+ \t   String[] arr2 = version2.split("\\.");\n
 
-    int i=0;\n
-    while(i&lt;arr1.length || i&lt;arr2.length){\n
-        if(i&lt;arr1.length &amp;&amp; i&lt;arr2.length){\n
-            if(Integer.parseInt(arr1[i]) &lt; Integer.parseInt(arr2[i])){\n
-                return -1;\n
-            }else if(Integer.parseInt(arr1[i]) > Integer.parseInt(arr2[i])){\n
-                return 1;\n
-            }\n
-        } else if(i&lt;arr1.length){\n
-            if(Integer.parseInt(arr1[i]) != 0){\n
-                return 1;\n
-            }\n
-        } else if(i&lt;arr2.length){\n
-           if(Integer.parseInt(arr2[i]) != 0){\n
-                return -1;\n
-            }\n
-        }\n
-        i++;\n
-    }\n
-    return 0;\n
+ \t   int i=0;\n
+ \t   while(i&lt;arr1.length || i&lt;arr2.length){\n
+ \t\t       if(i&lt;arr1.length &amp;&amp; i&lt;arr2.length){\n
+ \t\t\t           if(Integer.parseInt(arr1[i]) &lt; Integer.parseInt(arr2[i])){\n
+ \t\t\t\t               return -1;\n
+ \t\t\t           }else if(Integer.parseInt(arr1[i]) > Integer.parseInt(arr2[i])){\n
+ \t\t\t\t               return 1;\n
+ \t\t\t           }\n
+ \t\t       } else if(i&lt;arr1.length){\n
+ \t\t\t           if(Integer.parseInt(arr1[i]) != 0){\n
+ \t\t\t\t               return 1;\n
+ \t\t\t           }\n
+ \t\t       } else if(i&lt;arr2.length){\n
+ \t\t\t          if(Integer.parseInt(arr2[i]) != 0){\n
+ \t\t\t\t               return -1;\n
+ \t\t\t           }\n
+ \t\t       }\n
+ \t\t       i++;\n
+ \t   }\n
+ \t   return 0;\n
 }\n
     </item>
 </string-array>
@@ -1025,28 +1021,28 @@ All inputs will be in lower-case
     <item name="code">
 
 public class Solution {\n
-    public List&lt;String&gt; anagrams(String[] strs) {\n
-        HashMap&lt;String, LinkedList&lt;String&gt;&gt; dict = new HashMap&lt;&gt;();\n
-        for (int i = 0; i &lt; strs.length; i++) {\n
-            String s = strs[i];\n
-            char[] chars = s.toCharArray();\n
-            Arrays.sort(chars);\n
-            String sortedString = String.valueOf(chars);\n
-            if (dict.containsKey(sortedString)) {\n
-                dict.get(sortedString).add(s);\n
-            } else {\n
-                LinkedList&lt;String&gt; list = new LinkedList&lt;&gt;();\n
-                list.add(s);\n
-                dict.put(sortedString, list);\n
-            }\n
-        }\n
-        List&lt;String> ret = new LinkedList&lt;&gt;();\n
-        for (LinkedList&lt;String&gt; list : dict.values()) {\n
-            if (list.size() &gt; 1)\n
-                ret.addAll(list);\n
-        }\n
-        return ret;\n
-    }\n
+\t    public List&lt;String&gt; anagrams(String[] strs) {\n
+\t\t        HashMap&lt;String, LinkedList&lt;String&gt;&gt; dict = new HashMap&lt;&gt;();\n
+\t\t        for (int i = 0; i &lt; strs.length; i++) {\n
+\t\t\t            String s = strs[i];\n
+\t\t\t            char[] chars = s.toCharArray();\n
+\t\t\t            Arrays.sort(chars);\n
+\t\t\t            String sortedString = String.valueOf(chars);\n
+\t\t\t            if (dict.containsKey(sortedString)) {\n
+\t\t\t\t                dict.get(sortedString).add(s);\n
+\t\t\t            } else {\n
+\t\t\t\t                LinkedList&lt;String&gt; list = new LinkedList&lt;&gt;();\n
+\t\t\t\t                list.add(s);\n
+\t\t\t\t                dict.put(sortedString, list);\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        List&lt;String> ret = new LinkedList&lt;&gt;();\n
+\t\t        for (LinkedList&lt;String&gt; list : dict.values()) {\n
+\t\t\t            if (list.size() &gt; 1)\n
+\t\t\t                ret.addAll(list);\n
+\t\t        }\n
+\t\t        return ret;\n
+\t    }\n
 }\n
     </item>
 </string-array>
@@ -1064,29 +1060,29 @@ This is different with subsequence.
 </item>
 <item name="code">
     public class Solution {\n
-    /**\n
-     * @param A, B: Two string.\n
-     * @return: the length of the longest common substring.\n
-     */\n
-    public int longestCommonSubstring(String A, String B) {\n
-        // write your code here\n
-        int maxlen = 0;\n
-        int xlen = A.length();\n
-        int ylen = B.length();\n
-        for(int i = 0; i &lt; xlen; ++i)\n
-	    {\n
-		    for(int j = 0; j &lt; ylen; ++j)\n
-		    {\n
-			    int len = 0;\n
-                while (i + len &lt; xlen &amp;&amp; j + len &lt; ylen &amp;&amp;
-                    A.charAt(i + len) == B.charAt(j + len))\n
-                        len ++;\n
-			    if(len > maxlen)\n
-				    maxlen = len;\n
-		    }\n
-	    }\n
-        return maxlen;\n
-    }\n
+\t    /**\n
+\t     * @param A, B: Two string.\n
+\t     * @return: the length of the longest common substring.\n
+\t     */\n
+\t    public int longestCommonSubstring(String A, String B) {\n
+\t\t        // write your code here\n
+\t\t        int maxlen = 0;\n
+\t\t        int xlen = A.length();\n
+\t\t        int ylen = B.length();\n
+\t\t        for(int i = 0; i &lt; xlen; ++i)\n
+\t\t	    {\n
+\t\t\t		    for(int j = 0; j &lt; ylen; ++j)\n
+\t\t\t		    {\n
+\t\t\t\t			    int len = 0;\n
+\t\t\t\t                while (i + len &lt; xlen &amp;&amp; j + len &lt; ylen &amp;&amp;
+\t\t\t\t                    A.charAt(i + len) == B.charAt(j + len))\n
+\t\t\t\t\t                        len ++;\n
+\t\t\t\t			    if(len > maxlen)\n
+\t\t\t\t\t				    maxlen = len;\n
+\t\t\t		    }\n
+\t\t	    }\n
+\t\t        return maxlen;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -1102,22 +1098,22 @@ This is different with subsequence.
     </item>
     <item name="code">
         public class Solution {\n
-    public int removeElement(int[] A, int elem) {\n
-        int count = 0;\n
-        for(int i=0; i&lt;A.length; i++){\n
-            if(A[i] != elem){\n
-                A[count] = A[i];\n
-                count++;\n
-            }\n
-        }\n
-        return count;\n
-    }\n
+\t    public int removeElement(int[] A, int elem) {\n
+\t\t        int count = 0;\n
+\t\t        for(int i=0; i&lt;A.length; i++){\n
+\t\t\t            if(A[i] != elem){\n
+\t\t\t\t                A[count] = A[i];\n
+\t\t\t\t                count++;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return count;\n
+\t    }\n
 }\n
     </item>
 </string-array>
 <string-array name="zero_sum_subarray_">
 <item name="definition">
-    Given an integer array, find a subarray where the sum of numbers is zero.
+    Given an integer array, find a subarray where the sum of numbers is zero.\n
     Your code  should return the index of the first number and the index of the last number.
     </item>
     <item name="code">
@@ -1126,20 +1122,20 @@ This is different with subsequence.
      * @param nums: A list of integers\n
      * @return: A integer indicate the sum of max subarray\n
      */\n
-    public int maxSubArray(ArrayList&lt;Integer&gt; nums) {\n
-        // -1 is not proper for illegal input\n
-        if (nums == null || nums.isEmpty()) return -1;\n
+\t    public int maxSubArray(ArrayList&lt;Integer&gt; nums) {\n
+\t\t        // -1 is not proper for illegal input\n
+\t\t        if (nums == null || nums.isEmpty()) return -1;\n
 \n
-        int sum = 0, maxSub = Integer.MIN_VALUE;\n
-        for (int num : nums) {\n
-            // drop negtive sum\n
-            sum = Math.max(sum, 0);\n
-            sum += num;\n
-            // update maxSub\n
-            maxSub = Math.max(maxSub, sum);\n
-        }\n
-        return maxSub;\n
-    }\n
+\t\t        int sum = 0, maxSub = Integer.MIN_VALUE;\n
+\t\t        for (int num : nums) {\n
+\t\t\t            // drop negtive sum\n
+\t\t\t            sum = Math.max(sum, 0);\n
+\t\t\t            sum += num;\n
+\t\t\t            // update maxSub\n
+\t\t\t            maxSub = Math.max(maxSub, sum);\n
+\t\t        }\n
+\t\t        return maxSub;\n
+\t    }\n
 }
     </item>
 </string-array>
@@ -1154,24 +1150,24 @@ Given [1, 4, 20, 3, 10, 5], sum k = 33, return [2, 4].
     </item>
     <item name="code">
           public class Solution {\n
-    public int maxSubArrayLen(int[] nums, int k) {\n
-        if (nums==null || nums.length==0) return 0;\n
-        HashMap&lt;Integer, Integer&gt; map = new HashMap&lt;Integer, Integer&gt;();\n
-        map.put(0, -1);\n
-        int sum = 0;\n
-        int maxLen = Integer.MIN_VALUE;\n
-        for (int i=0; i&lt;nums.length; i++) {\n
-            sum += nums[i];\n
-            if (!map.containsKey(sum)) {\n
-                map.put(sum, i);\n
-            }\n
-            if (map.containsKey(sum-k)) {\n
-                int index = map.get(sum-k);\n
-                maxLen = Math.max(maxLen, i-index);\n
-            }\n
-        }\n
-        return maxLen==Integer.MIN_VALUE? 0 : maxLen;\n
-    }\n
+\t    public int maxSubArrayLen(int[] nums, int k) {\n
+\t\t        if (nums==null || nums.length==0) return 0;\n
+\t\t        HashMap&lt;Integer, Integer&gt; map = new HashMap&lt;Integer, Integer&gt;();\n
+\t\t        map.put(0, -1);\n
+\t\t        int sum = 0;\n
+\t\t        int maxLen = Integer.MIN_VALUE;\n
+\t\t        for (int i=0; i&lt;nums.length; i++) {\n
+\t\t\t            sum += nums[i];\n
+\t\t\t            if (!map.containsKey(sum)) {\n
+\t\t\t\t                map.put(sum, i);\n
+\t\t\t            }\n
+\t\t\t            if (map.containsKey(sum-k)) {\n
+\t\t\t\t                int index = map.get(sum-k);\n
+\t\t\t\t                maxLen = Math.max(maxLen, i-index);\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return maxLen==Integer.MIN_VALUE? 0 : maxLen;\n
+\t    }\n
 }
     </item>
 </string-array>
@@ -1182,56 +1178,56 @@ Given an integer array, find a subarray with sum closest to zero. Return the ind
     </item>
     <item name="code">
  class Pair {\n
-    int sum;\n
-    int index;\n
-    public Pair(int s, int i) {\n
-        sum = s;\n
-        index = i;\n
-    }\n
+\t    int sum;\n
+\t    int index;\n
+\t    public Pair(int s, int i) {\n
+\t\t        sum = s;\n
+\t\t        index = i;\n
+\t    }\n
 }\n
-
+\n
 public class Solution {\n
     /**\n
      * @param nums: A list of integers\n
      * @return: A list of integers includes the index of the first number\n
      *          and the index of the last number\n
      */\n
-    public int[] subarraySumClosest(int[] nums) {\n
-        int[] res = new int[2];\n
-        if (nums == null || nums.length == 0) {\n
-            return res;\n
-        }\n
+\t    public int[] subarraySumClosest(int[] nums) {\n
+\t\t        int[] res = new int[2];\n
+\t\t        if (nums == null || nums.length == 0) {\n
+\t\t\t            return res;\n
+\t\t        }\n
 \n
-        int len = nums.length;\n
-        if(len == 1) {\n
-            res[0] = res[1] = 0;\n
-            return res;\n
-        }\n
-        Pair[] sums = new Pair[len+1];\n
-        int prev = 0;\n
-        sums[0] = new Pair(0, 0);\n
-        for (int i = 1; i &lt;= len; i++) {\n
-            sums[i] = new Pair(prev + nums[i-1], i);\n
-            prev = sums[i].sum;\n
-        }\n
-        Arrays.sort(sums, new Comparator&lt;Pair&gt;() {\n
-           public int compare(Pair a, Pair b) {\n
-               return a.sum - b.sum;\n
-           }\n
-        });\n
-        int ans = Integer.MAX_VALUE;\n
-        for (int i = 1; i &lt;= len; i++) {\n
+\t\t        int len = nums.length;\n
+\t\t        if(len == 1) {\n
+\t\t\t            res[0] = res[1] = 0;\n
+\t\t\t            return res;\n
+\t\t        }\n
+\t\t        Pair[] sums = new Pair[len+1];\n
+\t\t        int prev = 0;\n
+\t\t        sums[0] = new Pair(0, 0);\n
+\t\t        for (int i = 1; i &lt;= len; i++) {\n
+\t\t\t            sums[i] = new Pair(prev + nums[i-1], i);\n
+\t\t\t            prev = sums[i].sum;\n
+\t\t        }\n
+\t\t        Arrays.sort(sums, new Comparator&lt;Pair&gt;() {\n
+\t\t\t           public int compare(Pair a, Pair b) {\n
+\t\t\t\t               return a.sum - b.sum;\n
+\t\t\t           }\n
+\t\t        });\n
+\t\t        int ans = Integer.MAX_VALUE;\n
+\t\t        for (int i = 1; i &lt;= len; i++) {\n
 \n
-            if (ans > sums[i].sum - sums[i-1].sum) {\n
-                ans = sums[i].sum - sums[i-1].sum;\n
-                int[] temp = new int[]{sums[i].index - 1, sums[i - 1].index - 1};\n
-                Arrays.sort(temp);\n
-                res[0] = temp[0] + 1;\n
-                res[1] = temp[1];\n
-            }\n
-        }\n
-        return res;\n
-    }\n
+\t\t\t            if (ans > sums[i].sum - sums[i-1].sum) {\n
+\t\t\t\t                ans = sums[i].sum - sums[i-1].sum;\n
+\t\t\t\t                int[] temp = new int[]{sums[i].index - 1, sums[i - 1].index - 1};\n
+\t\t\t\t                Arrays.sort(temp);\n
+\t\t\t\t                res[0] = temp[0] + 1;\n
+\t\t\t\t                res[1] = temp[1];\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return res;\n
+\t    }\n
 }
     </item>
 </string-array>
@@ -1247,27 +1243,27 @@ For A=[1, 2, 3], return [6, 3, 2].
     </item>
     <item name="code">
                 public int[] productExceptSelf(int[] nums) {\n
-    int[] result = new int[nums.length];\n
-    int[] t1 = new int[nums.length];\n
-    int[] t2 = new int[nums.length];\n
-    t1[0]=1;\n
-    t2[nums.length-1]=1;\n
+\t    int[] result = new int[nums.length];\n
+\t    int[] t1 = new int[nums.length];\n
+\t    int[] t2 = new int[nums.length];\n
+\t    t1[0]=1;\n
+\t    t2[nums.length-1]=1;\n
 \n
-    //scan from left to right\n
-    for(int i=0; i&lt;nums.length-1; i++){\n
-        t1[i+1] = nums[i] * t1[i];\n
-    }\n
+\t    //scan from left to right\n
+\t    for(int i=0; i&lt;nums.length-1; i++){\n
+\t\t        t1[i+1] = nums[i] * t1[i];\n
+\t    }\n
 \n
-    //scan from right to left\n
-    for(int i=nums.length-1; i&gt;0; i--){\n
-        t2[i-1] = t2[i] * nums[i];\n
-    }\n
+\t    //scan from right to left\n
+\t    for(int i=nums.length-1; i&gt;0; i--){\n
+\t\t        t2[i-1] = t2[i] * nums[i];\n
+\t    }\n
 \n
-    //multiply\n
-    for(int i=0; i&lt;nums.length; i++){\n
-        result[i] = t1[i] * t2[i];\n
-    }\n
-    return result;\n
+\t    //multiply\n
+\t    for(int i=0; i&lt;nums.length; i++){\n
+\t\t        result[i] = t1[i] * t2[i];\n
+\t    }\n
+\t    return result;\n
 }
     </item>
 </string-array>
@@ -1283,7 +1279,7 @@ Return the partitioning index, i.e the first index i nums[i] &gt;= k.
 \n
 Example\n
 If nums=[3,2,2,1] and k=2, a valid answer is 1.\n
-
+\n
 Note\n
 You should do really partition in array nums instead of just
 counting the numbers of integers smaller than k.
@@ -1300,40 +1296,40 @@ Can you partition the array in-place and in O(n)?
      *@param k: As description\n
      *return: The index after partition\n
      */\n
-    public int partitionArray(int[] nums, int k) {\n
-	    //write your code here\n
-	    if(nums == null || nums.length == 0){\n
-            return 0;\n
-        }\n
-        // //dummy number\n
-        // nums.add(k);\n
+\t    public int partitionArray(int[] nums, int k) {\n
+\t\t	    //write your code here\n
+\t\t	    if(nums == null || nums.length == 0){\n
+\t\t\t            return 0;\n
+\t\t        }\n
+\t\t        // //dummy number\n
+\t\t        // nums.add(k);\n
 \n
-        int i = 0;\n
-        int j = nums.length - 1;\n
-	    for(; i &lt;= j; i++){\n
-	        if(nums[i]&lt; k){\n
-	            continue;\n
-	        }\n
+\t\t        int i = 0;\n
+\t\t        int j = nums.length - 1;\n
+\t\t	    for(; i &lt;= j; i++){\n
+\t\t\t	        if(nums[i]&lt; k){\n
+\t\t\t\t	            continue;\n
+\t\t\t	        }\n
 \n
-	        while(j >= i &amp;&amp; nums[j] &gt;= k){\n
-	            j --;\n
-	        }//while\n
+\t\t\t	        while(j >= i &amp;&amp; nums[j] &gt;= k){\n
+\t\t\t\t	            j --;\n
+\t\t\t	        }//while\n
 \n
-	        //i points to a number &gt;= k\n
-	        //j points to a number &lt; k\n
-	        //swap i and j\n
-	        if(j >= 0 &amp;&amp; i &lt; j){\n
-	            int tmp = nums[i];\n
-    	        nums[i] = nums[j];\n
-    	        nums[j] = tmp;\n
-    	        j --;\n
-	        }\n
+\t\t\t	        //i points to a number &gt;= k\n
+\t\t\t	        //j points to a number &lt; k\n
+\t\t\t	        //swap i and j\n
+\t\t\t	        if(j >= 0 &amp;&amp; i &lt; j){\n
+\t\t\t\t	            int tmp = nums[i];\n
+\t\t\t\t    	        nums[i] = nums[j];\n
+\t\t\t\t    	        nums[j] = tmp;\n
+\t\t\t\t    	        j --;\n
+\t\t\t	        }\n
 \n
-	    }//for\n
+\t\t	    }//for\n
 \n
-	   // nums.remove(j + 1);\n
-	    return j + 1;\n
-    }//partitionArray\n
+\t\t	   // nums.remove(j + 1);\n
+\t\t	    return j + 1;\n
+\t    }//partitionArray\n
 }
 </item>
 </string-array>
@@ -1348,28 +1344,28 @@ and [3,4,-1,1] return 2.
 </item>
 <item name="code">
 int firstMissingPositiveAnd0(int A[]) {\n
-	int n = A.length;\n
-	for (int i = 0; i &lt; n; i++) {\n
-		// when the ith element is not i\n
-		while (A[i] != i) {\n
-			// no need to swap when ith element is out of range [0,n]\n
-			if (A[i] &lt; 0 || A[i] >= n)\n
-				break;\n
+\t	int n = A.length;\n
+\t	for (int i = 0; i &lt; n; i++) {\n
+\t\t		// when the ith element is not i\n
+\t\t		while (A[i] != i) {\n
+\t\t\t			// no need to swap when ith element is out of range [0,n]\n
+\t\t\t			if (A[i] &lt; 0 || A[i] >= n)\n
+\t\t\t\t				break;\n
 \n
-			//handle duplicate elements\n
-			if(A[i]==A[A[i]])\n
-                    		break;\n
-			// swap elements\n
-			int temp = A[i];\n
-			A[i] = A[temp];\n
-			A[temp] = temp;\n
-		}\n
-	}\n
-	for (int i = 0; i &lt; n; i++) {\n
-		if (A[i] != i)\n
-			return i;\n
-	}\n
-	return n;\n
+\t\t\t			//handle duplicate elements\n
+\t\t\t			if(A[i]==A[A[i]])\n
+\t\t\t\t                    		break;\n
+\t\t\t			// swap elements\n
+\t\t\t			int temp = A[i];\n
+\t\t\t			A[i] = A[temp];\n
+\t\t\t			A[temp] = temp;\n
+\t\t		}\n
+\t	}\n
+\t	for (int i = 0; i &lt; n; i++) {\n
+\t\t		if (A[i] != i)\n
+\t\t\t			return i;\n
+\t	}\n
+\t	return n;\n
 }\n
 </item>
 </string-array>
@@ -1389,16 +1385,16 @@ Output: index1=1, index2=2
 </item>
 <item name="code">
 public static int[] twoSum(int[] numbers, int target) {\n
-	int[] ret = new int[2];\n
-	for (int i = 0; i &lt; numbers.length; i++) {\n
-		for (int j = i + 1; j &lt; numbers.length; j++) {\n
-			if (numbers[i] + numbers[j] == target) {\n
-				ret[0] = i + 1;\n
-				ret[1] = j + 1;\n
-			}\n
-		}\n
-	}\n
-	return ret;\n
+\t	int[] ret = new int[2];\n
+\t	for (int i = 0; i &lt; numbers.length; i++) {\n
+\t\t		for (int j = i + 1; j &lt; numbers.length; j++) {\n
+\t\t\t			if (numbers[i] + numbers[j] == target) {\n
+\t\t\t\t				ret[0] = i + 1;\n
+\t\t\t\t				ret[1] = j + 1;\n
+\t\t\t			}\n
+\t\t		}\n
+\t	}\n
+\t	return ret;\n
 }
 </item>
 </string-array>
@@ -1420,30 +1416,30 @@ The solution set must not contain duplicate triplets.
 </item>
 <item name="code">
 public class Solution {\n
-    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; threeSum(int[] num) {\n
-        //sort array\n
-        Arrays.sort(num);\n
-        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
-        ArrayList&lt;Integer&gt; each = new ArrayList&lt;Integer&gt;();\n
-        for(int i=0; i&lt;num.length; i++){\n
-            if(num[i] &gt; 0) break;\n
+\t    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; threeSum(int[] num) {\n
+\t\t        //sort array\n
+\t\t        Arrays.sort(num);\n
+\t\t        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+\t\t        ArrayList&lt;Integer&gt; each = new ArrayList&lt;Integer&gt;();\n
+\t\t        for(int i=0; i&lt;num.length; i++){\n
+\t\t\t            if(num[i] &gt; 0) break;\n
 \n
-            for(int j=i+1; j&lt;num.length; j++){\n
-                if(num[i] + num[j] &gt; 0 &amp;&amp; num[j] &gt; 0) break;\n
+\t\t\t            for(int j=i+1; j&lt;num.length; j++){\n
+\t\t\t\t                if(num[i] + num[j] &gt; 0 &amp;&amp; num[j] &gt; 0) break;\n
 \n
-                for(int k=j+1; k&lt;num.length; k++){\n
-                  if(num[i] + num[j] + num[k] == 0) {\n
-                      each.add(num[i]);\n
-                      each.add(num[j]);\n
-                      each.add(num[k]);\n
-                      result.add(each);\n
-                      each.clear();\n
-                  }\n
-                }\n
-            }\n
-        }\n
-        return result;\n
-    }\n
+\t\t\t\t               for(int k=j+1; k&lt;num.length; k++){\n
+\t\t\t\t\t                  if(num[i] + num[j] + num[k] == 0) {\n
+\t\t\t\t\t\t                      each.add(num[i]);\n
+\t\t\t\t\t\t                      each.add(num[j]);\n
+\t\t\t\t\t\t                      each.add(num[k]);\n
+\t\t\t\t\t\t                      result.add(each);\n
+\t\t\t\t\t\t                      each.clear();\n
+\t\t\t\t\t                  }\n
+\t\t\t\t                }\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return result;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2855,20 +2851,20 @@ Reverse it in-place and in one-pass
  * }\n
  */\n
 public class Solution {\n
-    /**\n
-     * @param head: The head of linked list.\n
-     * @return: The new head of reversed linked list.\n
-     */\n
-    public ListNode reverse(ListNode head) {\n
-        ListNode prev = null;\n
-        while (head != null) {\n
-            ListNode temp = head.next;\n
-            head.next = prev;\n
-            prev = head;\n
-            head = temp;\n
-        }\n
-        return prev;\n
-    }\n
+\t    /**\n
+\t     * @param head: The head of linked list.\n
+\t     * @return: The new head of reversed linked list.\n
+\t     */\n
+\t    public ListNode reverse(ListNode head) {\n
+\t\t        ListNode prev = null;\n
+\t\t        while (head != null) {\n
+\t\t\t            ListNode temp = head.next;\n
+\t\t\t            head.next = prev;\n
+\t\t\t            prev = head;\n
+\t\t\t            head = temp;\n
+\t\t        }\n
+\t\t        return prev;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2894,39 +2890,39 @@ Reverse it in-place and in one-pass
  * }\n
  */\n
 public class Solution {\n
-    public ListNode reverseBetween(ListNode head, int m, int n) {\n
-        if (m >= n || head == null) {\n
-            return head;\n
-        }\n
+\t    public ListNode reverseBetween(ListNode head, int m, int n) {\n
+\t\t        if (m >= n || head == null) {\n
+\t\t\t            return head;\n
+\t\t        }\n
 \n
-        ListNode dummy = new ListNode(0);\n
-        dummy.next = head;\n
-        head = dummy;\n
+\t\t        ListNode dummy = new ListNode(0);\n
+\t\t        dummy.next = head;\n
+\t\t        head = dummy;\n
 \n
-        for (int i = 1; i &lt; m; i++) {\n
-            if (head == null) {\n
-                return null;\n
-            }\n
-            head = head.next;\n
-        }\n
+\t\t        for (int i = 1; i &lt; m; i++) {\n
+\t\t\t            if (head == null) {\n
+\t\t\t\t                return null;\n
+\t\t\t            }\n
+\t\t\t            head = head.next;\n
+\t\t        }\n
 \n
-        ListNode premNode = head;\n
-        ListNode mNode = head.next;\n
-        ListNode nNode = mNode, postnNode = mNode.next;\n
-        for (int i = m; i &lt; n; i++) {\n
-            if (postnNode == null) {\n
-                return null;\n
-            }\n
-            ListNode temp = postnNode.next;\n
-            postnNode.next = nNode;\n
-            nNode = postnNode;\n
-            postnNode = temp;\n
-        }\n
-        mNode.next = postnNode;\n
-        premNode.next = nNode;\n
+\t\t        ListNode premNode = head;\n
+\t\t        ListNode mNode = head.next;\n
+\t\t        ListNode nNode = mNode, postnNode = mNode.next;\n
+\t\t        for (int i = m; i &lt; n; i++) {\n
+\t\t\t            if (postnNode == null) {\n
+\t\t\t\t                return null;\n
+\t\t\t            }\n
+\t\t\t            ListNode temp = postnNode.next;\n
+\t\t\t            postnNode.next = nNode;\n
+\t\t\t            nNode = postnNode;\n
+\t\t\t            postnNode = temp;\n
+\t\t        }\n
+\t\t        mNode.next = postnNode;\n
+\t\t        premNode.next = nNode;\n
 \n
-        return dummy.next;\n
-    }\n
+\t\t        return dummy.next;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2940,29 +2936,29 @@ Given 1->3->8->11->15->null, 2->null , return 1->2->3->8->11->15->null
 </item>
 <item name="code">
 public class Solution {\n
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {\n
-        ListNode dummy = new ListNode(0);\n
-        ListNode lastNode = dummy;\n
+\t    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {\n
+\t\t        ListNode dummy = new ListNode(0);\n
+\t\t        ListNode lastNode = dummy;\n
 \n
-        while (l1 != null &amp;&amp; l2 != null) {\n
-            if (l1.val &lt; l2.val) {\n
-                lastNode.next = l1;\n
-                l1 = l1.next;\n
-            } else {\n
-                lastNode.next = l2;\n
-                l2 = l2.next;\n
-            }\n
-            lastNode = lastNode.next;\n
-        }\n
+\t\t        while (l1 != null &amp;&amp; l2 != null) {\n
+\t\t\t            if (l1.val &lt; l2.val) {\n
+\t\t\t\t                lastNode.next = l1;\n
+\t\t\t\t                l1 = l1.next;\n
+\t\t\t            } else {\n
+\t\t\t\t                lastNode.next = l2;\n
+\t\t\t\t                l2 = l2.next;\n
+\t\t\t            }\n
+\t\t\t            lastNode = lastNode.next;\n
+\t\t        }\n
 \n
-        if (l1 != null) {\n
-            lastNode.next = l1;\n
-        } else {\n
-            lastNode.next = l2;\n
-        }\n
+\t\t        if (l1 != null) {\n
+\t\t\t            lastNode.next = l1;\n
+\t\t        } else {\n
+\t\t\t            lastNode.next = l2;\n
+\t\t        }\n
 \n
-        return dummy.next;\n
-    }\n
+\t\t        return dummy.next;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2973,60 +2969,60 @@ Merge k sorted linked lists and return it as one sorted list. Analyze and descri
 <item name="code">
     /**\n
  * Definition for ListNode.\n
- * public class ListNode {\n
- *     int val;\n
- *     ListNode next;\n
- *     ListNode(int val) {\n
-    *         this.val = val;\n
- *         this.next = null;\n
- *     }\n
- * }\n
+ *\t public class ListNode {\n
+ *\t\t     int val;\n
+ * \t\t    ListNode next;\n
+ * \t\t    ListNode(int val) {\n
+    *\t\t\t         this.val = val;\n
+ * \t\t\t        this.next = null;\n
+ * \t\t    }\n
+ *\t }\n
  */\n
 public class Solution {\n
-    /**\n
-     * @param lists: a list of ListNode\n
-     * @return: The head of one sorted list.\n
-     */\n
-    public ListNode mergeKLists(List&lt;ListNode&gt; lists) {\n
-        if (lists.size() == 0) {\n
-            return null;\n
-        }\n
-        return mergeHelper(lists, 0, lists.size() - 1);\n
-    }\n
+\t    /**\n
+\t     * @param lists: a list of ListNode\n
+\t     * @return: The head of one sorted list.\n
+\t     */\n
+\t    public ListNode mergeKLists(List&lt;ListNode&gt; lists) {\n
+\t\t        if (lists.size() == 0) {\n
+\t\t\t            return null;\n
+\t\t        }\n
+\t\t        return mergeHelper(lists, 0, lists.size() - 1);\n
+\t    }\n
 \n
-    private ListNode mergeHelper(List&lt;ListNode&gt; lists, int start, int end) {\n
-        if (start == end) {\n
-            return lists.get(start);\n
-        }\n
+\t    private ListNode mergeHelper(List&lt;ListNode&gt; lists, int start, int end) {\n
+\t\t        if (start == end) {\n
+\t\t\t            return lists.get(start);\n
+\t\t        }\n
 \n
-        int mid = start + (end - start) / 2;\n
-        ListNode left = mergeHelper(lists, start, mid);\n
-        ListNode right = mergeHelper(lists, mid + 1, end);\n
-        return mergeTwoLists(left, right);\n
-    }\n
+\t\t        int mid = start + (end - start) / 2;\n
+\t\t        ListNode left = mergeHelper(lists, start, mid);\n
+\t\t        ListNode right = mergeHelper(lists, mid + 1, end);\n
+\t\t        return mergeTwoLists(left, right);\n
+\t    }\n
 \n
-    private ListNode mergeTwoLists(ListNode list1, ListNode list2) {\n
-        ListNode dummy = new ListNode(0);\n
-        ListNode tail = dummy;\n
-        while (list1 != null &amp;&amp; list2 != null) {\n
-            if (list1.val &lt; list2.val) {\n
-                tail.next = list1;\n
-                tail = list1;\n
-                list1 = list1.next;\n
-            } else {\n
-                tail.next = list2;\n
-                tail = list2;\n
-                list2 = list2.next;\n
-            }\n
-        }\n
-        if (list1 != null) {\n
-            tail.next = list1;\n
-        } else {\n
-            tail.next = list2;\n
-        }\n
+\t    private ListNode mergeTwoLists(ListNode list1, ListNode list2) {\n
+\t\t        ListNode dummy = new ListNode(0);\n
+\t\t        ListNode tail = dummy;\n
+\t\t        while (list1 != null &amp;&amp; list2 != null) {\n
+\t\t\t            if (list1.val &lt; list2.val) {\n
+\t\t\t\t                tail.next = list1;\n
+\t\t\t\t                tail = list1;\n
+\t\t\t\t                list1 = list1.next;\n
+\t\t\t            } else {\n
+\t\t\t\t                tail.next = list2;\n
+\t\t\t\t                tail = list2;\n
+\t\t\t\t                list2 = list2.next;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        if (list1 != null) {\n
+\t\t\t            tail.next = list1;\n
+\t\t        } else {\n
+    \t\t\t tail.next = list2;\n
+\t\t        }\n
 \n
-        return dummy.next;\n
-    }\n
+\t\t        return dummy.next;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -3037,50 +3033,49 @@ Sort a linked list in O(n log n) time using constant space complexity.
 <item name="code">
 // version 1: Merge Sort\n
 public class Solution {\n
-    private ListNode findMiddle(ListNode head) {\n
-        ListNode slow = head, fast = head.next;\n
-        while (fast != null &amp;&amp; fast.next != null) {\n
-            fast = fast.next.next;\n
-            slow = slow.next;\n
-        }\n
-        return slow;\n
-    }\n
+\t    private ListNode findMiddle(ListNode head) {\n
+\t\t        ListNode slow = head, fast = head.next;\n
+\t\t        while (fast != null &amp;&amp; fast.next != null) {\n
+\t\t\t            fast = fast.next.next;\n
+\t\t\t            slow = slow.next;\n
+\t\t        }\n
+\t\t        return slow;\n
+\t    }\n
 \n
-    private ListNode merge(ListNode head1, ListNode head2) {\n
-        ListNode dummy = new ListNode(0);\n
-        ListNode tail = dummy;\n
-        while (head1 != null &amp;&amp; head2 != null) {\n
-            if (head1.val &lt; head2.val) {\n
-                tail.next = head1;\n
-                head1 = head1.next;\n
-            } else {\n
-                tail.next = head2;\n
-                head2 = head2.next;\n
-            }\n
-            tail = tail.next;\n
-        }\n
-        if (head1 != null) {\n
-            tail.next = head1;\n
-        } else {\n
-            tail.next = head2;\n
-        }\n
+\t    private ListNode merge(ListNode head1, ListNode head2) {\n
+\t\t        ListNode dummy = new ListNode(0);\n
+\t\t        ListNode tail = dummy;\n
+\t\t        while (head1 != null &amp;&amp; head2 != null) {\n
+\t\t\t            if (head1.val &lt; head2.val) {\n
+\t\t\t\t                tail.next = head1;\n
+\t\t\t\t                head1 = head1.next;\n
+\t\t\t            } else {\n
+\t\t\t\t                tail.next = head2;\n
+\t\t\t\t                head2 = head2.next;\n
+\t\t\t            }\n
+\t\t\t\t            tail = tail.next;\n
+\t\t\t        }\n
+\t\t        if (head1 != null) {\n
+\t\t\t            tail.next = head1;\n
+\t\t        } else {\n
+\t\t\t            tail.next = head2;\n
+\t\t        }\n
 
-        return dummy.next;\n
-    }\n
+\t\t        return dummy.next;\n
+\t    }\n
 \n
-    public ListNode sortList(ListNode head) {\n
-        if (head == null || head.next == null) {\n
-            return head;\n
-        }\n
+\t    public ListNode sortList(ListNode head) {\n
+\t\t        if (head == null || head.next == null) {\n
+\t\t\t            return head;\n
+\t\t        }\n
 \n
-        ListNode mid = findMiddle(head);\n
-
-        ListNode right = sortList(mid.next);\n
-        mid.next = null;\n
-        ListNode left = sortList(head);\n
-
-        return merge(left, right);\n
-    }\n
+\t\t        ListNode mid = findMiddle(head);\n
+\t\t        ListNode right = sortList(mid.next);\n
+\t\t        mid.next = null;\n
+\t\t        ListNode left = sortList(head);\n
+\n
+\t\t        return merge(left, right);\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -3090,58 +3085,58 @@ Given a singly linked list L: L0→L1→…→Ln-1→Ln, reorder it to: L0→Ln�
 </item>
 <item name="code">
 public class Solution {\n
-    private ListNode reverse(ListNode head) {\n
-        ListNode newHead = null;\n
-        while (head != null) {\n
-            ListNode temp = head.next;\n
-            head.next = newHead;\n
-            newHead = head;\n
-            head = temp;\n
-        }\n
-        return newHead;\n
-    }\n
+\t    private ListNode reverse(ListNode head) {\n
+\t\t        ListNode newHead = null;\n
+\t\t        while (head != null) {\n
+\t\t\t            ListNode temp = head.next;\n
+\t\t\t            head.next = newHead;\n
+\t\t\t            newHead = head;\n
+\t\t\t            head = temp;\n
+\t\t        }\n
+\t\t        return newHead;\n
+\t    }\n
 \n
-    private void merge(ListNode head1, ListNode head2) {\n
-        int index = 0;\n
-        ListNode dummy = new ListNode(0);\n
-        while (head1 != null &amp;&amp; head2 != null) {\n
-            if (index % 2 == 0) {\n
-                dummy.next = head1;\n
-                head1 = head1.next;\n
-            } else {\n
-                dummy.next = head2;\n
-                head2 = head2.next;\n
-            }\n
-            dummy = dummy.next;\n
-            index ++;\n
-        }\n
-        if (head1 != null) {\n
-            dummy.next = head1;\n
-        } else {\n
-            dummy.next = head2;\n
-        }\n
-    }\n
+\t    private void merge(ListNode head1, ListNode head2) {\n
+\t\t        int index = 0;\n
+\t\t        ListNode dummy = new ListNode(0);\n
+\t\t        while (head1 != null &amp;&amp; head2 != null) {\n
+\t\t\t            if (index % 2 == 0) {\n
+\t\t\t\t                dummy.next = head1;\n
+\t\t\t\t                head1 = head1.next;\n
+\t\t\t            } else {\n
+\t\t\t\t                dummy.next = head2;\n
+\t\t\t\t                head2 = head2.next;\n
+\t\t\t            }\n
+\t\t\t            dummy = dummy.next;\n
+\t\t\t            index ++;\n
+\t\t        }\n
+\t\t        if (head1 != null) {\n
+\t\t\t            dummy.next = head1;\n
+\t\t        } else {\n
+\t\t\t            dummy.next = head2;\n
+\t\t        }\n
+\t    }\n
 \n
-    private ListNode findMiddle(ListNode head) {\n
-        ListNode slow = head, fast = head.next;\n
-        while (fast != null &amp;&amp; fast.next != null) {\n
-            fast = fast.next.next;\n
-            slow = slow.next;\n
-        }\n
-        return slow;\n
-    }\n
+\t    private ListNode findMiddle(ListNode head) {\n
+\t\t        ListNode slow = head, fast = head.next;\n
+\t\t        while (fast != null &amp;&amp; fast.next != null) {\n
+\t\t\t            fast = fast.next.next;\n
+\t\t\t            slow = slow.next;\n
+\t\t        }\n
+\t\t        return slow;\n
+\t    }\n
 \n
-    public void reorderList(ListNode head) {\n
-        if (head == null || head.next == null) {\n
-            return;\n
-        }\n
+\t    public void reorderList(ListNode head) {\n
+\t\t        if (head == null || head.next == null) {\n
+\t\t\t            return;\n
+\t\t        }\n
 \n
-        ListNode mid = findMiddle(head);\n
-        ListNode tail = reverse(mid.next);\n
-        mid.next = null;\n
+\t\t        ListNode mid = findMiddle(head);\n
+\t\t        ListNode tail = reverse(mid.next);\n
+\t\t        mid.next = null;\n
 \n
-        merge(head, tail);\n
-    }\n
+\t\t        merge(head, tail);\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -3163,36 +3158,36 @@ What is rotated array:
 </item>
 <item name="code">
     public class Solution {\n
-    /**\n
-     * @param nums: The rotated sorted array\n
-     * @return: The recovered sorted array\n
-     */\n
-    public void recoverRotatedSortedArray(ArrayList nums) {\n
-        if (nums == null || nums.size() &lt;= 1) {\n
-            return;\n
-        }\n
+ \t   /**\n
+ \t    * @param nums: The rotated sorted array\n
+ \t    * @return: The recovered sorted array\n
+ \t    */\n
+ \t   public void recoverRotatedSortedArray(ArrayList nums) {\n
+ \t\t       if (nums == null || nums.size() &lt;= 1) {\n
+ \t\t\t           return;\n
+ \t\t       }\n
 \n
-        int pos = 1;\n
-        while (pos &lt; nums.size()) { // find the break point\n
-            if (nums.get(pos - 1) > nums.get(pos)) {\n
-                break;\n
-            }\n
-            pos++;\n
-        }\n
-        myRotate(nums, 0, pos - 1);\n
-        myRotate(nums, pos, nums.size() - 1);\n
-        myRotate(nums, 0, nums.size() - 1);\n
-    }\n
+ \t\t       int pos = 1;\n
+ \t\t       while (pos &lt; nums.size()) { // find the break point\n
+ \t\t\t           if (nums.get(pos - 1) > nums.get(pos)) {\n
+ \t\t\t\t              break;\n
+ \t\t\t           }\n
+ \t\t\t           pos++;\n
+  \t\t      }\n
+  \t\t      myRotate(nums, 0, pos - 1);\n
+  \t\t      myRotate(nums, pos, nums.size() - 1);\n
+  \t\t      myRotate(nums, 0, nums.size() - 1);\n
+  \t  }\n
 \n
-    private void myRotate(ArrayList nums, int left, int right) { // in-place rotate\n
-        while (left &lt; right) {\n
-            int temp = nums.get(left);\n
-            nums.set(left, nums.get(right));\n
-            nums.set(right, temp);\n
-            left++;\n
-            right--;\n
-        }\n
-    }\n
+ \t   private void myRotate(ArrayList nums, int left, int right) { // in-place rotate\n
+ \t\t       while (left &lt; right) {\n
+ \t\t\t           int temp = nums.get(left);\n
+ \t\t\t           nums.set(left, nums.get(right));\n
+ \t\t\t           nums.set(right, temp);\n
+ \t\t\t           left++;\n
+ \t\t\t           right--;\n
+ \t\t       }\n
+ \t   }\n
 }
 </item>
 </string-array>
@@ -3215,23 +3210,23 @@ for offset=3, return "efgabcd"
 </item>
 <item name="code">
 public class Solution {\n
-    public String reverseWords(String s) {\n
-        if (s == null || s.length() == 0) {\n
-            return "";\n
-        }\n
+\t    public String reverseWords(String s) {\n
+\t\t        if (s == null || s.length() == 0) {\n
+\t\t\t            return "";\n
+\t\t        }\n
 \n
-        String[] array = s.split(" ");\n
-        StringBuilder sb = new StringBuilder();\n
+\t\t        String[] array = s.split(" ");\n
+\t\t        StringBuilder sb = new StringBuilder();\n
 \n
-        for (int i = array.length - 1; i >= 0; --i) {\n
-            if (!array[i].equals("")) {\n
-                sb.append(array[i]).append(" ");\n
-            }\n
-        }\n
+\t\t        for (int i = array.length - 1; i >= 0; --i) {\n
+\t\t\t            if (!array[i].equals("")) {\n
+\t\t\t\t                sb.append(array[i]).append(" ");\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        //remove the last " "\n
-        return sb.length() == 0 ? "" : sb.substring(0, sb.length() - 1);\n
-    }\n
+\t\t        //remove the last " "\n
+\t\t        return sb.length() == 0 ? "" : sb.substring(0, sb.length() - 1);\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -3245,33 +3240,33 @@ return \"blue is sky the\".
 \n
 Example\n
 Clarification\n
-
- - What constitutes a word?
+\n
+ - What constitutes a word?\n
 A sequence of non-space characters constitutes a word.
 \n
- - Could the input string contain leading or trailing spaces?
+ - Could the input string contain leading or trailing spaces?\n
 Yes. However, your reversed string should not contain leading or trailing spaces.
 \n
- - How about multiple spaces between two words?
+ - How about multiple spaces between two words?\n
 Reduce them to a single space in the reversed string.
 </item>
 <item name="code">
     public void rotate(int[] nums, int k) {\n
-    if(k > nums.length)\n
-        k=k%nums.length;\n
+\t    if(k > nums.length)\n
+\t        k=k%nums.length;\n
 \n
-    int[] result = new int[nums.length];\n
+\t    int[] result = new int[nums.length];\n
 \n
-    for(int i=0; i &lt; k; i++){\n
-        result[i] = nums[nums.length-k+i];\n
-    }\n
+\t    for(int i=0; i &lt; k; i++){\n
+\t\t        result[i] = nums[nums.length-k+i];\n
+\t    }\n
 \n
-    int j=0;\n
-    for(int i=k; i&lt;nums.length; i++){\n
-        result[i] = nums[j];\n
-        j++;\n
-    }\n
-    System.arraycopy( result, 0, nums, 0, nums.length );\n
+\t    int j=0;\n
+\t    for(int i=k; i&lt;nums.length; i++){\n
+\t\t        result[i] = nums[j];\n
+\t\t        j++;\n
+\t    }\n
+\t    System.arraycopy( result, 0, nums, 0, nums.length );\n
 }
 </item>
 </string-array>
@@ -3283,7 +3278,7 @@ For example:\n
 Given binary tree {1,#,2,3},
 \n
  1  \n
-   \  \n
+\t   \'  \n
      2  \n
     /  \n
   3  \n
@@ -3293,46 +3288,46 @@ return [1,2,3].
 </item>
 <item name="code">
     public class Solution {\n
-    public List&lt;Integer&gt; preorderTraversal(TreeNode root) {\n
-        Stack&lt;TreeNode&gt; stack = new Stack&lt;TreeNode&gt;();\n
-        List&lt;Integer&gt; preorder = new ArrayList&lt;Integer&gt;();\n
+\t    public List&lt;Integer&gt; preorderTraversal(TreeNode root) {\n
+\t\t        Stack&lt;TreeNode&gt; stack = new Stack&lt;TreeNode&gt;();\n
+\t\t        List&lt;Integer&gt; preorder = new ArrayList&lt;Integer&gt;();\n
 \n
-        if (root == null) {\n
-            return preorder;\n
-        }\n
+\t\t        if (root == null) {\n
+ \t\t           return preorder;\n
+\t        }\n
 \n
-        stack.push(root);\n
-        while (!stack.empty()) {\n
-            TreeNode node = stack.pop();\n
-            preorder.add(node.val);\n
-            if (node.right != null) {\n
-                stack.push(node.right);\n
-            }\n
-            if (node.left != null) {\n
-                stack.push(node.left);\n
-            }\n
-        }\n
+\t        stack.push(root);\n
+\t        while (!stack.empty()) {\n
+\t\t            TreeNode node = stack.pop();\n
+\t\t            preorder.add(node.val);\n
+\t\t            if (node.right != null) {\n
+\t\t\t                stack.push(node.right);\n
+\t\t            }\n
+\t\t            if (node.left != null) {\n
+\t\t\t                stack.push(node.left);\n
+\t\t            }\n
+\t\t        }\n
 \n
-        return preorder;\n
-    }\n
+\t        return preorder;\n
+\t    }\n
 }\n
 \n
 //Version 1: Traverse\n
 public class Solution {\n
-    public ArrayList&lt;Integer&gt; preorderTraversal(TreeNode root) {\n
-        ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();\n
-        traverse(root, result);\n
-        return result;\n
-    }\n
+\t    public ArrayList&lt;Integer&gt; preorderTraversal(TreeNode root) {\n
+\t\t        ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();\n
+\t\t        traverse(root, result);\n
+\t\t        return result;\n
+\t    }\n
 \n
-    private void traverse(TreeNode root, ArrayList&lt;Integer&gt; result) {\n
-        if (root == null) {\n
-            return;\n
-        }\n
-        result.add(root.val);\n
-        traverse(root.left, result);\n
-        traverse(root.right, result);\n
-    }\n
+\t    private void traverse(TreeNode root, ArrayList&lt;Integer&gt; result) {\n
+\t\t        if (root == null) {\n
+\t\t\t            return;\n
+\t\t        }\n
+\t\t        result.add(root.val);\n
+\t\t        traverse(root.left, result);\n
+\t\t        traverse(root.right, result);\n
+\t    }\n
 }\n
 </item>
 </string-array>
@@ -4001,23 +3996,23 @@ For example, if k1 = 10 and k2 = 22, then your function should print 12, 20 and 
 </item>
 <item name="code">
 public class Solution {\n
-    private TreeNode buildTree(int[] num, int start, int end) {\n
-        if (start > end) {\n
-            return null;\n
-        }\n
+\t    private TreeNode buildTree(int[] num, int start, int end) {\n
+\t\t        if (start > end) {\n
+\t\t\t            return null;\n
+\t\t        }\n
 \n
-        TreeNode node = new TreeNode(num[(start + end) / 2]);\n
-        node.left = buildTree(num, start, (start + end) / 2 - 1);\n
-        node.right = buildTree(num, (start + end) / 2 + 1, end);\n
-        return node;\n
-    }\n
+\t\t        TreeNode node = new TreeNode(num[(start + end) / 2]);\n
+\t\t        node.left = buildTree(num, start, (start + end) / 2 - 1);\n
+\t\t        node.right = buildTree(num, (start + end) / 2 + 1, end);\n
+\t\t        return node;\n
+\t    }\n
 \n
-    public TreeNode sortedArrayToBST(int[] num) {\n
-        if (num == null) {\n
-            return null;\n
-        }\n
-        return buildTree(num, 0, num.length - 1);\n
-    }\n
+\t    public TreeNode sortedArrayToBST(int[] num) {\n
+\t\t        if (num == null) {\n
+\t\t\t            return null;\n
+\t\t        }\n
+\t\t        return buildTree(num, 0, num.length - 1);\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -4027,45 +4022,44 @@ Given a singly linked list where elements are sorted in ascending order,
 convert it to a height balanced BST.
 </item>
 <item name="code">
-
 public class Solution {\n
-    private ListNode current;\n
+\t    private ListNode current;\n
 \n
-    private int getListLength(ListNode head) {\n
-        int size = 0;\n
+\t    private int getListLength(ListNode head) {\n
+\t\t        int size = 0;\n
 \n
-        while (head != null) {\n
-            size++;\n
-            head = head.next;\n
-        }\n
+\t\t        while (head != null) {\n
+\t\t\t            size++;\n
+\t\t\t            head = head.next;\n
+\t\t        }\n
 \n
-        return size;\n
-    }\n
+\t\t        return size;\n
+\t    }\n
 \n
-    public TreeNode sortedListToBST(ListNode head) {\n
-        int size;\n
+\t    public TreeNode sortedListToBST(ListNode head) {\n
+\t\t        int size;\n
 \n
-        current = head;\n
-        size = getListLength(head);\n
+\t\t        current = head;\n
+\t\t        size = getListLength(head);\n
 \n
-        return sortedListToBSTHelper(size);\n
-    }\n
+\t\t        return sortedListToBSTHelper(size);\n
+\t    }\n
 \n
-    public TreeNode sortedListToBSTHelper(int size) {\n
-        if (size &lt;= 0) {\n
-            return null;\n
-        }\n
+\t    public TreeNode sortedListToBSTHelper(int size) {\n
+\t\t        if (size &lt;= 0) {\n
+\t\t\t            return null;\n
+\t\t        }\n
 \n
-        TreeNode left = sortedListToBSTHelper(size / 2);\n
-        TreeNode root = new TreeNode(current.val);\n
-        current = current.next;\n
-        TreeNode right = sortedListToBSTHelper(size - 1 - size / 2);\n
+\t\t        TreeNode left = sortedListToBSTHelper(size / 2);\n
+\t\t        TreeNode root = new TreeNode(current.val);\n
+\t\t        current = current.next;\n
+\t\t        TreeNode right = sortedListToBSTHelper(size - 1 - size / 2);\n
 \n
-        root.left = left;\n
-        root.right = right;\n
+\t\t        root.left = left;\n
+\t\t        root.right = right;\n
 \n
-        return root;\n
-    }\n
+\t\t        return root;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -4104,32 +4098,32 @@ Super Star: Extra memory usage O(1)
  * }\n
  */\n
 public class Solution {\n
-    private Stack stack = new Stack&lt;&gt;();\n
-    private TreeNode curt;\n
+\t    private Stack stack = new Stack&lt;&gt;();\n
+\t    private TreeNode curt;\n
 \n
-    // @param root: The root of binary tree.\n
-    public Solution(TreeNode root) {\n
-        curt = root;\n
-    }\n
+\t    // @param root: The root of binary tree.\n
+\t    public Solution(TreeNode root) {\n
+\t\t        curt = root;\n
+\t    }\n
 \n
-    //@return: True if there has next node, or false\n
-    public boolean hasNext() {\n
-        return (curt != null || !stack.isEmpty()); //important to judge curt != null\n
-    }\n
+\t    //@return: True if there has next node, or false\n
+\t    public boolean hasNext() {\n
+\t\t        return (curt != null || !stack.isEmpty()); //important to judge curt != null\n
+\t    }\n
 \n
-    //@return: return next node\n
-    public TreeNode next() {\n
-        while (curt != null) {\n
-            stack.push(curt);\n
-            curt = curt.left;\n
-        }\n
+\t    //@return: return next node\n
+\t    public TreeNode next() {\n
+\t\t        while (curt != null) {\n
+\t\t\t            stack.push(curt);\n
+\t\t\t            curt = curt.left;\n
+\t\t        }\n
 \n
-        curt = stack.pop();\n
-        TreeNode node = curt;\n
-        curt = curt.right;\n
+\t\t        curt = stack.pop();\n
+\t\t        TreeNode node = curt;\n
+\t\t        curt = curt.right;\n
 \n
-        return node;\n
-    }\n
+\t\t        return node;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -4155,62 +4149,62 @@ If S = [1,2,3], a solution is:\n
 </item>
 <item name="code">
     public class Solution {\n
-    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; subsets(int[] num) {\n
-        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
-        if(num == null || num.length == 0) {\n
-            return result;\n
-        }\n
-        ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();\n
-        Arrays.sort(num);\n
-        subsetsHelper(result, list, num, 0);\n
+\t    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; subsets(int[] num) {\n
+\t\t        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+\t\t        if(num == null || num.length == 0) {\n
+\t\t\t            return result;\n
+\t\t        }\n
+\t\t        ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();\n
+\t\t        Arrays.sort(num);\n
+\t\t        subsetsHelper(result, list, num, 0);\n
 \n
-        return result;\n
-    }\n
+\t\t        return result;\n
+\t    }\n
 \n
-    private void subsetsHelper(ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result,\n
-        ArrayList&lt;Integer&gt; list, int[] num, int pos) {\n
+\t    private void subsetsHelper(ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result,\n
+\t\t        ArrayList&lt;Integer&gt; list, int[] num, int pos) {\n
 \n
-        result.add(new ArrayList&lt;Integer&gt;(list));\n
+\t\t        result.add(new ArrayList&lt;Integer&gt;(list));\n
 \n
-        for (int i = pos; i &lt; num.length; i++) {\n
+\t\t        for (int i = pos; i &lt; num.length; i++) {\n
 \n
-            list.add(num[i]);\n
-            subsetsHelper(result, list, num, i + 1);\n
-            list.remove(list.size() - 1);\n
-        }\n
-    }\n
+\t\t\t            list.add(num[i]);\n
+\t\t\t            subsetsHelper(result, list, num, i + 1);\n
+\t\t\t            list.remove(list.size() - 1);\n
+\t\t        }\n
+\t    }\n
 }\n
 \n
 // Non Recursion\n
 class Solution {\n
-    /**\n
-     * @param S: A set of numbers.\n
-     * @return: A list of lists. All valid subsets.\n
-     */\n
-    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; subsets(int[] nums) {\n
-        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
-        int n = nums.length;\n
-        Arrays.sort(nums);\n
+\t    /**\n
+\t     * @param S: A set of numbers.\n
+\t     * @return: A list of lists. All valid subsets.\n
+\t     */\n
+\t    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; subsets(int[] nums) {\n
+\t\t        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+\t\t        int n = nums.length;\n
+\t\t        Arrays.sort(nums);\n
 \n
-        // 1 &lt;&lt; n is 2^n\n
-        // each subset equals to an binary integer between 0 .. 2^n - 1\n
-        // 0 -&gt; 000 -&gt; []\n
-        // 1 -&gt; 001 -&gt; [1]\n
-        // 2 -&gt; 010 -&gt; [2]\n
-        // ..\n
-        // 7 -&gt; 111 -&gt; [1,2,3]\n
-        for (int i = 0; i &lt; (1 &lt;&lt; n); i++) {\n
-            ArrayList&lt;Integer&gt; subset = new ArrayList&lt;Integer&gt;();\n
-            for (int j = 0; j &lt; n; j++) {\n
-                // check whether the jth digit in i\'s binary representation is 1\n
-                if ((i &amp; (1 &lt;&lt; j)) != 0) {\n
-                    subset.add(nums[j]);\n
-                }\n
-            }\n
-            result.add(subset);\n
-        }\n
-        return result;\n
-    }\n
+\t\t        // 1 &lt;&lt; n is 2^n\n
+\t\t        // each subset equals to an binary integer between 0 .. 2^n - 1\n
+\t\t        // 0 -&gt; 000 -&gt; []\n
+\t\t        // 1 -&gt; 001 -&gt; [1]\n
+\t\t        // 2 -&gt; 010 -&gt; [2]\n
+\t\t        // ..\n
+\t\t        // 7 -&gt; 111 -&gt; [1,2,3]\n
+\t\t        for (int i = 0; i &lt; (1 &lt;&lt; n); i++) {\n
+\t\t\t            ArrayList&lt;Integer&gt; subset = new ArrayList&lt;Integer&gt;();\n
+\t\t\t            for (int j = 0; j &lt; n; j++) {\n
+\t\t\t\t                // check whether the jth digit in i\'s binary representation is 1\n
+\t\t\t\t                if ((i &amp; (1 &lt;&lt; j)) != 0) {\n
+\t\t\t\t\t                    subset.add(nums[j]);\n
+\t\t\t\t                }\n
+\t\t\t            }\n
+\t\t\t            result.add(subset);\n
+\t\t        }\n
+\t\t        return result;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -4232,83 +4226,83 @@ Do it without recursion
 </item>
 <item name="code">
 public class Solution {\n
-    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permute(int[] num) {\n
-         ArrayList&lt;ArrayList&lt;Integer&gt;&gt; rst = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
-         if (num == null || num.length == 0) {\n
-             return rst;\n
-         }\n
+\t    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permute(int[] num) {\n
+\t\t         ArrayList&lt;ArrayList&lt;Integer&gt;&gt; rst = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+\t\t         if (num == null || num.length == 0) {\n
+\t\t\t             return rst;\n
+\t\t         }\n
 \n
-         ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();\n
-         helper(rst, list, num);\n
-         return rst;\n
-    }\n
+\t\t         ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();\n
+\t\t         helper(rst, list, num);\n
+\t\t         return rst;\n
+\t    }\n
 \n
-    public void helper(ArrayList&lt;ArrayList&lt;Integer&gt;&gt; rst, ArrayList&lt;Integer&gt; list, int[] num){\n
-        if(list.size() == num.length) {\n
-            rst.add(new ArrayList&lt;Integer&gt;(list));\n
-            return;\n
-        }\n
+\t    public void helper(ArrayList&lt;ArrayList&lt;Integer&gt;&gt; rst, ArrayList&lt;Integer&gt; list, int[] num){\n
+\t\t        if(list.size() == num.length) {\n
+\t\t\t            rst.add(new ArrayList&lt;Integer&gt;(list));\n
+\t\t\t            return;\n
+\t\t        }\n
 \n
-        for(int i = 0; i&lt;num.length; i++){\n
-            if(list.contains(num[i])){\n
-                continue;\n
-            }\n
-            list.add(num[i]);\n
-            helper(rst, list, num);\n
-            list.remove(list.size() - 1);\n
-        }\n
-    }\n
+\t\t        for(int i = 0; i&lt;num.length; i++){\n
+\t\t\t            if(list.contains(num[i])){\n
+\t\t\t\t                continue;\n
+\t\t\t            }\n
+\t\t\t            list.add(num[i]);\n
+ \t\t\t           helper(rst, list, num);\n
+ \t\t\t           list.remove(list.size() - 1);\n
+\t\t        }\n
+\t    }\n
 }\n
 // Non-Recursion\n
 class Solution {\n
-    /**\n
-     * @param nums: A list of integers.\n
-     * @return: A list of permutations.\n
-     */\n
-    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permute(ArrayList&lt;Integer&gt; nums) {\n
-        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permutations\n
-             = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
-        if (nums == null || nums.size() == 0) {\n
-            return permutations;\n
-        }\n
+\t    /**\n
+\t     * @param nums: A list of integers.\n
+\t     * @return: A list of permutations.\n
+\t     */\n
+\t    public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permute(ArrayList&lt;Integer&gt; nums) {\n
+\t\t        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; permutations\n
+\t\t             = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();\n
+\t\t        if (nums == null || nums.size() == 0) {\n
+\t\t\t            return permutations;\n
+\t\t        }\n
 \n
-        int n = nums.size();\n
-        ArrayList&lt;Integer&gt; stack = new ArrayList&lt;Integer&gt;();\n
+\t\t        int n = nums.size();\n
+\t\t        ArrayList&lt;Integer&gt; stack = new ArrayList&lt;Integer&gt;();\n
 \n
-        stack.add(-1);\n
-        while (stack.size() != 0) {\n
-            Integer last = stack.get(stack.size() - 1);\n
-            stack.remove(stack.size() - 1);\n
+\t\t        stack.add(-1);\n
+\t\t        while (stack.size() != 0) {\n
+\t\t\t            Integer last = stack.get(stack.size() - 1);\n
+\t\t\t            stack.remove(stack.size() - 1);\n
 \n
-            // increase the last number\n
-            int next = -1;\n
-            for (int i = last + 1; i &lt; n; i++) {\n
-                if (!stack.contains(i)) {\n
-                    next = i;\n
-                    break;\n
-                }\n
-            }\n
-            if (next == -1) {\n
-                continue;\n
-            }\n
+\t\t            // increase the last number\n
+\t\t            int next = -1;\n
+\t\t            for (int i = last + 1; i &lt; n; i++) {\n
+\t\t\t                if (!stack.contains(i)) {\n
+\t\t\t\t                    next = i;\n
+\t\t\t\t                    break;\n
+\t\t\t                }\n
+\t\t            }\n
+\t\t            if (next == -1) {\n
+\t\t\t                continue;\n
+\t\t            }\n
 \n
-            // generate the next permutation\n
-            stack.add(next);\n
-            for (int i = 0; i &lt; n; i++) {\n
-                if (!stack.contains(i)) {\n
-                    stack.add(i);\n
-                }\n
-            }\n
+\t\t            // generate the next permutation\n
+\t\t            stack.add(next);\n
+\t\t            for (int i = 0; i &lt; n; i++) {\n
+\t\t\t                if (!stack.contains(i)) {\n
+\t\t\t\t                    stack.add(i);\n
+\t\t\t                }\n
+\t\t            }\n
 \n
-            // copy to permutations set\n
-            ArrayList&lt;Integer&gt; permutation = new ArrayList&lt;Integer&gt;();\n
-            for (int i = 0; i &lt; n; i++) {\n
-                permutation.add(nums.get(stack.get(i)));\n
-            }\n
-            permutations.add(permutation);\n
-        }\n
-        return permutations;\n
-    }\n
+\t\t            // copy to permutations set\n
+\t\t            ArrayList&lt;Integer&gt; permutation = new ArrayList&lt;Integer&gt;();\n
+\t\t            for (int i = 0; i &lt; n; i++) {\n
+\t\t\t                permutation.add(nums.get(stack.get(i)));\n
+\t\t            }\n
+\t\t            permutations.add(permutation);\n
+\t\t        }\n
+\t\t        return permutations;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -4334,115 +4328,115 @@ class Solution {\n
 <item name="code">
     // version 0: top-down\n
 public class Solution {\n
-    /**\n
-     * @param triangle: a list of lists of integers.\n
-     * @return: An integer, minimum path sum.\n
-     */\n
-    public int minimumTotal(int[][] triangle) {\n
-        if (triangle == null || triangle.length == 0) {\n
-            return -1;\n
-        }\n
-        if (triangle[0] == null || triangle[0].length == 0) {\n
-            return -1;\n
-        }\n
+\t    /**\n
+\t     * @param triangle: a list of lists of integers.\n
+\t     * @return: An integer, minimum path sum.\n
+\t     */\n
+\t    public int minimumTotal(int[][] triangle) {\n
+\t\t        if (triangle == null || triangle.length == 0) {\n
+\t\t\t            return -1;\n
+ \t\t       }\n
+\t\t        if (triangle[0] == null || triangle[0].length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
 \n
-        // state: f[x][y] = minimum path value from 0,0 to x,y\n
-        int n = triangle.length;\n
-        int[][] f = new int[n][n];\n
+\t\t        // state: f[x][y] = minimum path value from 0,0 to x,y\n
+\t\t        int n = triangle.length;\n
+\t\t        int[][] f = new int[n][n];\n
 \n
-        // initialize\n
-        f[0][0] = triangle[0][0];\n
-        for (int i = 1; i &lt; n; i++) {\n
-            f[i][0] = f[i - 1][0] + triangle[i][0];\n
-            f[i][i] = f[i - 1][i - 1] + triangle[i][i];\n
-        }\n
+\t\t        // initialize\n
+\t\t        f[0][0] = triangle[0][0];\n
+\t\t        for (int i = 1; i &lt; n; i++) {\n
+\t\t\t            f[i][0] = f[i - 1][0] + triangle[i][0];\n
+\t\t\t            f[i][i] = f[i - 1][i - 1] + triangle[i][i];\n
+\t\t        }\n
 \n
-        // top down\n
-        for (int i = 1; i &lt; n; i++) {\n
-            for (int j = 1; j &lt; i; j++) {\n
-                f[i][j] = Math.min(f[i - 1][j], f[i - 1][j - 1]) + triangle[i][j];\n
-            }\n
-        }\n
+\t\t        // top down\n
+\t\t        for (int i = 1; i &lt; n; i++) {\n
+\t\t\t            for (int j = 1; j &lt; i; j++) {\n
+\t\t\t\t                f[i][j] = Math.min(f[i - 1][j], f[i - 1][j - 1]) + triangle[i][j];\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        // answer\n
-        int best = f[n - 1][0];\n
-        for (int i = 1; i &lt; n; i++) {\n
-            best = Math.min(best, f[n - 1][i]);\n
-        }\n
-        return best;\n
-    }\n
+\t\t        // answer\n
+\t\t        int best = f[n - 1][0];\n
+\t\t        for (int i = 1; i &lt; n; i++) {\n
+\t\t\t            best = Math.min(best, f[n - 1][i]);\n
+\t\t        }\n
+\t\t        return best;\n
+\t    }\n
 }\n
 \n
 //Version 1: Bottom-Up\n
 public class Solution {\n
-    /**\n
-     * @param triangle: a list of lists of integers.\n
-     * @return: An integer, minimum path sum.\n
-     */\n
-    public int minimumTotal(int[][] triangle) {\n
-        if (triangle == null || triangle.length == 0) {\n
-            return -1;\n
-        }\n
-        if (triangle[0] == null || triangle[0].length == 0) {\n
-            return -1;\n
-        }\n
-        // state: f[x][y] = minimum path value from x,y to bottom\n
-        int n = triangle.length;\n
-        int[][] f = new int[n][n];\n
+\t    /**\n
+\t     * @param triangle: a list of lists of integers.\n
+\t     * @return: An integer, minimum path sum.\n
+\t     */\n
+\t    public int minimumTotal(int[][] triangle) {\n
+\t\t        if (triangle == null || triangle.length == 0) {\n
+ \t\t\t           return -1;\n
+\t\t        }\n
+\t\t        if (triangle[0] == null || triangle[0].length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
+\t\t        // state: f[x][y] = minimum path value from x,y to bottom\n
+\t\t        int n = triangle.length;\n
+\t\t        int[][] f = new int[n][n];\n
 \n
-        // initialize\n
-        for (int i = 0; i &lt; n; i++) {\n
-            f[n - 1][i] = triangle[n - 1][i];\n
-        }\n
-        // bottom up\n
-        for (int i = n - 2; i &gt;= 0; i--) {\n
-            for (int j = 0; j &lt;= i; j++) {\n
-                f[i][j] = Math.min(f[i + 1][j], f[i + 1][j + 1]) + triangle[i][j];\n
-            }\n
-        }\n
-        // answer\n
-        return f[0][0];\n
-    }\n
+\t\t        // initialize\n
+\t\t        for (int i = 0; i &lt; n; i++) {\n
+\t\t\t            f[n - 1][i] = triangle[n - 1][i];\n
+\t\t        }\n
+\t\t        // bottom up\n
+\t\t        for (int i = n - 2; i &gt;= 0; i--) {\n
+\t\t\t            for (int j = 0; j &lt;= i; j++) {\n
+\t\t\t\t                f[i][j] = Math.min(f[i + 1][j], f[i + 1][j + 1]) + triangle[i][j];\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        // answer\n
+\t\t        return f[0][0];\n
+\t    }\n
 }\n
 //Version 2 : Memorize Search\n
 public class Solution {\n
-    private int n;\n
-    private int[][] minSum;\n
-    private int[][] triangle;\n
+\t    private int n;\n
+\t    private int[][] minSum;\n
+\t    private int[][] triangle;\n
 \n
-    private int search(int x, int y) {\n
-        if (x &gt;= n) {\n
-            return 0;\n
-        }\n
+\t    private int search(int x, int y) {\n
+\t\t        if (x &gt;= n) {\n
+\t\t\t            return 0;\n
+\t\t        }\n
 \n
-        if (minSum[x][y] != Integer.MAX_VALUE) {\n
-            return minSum[x][y];\n
-        }\n
+\t\t        if (minSum[x][y] != Integer.MAX_VALUE) {\n
+\t\t\t            return minSum[x][y];\n
+\t\t        }\n
 \n
-        minSum[x][y] = Math.min(search(x + 1, y), search(x + 1, y + 1))\n
-            + triangle[x][y];\n
-        return minSum[x][y];\n
-    }\n
+\t\t        minSum[x][y] = Math.min(search(x + 1, y), search(x + 1, y + 1))\n
+\t\t            + triangle[x][y];\n
+\t\t        return minSum[x][y];\n
+\t    }\n
 \n
-    public int minimumTotal(int[][] triangle) {\n
-        if (triangle == null || triangle.length == 0) {\n
-            return -1;\n
-        }\n
-        if (triangle[0] == null || triangle[0].length == 0) {\n
-            return -1;\n
-        }\n
+\t    public int minimumTotal(int[][] triangle) {\n
+\t\t        if (triangle == null || triangle.length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
+\t\t        if (triangle[0] == null || triangle[0].length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
 \n
-        this.n = triangle.length;\n
-        this.triangle = triangle;\n
-        this.minSum = new int[n][n];\n
+\t\t        this.n = triangle.length;\n
+\t\t        this.triangle = triangle;\n
+\t\t        this.minSum = new int[n][n];\n
 \n
-        for (int i = 0; i &lt; n; i++) {\n
-            for (int j = 0; j &lt; n; j++) {\n
-                minSum[i][j] = Integer.MAX_VALUE;\n
-            }\n
-        }\n
-        return search(0, 0);\n
-    }\n
+\t\t        for (int i = 0; i &lt; n; i++) {\n
+\t\t\t            for (int j = 0; j &lt; n; j++) {\n
+\t\t\t\t                minSum[i][j] = Integer.MAX_VALUE;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return search(0, 0);\n
+\t    }\n
 }\n
 </item>
 </string-array>
@@ -4460,35 +4454,35 @@ You function should return the max size we can fill in the given backpack.
 </item>
 <item name="code">
 public class Solution {\n
-    /**\n
-     * @param m: An integer m denotes the size of a backpack\n
-     * @param A: Given n items with size A[i]\n
-     * @return: The maximum size\n
-     */\n
-    public int backPack(int m, int[] A) {\n
-        boolean f[][] = new boolean[A.length + 1][m + 1];\n
-        for (int i = 0; i &lt;= A.length; i++) {\n
-            for (int j = 0; j &lt;= m; j++) {\n
-                f[i][j] = false;\n
-            }\n
-        }\n
-        f[0][0] = true;\n
-        for (int i = 0; i &lt; A.length; i++) {\n
-            for (int j = 0; j &lt;= m; j++) {\n
-                f[i + 1][j] = f[i][j];\n
-                if (j &gt;= A[i] &amp;&amp; f[i][j - A[i]]) {\n
-                    f[i + 1][j] = true;\n
-                }\n
-            } // for j\n
-        } // for i\n
+\t    /**\n
+\t     * @param m: An integer m denotes the size of a backpack\n
+\t     * @param A: Given n items with size A[i]\n
+\t     * @return: The maximum size\n
+\t     */\n
+\t    public int backPack(int m, int[] A) {\n
+\t\t        boolean f[][] = new boolean[A.length + 1][m + 1];\n
+\t\t        for (int i = 0; i &lt;= A.length; i++) {\n
+\t\t\t            fo\tr (int j = 0; j &lt;= m; j++) {\n
+\t\t\t\t                f[i][j] = false;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        f[0][0] = true;\n
+\t\t        for (int i = 0; i &lt; A.length; i++) {\n
+\t\t\t            fo\tr (int j = 0; j &lt;= m; j++) {\n
+ \t\t\t\t               f[i + 1][j] = f[i][j];\n
+ \t\t\t\t               if (j &gt;= A[i] &amp;&amp; f[i][j - A[i]]) {\n
+ \t\t\t\t\t                   f[i + 1][j] = true;\n
+ \t\t\t\t               }\n
+ \t\t\t           } // for j\n
+\t\t        } // for i\n
 \n
-        for (int i = m; i &gt;= 0; i--) {\n
-            if (f[A.length][i]) {\n
-                return i;\n
-            }\n
-        }\n
-        return 0;\n
-    }\n
+ \t\t       for (int i = m; i &gt;= 0; i--) {\n
+ \t\t\t           if (f\t[A.length][i]) {\n
+ \t\t\t\t               return i;\n
+ \t\t\t           }\n
+ \t\t       }\n
+ \t\t       return 0;\n
+ \t   }\n
 }\n
 </item>
 </string-array>
@@ -4501,33 +4495,33 @@ You can only move either down or right at any point in time.
 </item>
 <item name="code">
     public class Solution {\n
-    public int minPathSum(int[][] grid) {\n
-        if (grid == null || grid.length == 0 || grid[0].length == 0) {\n
-            return 0;\n
-        }\n
+\t    public int minPathSum(int[][] grid) {\n
+\t\t        if (grid == null || grid.length == 0 || grid[0].length == 0) {\n
+\t\t\t            return 0;\n
+\t\t        }\n
 \n
-        int M = grid.length;\n
-        int N = grid[0].length;\n
-        int[][] sum = new int[M][N];\n
+\t\t        int M = \tgrid.length;\n
+\t\t        int N = grid[0].length;\n
+\t\t        int[][] sum = new int[M][N];\n
 \n
-        sum[0][0] = grid[0][0];\n
+\t\t        sum[0][0] = grid[0][0];\n
 \n
-        for (int i = 1; i &lt; M; i++) {\n
-            sum[i][0] = sum[i - 1][0] + grid[i][0];\n
-        }\n
+\t\t        for (int i = 1; i &lt; M; i++) {\n
+\t\t\t            sum[i][0] = sum[i - 1][0] + grid[i][0];\n
+\t\t        }\n
 \n
-        for (int i = 1; i &lt; N; i++) {\n
-            sum[0][i] = sum[0][i - 1] + grid[0][i];\n
-        }\n
+\t\t        for (int i = 1; i &lt; N; i++) {\n
+\t\t\t            sum[0][i] = sum[0][i - 1] + grid[0][i];\n
+\t\t        }\n
 \n
-        for (int i = 1; i &lt; M; i++) {\n
-            for (int j = 1; j &lt; N; j++) {\n
-                sum[i][j] = Math.min(sum[i - 1][j], sum[i][j - 1]) + grid[i][j];\n
-            }\n
-        }\n
+\t\t        for (int i = 1; i &lt; M; i++) {\n
+\t\t\t            for (int j = 1; j &lt; N; j++) {\n
+\t\t\t\t                sum[i][j] = Math.min(sum[i - 1][j], sum[i][j - 1]) + grid[i][j];\n
+ \t\t\t           }\n
+\t\t        }\n
 \n
-        return sum[M - 1][N - 1];\n
-    }\n
+\t\t        return sum[M - 1][N - 1];\n
+\t    }\n
 }\n
 </item>
 </string-array>
@@ -4544,24 +4538,24 @@ m and n will be at most 100.
 </item>
 <item name="code">
 public class Solution {\n
-    public int uniquePaths(int m, int n) {\n
-        if (m == 0 || n == 0) {\n
-            return 0;\n
-        }\n
-        int[][] sum = new int[m][n];\n
-        for (int i = 0; i &lt; m; i++) {\n
-            sum[i][0] = 1;\n
-        }\n
-        for (int i = 0; i &lt; n; i++) {\n
-            sum[0][i] = 1;\n
-        }\n
-        for (int i = 1; i &lt; m; i++) {\n
-            for (int j = 1; j &lt; n; j++) {\n
-                sum[i][j] = sum[i - 1][j] + sum[i][j - 1];\n
-            }\n
-        }\n
-        return sum[m - 1][n - 1];\n
-    }\n
+\t    public int uniquePaths(int m, int n) {\n
+\t\t        if (m == 0 || n == 0) {\n
+\t\t\t            return 0;\n
+\t\t        }\n
+\t\t        int[][] sum = new int[m][n];\n
+\t\t        for (int i = 0; i &lt; m; i++) {\n
+\t\t\t            sum[i][0] = 1;\n
+\t\t        }\n
+\t\t        for (int i = 0; i &lt; n; i++) {\n
+\t\t\t            sum[0][i] = 1;\n
+\t\t        }\n
+\t\t        for (int i = 1; i &lt; m; i++) {\n
+\t\t\t            for (int j = 1; j &lt; n; j++) {\n
+\t\t\t\t                sum[i][j] = sum[i - 1][j] + sum[i][j - 1];\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return sum[m - 1][n - 1];\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -4578,19 +4572,19 @@ return 3
 </item>
 <item name="code">
 public class Solution {\n
-    public int climbStairs(int n) {\n
-        if (n &lt;= 1) {\n
-            return 1;\n
-        }\n
-        int last = 1, lastlast = 1;\n
-        int now = 0;\n
-        for (int i = 2; i &lt;= n; i++) {\n
-            now = last + lastlast;\n
-            lastlast = last;\n
-            last = now;\n
-        }\n
-        return now;\n
-    }\n
+\t    public int climbStairs(int n) {\n
+\t\t        if (n &lt;= 1) {\n
+\t\t\t            return 1;\n
+\t\t        }\n
+\t\t        int last = 1, lastlast = 1;\n
+\t\t        int now = 0;\n
+\t\t        for (int i = 2; i &lt;= n; i++) {\n
+\t\t\t            now = last + lastlast;\n
+\t\t\t            lastlast = last;\n
+\t\t\t            last = now;\n
+\t\t        }\n
+\t\t        return now;\n
+    \t   }\n
 }
 </item>
 </string-array>
@@ -4611,38 +4605,38 @@ A = [3,2,1,0,4], return false.
 <item name="code">
 // version 1: Dynamic Programming\n
 public class Solution {\n
-    public boolean canJump(int[] A) {\n
-        boolean[] can = new boolean[A.length];\n
-        can[0] = true;\n
+\t    public boolean canJump(int[] A) {\n
+\t\t        boolean[] can = new boolean[A.length];\n
+\t\t        can[0] = true;\n
 \n
-        for (int i = 1; i &lt; A.length; i++) {\n
-            for (int j = 0; j &lt; i; j++) {\n
-                if (can[j] &amp;&amp; j + A[j] &gt;= i) {\n
-                    can[i] = true;\n
-                    break;\n
-                }\n
-            }\n
-        }\n
+\t\t        for (int i = 1; i &lt; A.length; i++) {\n
+ \t\t\t           for (int j = 0; j &lt; i; j++) {\n
+ \t\t\t\t               if (can[j] &amp;&amp; j + A[j] &gt;= i) {\n
+\t\t\t\t\t                    can[i] = true;\n
+\t\t\t\t\t                    break;\n
+\t\t\t\t                }\n
+ \t\t\t           }\n
+ \t\t       }\n
 \n
-        return can[A.length - 1];\n
-    }\n
+\t\t        return can[A.length - 1];\n
+\t    }\n
 }\n
     \n
 // version 2: Greedy\n
 public class Solution {\n
-    public boolean canJump(int[] A) {\n
-        // think it as merging n intervals\n
-        if (A == null || A.length == 0) {\n
-            return false;\n
-        }\n
-        int farthest = A[0];\n
-        for (int i = 1; i &lt; A.length; i++) {\n
-            if (i &lt;= farthest &amp;&amp; A[i] + i &gt;= farthest) {\n
-                farthest = A[i] + i;\n
-            }\n
-        }\n
-        return farthest &gt;= A.length - 1;\n
-    }\n
+\t    public boolean canJump(int[] A) {\n
+\t\t        // think it as merging n intervals\n
+\t\t        if (A == null || A.length == 0) {\n
+\t\t\t            return false;\n
+\t\t        }\n
+\t\t        int farthest = A[0];\n
+\t\t        for (int i = 1; i &lt; A.length; i++) {\n
+\t\t\t            if (i &lt;= farthest &amp;&amp; A[i] + i &gt;= farthest) {\n
+\t\t\t\t                farthest = A[i] + i;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return farthest &gt;= A.length - 1;\n
+\t    }\n
 }\n
 </item>
 </string-array>
