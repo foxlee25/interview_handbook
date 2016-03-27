@@ -1,6 +1,7 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Fragment;
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -43,7 +44,9 @@ public class ContentFragment extends  Fragment {
         TextView tv = (TextView) view.findViewById(R.id.text_view);
         TextView tvTitle= (TextView) view.findViewById(R.id.text_title);
         Button btnAnswer= (Button) view.findViewById(R.id.btn_getAnswer);
+//        Typeface typeFace =Typeface.createFromAsset(getActivity().getAssets(),"fonts/AbrilFatface-Regular.otf");
         final TextView tvAnswer = (TextView) view.findViewById(R.id.text_getAnswer);
+//        tvAnswer.setTypeface(typeFace);
         final ImageView imgAnswer = (ImageView) view.findViewById(R.id.img_getAnswer);
 
         btnAnswer.setVisibility(view.VISIBLE);
