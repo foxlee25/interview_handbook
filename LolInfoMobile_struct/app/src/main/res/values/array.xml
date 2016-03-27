@@ -167,7 +167,7 @@
     </string-array>
 
 <string-array name="linked_list_">
-        <item name = "definition"> linked list is a linear collection of data elements,
+        <item name = "definition"> Linked list is a linear collection of data elements,
             called nodes pointing to the next node by means of pointer. It is a data
             structure consisting of a group of nodes which together represent a sequence.
             Under the simplest form, each node is composed of data and a reference (in other words,
@@ -185,7 +185,7 @@
   }</item>
 </string-array>
 <string-array name="binary_tree_">
-        <item name = "definition"> binary tree is a tree data structure in which each node has at
+        <item name = "definition"> Binary tree is a tree data structure in which each node has at
             most two children, which are referred to as the left child and the right child.
             A recursive definition using just set theory notions is that a (non-empty) binary
             tree is a triple (L, S, R), where L and R are binary trees or the empty set and S is a
@@ -200,7 +200,7 @@
          }</item>
 </string-array>
 <string-array name="binary_search_tree_">
-        <item name = "definition">  binary search trees (BST), sometimes called ordered or sorted
+        <item name = "definition">  Binary search trees (BST), sometimes called ordered or sorted
             binary trees, are a particular type of containers: data structures that store "items"
             (such as numbers, names etc.) in memory. They allow fast lookup, addition and removal
             of items, and can be used to implement either dynamic sets of items, or lookup tables
@@ -315,7 +315,7 @@ public final class HuffmanCompress {\n
 </string-array>
 
 <string-array name="priority_queue_">
-        <item name = "definition">priority queue is an abstract data type which is like a regular
+        <item name = "definition">Priority queue is an abstract data type which is like a regular
             queue or stack data structure, but where additionally each element has a "priority"
             associated with it. In a priority queue, an element with high priority is served before
             an element with low priority. If two elements have the same priority, they are served
@@ -412,7 +412,7 @@ class BubbleSort {\n
 }</item>
 </string-array>
 <string-array name="selection_sort_">
-        <item name = "definition">selection sort is a sorting algorithm, specifically an in-place
+        <item name = "definition">Selection sort is a sorting algorithm, specifically an in-place
             comparison sort. It has O(n2) time complexity, making it inefficient on large lists,
             and generally performs worse than the similar insertion sort. Selection sort is noted
             for its simplicity, and it has performance advantages over more complicated algorithms
@@ -494,7 +494,7 @@ class BubbleSort {\n
 }
 </item>
 </string-array><string-array name="merge_sort_">
-        <item name = "definition"> merge sort (also commonly spelled mergesort) is an efficient,
+        <item name = "definition"> Merge sort (also commonly spelled mergesort) is an efficient,
             general-purpose, comparison-based sorting algorithm. Most implementations produce a
             stable sort, which means that the implementation preserves the input order of equal
             elements in the sorted output. Mergesort is a divide and conquer algorithm that was
@@ -664,7 +664,7 @@ void CopyArray(B[], A[], n){\n
 </item>
 </string-array>
 <string-array name="heap_sort_">
-    <item name = "definition">  heapsort is a comparison-based sorting algorithm. Heapsort can
+    <item name = "definition">  Heapsort is a comparison-based sorting algorithm. Heapsort can
             be thought of as an improved selection sort: like that algorithm, it divides its input
             into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by
             extracting the largest element and moving that to the sorted region. The improvement
@@ -746,15 +746,15 @@ void CopyArray(B[], A[], n){\n
             an array into a number of buckets. Each bucket is then sorted individually, either using
             a different sorting algorithm, or by recursively applying the bucket sorting algorithm.
             It is a distribution sort, and is a cousin of radix sort in the most to least
-            significant digit flavour. Bucket sort is a generalization of pigeonhole sort.
+            significant digit flavour. Bucket sort is a generalization of pigeonhole sort.\n
             Bucket sort can be implemented with comparisons and therefore can also be considered a
             comparison sort algorithm. The computational complexity estimates involve the number of
             buckets.
-
-            Bucket sort works as follows:
-            1.Set up an array of initially empty "buckets".
-            2.Scatter: Go over the original array, putting each object in its bucket.
-            3.Sort each non-empty bucket.
+            \n
+            Bucket sort works as follows:\n
+            1.Set up an array of initially empty "buckets".\n
+            2.Scatter: Go over the original array, putting each object in its bucket.\n
+            3.Sort each non-empty bucket.\n
             4.Gather: Visit the buckets in order and put all elements back into the original array.
         </item>
         <item name = "code">public class BucketSort{\n
@@ -822,10 +822,8 @@ void CopyArray(B[], A[], n){\n
 Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times. The algorithm should run in linear time and in O(1) space.
 \n
 Hint:\n
-
 How many majority elements could it possibly have?\n
 Do you have a better hint? Suggest it!\n
-
         </item>
         <item name ="code">
 public List&lt;Integer&gt; majorityElement(int[] nums) {\n
@@ -876,7 +874,7 @@ public List&lt;Integer&gt; majorityElement(int[] nums) {\n
 
 <string-array name="strStr_">
         <item name="definition">
-            strstr (a.k.a find sub string), is a useful function in string operation.
+            Strstr (a.k.a find sub string), is a useful function in string operation.
 You task is to implement this function.
 \n
 For a given source string and a target string,
@@ -889,10 +887,10 @@ If source="source" and target="target", return -1.
 \n
 If source="abcdabcdefg" and target="bcd", return 1.
 \n
-Challenge
+Challenge\n
 O(n) time.
 \n
-Clarification
+Clarification\n
 Do I need to implement KMP Algorithm in an interview?
 \n
                 the interviewer just want to test your basic implementation ability.
@@ -1187,7 +1185,7 @@ Given an integer array, find a subarray with sum closest to zero. Return the ind
 \t\t        index = i;\n
 \t    }\n
 }\n
-
+\n
 public class Solution {\n
     /**\n
      * @param nums: A list of integers\n
@@ -1281,7 +1279,7 @@ Return the partitioning index, i.e the first index i nums[i] &gt;= k.
 \n
 Example\n
 If nums=[3,2,2,1] and k=2, a valid answer is 1.\n
-
+\n
 Note\n
 You should do really partition in array nums instead of just
 counting the numbers of integers smaller than k.
