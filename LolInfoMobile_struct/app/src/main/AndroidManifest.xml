@@ -14,7 +14,7 @@
         <activity
             android:name="com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
+            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,6 +1,7 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Fragment;
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
@@ -40,13 +43,18 @@ public class ContentFragment extends  Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         showingFirst = true;
-
+       // ScrollView mRelativelayout = (ScrollView) view.findViewById(R.id.detail_layout);
         TextView tv = (TextView) view.findViewById(R.id.text_view);
         TextView tvTitle= (TextView) view.findViewById(R.id.text_title);
         Button btnAnswer= (Button) view.findViewById(R.id.btn_getAnswer);
-//        Typeface typeFace =Typeface.createFromAsset(getActivity().getAssets(),"fonts/AbrilFatface-Regular.otf");
+//        Typeface typeFace =Typeface.createFromAsset(getActivity().getAssets(),"fonts/HelveticaNeue.ttf");
+//        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/HelveticaNeueMed.ttf");
+//        tvTitle.setTypeface(font);
+        //mRelativelayout.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+        btnAnswer.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
         final TextView tvAnswer = (TextView) view.findViewById(R.id.text_getAnswer);
-//        tvAnswer.setTypeface(typeFace);
+        tvAnswer.setTextColor(getResources().getColor(R.color.colorBlack));
+//        tvAnswer.setTypeface(font);
         final ImageView imgAnswer = (ImageView) view.findViewById(R.id.img_getAnswer);
 
         btnAnswer.setVisibility(view.VISIBLE);

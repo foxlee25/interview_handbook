@@ -1,11 +1,13 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
@@ -45,8 +47,12 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+
         if (holder instanceof TextViewHolder) {
             ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
+            ((TextViewHolder) holder).mTextView.setTextSize(16);
+            ((TextViewHolder) holder).mLinearLayout.setBackgroundColor(Color.parseColor("#58A9E9"));
+
             ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -116,6 +122,8 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public static class TextViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.text_view)
         TextView mTextView;
+        @Bind(R.id.linear_view)
+        LinearLayout mLinearLayout;
 
         TextViewHolder(View view) {
             super(view);
