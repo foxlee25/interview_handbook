@@ -20,8 +20,7 @@
         android:id="@+id/rowIcon1"
         android:clickable="true"
         android:scaleType="fitXY"
-        android:background="@color/cardview_initial_background"/>
-
+        android:background="@color/colorLightBlue"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -29,9 +28,8 @@
         android:id="@+id/rowIconFavorite"
         android:clickable="true"
         android:src="@drawable/menu_favorite_blue"
-        android:background="@color/cardview_initial_background"/>
+        android:background="@color/colorLightBlue"/>
         <!--android:scaleType="fitXY"/>-->
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -39,7 +37,7 @@
         android:id="@+id/rowIcon3"
         android:clickable="true"
         android:scaleType="fitXY"
-        android:background="@color/cardview_initial_background"/>
+        android:background="@color/colorLightBlue"/>
 
     <TextView
         android:id="@+id/text2"

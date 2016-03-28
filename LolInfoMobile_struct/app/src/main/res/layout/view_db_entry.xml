@@ -6,13 +6,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/student_Id"
+        android:id="@+id/algorithm_Id"
         android:visibility="gone"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/student_name"
+        android:id="@+id/algorithm_name"
         android:paddingLeft="6dip"
         android:paddingTop="6dip"
         android:textSize="22sp"

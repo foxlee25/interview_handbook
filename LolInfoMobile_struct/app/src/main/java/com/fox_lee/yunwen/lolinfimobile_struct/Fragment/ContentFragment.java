@@ -1,5 +1,4 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Fragment;
-
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -15,8 +14,6 @@ import android.widget.Toast;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.Algorithm;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.AlgorithmRepo;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
-
-//import com.fox_lee.yunwen.lolinfimobile_struct.Model.HashMapContent;
 
 /**
  * Created by Yunwen on 2/11/2016.
@@ -42,13 +39,19 @@ public class ContentFragment extends  Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         showingFirst = true;
-//        HashMapContent hashMapContent = new HashMapContent();
-//        HashMap hm =  hashMapContent.getAir();
-        ImageView imageFavorite = (ImageView) view.findViewById(R.id.img_favorite);
+       // ScrollView mRelativelayout = (ScrollView) view.findViewById(R.id.detail_layout);
         TextView tv = (TextView) view.findViewById(R.id.text_view);
+        ImageView imageFavorite = (ImageView) view.findViewById(R.id.img_favorite);
         TextView tvTitle= (TextView) view.findViewById(R.id.text_title);
         Button btnAnswer= (Button) view.findViewById(R.id.btn_getAnswer);
+//        Typeface typeFace =Typeface.createFromAsset(getActivity().getAssets(),"fonts/HelveticaNeue.ttf");
+//        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/HelveticaNeueMed.ttf");
+//        tvTitle.setTypeface(font);
+        //mRelativelayout.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+        btnAnswer.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
         final TextView tvAnswer = (TextView) view.findViewById(R.id.text_getAnswer);
+        tvAnswer.setTextColor(getResources().getColor(R.color.colorBlack));
+//        tvAnswer.setTypeface(font);
         final ImageView imgAnswer = (ImageView) view.findViewById(R.id.img_getAnswer);
 
         imageFavorite.setOnClickListener(new View.OnClickListener() {
@@ -537,7 +540,6 @@ public class ContentFragment extends  Fragment {
                 tvAnswer.setText(strings[1]);
                 break;
             default:
-//                tv.setText(hm.get(dataContent).toString());
                 btnAnswer.setVisibility(view.GONE);
                 imgAnswer.setVisibility(view.GONE);
                 tvAnswer.setVisibility(view.GONE);

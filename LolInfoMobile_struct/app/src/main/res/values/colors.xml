@@ -9,4 +9,5 @@
     <color name="cardview_initial_background">#71C3DE</color>
     <color name="colorBlack">#FF000000</color>
     <color name="colorPearlWhite">#eeebd9</color>
+    <color name="colorLightBlue">#51AAEC</color>
 </resources>
