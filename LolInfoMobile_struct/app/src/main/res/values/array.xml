@@ -167,7 +167,7 @@
     </string-array>
 
 <string-array name="linked_list_">
-        <item name = "definition"> linked list is a linear collection of data elements,
+        <item name = "definition"> Linked list is a linear collection of data elements,
             called nodes pointing to the next node by means of pointer. It is a data
             structure consisting of a group of nodes which together represent a sequence.
             Under the simplest form, each node is composed of data and a reference (in other words,
@@ -185,7 +185,7 @@
   }</item>
 </string-array>
 <string-array name="binary_tree_">
-        <item name = "definition"> binary tree is a tree data structure in which each node has at
+        <item name = "definition"> Binary tree is a tree data structure in which each node has at
             most two children, which are referred to as the left child and the right child.
             A recursive definition using just set theory notions is that a (non-empty) binary
             tree is a triple (L, S, R), where L and R are binary trees or the empty set and S is a
@@ -200,7 +200,7 @@
          }</item>
 </string-array>
 <string-array name="binary_search_tree_">
-        <item name = "definition">  binary search trees (BST), sometimes called ordered or sorted
+        <item name = "definition">  Binary search trees (BST), sometimes called ordered or sorted
             binary trees, are a particular type of containers: data structures that store "items"
             (such as numbers, names etc.) in memory. They allow fast lookup, addition and removal
             of items, and can be used to implement either dynamic sets of items, or lookup tables
@@ -315,7 +315,7 @@ public final class HuffmanCompress {\n
 </string-array>
 
 <string-array name="priority_queue_">
-        <item name = "definition">priority queue is an abstract data type which is like a regular
+        <item name = "definition">Priority queue is an abstract data type which is like a regular
             queue or stack data structure, but where additionally each element has a "priority"
             associated with it. In a priority queue, an element with high priority is served before
             an element with low priority. If two elements have the same priority, they are served
@@ -412,7 +412,7 @@ class BubbleSort {\n
 }</item>
 </string-array>
 <string-array name="selection_sort_">
-        <item name = "definition">selection sort is a sorting algorithm, specifically an in-place
+        <item name = "definition">Selection sort is a sorting algorithm, specifically an in-place
             comparison sort. It has O(n2) time complexity, making it inefficient on large lists,
             and generally performs worse than the similar insertion sort. Selection sort is noted
             for its simplicity, and it has performance advantages over more complicated algorithms
@@ -494,7 +494,7 @@ class BubbleSort {\n
 }
 </item>
 </string-array><string-array name="merge_sort_">
-        <item name = "definition"> merge sort (also commonly spelled mergesort) is an efficient,
+        <item name = "definition"> Merge sort (also commonly spelled mergesort) is an efficient,
             general-purpose, comparison-based sorting algorithm. Most implementations produce a
             stable sort, which means that the implementation preserves the input order of equal
             elements in the sorted output. Mergesort is a divide and conquer algorithm that was
@@ -664,7 +664,7 @@ void CopyArray(B[], A[], n){\n
 </item>
 </string-array>
 <string-array name="heap_sort_">
-    <item name = "definition">  heapsort is a comparison-based sorting algorithm. Heapsort can
+    <item name = "definition">  Heapsort is a comparison-based sorting algorithm. Heapsort can
             be thought of as an improved selection sort: like that algorithm, it divides its input
             into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by
             extracting the largest element and moving that to the sorted region. The improvement
@@ -746,15 +746,15 @@ void CopyArray(B[], A[], n){\n
             an array into a number of buckets. Each bucket is then sorted individually, either using
             a different sorting algorithm, or by recursively applying the bucket sorting algorithm.
             It is a distribution sort, and is a cousin of radix sort in the most to least
-            significant digit flavour. Bucket sort is a generalization of pigeonhole sort.
+            significant digit flavour. Bucket sort is a generalization of pigeonhole sort.\n
             Bucket sort can be implemented with comparisons and therefore can also be considered a
             comparison sort algorithm. The computational complexity estimates involve the number of
             buckets.
-
-            Bucket sort works as follows:
-            1.Set up an array of initially empty "buckets".
-            2.Scatter: Go over the original array, putting each object in its bucket.
-            3.Sort each non-empty bucket.
+            \n
+            Bucket sort works as follows:\n
+            1.Set up an array of initially empty "buckets".\n
+            2.Scatter: Go over the original array, putting each object in its bucket.\n
+            3.Sort each non-empty bucket.\n
             4.Gather: Visit the buckets in order and put all elements back into the original array.
         </item>
         <item name = "code">public class BucketSort{\n
@@ -822,10 +822,8 @@ void CopyArray(B[], A[], n){\n
 Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times. The algorithm should run in linear time and in O(1) space.
 \n
 Hint:\n
-
 How many majority elements could it possibly have?\n
 Do you have a better hint? Suggest it!\n
-
         </item>
         <item name ="code">
 public List&lt;Integer&gt; majorityElement(int[] nums) {\n
@@ -876,7 +874,7 @@ public List&lt;Integer&gt; majorityElement(int[] nums) {\n
 
 <string-array name="strStr_">
         <item name="definition">
-            strstr (a.k.a find sub string), is a useful function in string operation.
+            Strstr (a.k.a find sub string), is a useful function in string operation.
 You task is to implement this function.
 \n
 For a given source string and a target string,
@@ -889,10 +887,10 @@ If source="source" and target="target", return -1.
 \n
 If source="abcdabcdefg" and target="bcd", return 1.
 \n
-Challenge
+Challenge\n
 O(n) time.
 \n
-Clarification
+Clarification\n
 Do I need to implement KMP Algorithm in an interview?
 \n
                 the interviewer just want to test your basic implementation ability.
@@ -1187,7 +1185,7 @@ Given an integer array, find a subarray with sum closest to zero. Return the ind
 \t\t        index = i;\n
 \t    }\n
 }\n
-
+\n
 public class Solution {\n
     /**\n
      * @param nums: A list of integers\n
@@ -1281,7 +1279,7 @@ Return the partitioning index, i.e the first index i nums[i] &gt;= k.
 \n
 Example\n
 If nums=[3,2,2,1] and k=2, a valid answer is 1.\n
-
+\n
 Note\n
 You should do really partition in array nums instead of just
 counting the numbers of integers smaller than k.
@@ -1456,33 +1454,33 @@ Given an array S of n integers, find three integers in S such that the sum is cl
 </item>
 <item name="code">
 public int threeSumClosest(int[] nums, int target) {\n
-    int min = Integer.MAX_VALUE;\n
-	int result = 0;\n
+\t    int min = Integer.MAX_VALUE;\n
+\t    int result = 0;\n
 \n
-	Arrays.sort(nums);\n
+\t	Arrays.sort(nums);\n
 \n
-	for (int i = 0; i &lt; nums.length; i++) {\n
-		int j = i + 1;\n
-		int k = nums.length - 1;\n
-		while (j &lt; k) {\n
-			int sum = nums[i] + nums[j] + nums[k];\n
-			int diff = Math.abs(sum - target);\n
+\t	for (int i = 0; i &lt; nums.length; i++) {\n
+\t\t		int j = i + 1;\n
+\t\t		int k = nums.length - 1;\n
+\t\t		while (j &lt; k) {\n
+\t\t\t			int sum = nums[i] + nums[j] + nums[k];\n
+\t\t\t			int diff = Math.abs(sum - target);\n
 \n
-			if(diff == 0) return sum;\n
+\t\t\t			if(diff == 0) return sum;\n
 \n
-			if (diff &lt; min) {\n
-				min = diff;\n
-				result = sum;\n
-			}\n
-			if (sum &lt;= target) {\n
-				j++;\n
-			} else {\n
-				k--;\n
-			}\n
-		}\n
-	}\n
+\t\t\t			if (diff &lt; min) {\n
+\t\t\t\t				min = diff;\n
+\t\t\t\t				result = sum;\n
+\t\t\t			}\n
+\t\t\t			if (sum &lt;= target) {\n
+\t\t\t\t				j++;\n
+\t\t\t			} else {\n
+\t\t\t\t				k--;\n
+\t\t\t			}\n
+\t\t		}\n
+\t	}\n
 \n
-	return result;\n
+\t	return result;\n
 }
 </item>
 </string-array>
@@ -1516,37 +1514,37 @@ Your function should return length = 2, and A is now [1,2].
  */\n
 public class S26 {\n
 \n
-	public static void main(String[] args) {\n
-		int[] A = {1, 1, 2};\n
-		System.out.println(removeDuplicates(A));\n
-	}\n
+\t	public static void main(String[] args) {\n
+\t\t		int[] A = {1, 1, 2};\n
+\t\t		System.out.println(removeDuplicates(A));\n
+\t	}\n
 \n
-	public static int removeDuplicates(int[] A) {\n
-		int len = A.length;\n
-        if(len &lt; 2){\n
-        	return len;\n
-        }\n
+\t	public static int removeDuplicates(int[] A) {\n
+\t\t		int len = A.length;\n
+\t\t        if(len &lt; 2){\n
+\t\t\t        	return len;\n
+\t\t        }\n
 \n
-        int i = 0, j = 1;\n
-        while(i&lt;len &amp;&amp; j&lt;len){\n
-        	if(A[i] == A[j]){\n
-        		j++;\n
-        	}else{\n
-        		i++;\n
-        		A[i] = A[j];\n
-        		j++;\n
-        	}\n
-        }\n
-        //\n
-        return i+1;\n
-    }\n
+\t\t        int i = 0, j = 1;\n
+\t\t        while(i&lt;len &amp;&amp; j&lt;len){\n
+\t\t\t        	if(A[i] == A[j]){\n
+\t\t\t\t        		j++;\n
+\t\t\t        	}else{\n
+\t\t\t\t        		i++;\n
+\t\t\t\t        		A[i] = A[j];\n
+\t\t\t\t        		j++;\n
+\t\t\t        	}\n
+\t\t        }\n
+        \n
+\t\t        return i+1;\n
+\t    }\n
 }
 </item>
 </string-array>
 
 <string-array name="remove_duplicates_from_sorted_array_two_">
 <item name="definition">
-Follow up for "Remove Duplicates":
+Follow up for "Remove Duplicates":\n
 What if duplicates are allowed at most twice?
 \n
 For example,\n
@@ -1557,28 +1555,28 @@ Example\n
 </item>
 <item name="code">
 public class Solution {\n
-    public int removeDuplicates(int[] A) {\n
-        if(A == null || A.length == 0)\n
-            return 0;\n
-        int pre = A[0];\n
-        boolean flag = false;\n
-        int count = 0;\n
-        for(int i=1; i&lt;A.length; i++){\n
-            int curr = A[i];\n
-            if(curr == pre){\n
-                if(!flag){\n
-                	flag = true;\n
-                    continue;\n
-                }else{\n
-                    count++;\n
-                }\n
-            }else{\n
-                pre = curr;\n
-                flag = false;\n
-            }\n
-        }\n
-        return A.length - count;\n
-    }\n
+\t    public int removeDuplicates(int[] A) {\n
+\t\t        if(A == null || A.length == 0)\n
+\t\t\t            return 0;\n
+\t\t        int pre = A[0];\n
+\t\t        boolean flag = false;\n
+\t\t        int count = 0;\n
+\t\t        for(int i=1; i&lt;A.length; i++){\n
+\t\t\t            int curr = A[i];\n
+\t\t\t            if(curr == pre){\n
+\t\t\t\t                if(!flag){\n
+\t\t\t\t\t                	flag = true;\n
+\t\t\t\t\t                    continue;\n
+\t\t\t\t                }else{\n
+\t\t\t\t\t                    count++;\n
+\t\t\t\t                }\n
+\t\t\t            }else{\n
+\t\t\t\t                pre = curr;\n
+\t\t\t\t                flag = false;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return A.length - count;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -1605,22 +1603,22 @@ class Solution {
      * @param B: sorted integer array B which has n elements\n
      * @return: void\n
      */\n
-    public void mergeSortedArray(int[] A, int m, int[] B, int n) {\n
-        int i = m-1, j = n-1, index = m + n - 1;\n
-        while (i >= 0 &amp;&amp; j >= 0) {\n
-            if (A[i] > B[j]) {\n
-                A[index--] = A[i--];\n
-            } else {\n
-                A[index--] = B[j--];\n
-            }\n
-        }\n
-        while (i >= 0) {\n
-            A[index--] = A[i--];\n
-        }\n
-        while (j >= 0) {\n
-            A[index--] = B[j--];\n
-        }\n
-    }\n
+\t    public void mergeSortedArray(int[] A, int m, int[] B, int n) {\n
+\t\t        int i = m-1, j = n-1, index = m + n - 1;\n
+\t\t        while (i >= 0 &amp;&amp; j >= 0) {\n
+\t\t\t            if (A[i] > B[j]) {\n
+\t\t\t\t                A[index--] = A[i--];\n
+\t\t\t            } else {\n
+\t\t\t\t                A[index--] = B[j--];\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        while (i >= 0) {\n
+\t\t\t            A[index--] = A[i--];\n
+\t\t        }\n
+\t\t        while (j >= 0) {\n
+\t\t\t            A[index--] = B[j--];\n
+\t\t        }\n
+\t    }\n
 }\n
 </item>
 </string-array>
@@ -1645,23 +1643,23 @@ class Solution {\n
      * @param B: sorted integer array B which has n elements\n
      * @return: void\n
      */\n
-    public void mergeSortedArray(int A[], int m, int B[], int n) {\n
-        int index = n + m;\n
+\t    public void mergeSortedArray(int A[], int m, int B[], int n) {\n
+\t\t        int index = n + m;\n
 \n
-        while (m > 0 &amp;&amp; n > 0) {\n
-            if (A[m - 1] > B[n - 1]) {\n
-                A[--index] = A[--m];\n
-            } else {\n
-                A[--index] = B[--n];\n
-            }\n
-        }\n
-        while (n > 0) {\n
-            A[--index] = B[--n];\n
-        }\n
-        while (m > 0) {\n
-            A[--index] = A[--m];\n
-        }\n
-    }\n
+\t\t        while (m > 0 &amp;&amp; n > 0) {\n
+\t\t\t            if (A[m - 1] > B[n - 1]) {\n
+\t\t\t\t                A[--index] = A[--m];\n
+\t\t\t            } else {\n
+\t\t\t\t                A[--index] = B[--n];\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        while (n > 0) {\n
+\t\t\t            A[--index] = B[--n];\n
+\t\t        }\n
+\t\t        while (m > 0) {\n
+\t\t\t            A[--index] = A[--m];\n
+\t\t        }\n
+\t    }\n
 };
 </item>
 </string-array>
@@ -1687,34 +1685,34 @@ If the count of numbers is bigger than MAXINT, can your code work properly?
      * @param target: Target to find.\n
      * @return: The first position of target. Position starts from 0.\n
      */\n
-    public int binarySearch(int[] nums, int target) {\n
-        if (nums == null || nums.length == 0) {\n
-            return -1;\n
-        }\n
+\t    public int binarySearch(int[] nums, int target) {\n
+\t\t        if (nums == null || nums.length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
 \n
-        int start = 0;\n
-        int end = nums.length - 1;\n
-        int mid;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start) / 2; // avoid overflow when (end + start)\n
-            if (target &lt; nums[mid]) {\n
-                end = mid;\n
-            } else if (target > nums[mid]) {\n
-                start = mid;\n
-            } else {\n
-                end = mid;\n
-            }\n
-        }\n
+\t\t        int start = 0;\n
+\t\t        int end = nums.length - 1;\n
+\t\t        int mid;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start) / 2; // avoid overflow when (end + start)\n
+\t\t\t            if (target &lt; nums[mid]) {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            } else if (target > nums[mid]) {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        if (nums[start] == target) {\n
-            return start;\n
-        }\n
-        if (nums[end] == target) {\n
-            return end;\n
-        }\n
+\t\t        if (nums[start] == target) {\n
+\t\t\t            return start;\n
+\t\t        }\n
+\t\t        if (nums[end] == target) {\n
+\t\t\t            return end;\n
+\t\t        }\n
 \n
-        return -1;\n
-    }\n
+\t\t        return -1;\n
+\t    }\n
 }\n
 </item>
 </string-array>
@@ -1738,36 +1736,36 @@ Example\n
      * param target :  an integer to be inserted\n
      * return : an integer\n
      */\n
-    public int searchInsert(int[] A, int target) {\n
-        if (A == null) {\n
-            return -1;\n
-        }\n
-        if (A.length == 0) {\n
-            return 0;\n
-        }\n
+\t    public int searchInsert(int[] A, int target) {\n
+\t\t        if (A == null) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
+\t\t        if (A.length == 0) {\n
+\t\t\t            return 0;\n
+\t\t        }\n
 \n
-        int start = 0, end = A.length - 1;\n
-        int mid;\n
+\t\t        int start = 0, end = A.length - 1;\n
+\t\t        int mid;\n
 \n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start) / 2;\n
-            if (A[mid] == target) {\n
-                return mid; // no duplicates, if not `end = target;`\n
-            } else if (A[mid] &lt; target) {\n
-                start = mid;\n
-            } else {\n
-                end = mid;\n
-            }\n
-        }\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start) / 2;\n
+\t\t\t            if (A[mid] == target) {\n
+\t\t\t\t                return mid; // no duplicates, if not `end = target;`\n
+\t\t\t            } else if (A[mid] &lt; target) {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        if (A[start] >= target) {\n
-            return start;\n
-        } else if (A[end] >= target) {\n
-            return end; // in most cases\n
-        } else {\n
-            return end + 1; // A[end] &lt; target;\n
-        }\n
-    }\n
+\t\t        if (A[start] >= target) {\n
+\t\t\t            return start;\n
+\t\t        } else if (A[end] >= target) {\n
+\t\t\t            return end; // in most cases\n
+\t\t        } else {\n
+\t\t\t            return end + 1; // A[end] &lt; target;\n
+\t\t        }\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -1791,61 +1789,61 @@ public class Solution {\n
      *@param target :  an integer to be inserted\n
      *return : a list of length 2, [index1, index2]\n
      */\n
-    public ArrayList searchRange(ArrayList A, int target) {\n
-        ArrayList result = new ArrayList();\n
-        int start, end, mid;\n
-        result.add(-1);\n
-        result.add(-1);\n
+\t    public ArrayList searchRange(ArrayList A, int target) {\n
+\t\t        ArrayList result = new ArrayList();\n
+\t\t        int start, end, mid;\n
+\t\t        result.add(-1);\n
+\t\t        result.add(-1);\n
 \n
-        if (A == null || A.size() == 0) {\n
-            return result;\n
-        }\n
+\t\t        if (A == null || A.size() == 0) {\n
+\t\t\t            return result;\n
+\t\t        }\n
 \n
-        // search for left bound\n
-        start = 0;\n
-        end = A.size() - 1;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start) / 2;\n
-            if (A.get(mid) == target) {\n
-                end = mid; // set end = mid to find the minimum mid\n
-            } else if (A.get(mid) > target) {\n
-                end = mid;\n
-            } else {\n
-                start = mid;\n
-            }\n
-        }\n
-        if (A.get(start) == target) {\n
-            result.set(0, start);\n
-        } else if (A.get(end) == target) {\n
-            result.set(0, end);\n
-        } else {\n
-            return result;\n
-        }\n
+\t\t        // search for left bound\n
+\t\t        start = 0;\n
+\t\t        end = A.size() - 1;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start) / 2;\n
+\t\t\t            if (A.get(mid) == target) {\n
+\t\t\t\t                end = mid; // set end = mid to find the minimum mid\n
+\t\t\t            } else if (A.get(mid) > target) {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        if (A.get(start) == target) {\n
+\t\t\t            result.set(0, start);\n
+\t\t        } else if (A.get(end) == target) {\n
+\t\t\t            result.set(0, end);\n
+\t\t        } else {\n
+\t\t\t            return result;\n
+\t\t        }\n
 \n
-        // search for right bound\n
-        start = 0;\n
-        end = A.size() - 1;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start) / 2;\n
-            if (A.get(mid) == target) {\n
-                start = mid; // set start = mid to find the maximum mid\n
-            } else if (A.get(mid) > target) {\n
-                end = mid;\n
-            } else {\n
-                start = mid;\n
-            }\n
-        }\n
-        if (A.get(end) == target) {\n
-            result.set(1, end);\n
-        } else if (A.get(start) == target) {\n
-            result.set(1, start);\n
-        } else {\n
-            return result;\n
-        }\n
+\t\t        // search for right bound\n
+\t\t        start = 0;\n
+\t\t        end = A.size() - 1;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start) / 2;\n
+\t\t\t            if (A.get(mid) == target) {\n
+\t\t\t\t                start = mid; // set start = mid to find the maximum mid\n
+\t\t\t            } else if (A.get(mid) > target) {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        if (A.get(end) == target) {\n
+\t\t\t            result.set(1, end);\n
+\t\t        } else if (A.get(start) == target) {\n
+\t\t\t            result.set(1, start);\n
+\t\t        } else {\n
+\t\t\t            return result;\n
+\t\t        }\n
 \n
-        return result;\n
-        // write your code here\n
-    }\n
+\t\t        return result;\n
+\t\t        // write your code here\n
+\t    }\n
 }
 </item>
 </string-array>

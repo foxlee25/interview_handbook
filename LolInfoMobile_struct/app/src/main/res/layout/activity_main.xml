@@ -37,7 +37,7 @@
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:background="@color/colorPearlWhite">
+            android:background="@color/colorWhite">
         </FrameLayout>
 
     </android.support.design.widget.AppBarLayout>
