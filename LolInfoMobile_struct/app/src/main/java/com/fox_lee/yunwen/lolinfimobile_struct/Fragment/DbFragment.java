@@ -100,7 +100,7 @@ public class DbFragment extends ListFragment implements View.OnClickListener{
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
                         String dataContent = ((TextView) view.findViewById(R.id.algorithm_name)).getText().toString();
-                        Toast.makeText(getActivity().getApplicationContext(), dataContent, Toast.LENGTH_SHORT).show();                                        AlgorithmRepo repo = new AlgorithmRepo(getActivity().getApplicationContext());
+                        Toast.makeText(getActivity().getApplicationContext(), "The " + dataContent + " deleted", Toast.LENGTH_SHORT).show();                                        AlgorithmRepo repo = new AlgorithmRepo(getActivity().getApplicationContext());
                         Algorithm algorithm = new Algorithm();
                         algorithm = repo.getColumnByTopic(dataContent);
                         repo.delete(algorithm.algorithm_ID);

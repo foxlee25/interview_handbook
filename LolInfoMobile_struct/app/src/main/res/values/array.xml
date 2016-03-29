@@ -1456,33 +1456,33 @@ Given an array S of n integers, find three integers in S such that the sum is cl
 </item>
 <item name="code">
 public int threeSumClosest(int[] nums, int target) {\n
-    int min = Integer.MAX_VALUE;\n
-	int result = 0;\n
+\t    int min = Integer.MAX_VALUE;\n
+\t	  int result = 0;\n
 \n
-	Arrays.sort(nums);\n
+\t	Arrays.sort(nums);\n
 \n
-	for (int i = 0; i &lt; nums.length; i++) {\n
-		int j = i + 1;\n
-		int k = nums.length - 1;\n
-		while (j &lt; k) {\n
-			int sum = nums[i] + nums[j] + nums[k];\n
-			int diff = Math.abs(sum - target);\n
+\t	for (int i = 0; i &lt; nums.length; i++) {\n
+\t\t		int j = i + 1;\n
+\t\t		int k = nums.length - 1;\n
+\t\t		while (j &lt; k) {\n
+\t\t\t			int sum = nums[i] + nums[j] + nums[k];\n
+\t\t\t			int diff = Math.abs(sum - target);\n
 \n
-			if(diff == 0) return sum;\n
+\t\t\t			if(diff == 0) return sum;\n
 \n
-			if (diff &lt; min) {\n
-				min = diff;\n
-				result = sum;\n
-			}\n
-			if (sum &lt;= target) {\n
-				j++;\n
-			} else {\n
-				k--;\n
-			}\n
-		}\n
-	}\n
+\t\t\t			if (diff &lt; min) {\n
+\t\t\t\t				min = diff;\n
+\t\t\t\t				result = sum;\n
+\t\t\t			}\n
+\t\t\t			if (sum &lt;= target) {\n
+\t\t\t\t				j++;\n
+\t\t\t			} else {\n
+\t\t\t\t				k--;\n
+\t\t\t			}\n
+\t\t		}\n
+\t	}\n
 \n
-	return result;\n
+\t	return result;\n
 }
 </item>
 </string-array>
@@ -1516,30 +1516,30 @@ Your function should return length = 2, and A is now [1,2].
  */\n
 public class S26 {\n
 \n
-	public static void main(String[] args) {\n
-		int[] A = {1, 1, 2};\n
-		System.out.println(removeDuplicates(A));\n
-	}\n
+\t	public static void main(String[] args) {\n
+\t\t		int[] A = {1, 1, 2};\n
+\t\t		System.out.println(removeDuplicates(A));\n
+\t	}\n
 \n
-	public static int removeDuplicates(int[] A) {\n
-		int len = A.length;\n
-        if(len &lt; 2){\n
-        	return len;\n
-        }\n
+\t	public static int removeDuplicates(int[] A) {\n
+\t\t		int len = A.length;\n
+\t\t        if(len &lt; 2){\n
+\t\t\t        	return len;\n
+\t\t        }\n
 \n
-        int i = 0, j = 1;\n
-        while(i&lt;len &amp;&amp; j&lt;len){\n
-        	if(A[i] == A[j]){\n
-        		j++;\n
-        	}else{\n
-        		i++;\n
-        		A[i] = A[j];\n
-        		j++;\n
-        	}\n
-        }\n
+\t\t        int i = 0, j = 1;\n
+\t\t        while(i&lt;len &amp;&amp; j&lt;len){\n
+\t\t\t        	if(A[i] == A[j]){\n
+\t\t\t\t        		j++;\n
+\t\t\t        	}else{\n
+\t\t\t\t        		i++;\n
+\t\t\t\t        		A[i] = A[j];\n
+\t\t\t\t        		j++;\n
+\t\t\t        	}\n
+\t\t        }\n
         //\n
-        return i+1;\n
-    }\n
+\t\t        return i+1;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -1557,28 +1557,28 @@ Example\n
 </item>
 <item name="code">
 public class Solution {\n
-    public int removeDuplicates(int[] A) {\n
-        if(A == null || A.length == 0)\n
-            return 0;\n
-        int pre = A[0];\n
-        boolean flag = false;\n
-        int count = 0;\n
-        for(int i=1; i&lt;A.length; i++){\n
-            int curr = A[i];\n
-            if(curr == pre){\n
-                if(!flag){\n
-                	flag = true;\n
-                    continue;\n
-                }else{\n
-                    count++;\n
-                }\n
-            }else{\n
-                pre = curr;\n
-                flag = false;\n
-            }\n
-        }\n
-        return A.length - count;\n
-    }\n
+\t    public int removeDuplicates(int[] A) {\n
+\t\t        if(A == null || A.length == 0)\n
+\t\t\t            return 0;\n
+\t\t        int pre = A[0];\n
+\t\t        boolean flag = false;\n
+\t\t        int count = 0;\n
+\t\t        for(int i=1; i&lt;A.length; i++){\n
+\t\t\t            int curr = A[i];\n
+\t\t\t            if(curr == pre){\n
+\t\t\t\t                if(!flag){\n
+\t\t\t\t\t                	flag = true;\n
+\t\t\t\t\t                    continue;\n
+\t\t\t\t                }else{\n
+\t\t\t\t\t                    count++;\n
+\t\t\t\t                }\n
+\t\t\t            }else{\n
+\t\t\t\t                pre = curr;\n
+\t\t\t\t                flag = false;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return A.length - count;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -1605,22 +1605,22 @@ class Solution {
      * @param B: sorted integer array B which has n elements\n
      * @return: void\n
      */\n
-    public void mergeSortedArray(int[] A, int m, int[] B, int n) {\n
-        int i = m-1, j = n-1, index = m + n - 1;\n
-        while (i >= 0 &amp;&amp; j >= 0) {\n
-            if (A[i] > B[j]) {\n
-                A[index--] = A[i--];\n
-            } else {\n
-                A[index--] = B[j--];\n
-            }\n
-        }\n
-        while (i >= 0) {\n
-            A[index--] = A[i--];\n
-        }\n
-        while (j >= 0) {\n
-            A[index--] = B[j--];\n
-        }\n
-    }\n
+\t    public void mergeSortedArray(int[] A, int m, int[] B, int n) {\n
+\t\t        int i = m-1, j = n-1, index = m + n - 1;\n
+\t\t        while (i >= 0 &amp;&amp; j >= 0) {\n
+\t\t\t            if (A[i] > B[j]) {\n
+\t\t\t\t                A[index--] = A[i--];\n
+\t\t\t            } else {\n
+\t\t\t\t                A[index--] = B[j--];\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        while (i >= 0) {\n
+\t\t\t            A[index--] = A[i--];\n
+\t\t        }\n
+\t\t        while (j >= 0) {\n
+\t\t\t            A[index--] = B[j--];\n
+\t\t        }\n
+\t    }\n
 }\n
 </item>
 </string-array>
@@ -1645,23 +1645,23 @@ class Solution {\n
      * @param B: sorted integer array B which has n elements\n
      * @return: void\n
      */\n
-    public void mergeSortedArray(int A[], int m, int B[], int n) {\n
-        int index = n + m;\n
+\t    public void mergeSortedArray(int A[], int m, int B[], int n) {\n
+\t\t        int index = n + m;\n
 \n
-        while (m > 0 &amp;&amp; n > 0) {\n
-            if (A[m - 1] > B[n - 1]) {\n
-                A[--index] = A[--m];\n
-            } else {\n
-                A[--index] = B[--n];\n
-            }\n
-        }\n
-        while (n > 0) {\n
-            A[--index] = B[--n];\n
-        }\n
-        while (m > 0) {\n
-            A[--index] = A[--m];\n
-        }\n
-    }\n
+\t\t        while (m > 0 &amp;&amp; n > 0) {\n
+\t\t\t            if (A[m - 1] > B[n - 1]) {\n
+\t\t\t\t                A[--index] = A[--m];\n
+\t\t\t            } else {\n
+\t\t\t\t                A[--index] = B[--n];\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        while (n > 0) {\n
+\t\t\t            A[--index] = B[--n];\n
+\t\t        }\n
+\t\t        while (m > 0) {\n
+\t\t\t            A[--index] = A[--m];\n
+\t\t        }\n
+\t    }\n
 };
 </item>
 </string-array>
@@ -1687,34 +1687,34 @@ If the count of numbers is bigger than MAXINT, can your code work properly?
      * @param target: Target to find.\n
      * @return: The first position of target. Position starts from 0.\n
      */\n
-    public int binarySearch(int[] nums, int target) {\n
-        if (nums == null || nums.length == 0) {\n
-            return -1;\n
-        }\n
+\t    public int binarySearch(int[] nums, int target) {\n
+\t\t        if (nums == null || nums.length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
 \n
-        int start = 0;\n
-        int end = nums.length - 1;\n
-        int mid;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start) / 2; // avoid overflow when (end + start)\n
-            if (target &lt; nums[mid]) {\n
-                end = mid;\n
-            } else if (target > nums[mid]) {\n
-                start = mid;\n
-            } else {\n
-                end = mid;\n
-            }\n
-        }\n
+\t\t        int start = 0;\n
+\t\t        int end = nums.length - 1;\n
+\t\t        int mid;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start) / 2; // avoid overflow when (end + start)\n
+\t\t\t            if (target &lt; nums[mid]) {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            } else if (target > nums[mid]) {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        if (nums[start] == target) {\n
-            return start;\n
-        }\n
-        if (nums[end] == target) {\n
-            return end;\n
-        }\n
+\t\t        if (nums[start] == target) {\n
+\t\t\t            return start;\n
+\t\t        }\n
+\t\t        if (nums[end] == target) {\n
+\t\t\t            return end;\n
+ \t\t       }\n
 \n
-        return -1;\n
-    }\n
+\t\t        return -1;\n
+\t    }\n
 }\n
 </item>
 </string-array>
@@ -3849,11 +3849,11 @@ Example\n
 An example:\n
 \n
    1\n
-  / \\n
+  / \'\n
  2   3\n
     /\n
    4\n
-    \\n
+    \'\n
      5\n
 The above binary tree is serialized as \"{1,2,3,#,#,4,#,#,5}\".
 </item>
@@ -3936,9 +3936,9 @@ Return all the keys in ascending order.\n
 Example\n
 For example, if k1 = 10 and k2 = 22, then your function should print 12, 20 and 22.\n
           20 \n
-       /        \ \n
+       /      \' \n
     8           22 \n
-  /     \ \n
+  /    \' \n
 4       12 \n
 </item>
 <item name="code">
@@ -3954,32 +3954,32 @@ For example, if k1 = 10 and k2 = 22, then your function should print 12, 20 and 
  * }\n
  */\n
 public class Solution {\n
-    private ArrayList&lt;Integer&gt; results;\n
+\t    private ArrayList&lt;Integer&gt; results;\n
     /**\n
      * @param root: The root of the binary search tree.\n
      * @param k1 and k2: range k1 to k2.\n
      * @return: Return all keys that k1&lt;=key&lt;=k2 in increasing order.\n
      */\n
-    public ArrayList&lt;Integer&gt; searchRange(TreeNode root, int k1, int k2) {\n
-        results = new ArrayList&lt;Integer&gt;();\n
-        helper(root, k1, k2);\n
-        return results;\n
-    }\n
+\t    public ArrayList&lt;Integer&gt; searchRange(TreeNode root, int k1, int k2) {\n
+\t\t        results = new ArrayList&lt;Integer&gt;();\n
+\t\t        helper(root, k1, k2);\n
+\t\t        return results;\n
+\t    }\n
 \n
-    private void helper(TreeNode root, int k1, int k2) {\n
-        if (root == null) {\n
-            return;\n
-        }\n
-        if (root.val &gt; k1) {\n
-            helper(root.left, k1, k2);\n
-        }\n
-        if (root.val &gt;= k1 &amp;&amp; root.val &lt;= k2) {\n
-            results.add(root.val);\n
-        }\n
-        if (root.val &lt; k2) {\n
-            helper(root.right, k1, k2);\n
-        }\n
-    }\n
+\t    private void helper(TreeNode root, int k1, int k2) {\n
+\t\t        if (root == null) {\n
+\t\t\t            return;\n
+\t\t        }\n
+\t\t        if (root.val &gt; k1) {\n
+\t\t\t            helper(root.left, k1, k2);\n
+\t\t        }\n
+\t\t        if (root.val &gt;= k1 &amp;&amp; root.val &lt;= k2) {\n
+\t\t\t            results.add(root.val);\n
+\t\t        }\n
+\t\t        if (root.val &lt; k2) {\n
+\t\t\t            helper(root.right, k1, k2);\n
+\t\t        }\n
+\t    }\n
 }
 </item>
 </string-array>
