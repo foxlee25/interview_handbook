@@ -42,17 +42,4 @@
     <string name="about_jiuzhang_usage">This code is provided by http://www.jiuzhang.com/, allowed forwarding.\n</string>
     <!--<string name="license_link">http://creativecommons.org/licenses/by-sa/4.0/</string>-->
 
-    <string name="binary_search_tree_c">public boolean isValidBST(TreeNode root) {
-    return isValidBST(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
-}
-
-public boolean isValidBST(TreeNode p, double min, double max){
-    if(p==null)
-        return true;
-
-    if(p.val &lt;= min || p.val >= max)
-        return false;
-
-    return isValidBST(p.left, min, p.val) &amp;&amp; isValidBST(p.right, p.val, max);
-} </string>
 </resources>

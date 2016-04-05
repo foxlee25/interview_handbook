@@ -24,24 +24,31 @@
 
     <EditText
         android:id="@+id/edit_delete_db"
-        android:layout_width="100sp"
-        android:hint="Enter Topic"
+        android:layout_width="100dp"
+        android:hint="Enter Del"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
 
     <Button
         android:id="@+id/btnDelete"
-        android:layout_width="wrap_content"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
-        android:text="Delete"
+        android:text="Del"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/edit_delete_db"
         />
     <Button
+        android:id="@+id/btnGoto"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:text="Go"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/btnDelete"/>
+    <Button
         android:id="@+id/btnGetAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="List All"
+        android:text="List"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/btnDelete"/>
+        android:layout_toRightOf="@+id/btnGoto"/>
 </RelativeLayout>

@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:src="@drawable/favorite_red_rev"
+            android:src="@drawable/favorite_red_9"
             android:padding="@dimen/activity_vertical_margin"/>
 
         <TextView
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:text="Answer"
             android:visibility="gone"
-            android:paddingTop="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_below="@+id/text_title"/>
 
         <ImageView

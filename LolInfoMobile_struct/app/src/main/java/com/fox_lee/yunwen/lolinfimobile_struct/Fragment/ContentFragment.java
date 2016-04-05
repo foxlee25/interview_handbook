@@ -63,13 +63,13 @@ public class ContentFragment extends  Fragment {
                 algorithm = repo.getColumnById(_algorithm_id);
 
                 algorithm.age = 25;
-                algorithm.content = "Email";
+                algorithm.content = "Content";
                 algorithm.topic = dataContent;
                 algorithm.algorithm_ID=_algorithm_id;
 
                 if(_algorithm_id==0){
                     _algorithm_id=repo.insert(algorithm);
-                    Toast.makeText(v.getContext(), "New Content Insert", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Add to Favorite Menu", Toast.LENGTH_SHORT).show();
                 }else{
                     repo.update(algorithm);
                     Toast.makeText(v.getContext(),"Content Record updated",Toast.LENGTH_SHORT).show();

@@ -47,6 +47,7 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         if (holder instanceof TextViewHolder) {
             ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
+            ((TextViewHolder) holder).mTextView.setTextSize(16);
             ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

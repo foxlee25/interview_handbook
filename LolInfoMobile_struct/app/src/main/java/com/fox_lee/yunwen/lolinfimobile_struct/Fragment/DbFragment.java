@@ -1,10 +1,8 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Fragment;
 
-import android.app.AlertDialog;
 import android.app.ListFragment;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +17,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.Algorithm;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.AlgorithmRepo;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
@@ -31,9 +30,12 @@ import java.util.HashMap;
  */
 public class DbFragment extends ListFragment implements View.OnClickListener{
     private String var;
-    private Button btnAdd,btnGetAll, btnDelete;
+    private Button btnAdd,btnGetAll, btnDelete, btnGoto;
     private EditText editDelete;
     private TextView student_Id;
+    boolean deleteClick = false;
+    boolean gotoClick = false;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,6 +53,9 @@ public class DbFragment extends ListFragment implements View.OnClickListener{
 
         btnDelete = (Button) view.findViewById(R.id.btnDelete);
         btnDelete.setOnClickListener(this);
+
+        btnGoto = (Button) view.findViewById(R.id.btnGoto);
+        btnGoto.setOnClickListener(this);
 
         btnGetAll = (Button) view.findViewById(R.id.btnGetAll);
         btnGetAll.setOnClickListener(this);
@@ -79,39 +84,62 @@ public class DbFragment extends ListFragment implements View.OnClickListener{
 //            }
 //        }else
         if (v== v.findViewById(R.id.btnDelete)){
+            //button delete
             AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
             Algorithm algorithm = new Algorithm();
             //algorithm = repo.getColumnById(_student_id);
             String dataContent = editDelete.getText().toString();
             algorithm = repo.getColumnByTopic(dataContent);
             repo.delete(algorithm.algorithm_ID);
-            Toast.makeText(v.getContext(), "Record Deleted", Toast.LENGTH_SHORT);
-        }else {
+            gotoClick = false;
+            deleteClick = true;
+            Toast.makeText(getActivity(), "Quickly click content to delete", Toast.LENGTH_SHORT).show();
+        } else if (v== v.findViewById(R.id.btnGoto)){
+            //button goto
+            deleteClick = false;
+            gotoClick = true;
+            Toast.makeText(getActivity(), "Quickly topic you want to go", Toast.LENGTH_SHORT).show();
+        } else if (v== v.findViewById(R.id.btnGetAll)){
             // button list
             AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
             Algorithm algorithm = new Algorithm();
             Log.d("MainActivity","The id is: " + _algorithm_id);
             algorithm = repo.getColumnById(_algorithm_id);
             ArrayList<HashMap<String, String>> algorithmList =  repo.getAlgorithmList();
-
             if(algorithmList.size()!=0) {
-                 ListView lv = getListView();
+                ListView lv = getListView();
                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String dataContent = ((TextView) view.findViewById(R.id.algorithm_name)).getText().toString();
-                        Toast.makeText(getActivity().getApplicationContext(), "The " + dataContent + " deleted", Toast.LENGTH_SHORT).show();                                        AlgorithmRepo repo = new AlgorithmRepo(getActivity().getApplicationContext());
-                        Algorithm algorithm = new Algorithm();
-                        algorithm = repo.getColumnByTopic(dataContent);
-                        repo.delete(algorithm.algorithm_ID);
+                        AlgorithmRepo repo = new AlgorithmRepo(getActivity());
+                        if (deleteClick) {
+                            //do delete
+                            Algorithm algorithm = new Algorithm();
+                            algorithm = repo.getColumnByTopic(dataContent);
+                            repo.delete(algorithm.algorithm_ID);
+                            Toast.makeText(getActivity(), "The " + dataContent + " deleted", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        if (gotoClick) {
+                            //do goto
+                            ((MainActivity) getActivity()).startContentFragment(dataContent);
+                            return;
+                        }
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                deleteClick = false;
+                                gotoClick = false;
+                            }
+                        }, 1000);
                     }
                 });
-                ListAdapter adapter = new SimpleAdapter( v.getContext(),algorithmList, R.layout.view_db_entry, new String[] { "id","topic"}, new int[] {R.id.algorithm_Id, R.id.algorithm_name});
-                setListAdapter(adapter);
-
             }else{
                 Toast.makeText(v.getContext(), "No Content!", Toast.LENGTH_SHORT).show();
             }
+            ListAdapter adapter = new SimpleAdapter( v.getContext(),algorithmList, R.layout.view_db_entry, new String[] { "id","topic"}, new int[] {R.id.algorithm_Id, R.id.algorithm_name});
+            setListAdapter(adapter);
         }
     }
 }
