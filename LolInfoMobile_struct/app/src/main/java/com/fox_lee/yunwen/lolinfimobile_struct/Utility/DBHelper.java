@@ -12,10 +12,10 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by ifanr on 2015/3/29.
  */
 public class DBHelper extends SQLiteOpenHelper {
-    //数据库版本号
+    //Db version
     private static final int DATABASE_VERSION=4;
 
-    //数据库名称
+    //name of the db
     private static final String DATABASE_NAME="crud.db";
 
     public DBHelper(Context context){
@@ -24,7 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //创建数据表
+        //create the table
         String CREATE_TABLE_STUDENT="CREATE TABLE "+ Algorithm.TABLE+"("
                 + Algorithm.KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT ,"
                 + Algorithm.KEY_topic+" TEXT, "
@@ -35,10 +35,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //如果旧表存在，删除，所以数据将会消失
+        //if the table exist, delete it
         db.execSQL("DROP TABLE IF EXISTS "+ Algorithm.TABLE);
-
-        //再次创建表
+        //recreate the table
         onCreate(db);
     }
 }

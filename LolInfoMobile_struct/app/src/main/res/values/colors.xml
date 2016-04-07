@@ -10,4 +10,6 @@
     <color name="colorBlack">#FF000000</color>
     <color name="colorPearlWhite">#eeebd9</color>
     <color name="colorLightBlue">#51AAEC</color>
+    <color name="colorBlue">#ff0000ff</color>
+    <color name="colorSkyBlue">#87CEFA</color>
 </resources>

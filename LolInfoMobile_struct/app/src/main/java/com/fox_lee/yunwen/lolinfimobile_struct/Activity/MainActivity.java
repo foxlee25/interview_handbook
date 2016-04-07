@@ -16,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
@@ -28,6 +29,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     ActionBarDrawerToggle mDrawerToggle;
     boolean doubleBackToExitPressedOnce = false;
+    ImageView img1;
+    ImageView img2;
+    ImageView img3;
+    ImageView img4;
+    LinearLayout ll1;
+    LinearLayout ll2;
+    LinearLayout ll3;
+    LinearLayout ll4;
 
     public void startContentFragment(String var){
         ContentFragment contentFragment = new ContentFragment();
@@ -49,6 +58,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .addToBackStack("AlgorithmFragment").commit();
     }
 
+    public void startDbFragment(){
+                DbFragment dbFragment = new DbFragment();
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container, dbFragment, "Fragment")
+                        .addToBackStack(null)
+                        .commit();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,14 +73,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.menu_icon);
-
         DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer_layout, toolbar, R.string.openDrawer, R.string.closeDrawer) {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
             }
-
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
@@ -72,14 +87,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawer_layout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
-        ImageView img1 = (ImageView) findViewById(R.id.rowIconCoding);
-        ImageView img2 = (ImageView) findViewById(R.id.rowIcon1);
-        ImageView img3 = (ImageView) findViewById(R.id.rowIconFavorite);
-        ImageView img4 = (ImageView) findViewById(R.id.rowIcon3);
-        img1.setOnClickListener(this);
-        img2.setOnClickListener(this);
-        img3.setOnClickListener(this);
-        img4.setOnClickListener(this);
+        createView();
+        setListener();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -90,12 +99,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         toolbar.getMenu().clear();
+        this.startAlgorithmFragment("");
+    }
 
-        AlgorithmFragment algorithmFragment = new AlgorithmFragment();
-        this.getFragmentManager().beginTransaction()
-                .replace(R.id.container, algorithmFragment, "Fragment")
-                .addToBackStack(null)
-                .commit();
+    private void createView(){
+        ll1 = (LinearLayout) findViewById(R.id.rowIconCoding);
+        ll2 = (LinearLayout) findViewById(R.id.rowIconJava);
+        ll3 = (LinearLayout) findViewById(R.id.rowIconFavorite);
+        ll4 = (LinearLayout) findViewById(R.id.rowIcon3);
+    }
+
+    private void setListener(){
+        ll1.setOnClickListener(this);
+        ll2.setOnClickListener(this);
+        ll3.setOnClickListener(this);
+        ll4.setOnClickListener(this);
     }
 
     public void onClick(View v) {
@@ -104,32 +122,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Snackbar.make(v, "Open coding interview ", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 clearBackStack();
-                AlgorithmFragment algorithmFragment = new AlgorithmFragment();
-                this.getFragmentManager().beginTransaction()
-                        .replace(R.id.container, algorithmFragment, "Fragment")
-                        .addToBackStack(null)
-                        .commit();
+                this.startAlgorithmFragment("");
                 break;
-
-            case R.id.rowIcon1: /** Start a new fragment LolRecyclerViewFragment.java */
+            case R.id.rowIconJava: /** Start a new fragment LolRecyclerViewFragment.java */
                 Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 break;
-
             case R.id.rowIconFavorite: /** AlerDialog when click on 3rd icon */
                 Snackbar.make(v, "Open Favorite List", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                DbFragment dbFragment = new DbFragment();
-                this.getFragmentManager().beginTransaction()
-                        .replace(R.id.container, dbFragment, "Fragment")
-                        .addToBackStack(null)
-                        .commit();
+                this.startDbFragment();
                 break;
-
             case R.id.rowIcon3: /** AlerDialog when click on 4th icon */
                 Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-
                 break;
         }
         DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -150,7 +156,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_about) {
             // START THE about activity

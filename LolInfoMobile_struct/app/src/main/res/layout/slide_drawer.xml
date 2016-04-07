@@ -4,40 +4,78 @@
     android:layout_height="match_parent"
     android:layout_gravity="left"
     android:orientation="vertical"
+    android:background="@drawable/boder"
     android:weightSum="17">
-    <ImageView
+    <!--android:background="@color/colorSkyBlue"-->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
         android:id="@+id/rowIconCoding"
         android:clickable="true"
+        android:orientation="horizontal"
         android:scaleType="fitXY"
-        android:src="@drawable/menu_code_blue"/>
-    <ImageView
+        android:background="@color/colorSkyBlue">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Data Structure"
+            android:padding="5dp"
+            android:background="@color/colorWhite"/>
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/menu_code_blue"/>-->
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
-        android:id="@+id/rowIcon1"
+        android:id="@+id/rowIconJava"
         android:clickable="true"
+        android:orientation="horizontal"
         android:scaleType="fitXY"
-        android:background="@color/colorLightBlue"/>
-    <ImageView
+        android:background="@color/colorSkyBlue">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Core Java"
+            android:padding="5dp"
+            android:background="@color/colorWhite"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
         android:id="@+id/rowIconFavorite"
         android:clickable="true"
-        android:src="@drawable/menu_favorite_blue"
-        android:background="@color/colorLightBlue"/>
+        android:orientation="horizontal"
+        android:background="@color/colorSkyBlue">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Favorite List"
+            android:padding="5dp"
+            android:background="@color/colorWhite"/>
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/menu_favorite_blue"/>-->
+    </LinearLayout>
         <!--android:scaleType="fitXY"/>-->
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
         android:id="@+id/rowIcon3"
         android:clickable="true"
         android:scaleType="fitXY"
-        android:background="@color/colorLightBlue"/>
+        android:orientation="horizontal"
+        android:background="@color/colorSkyBlue">
+    </LinearLayout>
 
     <TextView
         android:id="@+id/text2"
@@ -49,6 +87,5 @@
         android:textColor="@color/colorWhite"
         android:textAlignment="center"
         android:text="Version 1.1" />
-
 
 </LinearLayout>

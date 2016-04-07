@@ -1738,36 +1738,36 @@ Example\n
      * param target :  an integer to be inserted\n
      * return : an integer\n
      */\n
-    public int searchInsert(int[] A, int target) {\n
-        if (A == null) {\n
-            return -1;\n
-        }\n
-        if (A.length == 0) {\n
-            return 0;\n
-        }\n
+\t    public int searchInsert(int[] A, int target) {\n
+\t        if (A == null) {\n
+\t\t            return -1;\n
+\t\t        }\n
+\t\t        if (A.length == 0) {\n
+\t\t\t            return 0;\n
+\t\t        }\n
 \n
-        int start = 0, end = A.length - 1;\n
-        int mid;\n
+\t\t        int start = 0, end = A.length - 1;\n
+\t\t        int mid;\n
 \n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start) / 2;\n
-            if (A[mid] == target) {\n
-                return mid; // no duplicates, if not `end = target;`\n
-            } else if (A[mid] &lt; target) {\n
-                start = mid;\n
-            } else {\n
-                end = mid;\n
-            }\n
-        }\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start) / 2;\n
+\t\t\t            if (A[mid] == target) {\n
+\t\t\t\t                return mid; // no duplicates, if not `end = target;`\n
+\t\t\t            } else if (A[mid] &lt; target) {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        if (A[start] >= target) {\n
-            return start;\n
-        } else if (A[end] >= target) {\n
-            return end; // in most cases\n
-        } else {\n
-            return end + 1; // A[end] &lt; target;\n
-        }\n
-    }\n
+\t\t        if (A[start] >= target) {\n
+\t\t\t            return start;\n
+\t\t        } else if (A[end] >= target) {\n
+\t\t\t            return end; // in most cases\n
+\t\t        } else {\n
+\t\t\t            return end + 1; // A[end] &lt; target;\n
+\t\t        }\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -1791,61 +1791,61 @@ public class Solution {\n
      *@param target :  an integer to be inserted\n
      *return : a list of length 2, [index1, index2]\n
      */\n
-    public ArrayList searchRange(ArrayList A, int target) {\n
-        ArrayList result = new ArrayList();\n
-        int start, end, mid;\n
-        result.add(-1);\n
-        result.add(-1);\n
+\t    public ArrayList searchRange(ArrayList A, int target) {\n
+\t\t        ArrayList result = new ArrayList();\n
+\t\t        int start, end, mid;\n
+\t\t        result.add(-1);\n
+\t\t        result.add(-1);\n
 \n
-        if (A == null || A.size() == 0) {\n
-            return result;\n
-        }\n
+\t\t        if (A == null || A.size() == 0) {\n
+\t\t\t            return result;\n
+\t\t        }\n
 \n
-        // search for left bound\n
-        start = 0;\n
-        end = A.size() - 1;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start) / 2;\n
-            if (A.get(mid) == target) {\n
-                end = mid; // set end = mid to find the minimum mid\n
-            } else if (A.get(mid) > target) {\n
-                end = mid;\n
-            } else {\n
-                start = mid;\n
-            }\n
-        }\n
-        if (A.get(start) == target) {\n
-            result.set(0, start);\n
-        } else if (A.get(end) == target) {\n
-            result.set(0, end);\n
-        } else {\n
-            return result;\n
-        }\n
+\t\t        // search for left bound\n
+\t\t        start = 0;\n
+\t\t        end = A.size() - 1;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start) / 2;\n
+\t\t            if (A.get(mid) == target) {\n
+\t\t\t                end = mid; // set end = mid to find the minimum mid\n
+\t\t            } else if (A.get(mid) > target) {\n
+\t\t\t                end = mid;\n
+\t\t            } else {\n
+\t\t\t                start = mid;\n
+\t\t            }\n
+\t        }\n
+\t        if (A.get(start) == target) {\n
+\t\t            result.set(0, start);\n
+\t        } else if (A.get(end) == target) {\n
+\t\t            result.set(0, end);\n
+\t        } else {\n
+\t\t            return result;\n
+\t        }\n
 \n
-        // search for right bound\n
-        start = 0;\n
-        end = A.size() - 1;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start) / 2;\n
-            if (A.get(mid) == target) {\n
-                start = mid; // set start = mid to find the maximum mid\n
-            } else if (A.get(mid) > target) {\n
-                end = mid;\n
-            } else {\n
-                start = mid;\n
-            }\n
-        }\n
-        if (A.get(end) == target) {\n
-            result.set(1, end);\n
-        } else if (A.get(start) == target) {\n
-            result.set(1, start);\n
-        } else {\n
-            return result;\n
-        }\n
+\t        // search for right bound\n
+\t        start = 0;\n
+\t        end = A.size() - 1;\n
+\t        while (start + 1 &lt; end) {\n
+\t\t            mid = start + (end - start) / 2;\n
+\t\t            if (A.get(mid) == target) {\n
+\t\t\t                start = mid; // set start = mid to find the maximum mid\n
+\t\t            } else if (A.get(mid) > target) {\n
+\t\t\t                end = mid;\n
+\t\t            } else {\n
+\t\t\t                start = mid;\n
+\t\t            }\n
+\t        }\n
+\t        if (A.get(end) == target) {\n
+\t\t            result.set(1, end);\n
+\t        } else if (A.get(start) == target) {\n
+\t\t            result.set(1, start);\n
+\t        } else {\n
+\t\t            return result;\n
+\t        }\n
 \n
-        return result;\n
-        // write your code here\n
-    }\n
+\t        return result;\n
+\t\t        // write your code here\n
+\t    }\n
 }
 </item>
 </string-array>
