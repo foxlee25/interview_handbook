@@ -14,6 +14,85 @@
         <item>SWIFT</item>
     </string-array>
 
+    <string-array name="java">
+        <item>General Questions</item>
+        <item>Java Threads</item>
+        <item>Java Collections</item>
+        <item>Garbage Collectors</item>
+        <item>Exception Handling</item>
+        <item>Java Applets</item>
+        <item>Swing</item>
+        <item>JDBC</item>
+        <item>Remote Method Invocation</item>
+        <item>Servlets</item>
+        <item>JSP</item>
+    </string-array>
+
+    <string-array name="general_questions">
+        <item>JVM</item>
+        <item>JRE</item>
+    </string-array>
+
+    <string-array name="java_threads">
+        <item>processes and threads</item>
+        <item>ways of creating a thread</item>
+    </string-array>
+
+    <string-array name="java_collections">
+        <item>Java Collections Framework </item>
+        <item>Collection </item>
+    </string-array>
+
+    <string-array name="garbage_collectors">
+        <item>purpose of garbage collection</item>
+        <item>System</item>
+    </string-array>
+
+    <string-array name="exception_handling">
+        <item>Exceptions in Java</item>
+        <item>Exception and Error</item>
+    </string-array>
+
+    <string-array name="java_applets">
+        <item>What is an Applet </item>
+        <item>life cycle of an Applet</item>
+    </string-array>
+
+    <string-array name="swing">
+        <item>Choice and a List</item>
+        <item>layout manager</item>
+    </string-array>
+
+    <string-array name="jdbc">
+        <item>What is JDBC </item>
+        <item>Driver in JDBC</item>
+    </string-array>
+
+    <string-array name="remote_method_invocation">
+        <item>What is RMI</item>
+        <item>basic principle of RMI</item>
+    </string-array>
+
+    <string-array name="servlets">
+        <item>What is a Servlet</item>
+        <item>architechure of a Servlet</item>
+    </string-array>
+
+    <string-array name="jsp">
+        <item>JSP Page</item>
+        <item>JSP requests handled</item>
+    </string-array>
+
+    <string-array name="jvm_">
+        <item name = "definition"> What is JVM ? Why is Java called the “Platform Independent Programming Language” ?</item>
+        <item name = "code">
+            A Java virtual machine (JVM) is a process virtual machine that can execute Java bytecode. Each Java source file is compiled into a bytecode file,
+            which is executed by the JVM. Java was designed to allow application programs to be built that could be run on any platform, without having to
+            be rewritten or recompiled by the programmer for each separate platform. A Java virtual machine makes this possible, because it is aware of the
+            specific instruction lengths and other particularities of the underlying hardware platform.
+        </item>
+    </string-array>
+
     <string-array name="algorithm">
         <item>Data Structure</item>
         <item>Basic Sorting</item>
@@ -26,8 +105,8 @@
         <item>Reverse</item>
         <item>Binary Tree</item>
         <item>Binary Search Tree</item>
-        <item>Backtracking</item>
-        <item>Dynamic Programing</item>
+        <item>Back Tracking</item>
+        <item>Dynamic Programming</item>
     </string-array>
 
     <string-array name="basics">
@@ -42,7 +121,7 @@
         <item>Priority Queue</item>
     </string-array>
 
-    <string-array name="basics_sorting">
+    <string-array name="basic_sorting">
         <item>Bubble Sort</item>
         <item>Selection Sort</item>
         <item>Insertion Sort</item>
@@ -53,7 +132,7 @@
         <item>Counting Sort</item>
     </string-array>
 
-    <string-array name="basics_misc">
+    <string-array name="basic_misc">
         <item>Bit Manipulation</item>
     </string-array>
 

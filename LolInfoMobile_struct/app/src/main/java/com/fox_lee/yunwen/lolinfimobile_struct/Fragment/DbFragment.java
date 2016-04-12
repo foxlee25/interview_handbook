@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,11 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.fox_lee.yunwen.lolinfimobile_struct.Adapter.CodeMenuAdapter;
 import com.fox_lee.yunwen.lolinfimobile_struct.Adapter.DbAdapter;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.Algorithm;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.AlgorithmRepo;
@@ -32,7 +29,6 @@ public class DbFragment extends Fragment implements View.OnClickListener{
 //public class DbFragment extends Fragment{
     private RecyclerView mRecyclerView;
     private DbAdapter dbAdapter;
-   // final static int _algorithm_id = 0;
     private Button btnAdd,btnGetAll, btnDelete, btnGoto;
     private TextView student_Id;
 

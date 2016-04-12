@@ -42,4 +42,5 @@
     <string name="about_jiuzhang_usage">This code is provided by http://www.jiuzhang.com/, allowed forwarding.\n</string>
     <!--<string name="license_link">http://creativecommons.org/licenses/by-sa/4.0/</string>-->
 
+    <string name="del_favorite_confirm">Do you want to delete it from favorite?</string>
 </resources>

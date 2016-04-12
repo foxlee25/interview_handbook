@@ -17,7 +17,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CodeMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class MenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public enum ITEM_TYPE {
         ITEM_TYPE_IMAGE,
         ITEM_TYPE_TEXT
@@ -32,7 +32,7 @@ public class CodeMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.indexCallback = indexCallback;
     }
 
-    public CodeMenuAdapter(Context context) {
+    public MenuAdapter(Context context) {
         mTitles = context.getResources().getStringArray(R.array.titles);
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);

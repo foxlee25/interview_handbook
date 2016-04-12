@@ -20,9 +20,10 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
-import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmSubFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.ContentFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.DbFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.JavaFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.SubFragment;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -40,17 +41,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void startContentFragment(String var){
         ContentFragment contentFragment = new ContentFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, contentFragment, "AlgorithmSubFragment")
-                .addToBackStack("AlgorithmSubFragment").commit();
+        getFragmentManager().beginTransaction().replace(R.id.container, contentFragment, "SubFragment")
+                .addToBackStack("SubFragment").commit();
         contentFragment.changeData(var);
     }
 
-    public void startAlgorithmSubFragment(String[] var){
-        AlgorithmSubFragment algorithmSubFragment = new AlgorithmSubFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, algorithmSubFragment, "AlgorithmSubFragment")
-                .addToBackStack("AlgorithmSubFragment").commit();
-        algorithmSubFragment.changeData(var);
+    public void startSubFragment(String[] var){
+        SubFragment subFragment = new SubFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container, subFragment, "SubFragment")
+                .addToBackStack("SubFragment").commit();
+        subFragment.changeData(var);
     }
+
+    public void startJavaFragment(String var){
+        JavaFragment javaFragment = new JavaFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container, javaFragment, "SubFragment")
+                .addToBackStack("SubFragment").commit();
+    }
+
+//    public void startJavaSubFragment(String var){
+//        JavaSubFragment javaFragment = new JavaFragment();
+//        getFragmentManager().beginTransaction().replace(R.id.container, javaFragment, "SubFragment")
+//                .addToBackStack("SubFragment").commit();
+//        javaSubFragment.changeData(var);
+//    }
 
     public void startAlgorithmFragment(String var){
         AlgorithmFragment leetCodeFragment = new AlgorithmFragment();
@@ -125,8 +139,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 this.startAlgorithmFragment("");
                 break;
             case R.id.rowIconJava: /** Start a new fragment LolRecyclerViewFragment.java */
-                Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
+                Snackbar.make(v, "Open Core Java Question", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                this.startJavaFragment("");
                 break;
             case R.id.rowIconFavorite: /** AlerDialog when click on 3rd icon */
                 Snackbar.make(v, "Open Favorite List", Snackbar.LENGTH_LONG)

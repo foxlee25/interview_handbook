@@ -80,30 +80,27 @@ public class DbAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             });
             ((TextViewHolder) holder).mImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(final View v) {
-//delete this page
+                public void onClick(final View v) {//delete this page
                  AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
-                    alertDialog.setTitle(dataContent);
-                    alertDialog.setMessage("Are you sure to delete?");
-                    alertDialog.setIcon(R.drawable.menu_icon);
-                    // Setting OK Button
-                    alertDialog.setButton("No", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            // Write your code here to execute after dialog close
-                            dialog.cancel();
-                        }
-                    });
-                    alertDialog.setButton2("Yes", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            // Write your code here to execute after dialog closed
-                            AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
-                            Algorithm algorithm = new Algorithm();
-                            algorithm = repo.getColumnByTopic(dataContent);
-                            repo.delete(algorithm.algorithm_ID);
-                            Toast.makeText(mContext, "The " + dataContent + " deleted", Toast.LENGTH_SHORT).show();
-                            //restart  DbFragment
-                            ((MainActivity) mContext).startDbFragment();
-                            Toast.makeText(mContext, "You clicked on OK", Toast.LENGTH_SHORT).show();
+                 alertDialog.setTitle(dataContent);
+                 alertDialog.setMessage(mContext.getString(R.string.del_favorite_confirm));
+                 alertDialog.setIcon(R.drawable.menu_icon);
+                 // Setting OK Button
+                 alertDialog.setButton("No", new DialogInterface.OnClickListener() {
+                     public void onClick(DialogInterface dialog, int which) {
+                         // Write your code here to execute after dialog close
+                         dialog.cancel();
+                     }
+                 });
+                 alertDialog.setButton2("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {// Write your code here to execute after dialog closed
+                     AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
+                     Algorithm algorithm = new Algorithm();
+                     algorithm = repo.getColumnByTopic(dataContent);
+                     repo.delete(algorithm.algorithm_ID);
+                     Toast.makeText(mContext, "The " + dataContent + " deleted", Toast.LENGTH_SHORT).show();
+                     //restart  DbFragment
+                     ((MainActivity) mContext).startDbFragment();
                         }
                     });
                     alertDialog.show();// Showing Alert Message

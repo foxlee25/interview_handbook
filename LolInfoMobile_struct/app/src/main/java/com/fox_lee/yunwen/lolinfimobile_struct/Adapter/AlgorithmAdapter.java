@@ -14,15 +14,12 @@ import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     public enum ITEM_TYPE {
         ITEM_TYPE_IMAGE,
         ITEM_TYPE_TEXT
     }
-
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
     private String[] mTitles;
@@ -52,52 +49,15 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 @Override
                 public void onClick(View v) {
                     if (mContext instanceof View.OnClickListener) {
-                        switch (((TextViewHolder) holder).mTextView.getText().toString()) {
-//                            case "Basics":
-//                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.basics));
-//                                break;
-                            case "Data Structure":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.data_structure));
-                                break;
-                            case "Basic Sorting":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.basics_sorting));
-                                break;
-                            case "Basic Misc":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.basics_misc));
-                                break;
-                            case "String":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.string));
-                                break;
-                            case "Integer Array":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.integer_array));
-                                break;
-                            case "Binary Search":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.binary_search));
-                                break;
-                            case "Math and Bit Manipulation":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.math_and_bit_manipulation));
-                                break;
-                            case "Linked List":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.linked_list));
-                                break;
-                            case "Reverse":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.reverse));
-                                break;
-                            case "Binary Tree":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.binary_tree));
-                                break;
-                            case "Binary Search Tree":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.binary_search_tree));
-                                break;
-                            case "Backtracking":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.back_tracking));
-                                break;
-                            case "Dynamic Programing":
-                                ((MainActivity) mContext).startAlgorithmSubFragment(mContext.getResources().getStringArray(R.array.dynamic_programming));
-                                break;
-                            default:
-                                break;
+                        String pack = mContext.getPackageName();
+                        String id = ((TextViewHolder) holder).mTextView.getText().toString().toLowerCase().replace(" ", "_");
+                        int resId = mContext.getResources().getIdentifier(id, "array", pack);
+                        String[] res = mContext.getResources().getStringArray(resId);
+                        Log.d("AlgorithmAdapter", " The resource id is: " + id);
+                        for(int i = 0; i < res.length; i++) {
+                            Log.d("Algorithm","The array is: " + res[i]);
                         }
+                        ((MainActivity) mContext).startSubFragment(res);
                     }
                 }
             });
@@ -123,9 +83,19 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             ButterKnife.bind(this, view);
         }
 
-        @OnClick(R.id.cv_text)
-        void onItemClick() {
-            Log.d("TextViewHolder", "onClick--> position = " + getPosition());
-        }
+//        @OnClick(R.id.cv_text)
+//        void onItemClick() {
+//            Log.d("TextViewHolder", "onClick--> position = " + getPosition());
+//        }
     }
+
+//    private String getStringResourceByName(String aString) {
+//        String packageName = mContext.getPackageName();
+//        int resId = mContext.getResources().getIdentifier(aString, "string", packageName);
+//        String pack = mContext.getPackageName();
+//        String id = "tab_Books_" + Central.lang;
+//        int i = Central.Res.getIdentifier(id, "string", pack);
+//        String str = Central.Res.getString(i);
+//        return "";
+//    }
 }
