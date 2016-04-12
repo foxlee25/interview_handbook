@@ -106,14 +106,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ll1 = (LinearLayout) findViewById(R.id.rowIconCoding);
         ll2 = (LinearLayout) findViewById(R.id.rowIconJava);
         ll3 = (LinearLayout) findViewById(R.id.rowIconFavorite);
-        ll4 = (LinearLayout) findViewById(R.id.rowIcon3);
+//        ll4 = (LinearLayout) findViewById(R.id.rowIcon3);
     }
 
     private void setListener(){
         ll1.setOnClickListener(this);
         ll2.setOnClickListener(this);
         ll3.setOnClickListener(this);
-        ll4.setOnClickListener(this);
+//        ll4.setOnClickListener(this);
     }
 
     public void onClick(View v) {
@@ -133,10 +133,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setAction("Action", null).show();
                 this.startDbFragment();
                 break;
-            case R.id.rowIcon3: /** AlerDialog when click on 4th icon */
-                Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                break;
+//            case R.id.rowIcon3: /** AlerDialog when click on 4th icon */
+//                Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//                break;
         }
         DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawer_layout.closeDrawer(Gravity.LEFT);

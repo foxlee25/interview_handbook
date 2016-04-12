@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * Created by Yunwen on 2/11/2016.
  */
 public class AlgorithmSubFragment extends  Fragment{
-    RecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView;
     private AlgorithmSubAdapter algorithmsubAdapter;
     private String[] dataContent;
     public void changeData(String[] dataContent) {

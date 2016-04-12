@@ -1868,30 +1868,30 @@ class Solution {\n
      * @param n: An integers.\n
      * @return: An integer which is the first bad version.\n
      */\n
-    public int findFirstBadVersion(int n) {\n
-        // write your code here\n
-        if (n == 0) {\n
-            return -1;\n
-        }\n
+\t    public int findFirstBadVersion(int n) {\n
+\t\t        // write your code here\n
+\t\t        if (n == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
 \n
-        int start = 1, end = n, mid;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start)/2;\n
-            if (VersionControl.isBadVersion(mid) == false) {\n
-                start = mid;\n
-            } else {\n
-                end = mid;\n
-            }\n
-        }\n
+\t\t        int start = 1, end = n, mid;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start)/2;\n
+\t\t\t            if (VersionControl.isBadVersion(mid) == false) {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        if (VersionControl.isBadVersion(start) == true) {\n
-            return start;\n
-        } else if (VersionControl.isBadVersion(end) == true) {\n
-            return end;\n
-        } else {\n
-            return -1; // not found\n
-        }\n
-    }\n
+\t\t        if (VersionControl.isBadVersion(start) == true) {\n
+\t\t\t            return start;\n
+\t\t        } else if (VersionControl.isBadVersion(end) == true) {\n
+\t\t\t            return end;\n
+\t\t        } else {\n
+\t\t\t            return -1; // not found\n
+\t\t        }\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -1917,36 +1917,35 @@ Given target = 3, return true.
 Challenge\n
 O(log(n) + log(m)) time
 </item>
-
 <item name="code">
     public class Solution {\n
-    public boolean searchMatrix(int[][] matrix, int target) {\n
-        if(matrix==null || matrix.length==0 || matrix[0].length==0)\n
-            return false;\n
+\t    public boolean searchMatrix(int[][] matrix, int target) {\n
+\t\t        if(matrix==null || matrix.length==0 || matrix[0].length==0)\n
+\t\t\t            return false;\n
 \n
-        int m = matrix.length;\n
-        int n = matrix[0].length;\n
+\t\t        int m = matrix.length;\n
+\t\t        int n = matrix[0].length;\n
 \n
-        int start = 0;\n
-        int end = m*n-1;\n
+\t\t        int start = 0;\n
+\t\t        int end = m*n-1;\n
 \n
-        while(start&lt;=end){\n
-            int mid=(start+end)/2;\n
-            int midX=mid/n;\n
-            int midY=mid%n;\n
+\t\t        while(start&lt;=end){\n
+\t\t\t            int mid=(start+end)/2;\n
+\t\t\t            int midX=mid/n;\n
+\t\t\t            int midY=mid%n;\n
 \n
-            if(matrix[midX][midY]==target)\n
-                return true;\n
+\t\t\t            if(matrix[midX][midY]==target)\n
+\t\t\t\t                return true;\n
 
-            if(matrix[midX][midY]&lt;target){\n
-                start=mid+1;\n
-            }else{\n
-                end=mid-1;\n
-            }\n
-        }\n
+\t\t\t            if(matrix[midX][midY]&lt;target){\n
+\t\t\t\t                start=mid+1;\n
+\t\t\t            }else{\n
+\t\t\t\t                end=mid-1;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        return false;\n
-    }\n
+\t\t        return false;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -1979,30 +1978,30 @@ class Solution {\n
      * @param A: An integers array.\n
      * @return: return any of peek positions.\n
      */\n
-    public int findPeak(int[] A) {\n
-        // write your code here\n
-        if (A == null) {\n
-            return -1;\n
-        }\n
-        if (A.length == 0) {\n
-            return 0;\n
-        }\n
+\t    public int findPeak(int[] A) {\n
+\t\t        // write your code here\n
+\t\t        if (A == null) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
+\t\t        if (A.length == 0) {\n
+\t\t\t            return 0;\n
+\t\t        }\n
 \n
-        int start = 0, end = A.length - 1, mid = end / 2;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start)/2;\n
-            if (A[mid] &lt; A[mid - 1]) {\n
-                end = mid;\n
-            } else if (A[mid] &lt; A[mid + 1]) {\n
-                start = mid;\n
-            } else {\n
-                return mid;\n
-            }\n
-        }\n
+\t\t        int start = 0, end = A.length - 1, mid = end / 2;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start)/2;\n
+\t\t\t            if (A[mid] &lt; A[mid - 1]) {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            } else if (A[mid] &lt; A[mid + 1]) {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                return mid;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        mid = (A[start] &gt; A[end]) ? start : end;\n
-        return mid;\n
-    }\n
+\t\t        mid = (A[start] &gt; A[end]) ? start : end;\n
+\t\t        return mid;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2037,41 +2036,41 @@ public class Solution {\n
      *@param target :  an integer to be searched\n
      *return : an integer\n
      */\n
-    public int search(int[] A, int target) {\n
-        // write your code here\n
-        if (A == null || A.length == 0) {\n
-            return -1;\n
-        }\n
+\t    public int search(int[] A, int target) {\n
+\t\t        // write your code here\n
+\t\t        if (A == null || A.length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
 \n
-        int start = 0, end = A.length - 1, mid = 0;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start)/2;\n
-            if (A[mid] == target) {\n
-                return mid;\n
-            }\n
-            if (A[start] &lt; A[mid]) {//part 1\n
-                if (A[start] &lt;= target &amp;&amp; target &lt;= A[mid]) {\n
-                    end = mid;\n
-                } else {\n
-                    start = mid;\n
-                }\n
-            } else { //part 2\n
-                if (A[mid] &lt;= target &amp;&amp; target &lt;= A[end]) {\n
-                    start = mid;\n
-                } else {\n
-                    end = mid;\n
-                }\n
-            }\n
-        } // end while\n
+\t\t        int start = 0, end = A.length - 1, mid = 0;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start)/2;\n
+\t\t\t            if (A[mid] == target) {\n
+\t\t\t\t                return mid;\n
+\t\t\t            }\n
+\t\t\t            if (A[start] &lt; A[mid]) {//part 1\n
+\t\t\t\t                if (A[start] &lt;= target &amp;&amp; target &lt;= A[mid]) {\n
+\t\t\t\t\t                    end = mid;\n
+\t\t\t\t                } else {\n
+\t\t\t\t\t                    start = mid;\n
+\t\t\t\t                }\n
+\t\t\t            } else { //part 2\n
+\t\t\t\t                if (A[mid] &lt;= target &amp;&amp; target &lt;= A[end]) {\n
+\t\t\t\t\t                    start = mid;\n
+\t\t\t\t                } else {\n
+\t\t\t\t\t                    end = mid;\n
+\t\t\t\t                }\n
+\t\t\t            }\n
+\t\t        } // end while\n
 \n
-        if (A[start] == target) {\n
-            return start;\n
-        } else if (A[end] == target) {\n
-            return end;\n
-        } else {\n
-            return -1; // not found\n
-        }\n
-    }\n
+\t\t        if (A[start] == target) {\n
+\t\t\t            return start;\n
+\t\t        } else if (A[end] == target) {\n
+\t\t\t            return end;\n
+\t\t        } else {\n
+\t\t\t            return -1; // not found\n
+\t\t        }\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2094,29 +2093,29 @@ public class Solution {\n
      * @param num: a rotated sorted array\n
      * @return: the minimum number in the array\n
      */\n
-    public int findMin(int[] nums) {\n
-        if (nums == null || nums.length == 0) {\n
-            return -1;\n
-        }\n
+\t    public int findMin(int[] nums) {\n
+\t\t        if (nums == null || nums.length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
 \n
-        int start = 0, end = nums.length - 1;\n
-        int target = nums[nums.length - 1];\n
+\t\t        int start = 0, end = nums.length - 1;\n
+\t\t        int target = nums[nums.length - 1];\n
 \n
-        // find the first element &lt;= target\n
-        while (start + 1 &lt; end) {\n
-            int mid = start + (end - start) / 2;\n
-            if (nums[mid] &lt;= target) {\n
-                end = mid;\n
-            } else {\n
-                start = mid;\n
-            }\n
-        }\n
-        if (nums[start] &lt;= target) {\n
-            return nums[start];\n
-        } else {\n
-            return nums[end];\n
-        }\n
-    }\n
+\t\t        // find the first element &lt;= target\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            int mid = start + (end - start) / 2;\n
+\t\t\t            if (nums[mid] &lt;= target) {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        if (nums[start] &lt;= target) {\n
+\t\t\t            return nums[start];\n
+\t\t        } else {\n
+\t\t\t            return nums[end];\n
+\t\t        }\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2145,38 +2144,38 @@ public class Solution {\n
      * @param: A number you want to search in the matrix\n
      * @return: An integer indicate the occurrence of target in the given matrix\n
      */\n
-    public int searchMatrix(int[][] matrix, int target) {\n
-        int occurence = 0;\n
+\t    public int searchMatrix(int[][] matrix, int target) {\n
+\t\t        int occurence = 0;\n
 \n
-        if (matrix == null || matrix.length == 0) {\n
-            return occurence;\n
-        }\n
-        if (matrix[0] == null || matrix[0].length == 0) {\n
-            return occurence;\n
-        }\n
+\t\t        if (matrix == null || matrix.length == 0) {\n
+\t\t\t            return occurence;\n
+\t\t        }\n
+\t\t        if (matrix[0] == null || matrix[0].length == 0) {\n
+\t\t\t            return occurence;\n
+\t\t        }\n
 \n
-        int row = matrix.length - 1;\n
-        int column = matrix[0].length - 1;\n
-        int index_row = 0, index_column = column;\n
-        int number;\n
+\t\t        int row = matrix.length - 1;\n
+\t\t        int column = matrix[0].length - 1;\n
+\t\t        int index_row = 0, index_column = column;\n
+\t\t        int number;\n
 \n
-        if (target &lt; matrix[0][0] || target &gt; matrix[row][column]) {\n
-            return occurence;\n
-        }\n
+\t\t        if (target &lt; matrix[0][0] || target &gt; matrix[row][column]) {\n
+\t\t\t            return occurence;\n
+\t\t        }\n
 \n
-        while (index_row &lt; row + 1 &amp;&amp; index_column + 1 > 0) {\n
-            number = matrix[index_row][index_column];\n
-            if (target == number) {\n
-                occurence++;\n
-                index_column--;\n
-            } else if (target &lt; number) {\n
-                index_column--;\n
-            } else if (target &gt; number) {\n
-                index_row++;\n
-            }\n
-        }\n
-        return occurence;\n
-    }\n
+\t\t        while (index_row &lt; row + 1 &amp;&amp; index_column + 1 > 0) {\n
+\t\t\t            number = matrix[index_row][index_column];\n
+\t\t\t            if (target == number) {\n
+\t\t\t\t                occurence++;\n
+\t\t\t\t                index_column--;\n
+\t\t\t            } else if (target &lt; number) {\n
+\t\t\t\t                index_column--;\n
+\t\t\t            } else if (target &gt; number) {\n
+\t\t\t\t                index_row++;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return occurence;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2199,39 +2198,39 @@ class Solution {\n
      * @param B: An integer array.\n
      * @return: a double whose format is *.5 or *.0\n
      */\n
-    public double findMedianSortedArrays(int[] A, int[] B) {\n
-        // write your code here\n
-        int len = A.length + B.length;\n
-        if (len % 2 == 0) {\n
-            return (findKth(A, 0, B, 0, len/2) + findKth(A, 0, B, 0, len/2+1)) / 2.0;\n
-        } else {\n
-            return findKth(A, 0, B, 0, len/2 + 1);\n
-        }\n
-    }\n
+\t    public double findMedianSortedArrays(int[] A, int[] B) {\n
+\t\t        // write your code here\n
+\t\t        int len = A.length + B.length;\n
+\t\t        if (len % 2 == 0) {\n
+\t\t\t            return (findKth(A, 0, B, 0, len/2) + findKth(A, 0, B, 0, len/2+1)) / 2.0;\n
+\t\t        } else {\n\t
+\t\t\t            return findKth(A, 0, B, 0, len/2 + 1);\n
+\t\t        }\n
+\t    }\n
 \n
-    //find kth number of two sorted array\n
-    public static int findKth(int[] A, int A_start, int[] B, int B_start, int k) {\n
-        if (A_start >= A.length) {\n
-            return B[B_start + k - 1];\n
-        }\n
-        if (B_start >= B.length) {\n
-            return A[A_start + k - 1];\n
-        }\n
-        if (k == 1) {\n
-            return Math.min(A[A_start], B[B_start]);\n
-        }\n
+\t    //find kth number of two sorted array\n
+\t    public static int findKth(int[] A, int A_start, int[] B, int B_start, int k) {\n
+\t\t        if (A_start >= A.length) {\n
+\t\t\t            return B[B_start + k - 1];\n
+\t\t        }\n
+\t\t        if (B_start >= B.length) {\n
+\t\t\t            return A[A_start + k - 1];\n
+\t\t        }\n
+\t\t        if (k == 1) {\n
+\t\t\t            return Math.min(A[A_start], B[B_start]);\n
+\t\t        }\n
 \n
-        int A_key = (A_start + k/2 - 1 &lt; A.length) // if one array is too short
+\t\t        int A_key = (A_start + k/2 - 1 &lt; A.length) // if one array is too short
                     ? A[A_start + k/2 - 1] : Integer.MAX_VALUE; // trick\n
-        int B_key = (B_start + k/2 - 1 &lt; B.length) // if one array is too short
+\t\t        int B_key = (B_start + k/2 - 1 &lt; B.length) // if one array is too short
                     ? B[B_start + k/2 - 1] : Integer.MAX_VALUE; // trick\n
 \n
-        if (A_key &lt; B_key) {\n
-            return findKth(A, A_start + k/2, B, B_start, k - k/2);\n
-        } else {\n
-            return findKth(A, A_start, B, B_start + k/2, k - k/2);\n
-        }\n
-    }\n
+\t\t        if (A_key &lt; B_key) {\n
+\t\t\t            return findKth(A, A_start + k/2, B, B_start, k - k/2);\n
+\t\t        } else {\n
+\t\t\t            return findKth(A, A_start, B, B_start + k/2, k - k/2);\n
+\t\t        }\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2243,20 +2242,20 @@ Compute and return the square root of x.
 </item>
 <item name="code">
 public class Solution {\n
-    public int sqrt(int x) {\n
-        long i = 0;\n
-        long j = x / 2 + 1;\n
-        while (i &lt;= j) {\n
-            long mid = (i + j) / 2;\n
-            if (mid * mid == x)\n
-                return (int)mid;\n
-            if (mid * mid &lt; x)\n
-                i = mid + 1;\n
-            else\n
-                j = mid - 1;\n
-        }\n
-        return (int)j;\n
-    }\n
+\t    public int sqrt(int x) {\n
+\t\t        long i = 0;\n
+\t\t        long j = x / 2 + 1;\n
+\t\t        while (i &lt;= j) {\n
+\t\t\t            long mid = (i + j) / 2;\n
+\t\t\t            if (mid * mid == x)\n
+\t\t\t\t                return (int)mid;\n
+\t\t\t            if (mid * mid &lt; x)\n
+\t\t\t\t                i = mid + 1;\n
+\t\t\t            else\n
+\t\t\t\t                j = mid - 1;\n
+\t\t        }\n
+\t\t        return (int)j;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2283,39 +2282,39 @@ public class Solution {\n
      *@param k: An integer\n
      *return: The maximum length of the small pieces.\n
      */\n
-    public int woodCut(int[] L, int k) {\n
-        int max = 0;\n
-        for (int i = 0; i &lt; L.length; i++) {\n
-            max = Math.max(max, L[i]);\n
-        }\n
+\t    public int woodCut(int[] L, int k) {\n
+\t\t        int max = 0;\n
+\t\t        for (int i = 0; i &lt; L.length; i++) {\n
+\t\t\t            max = Math.max(max, L[i]);\n
+\t\t        }\n
 \n
-        // find the largest length that can cut more than k pieces of wood.\n
-        int start = 1, end = max;\n
-        while (start + 1 &lt; end) {\n
-            int mid = start + (end - start) / 2;\n
-            if (count(L, mid) &gt;= k) {\n
-                start = mid;\n
-            } else {\n
-                end = mid;\n
-            }\n
-        }\n
+\t\t        // find the largest length that can cut more than k pieces of wood.\n
+\t\t        int start = 1, end = max;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            int mid = start + (end - start) / 2;\n
+\t\t\t            if (count(L, mid) &gt;= k) {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        if (count(L, end) &gt;= k) {\n
-            return end;\n
-        }\n
-        if (count(L, start) &gt;= k) {\n
-            return start;\n
-        }\n
-        return 0;\n
-    }\n
+\t\t        if (count(L, end) &gt;= k) {\n
+\t\t\t            return end;\n
+\t\t        }\n
+ \t\t       if (count(L, start) &gt;= k) {\n
+ \t\t\t           return start;\n
+\t\t        }\n
+\t\t        return 0;\n
+\t    }\n
 \n
-    private int count(int[] L, int length) {\n
-        int sum = 0;\n
-        for (int i = 0; i &lt; L.length; i++) {\n
-            sum += L[i] / length;\n
-        }\n
-        return sum;\n
-    }\n
+\t    private int count(int[] L, int length) {\n
+\t\t        int sum = 0;\n
+\t\t        for (int i = 0; i &lt; L.length; i++) {\n
+\t\t\t            sum += L[i] / length;\n
+\t\t        }\n
+\t\t        return sum;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2329,13 +2328,13 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 </item>
 <item name="code">
     public int singleNumber(int[] A) {\n
-	HashSet&lt;Integer&gt; set = new HashSet&lt;Integer&gt;();\n
-	for (int n : A) {\n
-		if (!set.add(n))\n
-			set.remove(n);\n
-	}\n
-	Iterator&lt;Integer&gt; it = set.iterator();\n
-	return it.next();\n
+\t	HashSet&lt;Integer&gt; set = new HashSet&lt;Integer&gt;();\n
+\t	for (int n : A) {\n
+\t\t		if (!set.add(n))\n
+\t\t\t			set.remove(n);\n
+\t	}\n
+\t	Iterator&lt;Integer&gt; it = set.iterator();\n
+\t	return it.next();\n
 }
 </item>
 </string-array>
@@ -2348,25 +2347,25 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 </item>
 <item name="code">
     int singleNumber(int A[], int n) {\n
-          vector&lt;int&gt; bit(32,0);\n
+\t          vector&lt;int&gt; bit(32,0);\n
 \n
-          for(int i =0; i&lt; n; ++i)\n
-          {\n
-              int k=1;\n
-              for(int j =0; j&lt;32; ++j)\n
-              {\n
-                 int rotated;\n
-                 if((rotated = A[i]&gt;&gt;j) == 0) break;\n
-                 bit[j] += rotated &amp; k;\n
-             }\n
-         }\n
+\t          for(int i =0; i&lt; n; ++i)\n
+\t          {\n
+\t\t              int k=1;\n
+\t\t              for(int j =0; j&lt;32; ++j)\n
+\t\t              {\n
+\t\t\t                 int rotated;\n
+\t\t\t                 if((rotated = A[i]&gt;&gt;j) == 0) break;\n
+\t\t\t                 bit[j] += rotated &amp; k;\n
+\t\t             }\n
+\t         }\n
 \n
-         int target=0;\n
-         for(int i =0; i&lt;32; ++i)\n
-         {\n
-             target += (bit[i]%3 &lt;&lt;i);\n
-         }\n
-         return target;\n
+\t         int target=0;\n
+\t         for(int i =0; i&lt;32; ++i)\n
+\t         {\n
+\t\t             target += (bit[i]%3 &lt;&lt;i);\n
+\t         }\n
+\t         return target;\n
      }
 </item>
 </string-array>
@@ -2389,13 +2388,13 @@ O(1) time
      * @param n: An integer\n
      * @return: True or false\n
      */\n
-    public boolean checkPowerOf2(int n) {\n
-        if (n &lt; 1) {\n
-            return false;\n
-        } else {\n
-            return (n &amp; (n - 1)) == 0;\n
-        }\n
-    }\n
+\t    public boolean checkPowerOf2(int n) {\n
+\t\t        if (n &lt; 1) {\n
+\t\t\t            return false;\n
+\t\t        } else {\n
+\t\t\t            return (n &amp; (n - 1)) == 0;\n
+\t\t        }\n
+\t    }\n
 };
 </item>
 </string-array>
@@ -2416,15 +2415,15 @@ Given n = 31, m = 14,return 2
      *@param a, b: Two integer\n
      *return: An integer\n
      */\n
-    public static int bitSwapRequired(int a, int b) {\n
-        int count = 0;\n
-        int a_xor_b = a ^ b;\n
-        while (a_xor_b != 0) {\n
-            ++count;\n
-            a_xor_b &amp;= (a_xor_b - 1);\n
-        }\n
-        return count;\n
-    }\n
+\t    public static int bitSwapRequired(int a, int b) {\n
+\t\t        int count = 0;\n
+\t\t        int a_xor_b = a ^ b;\n
+\t\t        while (a_xor_b != 0) {\n
+\t\t\t            ++count;\n
+\t\t\t            a_xor_b &amp;= (a_xor_b - 1);\n
+\t\t        }\n
+\t\t        return count;\n
+\t    }\n
 };\n
 </item>
 </string-array>
@@ -2440,16 +2439,16 @@ O(log N) time
 </item>
 <item name="code">
     public class Solution {\n
-    public int trailingZeroes(int n) {\n
-        if (n &lt;0) {\n
-            return -1;\n
-        }\n
-        int count = 0;\n
-        for (; n &gt; 0; n /= 5) {\n
-            count += (n / 5);\n
-        }\n
-        return count;\n
-    }\n
+\t    public int trailingZeroes(int n) {\n
+\t\t        if (n &lt;0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
+\t\t        int count = 0;\n
+\t\t        for (; n &gt; 0; n /= 5) {\n
+\t\t\t            count += (n / 5);\n
+\t\t        }\n
+\t\t        return count;\n
+\t    }\n
 }\n
 </item>
 </string-array>
@@ -2468,20 +2467,20 @@ Given 1->1->2->3->3, return 1->2->3.
  */\n
 
 public class Solution {\n
-    public ListNode deleteDuplicates(ListNode head) {\n
-        if (head == null) {\n
-            return null;\n
-        }\n
-        ListNode node = head;\n
-        while (node.next != null) {\n
-            if (node.val == node.next.val) {\n
-                node.next = node.next.next;\n
-            } else {\n
-                node = node.next;\n
-            }\n
-        }\n
-        return head;\n
-    }\n
+\t    public ListNode deleteDuplicates(ListNode head) {\n
+\t\t        if (head == null) {\n
+\t\t\t            return null;\n
+\t\t        }\n
+\t\t        ListNode node = head;\n
+\t\t        while (node.next != null) {\n
+\t\t\t            if (node.val == node.next.val) {\n
+\t\t\t\t                node.next = node.next.next;\n
+\t\t\t            } else {\n
+\t\t\t\t                node = node.next;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return head;\n
+\t    }\n
 }\n
 </item>
 </string-array>
@@ -2495,20 +2494,20 @@ Given 1->1->1->2->3, return 2->3.
 </item>
 <item name="code">
 public ListNode deleteDuplicates(ListNode head) {\n
-    ListNode t = new ListNode(0);\n
-    t.next = head;\n
-    ListNode p = t;\n
-    while(p.next!=null&amp;&amp;p.next.next!=null){\n
-        if(p.next.val == p.next.next.val){\n
-            int dup = p.next.val;\n
-            while(p.next!=null&amp;&amp;p.next.val==dup){\n
-                p.next = p.next.next;\n
-            }\n
-        }else{\n
-            p=p.next;\n
-        }\n
-    }\n
-    return t.next;\n
+\t    ListNode t = new ListNode(0);\n
+\t    t.next = head;\n
+\t    ListNode p = t;\n
+\t    while(p.next!=null&amp;&amp;p.next.next!=null){\n
+\t\t        if(p.next.val == p.next.next.val){\n
+\t\t\t            int dup = p.next.val;\n
+\t\t\t            while(p.next!=null&amp;&amp;p.next.val==dup){\n
+\t\t\t\t                p.next = p.next.next;\n
+\t\t\t            }\n
+\t\t        }else{\n
+\t\t\t            p=p.next;\n
+\t\t        }\n
+\t    }\n
+\t    return t.next;\n
 }
 </item>
 </string-array>
@@ -2524,33 +2523,33 @@ return 1->2->2->4->3->5->null.
 </item>
 <item name="code">
     public class Solution {\n
-    public ListNode partition(ListNode head, int x) {\n
-        if(head == null) return null;\n
+\t    public ListNode partition(ListNode head, int x) {\n
+\t\t        if(head == null) return null;\n
 \n
-        ListNode fakeHead1 = new ListNode(0);\n
-        ListNode fakeHead2 = new ListNode(0);\n
-        fakeHead1.next = head;\n
+\t\t        ListNode fakeHead1 = new ListNode(0);\n
+\t\t        ListNode fakeHead2 = new ListNode(0);\n
+\t\t        fakeHead1.next = head;\n
 \n
-        ListNode p = head;\n
-        ListNode prev = fakeHead1;\n
-        ListNode p2 = fakeHead2;\n
-
-        while(p != null){\n
-            if(p.val &lt; x){\n
-                p = p.next;\n
-                prev = prev.next;\n
-            }else{\n
-                p2.next = p;\n
-                prev.next = p.next;\n
-                p = prev.next;\n
-                p2 = p2.next;\n
-            }\n
-        }\n
-        // close the list\n
-        p2.next = null;\n
-        prev.next = fakeHead2.next;\n
-        return fakeHead1.next;\n
-    }\n
+\t\t        ListNode p = head;\n
+\t\t        ListNode prev = fakeHead1;\n
+\t\t        ListNode p2 = fakeHead2;\n
+\n
+\t\t        while(p != null){\n
+\t\t\t            if(p.val &lt; x){\n
+\t\t\t\t                p = p.next;\n
+\t\t\t\t                prev = prev.next;\n
+\t\t\t            }else{\n
+\t\t\t\t                p2.next = p;\n
+\t\t\t\t                prev.next = p.next;\n
+\t\t\t\t                p = prev.next;\n
+\t\t\t\t                p2 = p2.next;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        // close the list\n
+\t\t        p2.next = null;\n
+\t\t        prev.next = fakeHead2.next;\n
+\t\t        return fakeHead1.next;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2565,27 +2564,27 @@ Given two lists, 3->1->5->null and 5->9->2->null, return 8->0->8->null
 </item>
 <item name="code">
     public class Solution {\n
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {\n
-       int carry =0;\n
-        ListNode newHead = new ListNode(0);\n
-        ListNode p1 = l1, p2 = l2, p3=newHead;\n
-        while(p1 != null || p2 != null){\n
-            if(p1 != null){\n
-                carry += p1.val;\n
-                p1 = p1.next;\n
-            }\n
-            if(p2 != null){\n
-                carry += p2.val;\n
-                p2 = p2.next;\n
-            }\n
-            p3.next = new ListNode(carry%10);\n
-            p3 = p3.next;\n
-            carry /= 10;\n
-        }\n
-        if(carry==1)\n
-            p3.next=new ListNode(1);\n
-        return newHead.next;\n
-    }\n
+\t    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {\n
+\t\t       int carry =0;\n
+\t\t        ListNode newHead = new ListNode(0);\n
+\t\t        ListNode p1 = l1, p2 = l2, p3=newHead;\n
+\t\t        while(p1 != null || p2 != null){\n
+\t\t\t            if(p1 != null){\n
+\t\t\t\t                carry += p1.val;\n
+\t\t\t                p1 = p1.next;\n
+\t\t            }\n
+\t\t            if(p2 != null){\n
+\t\t\t                carry += p2.val;\n
+\t\t\t                p2 = p2.next;\n
+\t\t            }\n
+\t\t            p3.next = new ListNode(carry%10);\n
+\t\t            p3 = p3.next;\n
+\t\t            carry /= 10;\n
+\t        }\n
+\t        if(carry==1)\n
+\t\t            p3.next=new ListNode(1);\n
+\t\t        return newHead.next;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2730,34 +2729,34 @@ O(n) time
 </item>
 <item name="code">
 public ListNode removeNthFromEnd(ListNode head, int n) {\n
-    if(head == null)\n
-        return null;\n
+\t    if(head == null)\n
+\t\t        return null;\n
 \n
-    //get length of list\n
-    ListNode p = head;\n
-    int len = 0;\n
-    while(p != null){\n
-        len++;\n
-        p = p.next;\n
-    }\n
+\t\t    //get length of list\n
+\t\t    ListNode p = head;\n
+\t\t    int len = 0;\n
+\t\t    while(p != null){\n
+\t\t\t        len++;\n
+\t\t\t        p = p.next;\n
+\t\t    }\n
 \n
-    //if remove first node\n
-    int fromStart = len-n+1;\n
-    if(fromStart==1)\n
-        return head.next;\n
+\t\t    //if remove first node\n
+\t\t    int fromStart = len-n+1;\n
+\t\t    if(fromStart==1)\n
+\t\t\t        return head.next;\n
 \n
-    //remove non-first node\n
-    p = head;\n
-    int i=0;\n
-    while(p!=null){\n
-        i++;\n
-        if(i==fromStart-1){\n
-            p.next = p.next.next;\n
-        }\n
-        p=p.next;\n
-    }\n
+\t\t    //remove non-first node\n
+\t\t    p = head;\n
+\t\t    int i=0;\n
+\t\t    while(p!=null){\n
+\t\t\t        i++;\n
+\t\t\t        if(i==fromStart-1){\n
+\t\t\t            p.next = p.next.next;\n
+\t\t        }\n
+\t\t        p=p.next;\n
+\t    }\n
 \n
-    return head;\n
+\t    return head;\n
 }
 </item>
 </string-array>
@@ -2774,22 +2773,22 @@ Can you solve it without using extra space?
 </item>
 <item name="code">
     public class Solution {\n
-    public Boolean hasCycle(ListNode head) {\n
-        if (head == null || head.next == null) {\n
-            return false;\n
-        }\n
+\t    public Boolean hasCycle(ListNode head) {\n
+\t\t        if (head == null || head.next == null) {\n
+\t\t\t            return false;\n
+\t\t        }\n
 \n
-        ListNode fast, slow;\n
-        fast = head.next;\n
-        slow = head;\n
-        while (fast != slow) {\n
-            if(fast==null || fast.next==null)\n
-                return false;\n
-            fast = fast.next.next;\n
-            slow = slow.next;\n
-        }\n
-        return true;\n
-    }\n
+\t\t        ListNode fast, slow;\n
+\t\t        fast = head.next;\n
+\t\t        slow = head;\n
+\t\t        while (fast != slow) {\n
+\t\t\t            if(fast==null || fast.next==null)\n
+\t\t\t\t                return false;\n
+\t\t\t            fast = fast.next.next;\n
+\t\t\t            slow = slow.next;\n
+\t\t        }\n
+\t\t        return true;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2806,27 +2805,27 @@ Can you solve it without using extra space?
 </item>
 <item name="code">
 public class Solution {\n
-    public ListNode detectCycle(ListNode head) {\n
-        if (head == null || head.next==null) {\n
-            return null;\n
-        }\n
+\t    public ListNode detectCycle(ListNode head) {\n
+\t\t        if (head == null || head.next==null) {\n
+\t\t\t            return null;\n
+\t\t        }\n
 \n
-        ListNode fast, slow;\n
-        fast = head.next;\n
-        slow = head;\n
-        while (fast != slow) {\n
-            if(fast==null || fast.next==null)\n
-                return null;\n
-            fast = fast.next.next;\n
-            slow = slow.next;\n
-        }\n
+\t\t        ListNode fast, slow;\n
+\t\t        fast = head.next;\n
+\t\t        slow = head;\n
+\t\t        while (fast != slow) {\n
+\t\t\t            if(fast==null || fast.next==null)\n
+\t\t\t\t                return null;\n
+\t\t\t            fast = fast.next.next;\n
+\t\t\t            slow = slow.next;\n
+\t\t        }\n
 \n
-        while (head != slow.next) {\n
-            head = head.next;\n
-            slow = slow.next;\n
-        }\n
-        return head;\n
-    }\n
+\t\t        while (head != slow.next) {\n
+\t\t\t            head = head.next;\n
+\t\t\t            slow = slow.next;\n
+\t\t        }\n
+\t\t        return head;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -3739,6 +3738,7 @@ public class Solution {\n
 }
 </item>
 </string-array>
+
 <string-array name="insert_node_in_a_binary_search_tree_">
 <item name="definition">
 Given a binary search tree  and a new tree node, insert the node into the tree. You should keep the tree still be a valid binary search tree.

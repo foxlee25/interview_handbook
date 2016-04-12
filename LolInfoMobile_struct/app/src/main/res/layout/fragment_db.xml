@@ -16,39 +16,53 @@
         <!--android:layout_alignParentLeft="true"-->
         <!--/>-->
 
-    <ListView
-        android:id="@android:id/list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_getAnswer" />
+    <!--<ListView-->
+        <!--android:id="@android:id/list"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_above="@+id/btnGetAll" />-->
 
-    <EditText
-        android:id="@+id/edit_delete_db"
-        android:layout_width="100dp"
-        android:hint="Enter Del"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
+    <!--<FrameLayout-->
+        <!--android:id="@+id/container_db"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_above="@+id/btnGetAll">-->
+    <!--</FrameLayout>-->
+    <android.support.v7.widget.RecyclerView
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler_db"
+        android:background="@color/colorWhite"
+        android:layout_above="@+id/btnGetAll" />
 
-    <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:text="Del"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/edit_delete_db"
-        />
-    <Button
-        android:id="@+id/btnGoto"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:text="Go"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/btnDelete"/>
+    <!--<EditText-->
+        <!--android:id="@+id/edit_delete_db"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:hint="Enter Del"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btnDelete"-->
+        <!--android:layout_width="75dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Del"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_toRightOf="@+id/edit_delete_db"-->
+        <!--/>-->
+    <!--<Button-->
+        <!--android:id="@+id/btnGoto"-->
+        <!--android:layout_width="75dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Go"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_toRightOf="@+id/btnDelete"/>-->
     <Button
         android:id="@+id/btnGetAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="List"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/btnGoto"/>
+        android:visibility="gone"/>
 </RelativeLayout>

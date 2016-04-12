@@ -63,7 +63,7 @@ public class ContentFragment extends  Fragment {
                 algorithm = repo.getColumnById(_algorithm_id);
 
                 algorithm.age = 25;
-                algorithm.content = "Content";
+                algorithm.content = "Delete";
                 algorithm.topic = dataContent;
                 algorithm.algorithm_ID=_algorithm_id;
 
@@ -81,7 +81,7 @@ public class ContentFragment extends  Fragment {
         btnAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (showingFirst == true) {
+                if (showingFirst) {
                     tvAnswer.setVisibility(v.VISIBLE);
                     imgAnswer.setVisibility(v.GONE);
                     showingFirst = false;
