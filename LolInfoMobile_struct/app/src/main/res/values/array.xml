@@ -34,18 +34,18 @@
     </string-array>
 
     <string-array name="java_threads">
-        <item>processes and threads</item>
-        <item>ways of creating a thread</item>
+        <item>Processes and threads</item>
+        <item>Ways of creating a thread</item>
     </string-array>
 
     <string-array name="java_collections">
-        <item>Java Collections Framework </item>
-        <item>Collection </item>
+        <item>Java Collections Framework</item>
+        <item>Cloneable and Serializable Interfaces</item>
     </string-array>
 
     <string-array name="garbage_collectors">
-        <item>purpose of garbage collection</item>
-        <item>System</item>
+        <item>Purpose of garbage collection</item>
+        <item>System and Runtime</item>
     </string-array>
 
     <string-array name="exception_handling">
@@ -54,28 +54,28 @@
     </string-array>
 
     <string-array name="java_applets">
-        <item>What is an Applet </item>
-        <item>life cycle of an Applet</item>
+        <item>What is an Applet</item>
+        <item>Life cycle of an Applet</item>
     </string-array>
 
     <string-array name="swing">
         <item>Choice and a List</item>
-        <item>layout manager</item>
+        <item>Layout manager</item>
     </string-array>
 
     <string-array name="jdbc">
-        <item>What is JDBC </item>
+        <item>What is JDBC</item>
         <item>Driver in JDBC</item>
     </string-array>
 
     <string-array name="remote_method_invocation">
         <item>What is RMI</item>
-        <item>basic principle of RMI</item>
+        <item>Basic principle of RMI</item>
     </string-array>
 
     <string-array name="servlets">
         <item>What is a Servlet</item>
-        <item>architechure of a Servlet</item>
+        <item>Architechure of a Servlet</item>
     </string-array>
 
     <string-array name="jsp">
@@ -90,6 +90,194 @@
             which is executed by the JVM. Java was designed to allow application programs to be built that could be run on any platform, without having to
             be rewritten or recompiled by the programmer for each separate platform. A Java virtual machine makes this possible, because it is aware of the
             specific instruction lengths and other particularities of the underlying hardware platform.
+        </item>
+    </string-array>
+
+    <string-array name="jre_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="processes_and_threads_">
+        <item name = "definition"> What is the difference between processes and threads ?</item>
+        <item name = "code">
+            A process is an execution of a program, while a Thread is a single execution sequence within a process.
+            A process can contain multiple threads. A Thread is sometimes called a lightweight process.
+        </item>
+    </string-array>
+
+    <string-array name="ways_of_creating_a_thread_">
+        <item name = "definition"> Explain different ways of creating a thread. Which one would you prefer and why ?</item>
+        <item name = "code">
+            There are three ways that can be used in order for a Thread to be created:\n
+            A class may extend the Thread class.\n
+            A class may implement the Runnable interface.\n
+            An application can use the Executor framework, in order to create a thread pool.
+        </item>
+    </string-array>
+
+    <string-array name="Java_Collections_Framework_">
+        <item name = "definition"> Explain different ways of creating a thread. Which one would you prefer and why ?</item>
+        <item name = "code">
+            There are three ways that can be used in order for a Thread to be created:\n
+            A class may extend the Thread class.\n
+            A class may implement the Runnable interface.\n
+            An application can use the Executor framework, in order to create a thread pool.
+        </item>
+    </string-array>
+
+    <string-array name="cloneable_and_serializable_interfaces_">
+        <item name = "definition"> Explain different ways of creating a thread. Which one would you prefer and why ?</item>
+        <item name = "code">
+            The Collection interface specifies groups of objects known as elements. Each concrete implementation of a Collection
+            can choose its own way of how to maintain and order its elements. Some collections allow duplicate keys, while some
+            other collections don’t. The semantics and the implications of either cloning or serialization come into play when
+            dealing with actual implementations. Thus, the concrete implementations of collections should decide how they can be cloned or serialized.
+        </item>
+    </string-array>
+
+    <string-array name="purpose_of_garbage_collection_">
+        <item name = "definition"> Explain different ways of creating a thread. Which one would you prefer and why ?</item>
+        <item name = "code">
+            The purpose of garbage collection is to identify and discard those objects that are no longer needed by the application,
+            in order for the resources to be reclaimed and reused.
+        </item>
+    </string-array>
+
+    <string-array name="system_and_runtime_">
+        <item name = "definition">What does System.gc() and Runtime.gc() methods do ?</item>
+        <item name = "code">
+            These methods can be used as a hint to the JVM, in order to start a garbage collection. However, this it is up to the Java Virtual
+            Machine (JVM) to start the garbage collection immediately or later in time.
+        </item>
+    </string-array>
+
+    <string-array name="exceptions_in_java_">
+        <item name = "definition">What are the two types of Exceptions in Java ? Which are the differences between them ?</item>
+        <item name = "code">
+            Java has two types of exceptions: checked exceptions and unchecked exceptions. Unchecked exceptions do not need to be declared
+            in a method or a constructor’s throws clause, if they can be thrown by the execution of the method or the constructor,
+            and propagate outside the method or constructor boundary. On the other hand, checked exceptions must be declared in a
+            method or a constructor’s throws clause.
+        </item>
+    </string-array>
+
+    <string-array name="exception_and_error_">
+        <item name = "definition">What is the difference between Exception and Error in java ?</item>
+        <item name = "code">
+            Exception and Error classes are both subclasses of the Throwable class. The Exception class is used for exceptional conditions that
+            a user’s program should catch. The Error class defines exceptions that are not excepted to be caught by the user program.
+        </item>
+    </string-array>
+
+    <string-array name="what_is_an_applet_">
+        <item name = "definition">What is an Applet ?</item>
+        <item name = "code">
+            A java applet is program that can be included in a HTML page and be executed in a java enabled client browser.
+            Applets are used for creating dynamic and interactive web applications.
+        </item>
+    </string-array>
+
+    <string-array name="life_cycle_of_an_applet_">
+        <item name = "definition">Explain the life cycle of an Applet.</item>
+        <item name = "code">
+            An applet may undergo the following states:\n
+            Init: An applet is initialized each time is loaded.\n
+            Start: Begin the execution of an applet.\n
+            Stop: Stop the execution of an applet.\n
+            Destroy: Perform a final cleanup, before unloading the applet.
+        </item>
+    </string-array>
+
+    <string-array name="choice_and_a_list_">
+        <item name = "definition">What is the difference between a Choice and a List ?</item>
+        <item name = "code">
+            A Choice is displayed in a compact form that must be pulled down, in order for a user to be able to see the list of all available choices.
+            Only one item may be selected from a Choice. A List may be displayed in such a way that several List items are visible. A List supports
+            the selection of one or more List items.
+        </item>
+    </string-array>
+
+    <string-array name="layout_manager_">
+        <item name = "definition">What is a layout manager ?</item>
+        <item name = "code">
+            A layout manager is the used to organize the components in a container.
+        </item>
+    </string-array>
+
+    <string-array name="what_is_jdbc_">
+        <item name = "definition">What is JDBC ?</item>
+        <item name = "code">
+            JDBC is an abstraction layer that allows users to choose between databases. JDBC enables developers to write database applications
+            in Java, without having to concern themselves with the underlying details of a particular databas
+        </item>
+    </string-array>
+
+    <string-array name="driver_in_jdbc">
+        <item name = "definition">Explain the role of Driver in JDBC.</item>
+        <item name = "code">
+            The JDBC Driver provides vendor-specific implementations of the abstract classes provided by the JDBC API. Each driver must provide
+            implementations for the following classes of the java.sql package:Connection, Statement, PreparedStatement, CallableStatement, ResultSet and Driver.
+        </item>
+    </string-array>
+
+    <string-array name="what_is_rmi_">
+        <item name = "definition">What is RMI ?</item>
+        <item name = "code">
+            The Java Remote Method Invocation (Java RMI) is a Java API that performs the object-oriented equivalent of remote procedure calls (RPC),
+            with support for direct transfer of serialized Java classes and distributed garbage collection. Remote Method Invocation (RMI) can also
+            be seen as the process of activating a method on a remotely running object. RMI offers location transparency because a user feels that
+            a method is executed on a locally running object.
+        </item>
+    </string-array>
+
+    <string-array name="basic_principle_of_rmi_">
+        <item name = "definition">What is the basic principle of RMI architecture ?</item>
+        <item name = "code">
+            The RMI architecture is based on a very important principle which states that the definition of the behavior and the implementation of
+            that behavior, are separate concepts. RMI allows the code that defines the behavior and the code that implements the behavior to remain
+            separate and to run on separate JVMs.
+        </item>
+    </string-array>
+
+    <string-array name="what_is_servlet_">
+        <item name = "definition">What is a Servlet ?</item>
+        <item name = "code">
+            The servlet is a Java programming language class used to process client requests and generate dynamic web content.
+            Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state
+            information that does not exist in the stateless HTTP protocol.
+        </item>
+    </string-array>
+
+    <string-array name="architechure_of_a_servlet_">
+        <item name = "definition">Explain the architechure of a Servlet.</item>
+        <item name = "code">
+            The core abstraction that must be implemented by all servlets is the javax.servlet.Servlet interface. Each servlet
+            must implement it either directly or indirectly, either by extending javax.servlet.GenericServlet or javax.servlet.http.HTTPServlet.
+            Finally, each servlet is able to serve multiple requests in parallel using multithreading.
+        </item>
+    </string-array>
+
+    <string-array name="jsp_page_">
+        <item name = "definition">What is a JSP Page ? </item>
+        <item name = "code">
+            A Java Server Page (JSP) is a text document that contains two types of text: static data and JSP elements. Static
+            data can be expressed in any text-based format, such as HTML or XML. JSP is a technology that mixes static content with dynamically-generated content.
+        </item>
+    </string-array>
+
+    <string-array name="jsp_requests_handled_">
+        <item name = "definition">How are the JSP requests handled ?</item>
+        <item name = "code">
+            On the arrival of a JSP request, the browser first requests a page with a .jsp extension. Then, the Web server reads
+            the request and using the JSP compiler, the Web server converts the JSP page into a servlet class. Notice that the JSP
+            file is compiled only on the first request of the page, or if the JSP file has changed.The generated servlet class is
+            invoked, in order to handle the browser’s request. Once the execution of the request is over, the servlet sends a
+            response back to the client.
         </item>
     </string-array>
 

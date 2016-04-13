@@ -28,7 +28,6 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
     final ArrayList<String> list = new ArrayList<String>();
-
     private String[] mTitles;
     private static IndexCallback indexCallback;
 
@@ -42,7 +41,6 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         mLayoutInflater = LayoutInflater.from(context);
     }
 
-
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new TextViewHolder(mLayoutInflater.inflate(R.layout.item_text, parent, false));
@@ -55,7 +53,11 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity) mContext).startContentFragment(mTitles[position].toString());
+                try {
+                    ((MainActivity) mContext).startContentFragment(mTitles[position].toString());
+                }catch(Exception e) {
+                    Log.d("FragmentAdapter", e.toString());
+                }
             }
         });
     }
