@@ -12,4 +12,6 @@
     <color name="colorLightBlue">#51AAEC</color>
     <color name="colorBlue">#ff0000ff</color>
     <color name="colorSkyBlue">#87CEFA</color>
+    <color name="colorSlideBlue">#2A3F6A</color>
+
 </resources>

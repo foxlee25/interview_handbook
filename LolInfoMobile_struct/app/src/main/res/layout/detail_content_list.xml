@@ -34,23 +34,23 @@
             android:layout_below="@+id/text_view"
             android:textColor="@color/colorBlack"/>
 
-        <Button
-            android:id="@+id/btn_getAnswer"
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            android:text="Answer"
-            android:visibility="gone"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_below="@+id/text_title"/>
-
         <ImageView
             android:id="@+id/img_favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_title"
-            android:layout_toRightOf="@+id/btn_getAnswer"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:src="@drawable/favorite_red_9" />
+
+        <Button
+            android:id="@+id/btn_getAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Answer"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_below="@+id/img_favorite"/>
 
         <ImageView
             android:id="@+id/img_getAnswer"

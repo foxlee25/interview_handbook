@@ -17,14 +17,14 @@
         android:scaleType="fitXY"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="@color/colorSkyBlue">
+        android:background="@color/colorSlideBlue">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:textSize="20dp"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorPearlWhite"
             android:text="Data Structure"
             android:padding="5dp" />
         <!--<ImageView-->
@@ -42,14 +42,14 @@
         android:scaleType="fitXY"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="@color/colorSkyBlue">
+        android:background="@color/colorSlideBlue">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="20dp"
             android:gravity="center"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorPearlWhite"
             android:text="Core Java"
             android:padding="5dp" />
     </LinearLayout>
@@ -62,14 +62,14 @@
         android:orientation="horizontal"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="@color/colorSkyBlue">
+        android:background="@color/colorSlideBlue">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="20dp"
             android:gravity="center"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorPearlWhite"
             android:text="Favorite List"
             android:padding="5dp" />
         <!--<ImageView-->

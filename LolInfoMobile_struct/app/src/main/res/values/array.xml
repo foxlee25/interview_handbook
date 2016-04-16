@@ -31,58 +31,160 @@
     <string-array name="general_questions">
         <item>JVM</item>
         <item>JRE</item>
+        <item>Static keyword</item>
+        <item>Access non static variable</item>
+        <item>Data Types</item>
+        <item>Overriding and Overloading</item>
+        <item>Constructor</item>
+        <item>Inheritance</item>
+        <item>Interface and an Abstract class</item>
+        <item>Pass by reference and pass by value</item>
     </string-array>
 
     <string-array name="java_threads">
         <item>Processes and threads</item>
         <item>Ways of creating a thread</item>
+        <item>Available thread states</item>
+        <item>Synchronized method</item>
+        <item>Thread synchronization</item>
+        <item>Deadlock</item>
+        <item>Threads can access without deadlock</item>
     </string-array>
 
     <string-array name="java_collections">
         <item>Java Collections Framework</item>
         <item>Cloneable and Serializable Interfaces</item>
+        <item>Iterator</item>
+        <item>Iterator and ListIterator</item>
+        <item>Fail fast and fail safe</item>
+        <item>HashMap</item>
+        <item>HashCode</item>
+        <item>HashMap and Hashtable</item>
+        <item>Array and ArrayList</item>
+        <item>ArrayList and LinkedList</item>
+        <item>Comparable and Comparator interface</item>
+        <item>Java Priority Queue</item>
+        <item>Big O notation</item>
+        <item>Unordered array</item>
+        <item>Enumeration and Iterator interfaces</item>
+        <item>Java Collection framework</item>
+        <item>HashSet and TreeSet</item>
     </string-array>
 
     <string-array name="garbage_collectors">
         <item>Purpose of garbage collection</item>
         <item>System and Runtime</item>
     </string-array>
+        <!--<item>finalization</item>-->
+        <!--<item>object reference</item>-->
+        <!--<item>Java Heap</item>-->
+        <!--<item>Serial and Throughput Garbage</item>-->
+        <!--<item>Garbage collection</item>-->
+        <!--<item>permanent generation space</item>-->
+    <!--</string-array>-->
 
     <string-array name="exception_handling">
         <item>Exceptions in Java</item>
         <item>Exception and Error</item>
     </string-array>
+        <!--<item>throw and throws</item>-->
+        <!--<item>finally block</item>-->
+        <!--<item>Exception object</item>-->
+        <!--<item>finally block</item>-->
+    <!--</string-array>-->
 
     <string-array name="java_applets">
         <item>What is an Applet</item>
         <item>Life cycle of an Applet</item>
     </string-array>
+        <!--<item>applet is loaded</item>-->
+        <!--<item>Applet and a Java Application</item>-->
+        <!--<item>restrictions imposed on Java applets</item>-->
+        <!--<item>untrusted applets</item>-->
+        <!--<item>applets loaded over the internet and applets loaded via the file system</item>-->
+        <!--<item>applet class loader</item>-->
+        <!--<item>applet security manager</item>-->
+    <!--</string-array>-->
 
     <string-array name="swing">
         <item>Choice and a List</item>
-        <item>Layout manager</item>
+        <item>Layoutmanager</item>
     </string-array>
+        <!--<item>Scrollbar</item>-->
+        <!--<item>threadsafe</item>-->
+        <!--<item>Component subclasses that support painting</item>-->
+        <!--<item>clipping </item>-->
+        <!--<item>MenuItem and a CheckboxMenuItem</item>-->
+        <!--<item>BorderLayout</item>-->
+        <!--<item>GridBagLayout</item>-->
+        <!--<item>Window and a Frame</item>-->
+        <!--<item>clipping and repainting</item>-->
+        <!--<item>event listener interface and an event adapter class</item>-->
+        <!--<item>GUI component handle its own events</item>-->
+        <!--<item>layout managers provide over traditional windowing systems</item>-->
+        <!--<item>design pattern</item>-->
+    <!--</string-array>-->
 
     <string-array name="jdbc">
         <item>What is JDBC</item>
         <item>Driver in JDBC</item>
     </string-array>
+        <!--<item>Class.forName</item>-->
+        <!--<item>advantage of PreparedStatement over Statement</item>-->
+        <!--<item>CallableStatement</item>-->
+        <!--<item>Connection pooling</item>-->
+    <!--</string-array>-->
 
     <string-array name="remote_method_invocation">
         <item>What is RMI</item>
         <item>Basic principle of RMI</item>
     </string-array>
+        <!--<item>RMI Architecture</item>-->
+        <!--<item>Remote Interface in RMI</item>-->
+        <!--<item>java.rmi.Naming Class</item>-->
+        <!--<item>binding in RMI</item>-->
+        <!--<item>bind and rebind methods of Naming Class</item>-->
+        <!--<item>steps involved to make work a RMI program</item>-->
+        <!--<item>role of stub</item>-->
+        <!--<item>DGC</item>-->
+        <!--<item>Marshalling and demarshalling</item>-->
+        <!--<item>Serialization and Deserialization</item>-->
+    <!--</string-array>-->
 
     <string-array name="servlets">
         <item>What is a Servlet</item>
         <item>Architechure of a Servlet</item>
     </string-array>
+        <!--<item>Applet and a Servlet</item>-->
+        <!--<item>GenericServlet and HttpServlet</item>-->
+        <!--<item>life cycle of a Servlet</item>-->
+        <!--<item>doGet and doPost</item>-->
+        <!--<item>Web Application</item>-->
+        <!--<item>Server Side Include</item>-->
+        <!--<item>Servlet Chaining</item>-->
+        <!--<item>client machine</item>-->
+        <!--<item>structure of the HTTP response</item>-->
+        <!--<item>session and cookie</item>-->
+        <!--<item>browser and servlet</item>-->
+        <!--<item>HTTP Tunneling</item>-->
+        <!--<item>sendRedirect and forward methods</item>-->
+        <!--<item>URL Encoding and URL Decoding</item>-->
+    <!--</string-array>-->
 
     <string-array name="jsp">
         <item>JSP Page</item>
         <item>JSP requests handled</item>
     </string-array>
+        <!--<item>advantages of JSP</item>-->
+        <!--<item>Directives available in JSP</item>-->
+        <!--<item>JSP actions</item>-->
+        <!--<item>Scriptlets</item>-->
+        <!--<item>Decalarations</item>-->
+        <!--<item>Expressions</item>-->
+        <!--<item>implicit objects</item>-->
+    <!--</string-array>-->
 
+    <!--<string-array name="general_questions">-->
     <string-array name="jvm_">
         <item name = "definition"> What is JVM ? Why is Java called the “Platform Independent Programming Language” ?</item>
         <item name = "code">
@@ -102,6 +204,93 @@
         </item>
     </string-array>
 
+    <string-array name="static_keyword_">
+        <item name = "definition">What does the “static” keyword mean ? Can you override private or static method in Java ?</item>
+        <item name = "code">
+            The static keyword denotes that a member variable or method can be accessed, without requiring an instantiation of the class to which it belongs.
+            A user cannot override static methods in Java, because method overriding is based upon dynamic binding at runtime and static methods are statically
+            binded at compile time. A static method is not associated with any instance of a class so the concept is not applicable.
+        </item>
+    </string-array>
+
+    <string-array name="access_non_static_variable_">
+        <item name = "definition">Can you access non static variable in static context ?</item>
+        <item name = "code">
+            A static variable in Java belongs to its class and its value remains the same for all its instances. A static variable is initialized when the class
+            is loaded by the JVM. If your code tries to access a non-static variable, without any instance, the compiler will complain, because those variables
+            are not created yet and they are not associated with any instance.
+        </item>
+    </string-array>
+
+    <string-array name="data_types_">
+        <item name = "definition">What are the Data Types supported by Java ? What is Autoboxing and Unboxing ?</item>
+        <item name = "code">
+            The eight primitive data types supported by the Java programming language are:
+            byte\n
+            short\n
+            int\n
+            long\n
+            float\n
+            double\n
+            boolean\n
+            char\n
+            Autoboxing is the automatic conversion made by the Java compiler between the primitive types and their corresponding object wrapper classes.
+            For example, the compiler converts an int to an Integer, a double to a Double, and so on. If the conversion goes the other way, this operation
+            is called unboxing.
+        </item>
+    </string-array>
+
+    <string-array name="overriding_and_overloading_">
+        <item name = "definition"> What is Function Overriding and Overloading in Java ?</item>
+        <item name = "code">
+            Method overloading in Java occurs when two or more methods in the same class have the exact same name, but different parameters.
+            On the other hand, method overriding is defined as the case when a child class redefines the same method as a parent class.
+            Overridden methods must have the same name, argument list, and return type. The overriding method may not limit the access of the method it override
+        </item>
+    </string-array>
+
+    <string-array name="constructor_">
+        <item name = "definition"> What is a Constructor, Constructor Overloading in Java and Copy Constructor ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="inheritance_">
+        <item name = "definition">Does Java support multiple inheritance ?</item>
+        <item name = "code">
+            No, Java does not support multiple inheritance. Each class is able to extend only on one class, but is able to implement more than one interfaces.
+        </item>
+    </string-array>
+
+    <string-array name="interface_and_an_abstract_class_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            Java provides and supports the creation both of abstract classes and interfaces.
+            Both implementations share some common characteristics, but they differ in the following features:\n
+            All methods in an interface are implicitly abstract. On the other hand, an abstract class may contain both abstract and non-abstract methods.\n
+            A class may implement a number of Interfaces, but can extend only one abstract class.\n
+            In order for a class to implement an interface, it must implement all its declared methods. However, a class may not implement all declared
+            methods of an abstract class. Though, in this case, the sub-class must also be declared as abstract.\n
+            Abstract classes can implement interfaces without even providing the implementation of interface methods.\n
+            Variables declared in a Java interface is by default final. An abstract class may contain non-final variables.\n
+            Members of a Java interface are public by default. A member of an abstract class can either be private, protected or public.\n
+            An interface is absolutely abstract and cannot be instantiated. An abstract class also cannot be instantiated, but can be invoked if it contains a main method.
+        </item>
+    </string-array>
+
+    <string-array name="pass_by_reference_and_pass_by_value_">
+        <item name = "definition"> What are pass by reference and pass by value ?</item>
+        <item name = "code">
+            When an object is passed by value, this means that a copy of the object is passed. Thus, even if changes are made to that object, it doesn’t affect
+            the original value. When an object is passed by reference, this means that the actual object is not passed, rather a reference of the object is passed.
+            Thus, any changes made by the external method, are also reflected in all places.
+        </item>
+    </string-array>
+
+    <!--<string-array name="java_threads">-->
     <string-array name="processes_and_threads_">
         <item name = "definition"> What is the difference between processes and threads ?</item>
         <item name = "code">
@@ -116,11 +305,77 @@
             There are three ways that can be used in order for a Thread to be created:\n
             A class may extend the Thread class.\n
             A class may implement the Runnable interface.\n
-            An application can use the Executor framework, in order to create a thread pool.
+            An application can use the Executor framework, in order to create a thread pool.\n
+            The Runnable interface is preferred, as it does not require an object to inherit the Thread class. In case your application
+            design requires multiple inheritance, only interfaces can help you. Also, the thread pool is very efficient and can be implemented and used very easily.
         </item>
     </string-array>
 
-    <string-array name="Java_Collections_Framework_">
+    <string-array name="available_thread_states_">
+        <item name = "definition">Explain the available thread states in a high\-level</item>
+        <item name = "code">
+            During its execution, a thread can reside in one of the following states:
+            NEW: The thread becomes ready to run, but does not necessarily start running immediately.\n
+            RUNNABLE: The Java Virtual Machine \(JVM\) is actively executing the thread’s code.\n
+            BLOCKED: The thread is in a blocked state while waiting for a monitor lock.\n
+            WAITING: The thread waits for another thread to perform a particular action.\n
+            TIMED_WAITING: The thread waits for another thread to perform a particular action up to a specified waiting time.\n
+            TERMINATED: The thread has finished its execution.
+        </item>
+    </string-array>
+
+    <string-array name="synchronized_method_">
+        <item name = "definition">What is the difference between a synchronized method and a synchronized block ?</item>
+        <item name = "code">
+            In Java programming, each object has a lock. A thread can acquire the lock for an object by using the synchronized keyword.
+            The synchronized keyword can be applied in a method level \(coarse grained lock\) or block level of code \(fine grained lock\).
+        </item>
+    </string-array>
+
+    <string-array name="thread_synchronization_">
+        <item name = "definition">How does thread synchronization occurs inside a monitor ? What levels of synchronization can you apply ?</item>
+        <item name = "code">
+            The JVM uses locks in conjunction with monitors. A monitor is basically a guardian that watches over a sequence of synchronized code and
+            ensuring that only one thread at a time executes a synchronized piece of code. Each monitor is associated with an object reference.
+            The thread is not allowed to execute the code until it obtains the lock.
+        </item>
+    </string-array>
+
+    <string-array name="deadlock_">
+        <item name = "definition">What’s a deadlock ?</item>
+        <item name = "code">
+            A condition that occurs when two processes are waiting for each other to complete, before proceeding. The result is that both processes wait endlessly.
+        </item>
+    </string-array>
+
+    <string-array name="threads_can_access_without_deadlock_">
+        <item name = "definition">How do you ensure that N threads can access N resources without deadlock ?</item>
+        <item name = "code">
+            A very simple way to avoid deadlock while using N threads is to impose an ordering on the locks and force each thread to follow that ordering.
+            Thus, if all threads lock and unlock the mutexes in the same order, no deadlocks can arise.
+        </item>
+    </string-array>
+
+    <!--<string-array name="java_collections">-->
+        <!--<item>Java Collections Framework</item>-->
+        <!--<item>Cloneable and Serializable Interfaces</item>-->
+        <!--<item>Iterator</item>-->
+        <!--<item>Iterator and ListIterator</item>-->
+        <!--<item>fail fast and fail safe</item>-->
+        <!--<item>HashMap</item>-->
+        <!--<item>hashCode</item>-->
+        <!--<item>HashMap and Hashtable</item>-->
+        <!--<item>Array and ArrayList</item>-->
+        <!--<item>Comparable and Comparator interface</item>-->
+        <!--<item>Java Priority Queue</item>-->
+        <!--<item>big O notation</item>-->
+        <!--<item>unordered array</item>-->
+        <!--<item>Enumeration and Iterator interfaces</item>-->
+        <!--<item>Java Collection framework</item>-->
+        <!--<item>HashSet and TreeSet</item>-->
+    <!--</string-array>-->
+
+    <string-array name="java_collections_framework_">
         <item name = "definition"> Explain different ways of creating a thread. Which one would you prefer and why ?</item>
         <item name = "code">
             There are three ways that can be used in order for a Thread to be created:\n
@@ -137,6 +392,238 @@
             can choose its own way of how to maintain and order its elements. Some collections allow duplicate keys, while some
             other collections don’t. The semantics and the implications of either cloning or serialization come into play when
             dealing with actual implementations. Thus, the concrete implementations of collections should decide how they can be cloned or serialized.
+        </item>
+    </string-array>
+
+    <string-array name="iterator_">
+        <item name = "definition">What is an Iterator ?</item>
+        <item name = "code">
+            The Iterator interface provides a number of methods that are able to iterate over any Collection. Each Java Collection contains the
+            iterator method that returns an Iterator instance. Iterators are capable of removing elements from the underlying collection during the iteration.
+        </item>
+    </string-array>
+
+    <string-array name="iterator_and_listiterator_">
+        <item name = "definition">What differences exist between Iterator and ListIterator ?</item>
+        <item name = "code">
+            The differences of these elements are listed below:\n
+            An Iterator can be used to traverse the Set and List collections, while the ListIterator can be used to iterate only over Lists.\n
+            The Iterator can traverse a collection only in forward direction, while the ListIterator can traverse a List in both directions.\n
+            The ListIterator implements the Iterator interface and contains extra functionality, such as adding an element, replacing an element,\n
+            getting the index position for previous and next elements, etc.
+        </item>
+    </string-array>
+
+    <string-array name="fail_fast_and_fail_safe_">
+        <item name = "definition">What is difference between fail fast and fail  safe ?</item>
+        <item name = "code">
+            The Iterator\'s fail  safe property works with the clone of the underlying collection and thus, it is not affected by any
+            modification in the collection. All the collection classes in java.util package are fail  fast, while the collection classes
+            in java.util.concurrent are fail  safe. Fail fast iterators throw a ConcurrentModificationException, while fail  safe iterator
+            never throws such an exception.
+        </item>
+    </string-array>
+
+    <string-array name="hashmap_">
+        <item name = "definition">How HashMap works in Java ?</item>
+        <item name = "code">
+            A HashMap in Java stores key-value pairs. The HashMap requires a hash function and uses hashCode and equals methods, in order
+            to put and retrieve elements to and from the collection respectively. When the put method is invoked, the HashMap calculates
+            the hash value of the key and stores the pair in the appropriate index inside the collection. If the key exists, its value is
+            updated with the new value. Some important characteristics of a HashMap are its capacity, its load factor and the threshold resizing.
+        </item>
+    </string-array>
+
+    <string-array name="hashcode_">
+        <item name = "definition">What is the importance of hashCode() and equals() methods ?</item>
+        <item name = "code">
+            In Java, a HashMap uses the hashCode and equals methods to determine the index of the key-value pair and to detect duplicates. More specifically,
+            the hashCode method is used in order to determine where the specified key will be stored. Since different keys may produce the same hash value,
+            the equals method is used, in order to determine whether the specified key actually exists in the collection or not. Therefore, the implementation
+            of both methods is crucial to the accuracy and efficiency of the HashMap.
+        </item>
+    </string-array>
+
+    <string-array name="hashmap_and_hashtable_">
+        <item name = "definition">What differences exist between HashMap and Hashtable ?</item>
+        <item name = "code">
+            Both the HashMap and Hashtable classes implement the Map interface and thus, have very similar characteristics. However,
+            they differ in the following features:
+            A HashMap allows the existence of null keys and values, while a Hashtable doesn’t allow neither null keys, nor null values.\n
+            A Hashtable is synchronized, while a HashMap is not. Thus, HashMap is preferred in single-threaded environments, while a Hashtable
+            is suitable for multi-threaded environments.\n
+            A HashMap provides its set of keys and a Java application can iterate over them. Thus, a HashMap is fail-fast. On the other hand,
+            a Hashtable provides an Enumeration of its keys.\n
+            The Hashtable class is considered to be a legacy class.
+        </item>
+    </string-array>
+
+    <string-array name="array_and_arraylist_">
+        <item name = "definition">What differences exist between HashMap and Hashtable ?</item>
+        <item name = "code">
+            The Array and ArrayList classes differ on the following features:
+            Arrays can contain primitive or objects, while an ArrayList can contain only objects.
+            Arrays have fixed size, while an ArrayList is dynamic.
+            An ArrayListprovides more methods and features, such as addAll, removeAll, iterator, etc.
+            For a list of primitive data types, the collections use autoboxing to reduce the coding effort. However, this approach
+        </item>
+    </string-array>
+
+    <string-array name="arraylist_and_linkedlist_">
+        <item name = "definition">What is difference between ArrayList and LinkedList ? </item>
+        <item name = "code">
+            Both the ArrayList and LinkedList classes implement the List interface, but they differ on the following features:
+            An ArrayList is an index based data structure backed by an Array. It provides random access to its elements with a performance equal to O\(1\).\n
+            On the other hand, a LinkedList stores its data as list of elements and every element is linked to its previous and next element.\n
+            In this case, the search operation for an element has execution time equal to O\(n\).\n
+            The Insertion, addition and removal operations of an element are faster in a LinkedList compared to an ArrayList, because there is no need of
+            resizing an array or updating the index when an element is added in some arbitrary position inside the collection.\n
+            A LinkedList consumes more memory than an ArrayList, because every node in a LinkedList stores two references, one for its previous element
+            and one for its next element.\n
+            Check also our article ArrayList vs. LinkedList.
+        </item>
+    </string-array>
+
+    <string-array name="comparable_and_comparator_interface_">
+        <item name = "definition">What is Comparable and Comparator interface ? List their differences.</item>
+        <item name = "code">
+            Java provides the Comparable interface, which contains only one method, called compareTo. This method compares two objects, in order to
+            impose an order between them. Specifically, it returns a negative integer, zero, or a positive integer to indicate that the input object
+            is less than, equal or greater than the existing object. Java provides the Comparator interface, which contains two methods, called compare
+            and equals. The first method compares its two input arguments and imposes an order between them. It returns a negative integer, zero, or a
+            positive integer to indicate that the first argument is less than, equal to, or greater than the second. The second method requires an object
+            as a parameter and aims to decide whether the input object is equal to the comparator. The method returns true, only if the specified object
+            is also a comparator and it imposes the same ordering as the comparator.
+        </item>
+    </string-array>
+
+    <string-array name="java_priority_queue_">
+        <item name = "definition"> What are pass by reference and pass by value ?</item>
+        <item name = "code">
+            The PriorityQueue is an unbounded queue, based on a priority heap and its elements are ordered in their natural order. At the time of its creation,
+            we can provide a Comparator that is responsible for ordering the elements of the PriorityQueue. A PriorityQueue doesn’t allow null values, those objects that doesn’t provide natural ordering, or those objects that don’t have any comparator associated with them. Finally, the Java PriorityQueue is not thread-safe and it requires O(log(n)) time for its enqueing and dequeing operations.
+        </item>
+    </string-array>
+
+    <string-array name="big_o_notation_">
+        <item name = "definition">What do you know about the big O notation and can you give some examples with respect to different data structures ?</item>
+        <item name = "code">
+            The Big-O notation simply describes how well an algorithm scales or performs in the worst case scenario as the number of elements in a data structure increases. The Big-O notation can also be used to describe other behavior such as memory consumption. Since the collection classes are actually data structures, we usually use the Big-O notation to chose the best implementation to use, based on time, memory and performance. Big-O notation can give a good indication about performance for large amounts of data.
+        </item>
+    </string-array>
+
+    <string-array name="unordered_array_">
+        <item name = "definition">What is the tradeoff between using an unordered array versus an ordered array ?</item>
+        <item name = "code">
+            The major advantage of an ordered array is that the search times have time complexity of O\(log n\), compared to that of an unordered array, which is O (n). The disadvantage of an ordered array is that the insertion operation has a time complexity of O(n), because the elements with higher values must be moved to make room for the new element. Instead, the insertion operation for an unordered array takes constant time of O\(1\).
+        </item>
+    </string-array>
+
+    <string-array name="java_collection_framework_">
+        <item name = "definition"> What are some of the best practices relating to the Java Collection framework ?</item>
+        <item name = "code">
+           Choosing the right type of the collection to use, based on the application’s needs, is very crucial for its performance. For example if the size of the elements is fixed and know a priori, we shall use an Array, instead of an ArrayList.
+Some collection classes allow us to specify their initial capacity. Thus, if we have an estimation on the number of elements that will be stored, we can use it to avoid rehashing or resizing.
+Always use Generics for type-safety, readability, and robustness. Also, by using Generics you avoid the ClassCastException during runtime.
+Use immutable classes provided by the Java Development Kit (JDK) as a key in a Map, in order to avoid the implementation of the hashCode and equals methods for our custom class.
+Program in terms of interface not implementation.
+Return zero-length collections or arrays as opposed to returning a null in case the underlying collection is actually empty.
+        </item>
+    </string-array>
+
+    <string-array name="enumeration_and_iterator_interfaces_">
+        <item name = "definition"> What are some of the best practices relating to the Java Collection framework ?</item>
+        <item name = "code">
+            Enumeration is twice as fast as compared to an Iterator and uses very less memory. However, the Iterator is much safer compared to Enumeration, because other threads are not able to modify the collection object that is currently traversed by the iterator. Also, Iteratorsallow the caller to remove elements from the underlying collection, something which is not possible with
+        </item>
+    </string-array>
+
+    <string-array name="hashset_and_treeset_">
+        <item name = "definition"> What is the difference between HashSet and TreeSet ?</item>
+        <item name = "code">
+            The HashSet is Implemented using a hash table and thus, its elements are not ordered. The add, remove, and contains methods of a HashSet have constant time complexity O(1). On the other hand, a TreeSet is implemented using a tree structure. The elements in a TreeSet are sorted, and thus, the add, remove, and contains methods have time complexity of O\(logn\).es.
+        </item>
+    </string-array>
+
+    <!--<string name="next"></string>-->
+    <string-array name="java_collections_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="garbage_collectors_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="exception_handling_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item> name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="java_applets_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="swing_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="jdbc_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="remote_method_invocation_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="servlets_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="jsp_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
         </item>
     </string-array>
 
@@ -217,7 +704,7 @@
         </item>
     </string-array>
 
-    <string-array name="driver_in_jdbc">
+    <string-array name="driver_in_jdbc_">
         <item name = "definition">Explain the role of Driver in JDBC.</item>
         <item name = "code">
             The JDBC Driver provides vendor-specific implementations of the abstract classes provided by the JDBC API. Each driver must provide
@@ -244,7 +731,7 @@
         </item>
     </string-array>
 
-    <string-array name="what_is_servlet_">
+    <string-array name="what_is_a_servlet_">
         <item name = "definition">What is a Servlet ?</item>
         <item name = "code">
             The servlet is a Java programming language class used to process client requests and generate dynamic web content.

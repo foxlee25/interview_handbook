@@ -24,13 +24,11 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         ITEM_TYPE_TEXT
     }
     String[] values = new String[] { "" };
-
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
     final ArrayList<String> list = new ArrayList<String>();
     private String[] mTitles;
     private static IndexCallback indexCallback;
-
     public void onIndexUpdate(IndexCallback indexCallback) {
         this.indexCallback = indexCallback;
     }
@@ -53,11 +51,11 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    ((MainActivity) mContext).startContentFragment(mTitles[position].toString());
-                }catch(Exception e) {
-                    Log.d("FragmentAdapter", e.toString());
-                }
+            try {
+                ((MainActivity) mContext).startContentFragment(mTitles[position].toString());
+            }catch(Exception e) {
+                Log.d("FragmentAdapter", e.toString());
+            }
             }
         });
     }
@@ -80,7 +78,6 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             super(view);
             ButterKnife.bind(this, view);
         }
-
         @OnClick(R.id.cv_text)
         void onItemClick() {
             Log.d("TextViewHolder", "onClick--> position = " + getPosition());
