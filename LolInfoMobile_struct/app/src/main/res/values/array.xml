@@ -1628,7 +1628,7 @@ public List&lt;Integer&gt; majorityElement(int[] nums) {\n
         </item>
 </string-array>
 
-<string-array name="strStr_">
+<string-array name="strstr_">
         <item name="definition">
             strstr (a.k.a find sub string), is a useful function in string operation.
 You task is to implement this function.

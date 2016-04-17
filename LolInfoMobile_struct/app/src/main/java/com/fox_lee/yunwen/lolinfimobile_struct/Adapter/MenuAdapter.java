@@ -45,24 +45,25 @@ public class MenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        if (holder instanceof TextViewHolder)
+        if (holder instanceof TextViewHolder) {
             ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
-
-        ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mContext instanceof View.OnClickListener) {
-                    switch (((TextViewHolder) holder).mTextView.getText().toString()) {
-                        case "Algorithm": /* start activity accordingly */
-                            ((MainActivity) mContext).startAlgorithmFragment(mTitles[position]);
-                            break;
-                        default:
-                            Toast.makeText(mContext, "Coming soon", Toast.LENGTH_SHORT).show();
-                            break;
+            ((TextViewHolder) holder).mTextView.setTextColor(mContext.getResources().getColor(R.color.colorText));
+                    ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mContext instanceof View.OnClickListener) {
+                        switch (((TextViewHolder) holder).mTextView.getText().toString()) {
+                            case "Algorithm": /* start activity accordingly */
+                                ((MainActivity) mContext).startAlgorithmFragment(mTitles[position]);
+                                break;
+                            default:
+                                Toast.makeText(mContext, "Coming soon", Toast.LENGTH_SHORT).show();
+                                break;
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     }
 
     @Override

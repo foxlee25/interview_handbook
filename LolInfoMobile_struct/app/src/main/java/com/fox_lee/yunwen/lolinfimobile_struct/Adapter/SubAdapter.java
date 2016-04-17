@@ -48,6 +48,7 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
         ((TextViewHolder) holder).mTextView.setTextSize(16);
+        ((TextViewHolder) holder).mTextView.setTextColor(mContext.getResources().getColor(R.color.colorText));
         ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

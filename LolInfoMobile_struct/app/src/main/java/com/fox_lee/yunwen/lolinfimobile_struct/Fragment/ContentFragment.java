@@ -51,18 +51,18 @@ public class ContentFragment extends  Fragment {
         btnAnswer.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
         final TextView tvAnswer = (TextView) view.findViewById(R.id.text_getAnswer);
         tvAnswer.setTextColor(getResources().getColor(R.color.colorBlack));
-//        tvAnswer.setTypeface(font);
         final ImageView imgAnswer = (ImageView) view.findViewById(R.id.img_getAnswer);
 
         imageFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+            //add to favorite
             int _algorithm_id =0;
             AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
             Algorithm algorithm = new Algorithm();
             algorithm = repo.getColumnById(_algorithm_id);
             algorithm.age = 25;
-            algorithm.content = "Delete";
+            algorithm.content = "Delete";//should be definition
             algorithm.topic = dataContent;
             algorithm.algorithm_ID=_algorithm_id;
             if(_algorithm_id==0){

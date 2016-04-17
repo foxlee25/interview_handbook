@@ -45,6 +45,7 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (holder instanceof TextViewHolder) {
             ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
             ((TextViewHolder) holder).mTextView.setTextSize(16);
+            ((TextViewHolder) holder).mTextView.setTextColor(mContext.getResources().getColor(R.color.colorWhite));
             ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

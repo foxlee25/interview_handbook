@@ -5,19 +5,19 @@
     android:layout_gravity="left"
     android:orientation="vertical"
     android:background="@drawable/boder"
-    android:weightSum="12">
-    <!--android:background="@color/colorSkyBlue"-->
+    android:weightSum="7">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_weight="1"
         android:id="@+id/rowIconCoding"
         android:clickable="true"
         android:orientation="horizontal"
         android:scaleType="fitXY"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="@color/colorSlideBlue">
+        android:background="@color/colorGreen">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,14 +35,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_weight="1"
         android:id="@+id/rowIconJava"
         android:clickable="true"
         android:orientation="horizontal"
         android:scaleType="fitXY"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="@color/colorSlideBlue">
+        android:background="#1AC2E5">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,13 +56,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_weight="1"
         android:id="@+id/rowIconFavorite"
         android:clickable="true"
         android:orientation="horizontal"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="@color/colorSlideBlue">
+        android:background="@color/colorPurple">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,18 +78,76 @@
             <!--android:src="@drawable/menu_favorite_blue"/>-->
     </LinearLayout>
         <!--android:scaleType="fitXY"/>-->
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_weight="4"-->
-        <!--android:id="@+id/rowIcon3"-->
-        <!--android:clickable="true"-->
-        <!--android:scaleType="fitXY"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:layout_marginRight="1dp"-->
-        <!--android:layout_marginLeft="1dp"-->
-        <!--android:background="@color/colorSkyBlue">-->
-    <!--</LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rowIcon4"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:orientation="horizontal"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp"
+        android:background="@color/colorRedDark">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textColor="@color/colorPearlWhite"
+            android:text="About"
+            android:padding="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rowIcon5"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:orientation="horizontal"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp"
+        android:background="#A4CCDE">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rowIcon6"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:orientation="horizontal"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp"
+        android:background="@color/colorSkyBlue">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rowIcon7"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:orientation="horizontal"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp"
+        android:background="#516477">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textColor="@color/colorPearlWhite"
+            android:text="V1.02"
+            android:padding="5dp" />
+    </LinearLayout>
 
     <!--<TextView-->
         <!--android:id="@+id/text2"-->
