@@ -95,9 +95,9 @@ public class ContentFragment extends  Fragment {
         int resId = getActivity().getResources().getIdentifier(id, "array", pack);
         strings = getActivity().getResources().getStringArray(resId);
         Log.d("ContentFragment", " The resource id is: " + id);
-        for(int i = 0; i < strings.length; i++) {
-            Log.d("ContentFragment","The array is: " + strings[i]);
-        }
+//        for(int i = 0; i < strings.length; i++) {
+//            Log.d("ContentFragment","The array is: " + strings[i]);
+//        }
         tvTitle.setText(strings[0]);
         tvAnswer.setText(strings[1]);
 //            default:

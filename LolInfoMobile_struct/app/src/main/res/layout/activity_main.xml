@@ -21,17 +21,6 @@
             android:layout_height="?attr/actionBarSize"
             android:background="#51AAFF"
             app:popupTheme="@style/AppTheme.PopupOverlay">
-            <!--android:background="?attr/colorPrimary"-->
-            <!--<TextView-->
-                <!--android:id="@+id/title"-->
-                <!--android:layout_marginStart="5dp"-->
-                <!--android:layout_marginLeft="30dp"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/app_name"-->
-                <!--android:textAlignment="center"-->
-                <!--android:textColor="#ffffff"-->
-                <!--android:textSize="30sp" />-->
         </android.support.v7.widget.Toolbar>
 
         <FrameLayout

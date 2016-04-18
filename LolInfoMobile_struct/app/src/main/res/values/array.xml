@@ -831,9 +831,9 @@ Return zero-length collections or arrays as opposed to returning a null in case 
         <item>Product of Array Exclude Itself</item>
         <item>Partition Array</item>
         <item>First Missing Positive</item>
-        <item>2 Sum</item>
-        <item>3 Sum</item>
-        <item>3 Sum Closest</item>
+        <item>Two Sum</item>
+        <item>Three Sum</item>
+        <item>Three Sum Closest</item>
         <item>Remove Duplicates from Sorted Array</item>
         <item>Remove Duplicates from Sorted Array II</item>
         <item>Merge Sorted Array</item>
@@ -858,7 +858,7 @@ Return zero-length collections or arrays as opposed to returning a null in case 
     <string-array name="math_and_bit_manipulation">
         <item>Single Number</item>
         <item>Single Number II</item>
-        <item>O(1) Check Power of 2</item>
+        <item>O 1 Check Power of 2</item>
         <item>Convert Integer A to Integer B</item>
         <item>Factorial Trailing Zeroes</item>
     </string-array>
@@ -877,7 +877,7 @@ Return zero-length collections or arrays as opposed to returning a null in case 
         <item>Merge Two Sorted Lists</item>
         <item>Merge k Sorted Lists</item>
         <item>Sort List</item>
-        <item>Reorder List</item>
+        <item>Recorder List</item>
     </string-array>
 
     <string-array name="reverse">
@@ -1686,7 +1686,7 @@ class Solution {\n
         </item>
 </string-array>
 
-<string-array name="two_string_are_anagrams_">
+<string-array name="two_strings_are_anagrams_">
     <item name="definition">
 Write a method anagram(s,t) to decide if two strings are anagrams or not.
 \n
@@ -2200,7 +2200,7 @@ public class Solution {\n
 </item>
 </string-array>
 
-<string-array name="three_sum_closet_">
+<string-array name="three_sum_closest_">
 <item name="definition">
 Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.
 \n
@@ -2298,7 +2298,7 @@ public class S26 {\n
 </item>
 </string-array>
 
-<string-array name="remove_duplicates_from_sorted_array_two_">
+<string-array name="remove_duplicates_from_sorted_array_ii_">
 <item name="definition">
 Follow up for "Remove Duplicates":
 What if duplicates are allowed at most twice?
@@ -2379,7 +2379,7 @@ class Solution {
 </item>
 </string-array>
 
-<string-array name="merge_sorted_array_two_">
+<string-array name="merge_sorted_array_ii_">
 <item name="definition">
 Given two sorted integer arrays A and B, merge B into A as one sorted array.
 \n
@@ -2650,7 +2650,7 @@ class Solution {\n
 </item>
 </string-array>
 
-<string-array name="search_a_2D_matrix_">
+<string-array name="search_a_2d_matrix_">
 <item name="definition">
 Write an efficient algorithm that searches for a value in an m x n matrix.
 \n
@@ -2873,7 +2873,7 @@ public class Solution {\n
 }
 </item>
 </string-array>
-<string-array name="search_a_2D_matrix_two_">
+<string-array name="search_a_2d_matrix_ii_">
 <item name="definition">
 Write an efficient algorithm that searches for a value in an m x n matrix, return the occurrence of it.\n
 This matrix has the following properties:\n
@@ -3092,7 +3092,7 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 }
 </item>
 </string-array>
-<string-array name="single_number_two_">
+<string-array name="single_number_ii_">
 <item name="definition">
 Given an array of integers, every element appears three times except for one. Find that single one.
 \n
@@ -3124,7 +3124,7 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 </item>
 </string-array>
 
-<string-array name="o_1_check_power_of_2_source_">
+<string-array name="o_1_check_power_of_2_">
 <item name="definition">
 Using O(1) time to check whether an integer n is a power of 2.
 \n
@@ -3238,7 +3238,7 @@ public class Solution {\n
 }\n
 </item>
 </string-array>
-<string-array name="remove_duplicates_from_sorted_list_two_">
+<string-array name="remove_duplicates_from_sorted_list_ii_">
 <item name="definition">
 Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
 \n
@@ -3546,7 +3546,7 @@ Can you solve it without using extra space?
 }
 </item>
 </string-array>
-<string-array name="linked_list_cycle_two_">
+<string-array name="linked_list_cycle_ii_">
 <item name="definition">
 Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
 \n
@@ -3623,7 +3623,7 @@ public class Solution {\n
 }
 </item>
 </string-array>
-<string-array name="reverse_linked_list_two">
+<string-array name="reverse_linked_list_ii_">
 <item name="definition">
 Reverse a linked list from position m to n.
 \n
@@ -3681,7 +3681,7 @@ public class Solution {\n
 }
 </item>
 </string-array>
-<string-array name="merge_two_sorted_lists">
+<string-array name="merge_two_sorted_lists_">
 <item name="definition">
 Merge two sorted linked lists and return it as a new list.
 The new list should be made by splicing together the nodes of the first two lists.
@@ -3717,7 +3717,7 @@ public class Solution {\n
 }
 </item>
 </string-array>
-<string-array name="merge_k_sorted_lists">
+<string-array name="merge_k_sorted_lists_">
 <item name="definition">
 Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 </item>
@@ -3985,7 +3985,7 @@ public class Solution {\n
 }
 </item>
 </string-array>
-<string-array name="reverse_words_in_a_string">
+<string-array name="reverse_words_in_a_string_">
 <item name="definition">
 Given an input string, reverse the string word by word.
 \n
@@ -5242,7 +5242,7 @@ public class Solution {\n
 }\n
 </item>
 </string-array>
-<string-array name="minimum_path_sum">
+<string-array name="minimum_path_sum_">
 <item name="definition">
 Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.
 \n
