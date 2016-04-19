@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/rowIconCoding"
+        android:id="@+id/rowIconAlgorithm"
         android:clickable="true"
         android:orientation="horizontal"
         android:scaleType="fitXY"
@@ -25,7 +25,7 @@
             android:gravity="center"
             android:textSize="20dp"
             android:textColor="@color/colorPearlWhite"
-            android:text="Data Structure"
+            android:text="@string/slide_algorithm"
             android:padding="5dp" />
         <!--<ImageView-->
             <!--android:layout_width="wrap_content"-->
@@ -50,7 +50,7 @@
             android:textSize="20dp"
             android:gravity="center"
             android:textColor="@color/colorPearlWhite"
-            android:text="Core Java"
+            android:text="@string/slide_java"
             android:padding="5dp" />
     </LinearLayout>
     <LinearLayout
@@ -70,7 +70,7 @@
             android:textSize="20dp"
             android:gravity="center"
             android:textColor="@color/colorPearlWhite"
-            android:text="Favorite List"
+            android:text="@string/slide_favorite"
             android:padding="5dp" />
         <!--<ImageView-->
             <!--android:layout_width="wrap_content"-->
@@ -82,7 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/rowIcon4"
+        android:id="@+id/rowIconAbout"
         android:clickable="true"
         android:scaleType="fitXY"
         android:orientation="horizontal"
@@ -96,7 +96,7 @@
             android:gravity="center"
             android:textSize="20dp"
             android:textColor="@color/colorPearlWhite"
-            android:text="About"
+            android:text="@string/slide_about"
             android:padding="5dp" />
     </LinearLayout>
 
@@ -145,7 +145,7 @@
             android:gravity="center"
             android:textSize="20dp"
             android:textColor="@color/colorPearlWhite"
-            android:text="V1.02"
+            android:text="@string/slide_version"
             android:padding="5dp" />
     </LinearLayout>
 

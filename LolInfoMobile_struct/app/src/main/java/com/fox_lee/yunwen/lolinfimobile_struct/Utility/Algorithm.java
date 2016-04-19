@@ -3,6 +3,8 @@ package com.fox_lee.yunwen.lolinfimobile_struct.Utility;
 /**
  * Created by Yunwen on 2/15/2016.
  */
+
+//this is the database for storing favorite list
 public class Algorithm {
     //table name
     public static final String TABLE="Algorithm";

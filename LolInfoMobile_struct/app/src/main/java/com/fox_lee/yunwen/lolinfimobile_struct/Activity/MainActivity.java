@@ -1,7 +1,6 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Activity;
 
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -15,10 +14,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AboutFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.ContentFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.DbFragment;
@@ -30,10 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     ActionBarDrawerToggle mDrawerToggle;
     boolean doubleBackToExitPressedOnce = false;
-    ImageView img1;
-    ImageView img2;
-    ImageView img3;
-    ImageView img4;
     LinearLayout ll1;
     LinearLayout ll2;
     LinearLayout ll3;
@@ -75,9 +70,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void startDbFragment(){
                 DbFragment dbFragment = new DbFragment();
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.container, dbFragment, "Fragment")
-                        .addToBackStack(null)
+                        .replace(R.id.container, dbFragment, "DbFragment")
+                        .addToBackStack( "DbFragment")
                         .commit();
+    }
+    public void startAboutFragment(){
+        AboutFragment aboutFragment = new AboutFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container, aboutFragment, "AboutFragment")
+                .addToBackStack("AboutFragment").commit();
     }
 
     @Override
@@ -101,8 +101,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawer_layout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
-        createView();
-        setListener();
+        createView();//create icon in the slide menu
+        setListener();//set onclick listener in the slide menu
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -114,26 +114,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
         toolbar.getMenu().clear();
         this.startAlgorithmFragment("");
+//        this.startAboutFragment();
     }
 
     private void createView(){
-        ll1 = (LinearLayout) findViewById(R.id.rowIconCoding);
+        ll1 = (LinearLayout) findViewById(R.id.rowIconAlgorithm);
         ll2 = (LinearLayout) findViewById(R.id.rowIconJava);
         ll3 = (LinearLayout) findViewById(R.id.rowIconFavorite);
-//        ll4 = (LinearLayout) findViewById(R.id.rowIcon3);
+        ll4 = (LinearLayout) findViewById(R.id.rowIconAbout);
     }
 
     private void setListener(){
         ll1.setOnClickListener(this);
         ll2.setOnClickListener(this);
         ll3.setOnClickListener(this);
-//        ll4.setOnClickListener(this);
+        ll4.setOnClickListener(this);
     }
 
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.rowIconCoding: /** Start a new fragment */
-                Snackbar.make(v, "Open coding interview ", Snackbar.LENGTH_LONG)
+            case R.id.rowIconAlgorithm: /** Start a new fragment */
+                Snackbar.make(v, "Open Algorithm coding", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 clearBackStack();
                 this.startAlgorithmFragment("");
@@ -148,10 +149,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setAction("Action", null).show();
                 this.startDbFragment();
                 break;
-//            case R.id.rowIcon3: /** AlerDialog when click on 4th icon */
-//                Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//                break;
+            case R.id.rowIconAbout: /** AlerDialog when click on 3rd icon */
+                Snackbar.make(v, "Open About", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                this.startAboutFragment();
+                break;
         }
         DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawer_layout.closeDrawer(Gravity.LEFT);
@@ -174,8 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_about) {
             // START THE about activity
-            Intent startActivity = new Intent(this, AboutActivity.class);
-            startActivity(startActivity);
+            startAboutFragment();
             return true;
         }
 //        if (id == R.id.action_settings) {

@@ -1,8 +1,6 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Adapter;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
@@ -15,19 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
-import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.DbFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Interface.IndexCallback;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.Algorithm;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.AlgorithmRepo;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by Yunwen on 4/10/2016.
@@ -80,27 +72,29 @@ public class DbAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             });
             ((TextViewHolder) holder).mImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(final View v) {//delete this page
-                 AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
-                 alertDialog.setTitle(dataContent);
-                 alertDialog.setMessage(mContext.getString(R.string.del_favorite_confirm));
-                 alertDialog.setIcon(R.drawable.menu_icon);
-                 // Setting OK Button
-                 alertDialog.setButton("No", new DialogInterface.OnClickListener() {
+                public void onClick(final View v) {
+                //delete this page
+                AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                alertDialog.setTitle(dataContent);
+                alertDialog.setMessage(mContext.getString(R.string.del_favorite_confirm));
+                alertDialog.setIcon(R.drawable.menu_icon);
+                // Setting OK Button
+                alertDialog.setButton("No", new DialogInterface.OnClickListener() {
                      public void onClick(DialogInterface dialog, int which) {
-                         // Write your code here to execute after dialog close
-                         dialog.cancel();
+                     // cancel dialog
+                     dialog.cancel();
                      }
                  });
-                 alertDialog.setButton2("Yes", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {// Write your code here to execute after dialog closed
-                     AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
-                     Algorithm algorithm = new Algorithm();
-                     algorithm = repo.getColumnByTopic(dataContent);
-                     repo.delete(algorithm.algorithm_ID);
-                     Toast.makeText(mContext, "The " + dataContent + " deleted", Toast.LENGTH_SHORT).show();
-                     //restart  DbFragment
-                     ((MainActivity) mContext).startDbFragment();
+                alertDialog.setButton2("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                    // Write your code here to execute after dialog closed
+                    AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
+                    Algorithm algorithm = new Algorithm();
+                    algorithm = repo.getColumnByTopic(dataContent);
+                    repo.delete(algorithm.algorithm_ID);
+                    Toast.makeText(mContext, "The " + dataContent + " deleted", Toast.LENGTH_SHORT).show();
+                    //restart  DbFragment
+                    ((MainActivity) mContext).startDbFragment();
                         }
                     });
                     alertDialog.show();// Showing Alert Message
