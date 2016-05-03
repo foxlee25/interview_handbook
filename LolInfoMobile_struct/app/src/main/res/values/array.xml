@@ -108,7 +108,7 @@
 
     <string-array name="swing">
         <item>Choice and a List</item>
-        <item>Layoutmanager</item>
+        <item>Layout manager</item>
     </string-array>
         <!--<item>Scrollbar</item>-->
         <!--<item>threadsafe</item>-->

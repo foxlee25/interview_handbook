@@ -40,15 +40,24 @@ public class ContentFragment extends  Fragment {
         super.onViewCreated(view, savedInstanceState);
         showingFirst = true;
        // ScrollView mRelativelayout = (ScrollView) view.findViewById(R.id.detail_layout);
-        TextView tv = (TextView) view.findViewById(R.id.text_view);
+        TextView tvTitle = (TextView) view.findViewById(R.id.text_title);
         ImageView imageFavorite = (ImageView) view.findViewById(R.id.img_favorite);
-        TextView tvTitle= (TextView) view.findViewById(R.id.text_title);
+        TextView tvQuestion= (TextView) view.findViewById(R.id.text_question);
         Button btnAnswer= (Button) view.findViewById(R.id.btn_getAnswer);
 //        Typeface typeFace =Typeface.createFromAsset(getActivity().getAssets(),"fonts/HelveticaNeue.ttf");
 //        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/HelveticaNeueMed.ttf");
 //        tvTitle.setTypeface(font);
-        //mRelativelayout.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+        float sth =300/dataContent.length();
+        if(sth >26) {
+            tvTitle.setTextSize(26);
+        }else {
+            tvTitle.setTextSize(13);
+        }
+        tvTitle.setText(dataContent);
+        tvTitle.setTextColor(getResources().getColor(R.color.colorWhite));
+
         btnAnswer.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
+        btnAnswer.setTextColor(getResources().getColor(R.color.colorWhite));
         final TextView tvAnswer = (TextView) view.findViewById(R.id.text_getAnswer);
         tvAnswer.setTextColor(getResources().getColor(R.color.colorBlack));
         final ImageView imgAnswer = (ImageView) view.findViewById(R.id.img_getAnswer);
@@ -98,8 +107,9 @@ public class ContentFragment extends  Fragment {
 //        for(int i = 0; i < strings.length; i++) {
 //            Log.d("ContentFragment","The array is: " + strings[i]);
 //        }
-        tvTitle.setText(strings[0]);
+        tvQuestion.setText(strings[0]);
         tvAnswer.setText(strings[1]);
+
 //            default:
 //                btnAnswer.setVisibility(view.GONE);
 //                imgAnswer.setVisibility(view.GONE);
@@ -114,6 +124,19 @@ public class ContentFragment extends  Fragment {
 //                break;
 //        }
     }
+
+    private String getLongestString(String[] array) {
+        int maxLength = 0;
+        String longestString = null;
+        for (String s : array) {
+            if (s.length() > maxLength) {
+                maxLength = s.length();
+                longestString = s;
+            }
+        }
+        return longestString;
+    }
+
     private void writeBoard() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
     }

@@ -110,8 +110,16 @@
         android:orientation="horizontal"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="#A4CCDE">
-
+        android:background="@color/colorPurple">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textColor="@color/colorPearlWhite"
+            android:text="@string/slide_feedback"
+            android:padding="5dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -124,7 +132,7 @@
         android:orientation="horizontal"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="@color/colorSkyBlue">
+        android:background="@color/colorLightBlue">
     </LinearLayout>
 
     <LinearLayout

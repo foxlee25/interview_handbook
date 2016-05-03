@@ -1,6 +1,7 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Activity;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -21,6 +22,7 @@ import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AboutFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.ContentFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.DbFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.FeedbackFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.JavaFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.SubFragment;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     LinearLayout ll2;
     LinearLayout ll3;
     LinearLayout ll4;
+    LinearLayout ll5;
 
     public void startContentFragment(String var){
         ContentFragment contentFragment = new ContentFragment();
@@ -54,12 +57,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .addToBackStack("SubFragment").commit();
     }
 
-//    public void startJavaSubFragment(String var){
-//        JavaSubFragment javaFragment = new JavaFragment();
-//        getFragmentManager().beginTransaction().replace(R.id.container, javaFragment, "SubFragment")
-//                .addToBackStack("SubFragment").commit();
-//        javaSubFragment.changeData(var);
-//    }
+    public void startFeedbackFragment(String var){
+        FeedbackFragment feedbackFragment = new FeedbackFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container, feedbackFragment, "SubFragment")
+                .addToBackStack("SubFragment").commit();
+    }
 
     public void startAlgorithmFragment(String var){
         AlgorithmFragment leetCodeFragment = new AlgorithmFragment();
@@ -122,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ll2 = (LinearLayout) findViewById(R.id.rowIconJava);
         ll3 = (LinearLayout) findViewById(R.id.rowIconFavorite);
         ll4 = (LinearLayout) findViewById(R.id.rowIconAbout);
+        ll5 = (LinearLayout) findViewById(R.id.rowIcon5);
     }
 
     private void setListener(){
@@ -129,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ll2.setOnClickListener(this);
         ll3.setOnClickListener(this);
         ll4.setOnClickListener(this);
+        ll5.setOnClickListener(this);
     }
 
     public void onClick(View v) {
@@ -154,6 +158,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setAction("Action", null).show();
                 this.startAboutFragment();
                 break;
+            case R.id.rowIcon5: /** AlerDialog when click on 3rd icon */
+                Snackbar.make(v, "Open Feedback", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                this.startFeedbackFragment("");
+                break;
+            case R.id.rowIcon6: /** AlerDialog when click on 3rd icon */
+                Snackbar.make(v, "Open Alarm", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                this.startFeedbackFragment("");
+                break;
+            default:
+                Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
         }
         DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawer_layout.closeDrawer(Gravity.LEFT);
@@ -179,11 +196,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startAboutFragment();
             return true;
         }
-//        if (id == R.id.action_settings) {
-//            // to do
-//            Toast.makeText(this,"Coming Sonn",Toast.LENGTH_SHORT).show();
-//            return true;
-//        }
+        if (id == R.id.alarm) {
+            // to do
+            Intent myIntent = new Intent(MainActivity.this, AlarmActivity.class);
+            MainActivity.this.startActivity(myIntent);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 

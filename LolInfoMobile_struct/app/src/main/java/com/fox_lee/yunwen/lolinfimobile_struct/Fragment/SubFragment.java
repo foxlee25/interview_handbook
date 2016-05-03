@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,8 +37,19 @@ public class SubFragment extends  Fragment{
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         algorithmsubAdapter = new SubAdapter(getActivity(),dataContent);
         mRecyclerView.setAdapter(algorithmsubAdapter);
+        Log.d("SubFragment","The longest string is: " + getLongestString(dataContent));
     }
-
+    private String getLongestString(String[] array) {
+        int maxLength = 0;
+        String longestString = null;
+        for (String s : array) {
+            if (s.length() > maxLength) {
+                maxLength = s.length();
+                longestString = s;
+            }
+        }
+        return longestString;
+    }
     private void writeBoard() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
     }

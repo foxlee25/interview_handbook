@@ -6,8 +6,10 @@
     <color name="colorBlack">#FF000000</color>
     <color name="colorDarkBlue">#3F51B5</color>
     <color name="colorGreen">#1AC2A5</color>
+    <color name="colorGrey">#726B68</color>
     <color name="colorLightGrey">#BDBDBD</color>
     <color name="cardview_initial_background">#71C3DE</color>
+    <color name="colorOrange">#EA8A3E</color>
     <color name="colorPearlWhite">#eeebd9</color>
     <color name="colorLightBlue">#51AAEC</color>
     <color name="colorPrimaryDark">#303F9F</color>
@@ -18,4 +20,6 @@
     <color name="colorSlideBlue">#2A3F6A</color>
     <color name="colorText">#FFFFFF</color>
     <color name="colorWhite">#FFFFFF</color>
+
+
 </resources>
