@@ -45,6 +45,7 @@
     <string name="del_favorite_confirm">Do you want to delete it from favorite?</string>
     <string name="slide_algorithm">Algorithm</string>
     <string name="slide_java">Core Java</string>
+    <string name="slide_android">Android</string>
     <string name="slide_about">About</string>
     <string name="slide_favorite">Favorite List</string>
     <string name="slide_version">V1.02</string>

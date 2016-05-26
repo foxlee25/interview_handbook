@@ -16,12 +16,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AboutFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AndroidFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.ContentFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.DbFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.DbLoadFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.FeedbackFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.JavaFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.SubFragment;
@@ -33,55 +36,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     boolean doubleBackToExitPressedOnce = false;
     LinearLayout ll1;
     LinearLayout ll2;
+    RelativeLayout lla;
     LinearLayout ll3;
     LinearLayout ll4;
     LinearLayout ll5;
-
-    public void startContentFragment(String var){
-        ContentFragment contentFragment = new ContentFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, contentFragment, "SubFragment")
-                .addToBackStack("SubFragment").commit();
-        contentFragment.changeData(var);
-    }
-
-    public void startSubFragment(String[] var){
-        SubFragment subFragment = new SubFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, subFragment, "SubFragment")
-                .addToBackStack("SubFragment").commit();
-        subFragment.changeData(var);
-    }
-
-    public void startJavaFragment(String var){
-        JavaFragment javaFragment = new JavaFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, javaFragment, "SubFragment")
-                .addToBackStack("SubFragment").commit();
-    }
-
-    public void startFeedbackFragment(String var){
-        FeedbackFragment feedbackFragment = new FeedbackFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, feedbackFragment, "SubFragment")
-                .addToBackStack("SubFragment").commit();
-    }
-
-    public void startAlgorithmFragment(String var){
-        AlgorithmFragment leetCodeFragment = new AlgorithmFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, leetCodeFragment, "AlgorithmFragment")
-                .addToBackStack("AlgorithmFragment").commit();
-    }
-
-    public void startDbFragment(){
-                DbFragment dbFragment = new DbFragment();
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.container, dbFragment, "DbFragment")
-                        .addToBackStack( "DbFragment")
-                        .commit();
-    }
-    public void startAboutFragment(){
-        AboutFragment aboutFragment = new AboutFragment();
-        getFragmentManager().beginTransaction().replace(R.id.container, aboutFragment, "AboutFragment")
-                .addToBackStack("AboutFragment").commit();
-    }
-
+    LinearLayout ll6;
+    LinearLayout ll7;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,40 +65,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         createView();//create icon in the slide menu
         setListener();//set onclick listener in the slide menu
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Coming Soon", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        changeColor();
         toolbar.getMenu().clear();
         this.startAlgorithmFragment("");
-//        this.startAboutFragment();
     }
 
     private void createView(){
         ll1 = (LinearLayout) findViewById(R.id.rowIconAlgorithm);
         ll2 = (LinearLayout) findViewById(R.id.rowIconJava);
+        lla = (RelativeLayout) findViewById(R.id.rowIconAndroid);
         ll3 = (LinearLayout) findViewById(R.id.rowIconFavorite);
         ll4 = (LinearLayout) findViewById(R.id.rowIconAbout);
         ll5 = (LinearLayout) findViewById(R.id.rowIcon5);
+        ll6 = (LinearLayout) findViewById(R.id.rowIcon6);
+        ll7 = (LinearLayout) findViewById(R.id.rowIcon7);
     }
 
     private void setListener(){
         ll1.setOnClickListener(this);
         ll2.setOnClickListener(this);
+        lla.setOnClickListener(this);
         ll3.setOnClickListener(this);
         ll4.setOnClickListener(this);
         ll5.setOnClickListener(this);
+        ll6.setOnClickListener(this);
+    }
+
+    private void changeColor(){
+        ll1.setBackgroundColor(getResources().getColor(R.color.colorGreen));
+        ll2.setBackgroundColor(getResources().getColor(R.color.colorGreen));
+        lla.setBackgroundColor(getResources().getColor(R.color.colorGreen));
+        ll3.setBackgroundColor(getResources().getColor(R.color.colorGreen));
+        ll4.setBackgroundColor(getResources().getColor(R.color.colorGreen));
+        ll5.setBackgroundColor(getResources().getColor(R.color.colorGreen));
+        ll6.setBackgroundColor(getResources().getColor(R.color.colorGreen));
+        ll7.setBackgroundColor(getResources().getColor(R.color.colorGreen));
     }
 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.rowIconAlgorithm: /** Start a new fragment */
-                Snackbar.make(v, "Open Algorithm coding", Snackbar.LENGTH_LONG)
+                Snackbar.make(v, "Open DbFavorite coding", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 clearBackStack();
                 this.startAlgorithmFragment("");
@@ -147,6 +114,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Snackbar.make(v, "Open Core Java Question", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 this.startJavaFragment("");
+                break;
+            case R.id.rowIconAndroid: /** Start a new fragment LolRecyclerViewFragment.java */
+                Snackbar.make(v, "Open Core Android Question", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                this.startAndroidFragment();
                 break;
             case R.id.rowIconFavorite: /** AlerDialog when click on 3rd icon */
                 Snackbar.make(v, "Open Favorite List", Snackbar.LENGTH_LONG)
@@ -163,11 +135,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setAction("Action", null).show();
                 this.startFeedbackFragment("");
                 break;
-            case R.id.rowIcon6: /** AlerDialog when click on 3rd icon */
-                Snackbar.make(v, "Open Alarm", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                this.startFeedbackFragment("");
-                break;
+//            case R.id.rowIcon6: /** AlerDialog when click on 3rd icon */
+//                Snackbar.make(v, "Open Alarm", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//                this.startDbLoadFragment("");
+//                break;
             default:
                 Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
@@ -194,6 +166,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (id == R.id.action_about) {
             // START THE about activity
             startAboutFragment();
+            return true;
+        }
+        if (id == R.id.db_algorithm) {
+            // START THE about activity
+            startDbLoadFragment("");
             return true;
         }
         if (id == R.id.alarm) {
@@ -235,5 +212,61 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 doubleBackToExitPressedOnce=false;
             }
         }, 350);
+    }
+    public void startContentFragment(String var){
+        ContentFragment contentFragment = new ContentFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container, contentFragment, "SubFragment")
+                .addToBackStack("SubFragment").commit();
+        contentFragment.changeData(var);
+    }
+
+    public void startSubFragment(String[] var){
+        SubFragment subFragment = new SubFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container, subFragment, "SubFragment")
+                .addToBackStack("SubFragment").commit();
+        subFragment.changeData(var);
+    }
+
+    public void startJavaFragment(String var){
+        JavaFragment javaFragment = new JavaFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container, javaFragment, "SubFragment")
+                .addToBackStack("SubFragment").commit();
+    }
+
+    public void startAndroidFragment(){
+        AndroidFragment androidFragment = new AndroidFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container, androidFragment, "AndroidFragment")
+                .addToBackStack("AndroidFragment").commit();
+    }
+
+    public void startFeedbackFragment(String var){
+        FeedbackFragment feedbackFragment = new FeedbackFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container, feedbackFragment, "SubFragment")
+                .addToBackStack("SubFragment").commit();
+    }
+
+    public void startDbLoadFragment(String var){
+        DbLoadFragment feedbackFragment = new DbLoadFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container, feedbackFragment, "DbLoadFragment")
+                .addToBackStack("DbLoadFragment").commit();
+    }
+
+    public void startAlgorithmFragment(String var){
+        AlgorithmFragment leetCodeFragment = new AlgorithmFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container, leetCodeFragment, "AlgorithmFragment")
+                .addToBackStack("AlgorithmFragment").commit();
+    }
+
+    public void startDbFragment(){
+        DbFragment dbFragment = new DbFragment();
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, dbFragment, "DbFragment")
+                .addToBackStack( "DbFragment")
+                .commit();
+    }
+    public void startAboutFragment(){
+        AboutFragment aboutFragment = new AboutFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container, aboutFragment, "AboutFragment")
+                .addToBackStack("AboutFragment").commit();
     }
 }

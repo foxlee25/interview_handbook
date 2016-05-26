@@ -5,7 +5,7 @@
     android:layout_gravity="left"
     android:orientation="vertical"
     android:background="@drawable/boder"
-    android:weightSum="7">
+    android:weightSum="8">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,14 +17,14 @@
         android:scaleType="fitXY"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="@color/colorGreen">
+        android:background="@color/colorSlide1">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:textSize="20dp"
-            android:textColor="@color/colorPearlWhite"
+            android:textColor="@color/colorWhite"
             android:text="@string/slide_algorithm"
             android:padding="5dp" />
         <!--<ImageView-->
@@ -42,17 +42,45 @@
         android:scaleType="fitXY"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="#1AC2E5">
+        android:background="@color/colorSlide2">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="20dp"
             android:gravity="center"
-            android:textColor="@color/colorPearlWhite"
+            android:textColor="@color/colorWhite"
             android:text="@string/slide_java"
             android:padding="5dp" />
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rowIconAndroid"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp"
+        android:background="@color/colorSlide1">
+        <TextView
+            android:id="@+id/row_tv_android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:text="@string/slide_android"
+            android:padding="5dp" />
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/slide_new"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -62,14 +90,14 @@
         android:orientation="horizontal"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="@color/colorPurple">
+        android:background="@color/colorSlide2">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="20dp"
             android:gravity="center"
-            android:textColor="@color/colorPearlWhite"
+            android:textColor="@color/colorWhite"
             android:text="@string/slide_favorite"
             android:padding="5dp" />
         <!--<ImageView-->
@@ -88,14 +116,14 @@
         android:orientation="horizontal"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="@color/colorRedDark">
+        android:background="@color/colorSlide1">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:textSize="20dp"
-            android:textColor="@color/colorPearlWhite"
+            android:textColor="@color/colorWhite"
             android:text="@string/slide_about"
             android:padding="5dp" />
     </LinearLayout>
@@ -110,14 +138,14 @@
         android:orientation="horizontal"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="@color/colorPurple">
+        android:background="@color/colorSlide2">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:textSize="20dp"
-            android:textColor="@color/colorPearlWhite"
+            android:textColor="@color/colorWhite"
             android:text="@string/slide_feedback"
             android:padding="5dp" />
     </LinearLayout>
@@ -132,7 +160,7 @@
         android:orientation="horizontal"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="@color/colorLightBlue">
+        android:background="@color/colorSlide1">
     </LinearLayout>
 
     <LinearLayout
@@ -145,14 +173,14 @@
         android:orientation="horizontal"
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:background="#516477">
+        android:background="@color/colorPrimaryDark">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:textSize="20dp"
-            android:textColor="@color/colorPearlWhite"
+            android:textColor="@color/colorWhite"
             android:text="@string/slide_version"
             android:padding="5dp" />
     </LinearLayout>

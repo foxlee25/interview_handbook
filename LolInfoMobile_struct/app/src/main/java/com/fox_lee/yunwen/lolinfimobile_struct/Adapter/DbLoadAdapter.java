@@ -14,8 +14,9 @@ import android.widget.Toast;
 
 import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
 import com.fox_lee.yunwen.lolinfimobile_struct.Interface.IndexCallback;
+import com.fox_lee.yunwen.lolinfimobile_struct.Utility.Algorithm;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DbFavorite;
-import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DbRepo;
+import com.fox_lee.yunwen.lolinfimobile_struct.Utility.AlgorithmRepo;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ import java.util.HashMap;
 /**
  * Created by Yunwen on 4/10/2016.
  */
-public class DbAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class DbLoadAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public enum ITEM_TYPE {
         ITEM_TYPE_IMAGE,
         ITEM_TYPE_TEXT
@@ -39,7 +40,7 @@ public class DbAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.indexCallback = indexCallback;
     }
 
-    public DbAdapter(Context context, ArrayList<HashMap<String, String>> data) {
+    public DbLoadAdapter(Context context, ArrayList<HashMap<String, String>> data) {
         mTitles = context.getResources().getStringArray(R.array.titles);
         this.data = data;
         mContext = context;
@@ -53,23 +54,21 @@ public class DbAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder,  int position) {
-//        if (holder instanceof TextViewHolder)
-//            ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
         try {
-            Log.d("DbFragment", data.get(position).get("id"));
-            Log.d("DbFragment", data.get(position).get("topic"));
+            Log.d("DbLoadFragment", data.get(position).get("id"));
+            Log.d("DbLoadFragment", data.get(position).get("topic"));
             ((TextViewHolder) holder).mTextView.setText(data.get(position).get("topic"));
             final String dataContent = ((TextViewHolder) holder).mTextView.getText().toString();
-            ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {   //goto this page
-                    if (!dataContent.isEmpty()) {
-                        ((MainActivity) mContext).startContentFragment(dataContent);
-                    } else {
-                        Toast.makeText(mContext, "Coming soon", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
+//            ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {   //goto this page
+//                    if (!dataContent.isEmpty()) {
+//                        ((MainActivity) mContext).startContentFragment(dataContent);
+//                    } else {
+//                        Toast.makeText(mContext, "Coming soon", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//            });
             ((TextViewHolder) holder).mImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
@@ -88,14 +87,13 @@ public class DbAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 alertDialog.setButton2("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                     // Write your code here to execute after dialog closed
-                    DbRepo repo = new DbRepo(v.getContext());
-                    DbFavorite dbFavorite = new DbFavorite();
-                    dbFavorite = repo.getColumnByTopic(dataContent);
-
-                    repo.delete(dbFavorite.algorithm_ID);
+                    AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
+                    Algorithm algorithm = new Algorithm();
+                            algorithm = repo.getColumnByTopic(dataContent);
+                    repo.delete(algorithm.algorithm_ID);
                     Toast.makeText(mContext, "The " + dataContent + " deleted", Toast.LENGTH_SHORT).show();
                     //restart  DbFragment
-                    ((MainActivity) mContext).startDbFragment();
+                    ((MainActivity) mContext).startDbLoadFragment("");
                         }
                     });
                     alertDialog.show();// Showing Alert Message

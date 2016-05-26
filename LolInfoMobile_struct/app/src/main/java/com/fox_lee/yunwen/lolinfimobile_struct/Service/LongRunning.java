@@ -14,7 +14,6 @@ import com.fox_lee.yunwen.lolinfimobile_struct.BroadcastReceiver.AlarmReceiver;
 
 public class LongRunning extends Service {
 
-
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -22,7 +21,6 @@ public class LongRunning extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
         //读者可以修改此处的Minutes从而改变提醒间隔时间
         //此处是设置每隔90分钟启动一次

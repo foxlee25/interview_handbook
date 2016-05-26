@@ -28,6 +28,144 @@
         <item>JSP</item>
     </string-array>
 
+    <string-array name="android">
+        <item>Android Basics</item>
+        <item>Activity</item>
+        <item>Fragment</item>
+        <item>Intent</item>
+        <item>Services</item>
+        <item>SQLite database</item>
+    </string-array>
+
+    <!--<item>Services</item>-->
+    <!--<item>Receivers</item>-->
+    <!--<item>Adapters</item>-->
+    <!--<item>Graphics and animations</item>-->
+    <!--<item>Http and WebServers</item>-->
+    <!--<item>Securities and permissions</item>    -->
+    <string-array name="android_basics">
+        <item>Android Architecture</item>
+        <item>ANR</item>
+    </string-array>
+    <string-array name="activity">
+        <item>Activity</item>
+        <item>Activity Life Cycle</item>
+    </string-array>
+    <string-array name="fragment">
+        <item>Fragment Life Cycle</item>
+    </string-array>
+    <string-array name="intent">
+        <item>Intent</item>
+        <item>Intent Filter</item>
+    </string-array>
+    <string-array name="services">
+        <item>Differentiate Activities</item>
+
+    </string-array>
+    <string-array name="sqlite_database">
+        <item>Subsets</item>
+        <item>Permutation</item>
+    </string-array>
+
+    <string-array name="android_architecture_">
+        <item name = "definition"> What is the Android Architecture?</item>
+        <item name = "code">
+            Android Architecture is made up of 4 key components:
+    \n– Linux Kernel
+    \n– Libraries
+    \n– Android Framework
+    \n– Android Applications
+        </item>
+    </string-array>
+    <string-array name="anr_">
+        <item name = "definition"> What is ANR ?</item>
+        <item name = "code">
+            An ANR happens when some long operation takes place in the "main" thread. This is the event loop thread, and if it is busy,
+            Android cannot process any further GUI events in the application, and thus throws up an ANR dialog.
+        </item>
+    </string-array>
+
+    <string-array name="activity_">
+        <item name = "definition">Describe Activities.</item>
+        <item name = "code">
+            Activities are what you refer to as the window to a user interface. Just as you create windows in order to display
+            output or to ask for an input in the form of dialog boxes, activities play the same role, though it may not always be in the form of a user interface.
+        </item>
+    </string-array>
+    <string-array name="activity_life_cycle_">
+        <item name = "definition"> What is Activity life cycle?</item>
+        <item name = "code">
+            To create an activity, you must create a subclass of Activity (or an existing subclass of it). In your subclass, you need to implement callback methods
+            that the system calls when the activity transitions between various states of its lifecycle, such as when the activity is being created, stopped,
+            resumed, or destroyed.onCreate() onRestart() onStart() onResume() onPause() onStop() onDestroy()
+        </item>
+    </string-array>
+
+    <string-array name="fragment_life_cycle_">
+        <item name = "definition"> What is Fragment life cycle?</item>
+        <item name = "code">
+            \n onAttach()The fragment instance is associated with an activity instance.The fragment and the activity is not fully initialized. Typically you get in this method a reference to the activity which uses the fragment for further initialization work.
+            \n onCreate() The system calls this method when creating the fragment. You should initialize essential components of the fragment that you want to retain when the fragment is paused or stopped, then resumed.
+            \n onCreateView() The system calls this callback when it\'s time for the fragment to draw its user interface for the first time. To draw a UI for your fragment, you must return a View component from this method that is the root of your fragment\'s layout. You can return null if the fragment does not provide a UI.
+            \n onActivityCreated()The onActivityCreated() is called after the onCreateView() method when the host activity is created. Activity and fragment instance have been created as well as the view hierarchy of the activity. At this point, view can be accessed with the findViewById() method. example. In this method you can instantiate objects which require a Context object
+            \n onStart()The onStart() method is called once the fragment gets visible.
+            \n onResume()Fragment becomes active.
+            \n onPause() The system calls this method as the first indication that the user is leaving the fragment. This is usually where you should commit any changes that should be persisted beyond the current user session.
+            \n onStop()Fragment going to be stopped by calling onStop()
+            \n onDestroyView()Fragment view will destroy after call this method
+            \n onDestroy()onDestroy() called to do final clean up of the fragment\'s state but Not guaranteed to be called by the Android platform.
+        </item>
+    </string-array>
+
+    <string-array name="intent_">
+        <item name = "definition"> What are Intents?</item>
+        <item name = "code">
+            Intents displays notification messages to the user from within the Android enabled device. It can be used to alert the user of a
+            particular state that occurred. Users can be made to respond to intents.
+        </item>
+    </string-array>
+
+    <string-array name="intent_filter_">
+        <item name = "definition">What is the function of an intent filter?</item>
+        <item name = "code">
+            Because every component needs to indicate which intents they can respond to,
+            intent filters are used to filter out intents that these components are willing to receive.
+            One or more intent filters are possible, depending on the services and activities that is going to make use of it.
+        </item>
+    </string-array>
+
+    <string-array name="differentiate_activities_">
+        <item name = "definition">Differentiate Activities from Services.</item>
+        <item name = "code">
+            Activities can be closed, or terminated anytime the user wishes. On the other hand, services are designed to run behind the scenes, and can act
+            independently. Most services run continuously, regardless of whether there are certain or no activities being executed.
+        </item>
+    </string-array>
+    <!--<string-array name="Services">-->
+    <!--<item>Subsets</item>-->
+    <!--<item>Permutation</item>-->
+    <!--</string-array>-->
+    <!--<string-array name="Receivers">-->
+    <!--<item>Subsets</item>-->
+    <!--<item>Permutation</item>-->
+    <!--</string-array>-->
+    <!--<string-array name="Adapters">-->
+        <!--<item>Subsets</item>-->
+        <!--<item>Permutation</item>-->
+    <!--</string-array>-->
+    <!--<string-array name="Graphics_and_animations">-->
+        <!--<item>Subsets</item>-->
+        <!--<item>Permutation</item>-->
+    <!--</string-array>-->
+    <!--<string-array name="Http_and_WebServers">-->
+        <!--<item>Subsets</item>-->
+        <!--<item>Permutation</item>-->
+    <!--</string-array>-->
+    <!--<string-array name="Securities_and_permissions">-->
+        <!--<item>Subsets</item>-->
+        <!--<item>Permutation</item>-->
+    <!--</string-array>-->
+
     <string-array name="general_questions">
         <item>JVM</item>
         <item>JRE</item>
@@ -74,66 +212,61 @@
     <string-array name="garbage_collectors">
         <item>Purpose of garbage collection</item>
         <item>System and Runtime</item>
+        <item>Finalization</item>
+        <item>Object reference</item>
+        <item>Java Heap</item>
+        <item>Serial and Throughput Garbage</item>
+        <item>Garbage Collection</item>
+        <item>Permanent Generation Space</item>
     </string-array>
-        <!--<item>finalization</item>-->
-        <!--<item>object reference</item>-->
-        <!--<item>Java Heap</item>-->
-        <!--<item>Serial and Throughput Garbage</item>-->
-        <!--<item>Garbage collection</item>-->
-        <!--<item>permanent generation space</item>-->
-    <!--</string-array>-->
 
     <string-array name="exception_handling">
         <item>Exceptions in Java</item>
         <item>Exception and Error</item>
+        <item>throw and throws</item>
+        <item>finally block</item>
+        <item>Exception object</item>
+        <item>finalize block</item>
     </string-array>
-        <!--<item>throw and throws</item>-->
-        <!--<item>finally block</item>-->
-        <!--<item>Exception object</item>-->
-        <!--<item>finally block</item>-->
-    <!--</string-array>-->
 
     <string-array name="java_applets">
         <item>What is an Applet</item>
         <item>Life cycle of an Applet</item>
+        <item>applet is loaded</item>
+        <item>Applet and a Java Application</item>
+        <item>Restrictions imposed on Java applets</item>
+        <item>Untrusted applets</item>
+        <item>Applets loaded</item>
+        <item>Applet class loader</item>
+        <item>Applet security manager</item>
     </string-array>
-        <!--<item>applet is loaded</item>-->
-        <!--<item>Applet and a Java Application</item>-->
-        <!--<item>restrictions imposed on Java applets</item>-->
-        <!--<item>untrusted applets</item>-->
-        <!--<item>applets loaded over the internet and applets loaded via the file system</item>-->
-        <!--<item>applet class loader</item>-->
-        <!--<item>applet security manager</item>-->
-    <!--</string-array>-->
 
     <string-array name="swing">
         <item>Choice and a List</item>
         <item>Layout manager</item>
+        <item>Scrollbar</item>
+        <item>Threadsafe</item>
+        <item>Component subclasses</item>
+        <item>Clipping</item>
+        <item>MenuItem and a CheckboxMenuItem</item>
+        <item>BorderLayout</item>
+        <item>GridBagLayout</item>
+        <item>Window and a Frame</item>
+        <item>Clipping and repainting</item>
+        <item>Event listener</item>
+        <item>GUI component</item>
+        <item>Traditional windowing systems</item>
+        <item>Design pattern</item>
     </string-array>
-        <!--<item>Scrollbar</item>-->
-        <!--<item>threadsafe</item>-->
-        <!--<item>Component subclasses that support painting</item>-->
-        <!--<item>clipping </item>-->
-        <!--<item>MenuItem and a CheckboxMenuItem</item>-->
-        <!--<item>BorderLayout</item>-->
-        <!--<item>GridBagLayout</item>-->
-        <!--<item>Window and a Frame</item>-->
-        <!--<item>clipping and repainting</item>-->
-        <!--<item>event listener interface and an event adapter class</item>-->
-        <!--<item>GUI component handle its own events</item>-->
-        <!--<item>layout managers provide over traditional windowing systems</item>-->
-        <!--<item>design pattern</item>-->
-    <!--</string-array>-->
 
     <string-array name="jdbc">
         <item>What is JDBC</item>
         <item>Driver in JDBC</item>
+        <item>Class forName</item>
+        <item>Prepared Statement</item>
+        <item>CallableStatement</item>
+        <item>Connection pooling</item>
     </string-array>
-        <!--<item>Class.forName</item>-->
-        <!--<item>advantage of PreparedStatement over Statement</item>-->
-        <!--<item>CallableStatement</item>-->
-        <!--<item>Connection pooling</item>-->
-    <!--</string-array>-->
 
     <string-array name="remote_method_invocation">
         <item>What is RMI</item>
@@ -643,6 +776,53 @@ Return zero-length collections or arrays as opposed to returning a null in case 
         </item>
     </string-array>
 
+    <string-array name="finalization_">
+        <item name = "definition">When is the finalize() called ? What is the purpose of finalization ?</item>
+        <item name = "code">
+            The finalize method is called by the garbage collector, just before releasing the object’s memory. It is normally
+            advised to release resources held by the object inside the finalize method.
+        </item>
+    </string-array>
+
+    <string-array name="object_reference_">
+        <item name = "definition">If an object reference is set to null, will the Garbage Collector immediately free the memory held by that object ?</item>
+        <item name = "code">
+            No, the object will be available for garbage collection in the next cycle of the garbage collector.
+        </item>
+    </string-array>
+    <string-array name="java_heap_">
+        <item name = "definition"> What is structure of Java Heap ? What is Perm Gen space in Heap ?</item>
+        <item name = "code">
+            The JVM has a heap that is the runtime data area from which memory for all class instances and arrays is allocated. It is created at the JVM start-up.
+            Heap memory for objects is reclaimed by an automatic memory management system which is known as a garbage collector. Heap memory consists of live and
+            dead objects. Live objects are accessible by the application and will not be a subject of garbage collection. Dead objects are those which will never
+            be accessible by the application, but have not been collected by the garbage collector yet. Such objects occupy the heap memory space until they are
+            eventually collected by the garbage collector.
+        </item>
+    </string-array>
+    <string-array name="serial_and_throughput_garbage_">
+        <item name = "definition">What is the difference between Serial and Throughput Garbage collector ?</item>
+        <item name = "code">
+            The throughput garbage collector uses a parallel version of the young generation collector and is
+            meant to be used with applications that have medium to large data sets. On the other hand, the serial
+            collector is usually adequate for most small applications (those requiring heaps of up to approximately 100MB on modern processors).
+        </item>
+    </string-array>
+    <string-array name="garbage_collection_">
+        <item name = "definition">When does an Object becomes eligible for Garbage collection in Java ?</item>
+        <item name = "code">
+            A Java object is subject to garbage collection when it becomes unreachable to the program in which it is currently used.
+        </item>
+    </string-array>
+    <string-array name="permanent_generation_space_">
+        <item name = "definition">Does Garbage collection occur in permanent generation space in JVM ?</item>
+        <item name = "code">
+            Garbage Collection does occur in PermGen space and if PermGen space is full or cross a threshold, it can trigger a full garbage collection.
+            If you look carefully at the output of the garbage collector, you will find that PermGen space is also garbage collected. This is the reason
+            why correct sizing of PermGen space is important to avoid frequent full garbage collections. Also check our article Java 8: PermGen to Metaspace.
+        </item>
+    </string-array>
+
     <string-array name="exceptions_in_java_">
         <item name = "definition">What are the two types of Exceptions in Java ? Which are the differences between them ?</item>
         <item name = "code">
@@ -661,6 +841,45 @@ Return zero-length collections or arrays as opposed to returning a null in case 
         </item>
     </string-array>
 
+    <string-array name="throw_and_throws_">
+        <item name = "definition">What is the difference between Exception and Error in java ?</item>
+        <item name = "code">
+            Exception and Error classes are both subclasses of the Throwable class. The Exception class is used for exceptional conditions that
+            a user’s program should catch. The Error class defines exceptions that are not excepted to be caught by the user program.
+        </item>
+    </string-array>
+
+    <string-array name="finally_block_">
+        <item name = "definition">What is the importance of finally block in exception handling ?</item>
+        <item name = "code">
+            A finally block will always be executed, whether or not an exception is actually thrown. Even in the case where the catch statement
+            is missing and an exception is thrown, the finally block will still be executed. Last thing to mention is that the finally block is
+            used to release resources like I/O buffers, database connections, etc.
+        </item>
+    </string-array>
+
+    <string-array name="exception_object_">
+        <item name = "definition">What will happen to the Exception object after exception handling ?</item>
+        <item name = "code">
+            The Exception object will be garbage collected in the next garbage collection.
+        </item>
+    </string-array>
+
+    <string-array name="finalize_block_">
+        <item name = "definition">How does finally block differ from finalize() method ?</item>
+        <item name = "code">
+            A finally block will be executed whether or not an exception is thrown and is used to release
+            those resources held by the application. Finalize is a protected method of the Object class,
+            which is called by the Java Virtual Machine (JVM) just before an object is garbage collected.
+        </item>
+    </string-array>
+    <!--<item>applet is loaded</item>-->
+    <!--<item>Applet and a Java Application</item>-->
+    <!--<item>restrictions imposed on Java applets</item>-->
+    <!--<item>untrusted applets</item>-->
+    <!--<item>applets loaded over the internet and applets loaded via the file system</item>-->
+    <!--<item>applet class loader</item>-->
+    <!--<item>applet security manager</item>-->
     <string-array name="what_is_an_applet_">
         <item name = "definition">What is an Applet ?</item>
         <item name = "code">
@@ -679,7 +898,72 @@ Return zero-length collections or arrays as opposed to returning a null in case 
             Destroy: Perform a final cleanup, before unloading the applet.
         </item>
     </string-array>
+    <string-array name="applet_is_loaded_">
+        <item name = "definition">What happens when an applet is loaded ?</item>
+        <item name = "code">
+            First of all, an instance of the applet’s controlling class is created. Then, the applet initializes itself and finally, it starts running.
+        </item>
+    </string-array>
 
+    <string-array name="applet_and_a_java_application_">
+        <item name = "definition">What is the difference between an Applet and a Java Application ?</item>
+        <item name = "code">
+            Applets are executed within a java enabled browser, but a Java application is a standalone Java program that can be executed outside of a browser.
+            However, they both require the existence of a Java Virtual Machine (JVM). Furthermore, a Java application requires a main method with a specific signature,
+            in order to start its execution. Java applets don’t need such a method to start their execution. Finally, Java applets typically use a restrictive
+            security policy, while Java applications usually use more relaxed security policies.
+        </item>
+    </string-array>
+    <string-array name="restrictions_imposed_on_java_applets_">
+        <item name = "definition">What are the restrictions imposed on Java applets ?</item>
+        <item name = "code">
+            Mostly due to security reasons, the following restrictions are imposed on Java applets:
+            An applet cannot load libraries or define native methods.\n
+            An applet cannot ordinarily read or write files on the execution host.\n
+            An applet cannot read certain system properties.\n
+            An applet cannot make network connections except to the host that it came from.\n
+            An applet cannot start any program on the host that’s executing it.
+        </item>
+    </string-array>
+    <string-array name="untrusted_applets_">
+        <item name = "definition">What are untrusted applets ?</item>
+        <item name = "code">
+            Untrusted applets are those Java applets that cannot access or execute local system files. By default, all downloaded applets are considered as untrusted.
+        </item>
+    </string-array>
+    <string-array name="applets_loaded_">
+        <item name = "definition">What is the difference between applets loaded over the internet and applets loaded via the file system ?</item>
+        <item name = "code">
+            Regarding the case where an applet is loaded over the internet, the applet is loaded by the applet classloader and is subject to the restrictions enforced
+            by the applet security manager. Regarding the case where an applet is loaded from the client’s local disk, the applet is loaded by the file system loader.
+            Applets loaded via the file system are allowed to read files, write files and to load libraries on the client. Also, applets loaded via the file system are
+            allowed to execute processes and finally, applets loaded via the file system are not passed through the byte code verifier.
+        </item>
+    </string-array>
+    <string-array name="applet_class_loader_">
+        <item name = "definition">What is the applet class loader, and what does it provide ?</item>
+        <item name = "code">
+            When an applet is loaded over the internet, the applet is loaded by the applet classloader. The class loader enforces the Java name space hierarchy.
+            Also, the class loader guarantees that a unique namespace exists for classes that come from the local file system, and that a unique namespace exists
+            for each network source. When a browser loads an applet over the net, that applet’s classes are placed in a private namespace associated with the
+            applet’s origin. Then, those classes loaded by the class loader are passed through the verifier.The verifier checks that the class file conforms to
+            the Java language specification . Among other things, the verifier ensures that there are no stack overflows or underflows and that the parameters to
+            all bytecode instructions are correct
+        </item>
+    </string-array>
+    <string-array name="applet_security_manager_">
+        <item name = "definition">What is the applet security manager, and what does it provide ?</item>
+        <item name = "code">
+            The applet security manager is a mechanism to impose restrictions on Java applets. A browser may only have one security manager. The security manager
+            is established at startup, and it cannot thereafter be replaced, overloaded, overridden, or extended.
+        </item>
+    </string-array>
+
+
+    <!--<item>Scrollbar</item>-->
+    <!--<item>threadsafe</item>-->
+    <!--<item>layout managers provide over traditional windowing systems</item>-->
+    <!--<item>design pattern</item>-->
     <string-array name="choice_and_a_list_">
         <item name = "definition">What is the difference between a Choice and a List ?</item>
         <item name = "code">
@@ -696,6 +980,94 @@ Return zero-length collections or arrays as opposed to returning a null in case 
         </item>
     </string-array>
 
+    <string-array name="scrollbar_">
+        <item name = "definition">What is the difference between a Scrollbar and a JScrollPane ?</item>
+        <item name = "code">
+            A Scrollbar is a Component, but not a Container. A ScrollPane is a Container. A ScrollPane handles its own events and performs its own scrolling.
+        </item>
+    </string-array>
+    <string-array name="threadsafe_">
+        <item name = "definition">Which Swing methods are thread-safe ?</item>
+        <item name = "code">
+            There are only three thread-safe methods: repaint, revalidate, and invalidate.
+        </item>
+    </string-array>
+    <string-array name="component_subclasses_">
+        <item name = "definition">Name three Component subclasses that support painting. </item>
+        <item name = "code">
+            The Canvas, Frame, Panel, and Applet classes support painting.
+        </item>
+    </string-array>
+    <string-array name="clipping_">
+        <item name = "definition">What is clipping ?</item>
+        <item name = "code">
+            Clipping is defined as the process of confining paint operations to a limited area or shape.
+        </item>
+    </string-array>
+    <string-array name="menuitem_and_a_checkboxmenuitem_">
+        <item name = "definition">What is the difference between a MenuItem and a CheckboxMenuItem ? </item>
+        <item name = "code">
+            The CheckboxMenuItem class extends the MenuItem class and supports a menu item that may be either checked or unchecked.
+        </item>
+    </string-array>
+    <string-array name="borderlayout_">
+    <item name = "definition">How are the elements of a BorderLayout organized ? </item>
+        <item name = "code">
+            The elements of a BorderLayout are organized at the borders (North, South, East, and West) and the center of a container.
+        </item>
+    </string-array>
+    <string-array name="gridbaglayout_">
+        <item name = "definition">How are the elements of a GridBagLayout organized ?</item>
+        <item name = "code">
+            The elements of a GridBagLayout are organized according to a grid. The elements are of different sizes and may occupy more
+            than one row or column of the grid. Thus, the rows and columns may have different sizes.
+        </item>
+    </string-array>
+    <string-array name="window_and_a_frame_">
+    <item name = "definition">What is the difference between a Window and a Frame ?</item>
+    <item name = "code">
+        The Frame class extends the Window class and defines a main application window that can have a menu bar.
+    </item>
+    </string-array>
+    <string-array name="clipping_and_repainting_">
+        <item name = "definition">What is the relationship between clipping and repainting ?</item>
+        <item name = "code">
+            When a window is repainted by the AWT painting thread, it sets the clipping regions to the area of the window that requires repainting.
+        </item>
+        </string-array>
+    <string-array name="event_listener_">
+        <item name = "definition">What is the relationship between an event-listener interface and an event-adapter class ?</item>
+        <item name = "code">
+            An event-listener interface defines the methods that must be implemented by an event handler for a particular event. An event adapter provides
+            a default implementation of an event-listener interface.
+        </item>
+    </string-array>
+
+    <string-array name="gui_component_">
+        <item name = "definition">How can a GUI component handle its own events ?</item>
+        <item name = "code">
+            A GUI component can handle its own events, by implementing the corresponding event-listener interface and adding itself as its own event listener.
+        </item>
+    </string-array>
+
+    <string-array name="traditional_windowing_systems_">
+        <item name = "definition">What advantage do Java’s layout managers provide over traditional windowing systems ? </item>
+        <item name = "code">
+            Java uses layout managers to lay out components in a consistent manner, across all windowing platforms. Since layout managers aren’t tied to absolute
+            sizing and positioning, they are able to accomodate platform-specific differences among windowing systems.
+        </item>
+    </string-array>
+    <string-array name="design_pattern_">
+        <item name = "definition">What is the design pattern that Java uses for all Swing components ?</item>
+        <item name = "code">
+            The design pattern used by Java for all Swing components is the Model View Controller (MVC) pattern.
+        </item>
+    </string-array>
+
+    <!--<item>Class.forName</item>-->
+    <!--<item>advantage of PreparedStatement over Statement</item>-->
+    <!--<item>CallableStatement</item>-->
+    <!--<item>Connection pooling</item>-->
     <string-array name="what_is_jdbc_">
         <item name = "definition">What is JDBC ?</item>
         <item name = "code">
@@ -712,6 +1084,48 @@ Return zero-length collections or arrays as opposed to returning a null in case 
         </item>
     </string-array>
 
+    <string-array name="class_forname_">
+        <item name = "definition">Explain the role of Driver in JDBC.</item>
+        <item name = "code">
+            The JDBC Driver provides vendor-specific implementations of the abstract classes provided by the JDBC API. Each driver must provide
+            implementations for the following classes of the java.sql package:Connection, Statement, PreparedStatement, CallableStatement, ResultSet and Driver.
+        </item>
+    </string-array>
+
+    <string-array name="prepared_statement_">
+        <item name = "definition">Explain the role of Driver in JDBC.</item>
+        <item name = "code">
+            The JDBC Driver provides vendor-specific implementations of the abstract classes provided by the JDBC API. Each driver must provide
+            implementations for the following classes of the java.sql package:Connection, Statement, PreparedStatement, CallableStatement, ResultSet and Driver.
+        </item>
+    </string-array>
+
+    <string-array name="callablestatement_">
+        <item name = "definition">Explain the role of Driver in JDBC.</item>
+        <item name = "code">
+            The JDBC Driver provides vendor-specific implementations of the abstract classes provided by the JDBC API. Each driver must provide
+            implementations for the following classes of the java.sql package:Connection, Statement, PreparedStatement, CallableStatement, ResultSet and Driver.
+        </item>
+    </string-array>
+
+    <string-array name="connection_pooling_">
+        <item name = "definition">Explain the role of Driver in JDBC.</item>
+        <item name = "code">
+            The JDBC Driver provides vendor-specific implementations of the abstract classes provided by the JDBC API. Each driver must provide
+            implementations for the following classes of the java.sql package:Connection, Statement, PreparedStatement, CallableStatement, ResultSet and Driver.
+        </item>
+    </string-array>
+
+    <!--<item>RMI Architecture</item>-->
+    <!--<item>Remote Interface in RMI</item>-->
+    <!--<item>java.rmi.Naming Class</item>-->
+    <!--<item>binding in RMI</item>-->
+    <!--<item>bind and rebind methods of Naming Class</item>-->
+    <!--<item>steps involved to make work a RMI program</item>-->
+    <!--<item>role of stub</item>-->
+    <!--<item>DGC</item>-->
+    <!--<item>Marshalling and demarshalling</item>-->
+    <!--<item>Serialization and Deserialization</item>-->
     <string-array name="what_is_rmi_">
         <item name = "definition">What is RMI ?</item>
         <item name = "code">
@@ -731,6 +1145,21 @@ Return zero-length collections or arrays as opposed to returning a null in case 
         </item>
     </string-array>
 
+
+    <!--<item>Applet and a Servlet</item>-->
+    <!--<item>GenericServlet and HttpServlet</item>-->
+    <!--<item>life cycle of a Servlet</item>-->
+    <!--<item>doGet and doPost</item>-->
+    <!--<item>Web Application</item>-->
+    <!--<item>Server Side Include</item>-->
+    <!--<item>Servlet Chaining</item>-->
+    <!--<item>client machine</item>-->
+    <!--<item>structure of the HTTP response</item>-->
+    <!--<item>session and cookie</item>-->
+    <!--<item>browser and servlet</item>-->
+    <!--<item>HTTP Tunneling</item>-->
+    <!--<item>sendRedirect and forward methods</item>-->
+    <!--<item>URL Encoding and URL Decoding</item>-->
     <string-array name="what_is_a_servlet_">
         <item name = "definition">What is a Servlet ?</item>
         <item name = "code">
@@ -749,6 +1178,131 @@ Return zero-length collections or arrays as opposed to returning a null in case 
         </item>
     </string-array>
 
+    <!--<string-array name="what_is_a_servlet_">-->
+        <!--<item name = "definition">What is a Servlet ?</item>-->
+        <!--<item name = "code">-->
+            <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+            <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+            <!--information that does not exist in the stateless HTTP protocol.-->
+        <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
     <string-array name="jsp_page_">
         <item name = "definition">What is a JSP Page ? </item>
         <item name = "code">
@@ -986,7 +1540,7 @@ public class Solution {\n
 </string-array>
 
 <string-array name="huffman_compression_">
-        <item name = "definition"> Huffman coding is an entropy encoding algorithm used for lossless
+        <item name ="algorithm"> Huffman coding is an entropy encoding algorithm used for lossless
             data compression. The term refers to the use of a variable-length code table for encoding
             a source symbol (such as a character in a file) where the variable-length code table has
             been derived in a particular way based on the estimated probability of occurrence for

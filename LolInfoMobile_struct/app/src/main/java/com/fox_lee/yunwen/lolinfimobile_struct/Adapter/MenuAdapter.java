@@ -53,7 +53,7 @@ public class MenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 public void onClick(View v) {
                     if (mContext instanceof View.OnClickListener) {
                         switch (((TextViewHolder) holder).mTextView.getText().toString()) {
-                            case "Algorithm": /* start activity accordingly */
+                            case "DbFavorite": /* start activity accordingly */
                                 ((MainActivity) mContext).startAlgorithmFragment(mTitles[position]);
                                 break;
                             default:

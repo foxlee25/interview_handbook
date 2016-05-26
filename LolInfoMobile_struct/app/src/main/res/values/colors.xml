@@ -21,5 +21,12 @@
     <color name="colorText">#FFFFFF</color>
     <color name="colorWhite">#FFFFFF</color>
 
-
+    <!--<color name="colorWhite">#FFFFFF</color>-->
+    <color name="colorSlide1">#0A61FE</color>
+    <color name="colorSlide2">#00C7FE</color>
+    <color name="colorSlide3">#41A5AC</color>
+    <color name="colorSlide4">#F041A5</color>
+    <color name="colorSlide5">#6E88C6</color>
+    <color name="colorSlide6">#EF2C66</color>
+    <color name="colorSlide7">#A258D3</color>
 </resources>

@@ -5,20 +5,20 @@ package com.fox_lee.yunwen.lolinfimobile_struct.Utility;
  */
 
 //this is the database for storing favorite list
-public class Algorithm {
+public class DbFavorite {
     //table name
-    public static final String TABLE="DataStructure";
+    public static final String TABLE="Algorithm";
     //table id
     public static final String KEY_ID="id";
     public static final String KEY_topic="topic";
     public static final String KEY_content="content";
-    public static final String KEY_code="code";
+//    public static final String KEY_code="code";
     public static final String KEY_age="age";
 
     //property
     public int algorithm_ID;
     public String topic;
     public String content;
-    public String code;
+//    public String code;
     public int age;
 }

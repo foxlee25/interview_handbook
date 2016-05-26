@@ -56,7 +56,7 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                         String[] res = mContext.getResources().getStringArray(resId);
                         Log.d("AlgorithmAdapter", " The resource id is: " + id);
                         for(int i = 0; i < res.length; i++) {
-                            Log.d("Algorithm","The array is: " + res[i]);
+                            Log.d("DbFavorite","The array is: " + res[i]);
                         }
                         ((MainActivity) mContext).startSubFragment(res);
                     }
@@ -83,11 +83,6 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             super(view);
             ButterKnife.bind(this, view);
         }
-
-//        @OnClick(R.id.cv_text)
-//        void onItemClick() {
-//            Log.d("TextViewHolder", "onClick--> position = " + getPosition());
-//        }
     }
 
 //    private String getStringResourceByName(String aString) {

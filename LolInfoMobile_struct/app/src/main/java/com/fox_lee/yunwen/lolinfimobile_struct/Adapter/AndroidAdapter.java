@@ -16,7 +16,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class JavaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class AndroidAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public enum ITEM_TYPE {
         ITEM_TYPE_IMAGE,
@@ -25,14 +25,9 @@ public class JavaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
     private String[] mTitles;
-    private static IndexCallback indexCallback;
 
-    public void onIndexUpdate(IndexCallback indexCallback) {
-        this.indexCallback = indexCallback;
-    }
-
-    public JavaAdapter(Context context) {
-        mTitles = context.getResources().getStringArray(R.array.java);
+    public AndroidAdapter(Context context) {
+        mTitles = context.getResources().getStringArray(R.array.android);
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
     }
@@ -56,7 +51,7 @@ public class JavaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     String id = ((TextViewHolder) holder).mTextView.getText().toString().toLowerCase().replace(" ", "_");
                     int resId = mContext.getResources().getIdentifier(id, "array", pack);
                     String[] res = mContext.getResources().getStringArray(resId);
-                    Log.d("AlgorithmAdapter", " The resource id is: " + id);
+                    Log.d("AndroidAdapter", " The resource id is: " + id);
                     for(int i = 0; i < res.length; i++) {
                         Log.d("DbFavorite","The array is: " + res[i]);
                     }

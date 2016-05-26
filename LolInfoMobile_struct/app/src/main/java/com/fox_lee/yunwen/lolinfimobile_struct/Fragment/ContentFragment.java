@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.Algorithm;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.AlgorithmRepo;
+import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DbFavorite;
+import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DbRepo;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 /**
@@ -47,11 +49,11 @@ public class ContentFragment extends  Fragment {
 //        Typeface typeFace =Typeface.createFromAsset(getActivity().getAssets(),"fonts/HelveticaNeue.ttf");
 //        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/HelveticaNeueMed.ttf");
 //        tvTitle.setTypeface(font);
-        float sth =300/dataContent.length();
-        if(sth >26) {
+        float length =300/dataContent.length();
+        if(length >26) {
             tvTitle.setTextSize(26);
         }else {
-            tvTitle.setTextSize(13);
+            tvTitle.setTextSize(length);
         }
         tvTitle.setText(dataContent);
         tvTitle.setTextColor(getResources().getColor(R.color.colorWhite));
@@ -67,18 +69,18 @@ public class ContentFragment extends  Fragment {
             public void onClick(View v) {
             //add to favorite
             int _algorithm_id =0;
-            AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
-            Algorithm algorithm = new Algorithm();
-            algorithm = repo.getColumnById(_algorithm_id);
-            algorithm.age = 25;
-            algorithm.content = "Delete";//should be definition
-            algorithm.topic = dataContent;
-            algorithm.algorithm_ID=_algorithm_id;
+            DbRepo repo = new DbRepo(v.getContext());
+            DbFavorite dbFavorite = new DbFavorite();
+            dbFavorite = repo.getColumnById(_algorithm_id);
+            dbFavorite.age = 25;
+            dbFavorite.content = "";//should be definition
+            dbFavorite.topic = dataContent;
+            dbFavorite.algorithm_ID=_algorithm_id;
             if(_algorithm_id==0){
-                _algorithm_id=repo.insert(algorithm);
+                _algorithm_id=repo.insert(dbFavorite);
                 Toast.makeText(v.getContext(), "Add to Favorite Menu", Toast.LENGTH_SHORT).show();
             }else{
-                repo.update(algorithm);
+                repo.update(dbFavorite);
                 Toast.makeText(v.getContext(),"Content Record updated",Toast.LENGTH_SHORT).show();
             }
             }
@@ -107,24 +109,13 @@ public class ContentFragment extends  Fragment {
 //        for(int i = 0; i < strings.length; i++) {
 //            Log.d("ContentFragment","The array is: " + strings[i]);
 //        }
+        AlgorithmRepo repo = new AlgorithmRepo(getActivity());
+        Algorithm algorithm = repo.getColumnByTopic(dataContent);
+//        tvQuestion.setText(algorithm.content);
+//        tvAnswer.setText(algorithm.code);
         tvQuestion.setText(strings[0]);
         tvAnswer.setText(strings[1]);
-
-//            default:
-//                btnAnswer.setVisibility(view.GONE);
-//                imgAnswer.setVisibility(view.GONE);
-//                tvAnswer.setVisibility(view.GONE);
-//                break;
-
-//        switch (dataContent) {
-//            case "Linked List":
-//                strings = getResources().getStringArray(R.array.linked_list_);
-//                tvTitle.setText(strings[0]);
-//                tvAnswer.setText(strings[1]);
-//                break;
-//        }
     }
-
     private String getLongestString(String[] array) {
         int maxLength = 0;
         String longestString = null;

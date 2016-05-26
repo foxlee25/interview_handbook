@@ -15,8 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fox_lee.yunwen.lolinfimobile_struct.Adapter.DbAdapter;
-import com.fox_lee.yunwen.lolinfimobile_struct.Utility.Algorithm;
-import com.fox_lee.yunwen.lolinfimobile_struct.Utility.AlgorithmRepo;
+import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DbFavorite;
+import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DbRepo;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 import java.util.ArrayList;
@@ -52,10 +52,10 @@ public class DbFragment extends Fragment implements View.OnClickListener{
     public void onClick(final View v){
         int _algorithm_id = 0;
         if (v == v.findViewById(R.id.btnGetAll)){// list db
-            AlgorithmRepo repo = new AlgorithmRepo(v.getContext());
-            Algorithm algorithm = new Algorithm();
+            DbRepo repo = new DbRepo(v.getContext());
+            DbFavorite dbFavorite = new DbFavorite();
             Log.d("MainActivity","The id is: " + _algorithm_id);
-            algorithm = repo.getColumnById(_algorithm_id);
+            dbFavorite = repo.getColumnById(_algorithm_id);
             ArrayList<HashMap<String, String>> algorithmList =  repo.getAlgorithmList();
             if(algorithmList.size()!=0) {//Show Db list
                 initRecyclerView(algorithmList);
