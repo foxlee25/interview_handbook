@@ -14,6 +14,1314 @@
         <item>SWIFT</item>
     </string-array>
 
+    <string-array name="java">
+        <item>General Questions</item>
+        <item>Java Threads</item>
+        <item>Java Collections</item>
+        <item>Garbage Collectors</item>
+        <item>Exception Handling</item>
+        <item>Java Applets</item>
+        <item>Swing</item>
+        <item>JDBC</item>
+        <item>Remote Method Invocation</item>
+        <item>Servlets</item>
+        <item>JSP</item>
+    </string-array>
+
+    <string-array name="android">
+        <item>Android Basics</item>
+        <item>Activity</item>
+        <item>Fragment</item>
+        <item>Intent</item>
+        <item>Services</item>
+        <item>SQLite database</item>
+    </string-array>
+
+    <!--<item>Services</item>-->
+    <!--<item>Receivers</item>-->
+    <!--<item>Adapters</item>-->
+    <!--<item>Graphics and animations</item>-->
+    <!--<item>Http and WebServers</item>-->
+    <!--<item>Securities and permissions</item>    -->
+    <string-array name="android_basics">
+        <item>Android Architecture</item>
+        <item>ANR</item>
+    </string-array>
+    <string-array name="activity">
+        <item>Activity</item>
+        <item>Activity Life Cycle</item>
+    </string-array>
+    <string-array name="fragment">
+        <item>Fragment Life Cycle</item>
+    </string-array>
+    <string-array name="intent">
+        <item>Intent</item>
+        <item>Intent Filter</item>
+    </string-array>
+    <string-array name="services">
+        <item>Differentiate Activities</item>
+
+    </string-array>
+    <string-array name="sqlite_database">
+        <item>Subsets</item>
+        <item>Permutation</item>
+    </string-array>
+
+    <string-array name="android_architecture_">
+        <item name = "definition"> What is the Android Architecture?</item>
+        <item name = "code">
+            Android Architecture is made up of 4 key components:
+    \n– Linux Kernel
+    \n– Libraries
+    \n– Android Framework
+    \n– Android Applications
+        </item>
+    </string-array>
+    <string-array name="anr_">
+        <item name = "definition"> What is ANR ?</item>
+        <item name = "code">
+            An ANR happens when some long operation takes place in the "main" thread. This is the event loop thread, and if it is busy,
+            Android cannot process any further GUI events in the application, and thus throws up an ANR dialog.
+        </item>
+    </string-array>
+
+    <string-array name="activity_">
+        <item name = "definition">Describe Activities.</item>
+        <item name = "code">
+            Activities are what you refer to as the window to a user interface. Just as you create windows in order to display
+            output or to ask for an input in the form of dialog boxes, activities play the same role, though it may not always be in the form of a user interface.
+        </item>
+    </string-array>
+    <string-array name="activity_life_cycle_">
+        <item name = "definition"> What is Activity life cycle?</item>
+        <item name = "code">
+            To create an activity, you must create a subclass of Activity (or an existing subclass of it). In your subclass, you need to implement callback methods
+            that the system calls when the activity transitions between various states of its lifecycle, such as when the activity is being created, stopped,
+            resumed, or destroyed.onCreate() onRestart() onStart() onResume() onPause() onStop() onDestroy()
+        </item>
+    </string-array>
+
+    <string-array name="fragment_life_cycle_">
+        <item name = "definition"> What is Fragment life cycle?</item>
+        <item name = "code">
+            \n onAttach()The fragment instance is associated with an activity instance.The fragment and the activity is not fully initialized. Typically you get in this method a reference to the activity which uses the fragment for further initialization work.
+            \n onCreate() The system calls this method when creating the fragment. You should initialize essential components of the fragment that you want to retain when the fragment is paused or stopped, then resumed.
+            \n onCreateView() The system calls this callback when it\'s time for the fragment to draw its user interface for the first time. To draw a UI for your fragment, you must return a View component from this method that is the root of your fragment\'s layout. You can return null if the fragment does not provide a UI.
+            \n onActivityCreated()The onActivityCreated() is called after the onCreateView() method when the host activity is created. Activity and fragment instance have been created as well as the view hierarchy of the activity. At this point, view can be accessed with the findViewById() method. example. In this method you can instantiate objects which require a Context object
+            \n onStart()The onStart() method is called once the fragment gets visible.
+            \n onResume()Fragment becomes active.
+            \n onPause() The system calls this method as the first indication that the user is leaving the fragment. This is usually where you should commit any changes that should be persisted beyond the current user session.
+            \n onStop()Fragment going to be stopped by calling onStop()
+            \n onDestroyView()Fragment view will destroy after call this method
+            \n onDestroy()onDestroy() called to do final clean up of the fragment\'s state but Not guaranteed to be called by the Android platform.
+        </item>
+    </string-array>
+
+    <string-array name="intent_">
+        <item name = "definition"> What are Intents?</item>
+        <item name = "code">
+            Intents displays notification messages to the user from within the Android enabled device. It can be used to alert the user of a
+            particular state that occurred. Users can be made to respond to intents.
+        </item>
+    </string-array>
+
+    <string-array name="intent_filter_">
+        <item name = "definition">What is the function of an intent filter?</item>
+        <item name = "code">
+            Because every component needs to indicate which intents they can respond to,
+            intent filters are used to filter out intents that these components are willing to receive.
+            One or more intent filters are possible, depending on the services and activities that is going to make use of it.
+        </item>
+    </string-array>
+
+    <string-array name="differentiate_activities_">
+        <item name = "definition">Differentiate Activities from Services.</item>
+        <item name = "code">
+            Activities can be closed, or terminated anytime the user wishes. On the other hand, services are designed to run behind the scenes, and can act
+            independently. Most services run continuously, regardless of whether there are certain or no activities being executed.
+        </item>
+    </string-array>
+    <!--<string-array name="Services">-->
+    <!--<item>Subsets</item>-->
+    <!--<item>Permutation</item>-->
+    <!--</string-array>-->
+    <!--<string-array name="Receivers">-->
+    <!--<item>Subsets</item>-->
+    <!--<item>Permutation</item>-->
+    <!--</string-array>-->
+    <!--<string-array name="Adapters">-->
+        <!--<item>Subsets</item>-->
+        <!--<item>Permutation</item>-->
+    <!--</string-array>-->
+    <!--<string-array name="Graphics_and_animations">-->
+        <!--<item>Subsets</item>-->
+        <!--<item>Permutation</item>-->
+    <!--</string-array>-->
+    <!--<string-array name="Http_and_WebServers">-->
+        <!--<item>Subsets</item>-->
+        <!--<item>Permutation</item>-->
+    <!--</string-array>-->
+    <!--<string-array name="Securities_and_permissions">-->
+        <!--<item>Subsets</item>-->
+        <!--<item>Permutation</item>-->
+    <!--</string-array>-->
+
+    <string-array name="general_questions">
+        <item>JVM</item>
+        <item>JRE</item>
+        <item>Static keyword</item>
+        <item>Access non static variable</item>
+        <item>Data Types</item>
+        <item>Overriding and Overloading</item>
+        <item>Constructor</item>
+        <item>Inheritance</item>
+        <item>Interface and an Abstract class</item>
+        <item>Pass by reference and pass by value</item>
+    </string-array>
+
+    <string-array name="java_threads">
+        <item>Processes and threads</item>
+        <item>Ways of creating a thread</item>
+        <item>Available thread states</item>
+        <item>Synchronized method</item>
+        <item>Thread synchronization</item>
+        <item>Deadlock</item>
+        <item>Threads can access without deadlock</item>
+    </string-array>
+
+    <string-array name="java_collections">
+        <item>Java Collections Framework</item>
+        <item>Cloneable and Serializable Interfaces</item>
+        <item>Iterator</item>
+        <item>Iterator and ListIterator</item>
+        <item>Fail fast and fail safe</item>
+        <item>HashMap</item>
+        <item>HashCode</item>
+        <item>HashMap and Hashtable</item>
+        <item>Array and ArrayList</item>
+        <item>ArrayList and LinkedList</item>
+        <item>Comparable and Comparator interface</item>
+        <item>Java Priority Queue</item>
+        <item>Big O notation</item>
+        <item>Unordered array</item>
+        <item>Enumeration and Iterator interfaces</item>
+        <item>Java Collection framework</item>
+        <item>HashSet and TreeSet</item>
+    </string-array>
+
+    <string-array name="garbage_collectors">
+        <item>Purpose of garbage collection</item>
+        <item>System and Runtime</item>
+        <item>Finalization</item>
+        <item>Object reference</item>
+        <item>Java Heap</item>
+        <item>Serial and Throughput Garbage</item>
+        <item>Garbage Collection</item>
+        <item>Permanent Generation Space</item>
+    </string-array>
+
+    <string-array name="exception_handling">
+        <item>Exceptions in Java</item>
+        <item>Exception and Error</item>
+        <item>throw and throws</item>
+        <item>finally block</item>
+        <item>Exception object</item>
+        <item>finalize block</item>
+    </string-array>
+
+    <string-array name="java_applets">
+        <item>What is an Applet</item>
+        <item>Life cycle of an Applet</item>
+        <item>applet is loaded</item>
+        <item>Applet and a Java Application</item>
+        <item>Restrictions imposed on Java applets</item>
+        <item>Untrusted applets</item>
+        <item>Applets loaded</item>
+        <item>Applet class loader</item>
+        <item>Applet security manager</item>
+    </string-array>
+
+    <string-array name="swing">
+        <item>Choice and a List</item>
+        <item>Layout manager</item>
+        <item>Scrollbar</item>
+        <item>Threadsafe</item>
+        <item>Component subclasses</item>
+        <item>Clipping</item>
+        <item>MenuItem and a CheckboxMenuItem</item>
+        <item>BorderLayout</item>
+        <item>GridBagLayout</item>
+        <item>Window and a Frame</item>
+        <item>Clipping and repainting</item>
+        <item>Event listener</item>
+        <item>GUI component</item>
+        <item>Traditional windowing systems</item>
+        <item>Design pattern</item>
+    </string-array>
+
+    <string-array name="jdbc">
+        <item>What is JDBC</item>
+        <item>Driver in JDBC</item>
+        <item>Class forName</item>
+        <item>Prepared Statement</item>
+        <item>CallableStatement</item>
+        <item>Connection pooling</item>
+    </string-array>
+
+    <string-array name="remote_method_invocation">
+        <item>What is RMI</item>
+        <item>Basic principle of RMI</item>
+    </string-array>
+        <!--<item>RMI Architecture</item>-->
+        <!--<item>Remote Interface in RMI</item>-->
+        <!--<item>java.rmi.Naming Class</item>-->
+        <!--<item>binding in RMI</item>-->
+        <!--<item>bind and rebind methods of Naming Class</item>-->
+        <!--<item>steps involved to make work a RMI program</item>-->
+        <!--<item>role of stub</item>-->
+        <!--<item>DGC</item>-->
+        <!--<item>Marshalling and demarshalling</item>-->
+        <!--<item>Serialization and Deserialization</item>-->
+    <!--</string-array>-->
+
+    <string-array name="servlets">
+        <item>What is a Servlet</item>
+        <item>Architechure of a Servlet</item>
+    </string-array>
+        <!--<item>Applet and a Servlet</item>-->
+        <!--<item>GenericServlet and HttpServlet</item>-->
+        <!--<item>life cycle of a Servlet</item>-->
+        <!--<item>doGet and doPost</item>-->
+        <!--<item>Web Application</item>-->
+        <!--<item>Server Side Include</item>-->
+        <!--<item>Servlet Chaining</item>-->
+        <!--<item>client machine</item>-->
+        <!--<item>structure of the HTTP response</item>-->
+        <!--<item>session and cookie</item>-->
+        <!--<item>browser and servlet</item>-->
+        <!--<item>HTTP Tunneling</item>-->
+        <!--<item>sendRedirect and forward methods</item>-->
+        <!--<item>URL Encoding and URL Decoding</item>-->
+    <!--</string-array>-->
+
+    <string-array name="jsp">
+        <item>JSP Page</item>
+        <item>JSP requests handled</item>
+    </string-array>
+        <!--<item>advantages of JSP</item>-->
+        <!--<item>Directives available in JSP</item>-->
+        <!--<item>JSP actions</item>-->
+        <!--<item>Scriptlets</item>-->
+        <!--<item>Decalarations</item>-->
+        <!--<item>Expressions</item>-->
+        <!--<item>implicit objects</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="general_questions">-->
+    <string-array name="jvm_">
+        <item name = "definition"> What is JVM ? Why is Java called the “Platform Independent Programming Language” ?</item>
+        <item name = "code">
+            A Java virtual machine (JVM) is a process virtual machine that can execute Java bytecode. Each Java source file is compiled into a bytecode file,
+            which is executed by the JVM. Java was designed to allow application programs to be built that could be run on any platform, without having to
+            be rewritten or recompiled by the programmer for each separate platform. A Java virtual machine makes this possible, because it is aware of the
+            specific instruction lengths and other particularities of the underlying hardware platform.
+        </item>
+    </string-array>
+
+    <string-array name="jre_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="static_keyword_">
+        <item name = "definition">What does the “static” keyword mean ? Can you override private or static method in Java ?</item>
+        <item name = "code">
+            The static keyword denotes that a member variable or method can be accessed, without requiring an instantiation of the class to which it belongs.
+            A user cannot override static methods in Java, because method overriding is based upon dynamic binding at runtime and static methods are statically
+            binded at compile time. A static method is not associated with any instance of a class so the concept is not applicable.
+        </item>
+    </string-array>
+
+    <string-array name="access_non_static_variable_">
+        <item name = "definition">Can you access non static variable in static context ?</item>
+        <item name = "code">
+            A static variable in Java belongs to its class and its value remains the same for all its instances. A static variable is initialized when the class
+            is loaded by the JVM. If your code tries to access a non-static variable, without any instance, the compiler will complain, because those variables
+            are not created yet and they are not associated with any instance.
+        </item>
+    </string-array>
+
+    <string-array name="data_types_">
+        <item name = "definition">What are the Data Types supported by Java ? What is Autoboxing and Unboxing ?</item>
+        <item name = "code">
+            The eight primitive data types supported by the Java programming language are:
+            byte\n
+            short\n
+            int\n
+            long\n
+            float\n
+            double\n
+            boolean\n
+            char\n
+            Autoboxing is the automatic conversion made by the Java compiler between the primitive types and their corresponding object wrapper classes.
+            For example, the compiler converts an int to an Integer, a double to a Double, and so on. If the conversion goes the other way, this operation
+            is called unboxing.
+        </item>
+    </string-array>
+
+    <string-array name="overriding_and_overloading_">
+        <item name = "definition"> What is Function Overriding and Overloading in Java ?</item>
+        <item name = "code">
+            Method overloading in Java occurs when two or more methods in the same class have the exact same name, but different parameters.
+            On the other hand, method overriding is defined as the case when a child class redefines the same method as a parent class.
+            Overridden methods must have the same name, argument list, and return type. The overriding method may not limit the access of the method it override
+        </item>
+    </string-array>
+
+    <string-array name="constructor_">
+        <item name = "definition"> What is a Constructor, Constructor Overloading in Java and Copy Constructor ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="inheritance_">
+        <item name = "definition">Does Java support multiple inheritance ?</item>
+        <item name = "code">
+            No, Java does not support multiple inheritance. Each class is able to extend only on one class, but is able to implement more than one interfaces.
+        </item>
+    </string-array>
+
+    <string-array name="interface_and_an_abstract_class_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            Java provides and supports the creation both of abstract classes and interfaces.
+            Both implementations share some common characteristics, but they differ in the following features:\n
+            All methods in an interface are implicitly abstract. On the other hand, an abstract class may contain both abstract and non-abstract methods.\n
+            A class may implement a number of Interfaces, but can extend only one abstract class.\n
+            In order for a class to implement an interface, it must implement all its declared methods. However, a class may not implement all declared
+            methods of an abstract class. Though, in this case, the sub-class must also be declared as abstract.\n
+            Abstract classes can implement interfaces without even providing the implementation of interface methods.\n
+            Variables declared in a Java interface is by default final. An abstract class may contain non-final variables.\n
+            Members of a Java interface are public by default. A member of an abstract class can either be private, protected or public.\n
+            An interface is absolutely abstract and cannot be instantiated. An abstract class also cannot be instantiated, but can be invoked if it contains a main method.
+        </item>
+    </string-array>
+
+    <string-array name="pass_by_reference_and_pass_by_value_">
+        <item name = "definition"> What are pass by reference and pass by value ?</item>
+        <item name = "code">
+            When an object is passed by value, this means that a copy of the object is passed. Thus, even if changes are made to that object, it doesn’t affect
+            the original value. When an object is passed by reference, this means that the actual object is not passed, rather a reference of the object is passed.
+            Thus, any changes made by the external method, are also reflected in all places.
+        </item>
+    </string-array>
+
+    <!--<string-array name="java_threads">-->
+    <string-array name="processes_and_threads_">
+        <item name = "definition"> What is the difference between processes and threads ?</item>
+        <item name = "code">
+            A process is an execution of a program, while a Thread is a single execution sequence within a process.
+            A process can contain multiple threads. A Thread is sometimes called a lightweight process.
+        </item>
+    </string-array>
+
+    <string-array name="ways_of_creating_a_thread_">
+        <item name = "definition"> Explain different ways of creating a thread. Which one would you prefer and why ?</item>
+        <item name = "code">
+            There are three ways that can be used in order for a Thread to be created:\n
+            A class may extend the Thread class.\n
+            A class may implement the Runnable interface.\n
+            An application can use the Executor framework, in order to create a thread pool.\n
+            The Runnable interface is preferred, as it does not require an object to inherit the Thread class. In case your application
+            design requires multiple inheritance, only interfaces can help you. Also, the thread pool is very efficient and can be implemented and used very easily.
+        </item>
+    </string-array>
+
+    <string-array name="available_thread_states_">
+        <item name = "definition">Explain the available thread states in a high\-level</item>
+        <item name = "code">
+            During its execution, a thread can reside in one of the following states:
+            NEW: The thread becomes ready to run, but does not necessarily start running immediately.\n
+            RUNNABLE: The Java Virtual Machine \(JVM\) is actively executing the thread’s code.\n
+            BLOCKED: The thread is in a blocked state while waiting for a monitor lock.\n
+            WAITING: The thread waits for another thread to perform a particular action.\n
+            TIMED_WAITING: The thread waits for another thread to perform a particular action up to a specified waiting time.\n
+            TERMINATED: The thread has finished its execution.
+        </item>
+    </string-array>
+
+    <string-array name="synchronized_method_">
+        <item name = "definition">What is the difference between a synchronized method and a synchronized block ?</item>
+        <item name = "code">
+            In Java programming, each object has a lock. A thread can acquire the lock for an object by using the synchronized keyword.
+            The synchronized keyword can be applied in a method level \(coarse grained lock\) or block level of code \(fine grained lock\).
+        </item>
+    </string-array>
+
+    <string-array name="thread_synchronization_">
+        <item name = "definition">How does thread synchronization occurs inside a monitor ? What levels of synchronization can you apply ?</item>
+        <item name = "code">
+            The JVM uses locks in conjunction with monitors. A monitor is basically a guardian that watches over a sequence of synchronized code and
+            ensuring that only one thread at a time executes a synchronized piece of code. Each monitor is associated with an object reference.
+            The thread is not allowed to execute the code until it obtains the lock.
+        </item>
+    </string-array>
+
+    <string-array name="deadlock_">
+        <item name = "definition">What’s a deadlock ?</item>
+        <item name = "code">
+            A condition that occurs when two processes are waiting for each other to complete, before proceeding. The result is that both processes wait endlessly.
+        </item>
+    </string-array>
+
+    <string-array name="threads_can_access_without_deadlock_">
+        <item name = "definition">How do you ensure that N threads can access N resources without deadlock ?</item>
+        <item name = "code">
+            A very simple way to avoid deadlock while using N threads is to impose an ordering on the locks and force each thread to follow that ordering.
+            Thus, if all threads lock and unlock the mutexes in the same order, no deadlocks can arise.
+        </item>
+    </string-array>
+
+    <!--<string-array name="java_collections">-->
+        <!--<item>Java Collections Framework</item>-->
+        <!--<item>Cloneable and Serializable Interfaces</item>-->
+        <!--<item>Iterator</item>-->
+        <!--<item>Iterator and ListIterator</item>-->
+        <!--<item>fail fast and fail safe</item>-->
+        <!--<item>HashMap</item>-->
+        <!--<item>hashCode</item>-->
+        <!--<item>HashMap and Hashtable</item>-->
+        <!--<item>Array and ArrayList</item>-->
+        <!--<item>Comparable and Comparator interface</item>-->
+        <!--<item>Java Priority Queue</item>-->
+        <!--<item>big O notation</item>-->
+        <!--<item>unordered array</item>-->
+        <!--<item>Enumeration and Iterator interfaces</item>-->
+        <!--<item>Java Collection framework</item>-->
+        <!--<item>HashSet and TreeSet</item>-->
+    <!--</string-array>-->
+
+    <string-array name="java_collections_framework_">
+        <item name = "definition"> Explain different ways of creating a thread. Which one would you prefer and why ?</item>
+        <item name = "code">
+            There are three ways that can be used in order for a Thread to be created:\n
+            A class may extend the Thread class.\n
+            A class may implement the Runnable interface.\n
+            An application can use the Executor framework, in order to create a thread pool.
+        </item>
+    </string-array>
+
+    <string-array name="cloneable_and_serializable_interfaces_">
+        <item name = "definition"> Explain different ways of creating a thread. Which one would you prefer and why ?</item>
+        <item name = "code">
+            The Collection interface specifies groups of objects known as elements. Each concrete implementation of a Collection
+            can choose its own way of how to maintain and order its elements. Some collections allow duplicate keys, while some
+            other collections don’t. The semantics and the implications of either cloning or serialization come into play when
+            dealing with actual implementations. Thus, the concrete implementations of collections should decide how they can be cloned or serialized.
+        </item>
+    </string-array>
+
+    <string-array name="iterator_">
+        <item name = "definition">What is an Iterator ?</item>
+        <item name = "code">
+            The Iterator interface provides a number of methods that are able to iterate over any Collection. Each Java Collection contains the
+            iterator method that returns an Iterator instance. Iterators are capable of removing elements from the underlying collection during the iteration.
+        </item>
+    </string-array>
+
+    <string-array name="iterator_and_listiterator_">
+        <item name = "definition">What differences exist between Iterator and ListIterator ?</item>
+        <item name = "code">
+            The differences of these elements are listed below:\n
+            An Iterator can be used to traverse the Set and List collections, while the ListIterator can be used to iterate only over Lists.\n
+            The Iterator can traverse a collection only in forward direction, while the ListIterator can traverse a List in both directions.\n
+            The ListIterator implements the Iterator interface and contains extra functionality, such as adding an element, replacing an element,\n
+            getting the index position for previous and next elements, etc.
+        </item>
+    </string-array>
+
+    <string-array name="fail_fast_and_fail_safe_">
+        <item name = "definition">What is difference between fail fast and fail  safe ?</item>
+        <item name = "code">
+            The Iterator\'s fail  safe property works with the clone of the underlying collection and thus, it is not affected by any
+            modification in the collection. All the collection classes in java.util package are fail  fast, while the collection classes
+            in java.util.concurrent are fail  safe. Fail fast iterators throw a ConcurrentModificationException, while fail  safe iterator
+            never throws such an exception.
+        </item>
+    </string-array>
+
+    <string-array name="hashmap_">
+        <item name = "definition">How HashMap works in Java ?</item>
+        <item name = "code">
+            A HashMap in Java stores key-value pairs. The HashMap requires a hash function and uses hashCode and equals methods, in order
+            to put and retrieve elements to and from the collection respectively. When the put method is invoked, the HashMap calculates
+            the hash value of the key and stores the pair in the appropriate index inside the collection. If the key exists, its value is
+            updated with the new value. Some important characteristics of a HashMap are its capacity, its load factor and the threshold resizing.
+        </item>
+    </string-array>
+
+    <string-array name="hashcode_">
+        <item name = "definition">What is the importance of hashCode() and equals() methods ?</item>
+        <item name = "code">
+            In Java, a HashMap uses the hashCode and equals methods to determine the index of the key-value pair and to detect duplicates. More specifically,
+            the hashCode method is used in order to determine where the specified key will be stored. Since different keys may produce the same hash value,
+            the equals method is used, in order to determine whether the specified key actually exists in the collection or not. Therefore, the implementation
+            of both methods is crucial to the accuracy and efficiency of the HashMap.
+        </item>
+    </string-array>
+
+    <string-array name="hashmap_and_hashtable_">
+        <item name = "definition">What differences exist between HashMap and Hashtable ?</item>
+        <item name = "code">
+            Both the HashMap and Hashtable classes implement the Map interface and thus, have very similar characteristics. However,
+            they differ in the following features:
+            A HashMap allows the existence of null keys and values, while a Hashtable doesn’t allow neither null keys, nor null values.\n
+            A Hashtable is synchronized, while a HashMap is not. Thus, HashMap is preferred in single-threaded environments, while a Hashtable
+            is suitable for multi-threaded environments.\n
+            A HashMap provides its set of keys and a Java application can iterate over them. Thus, a HashMap is fail-fast. On the other hand,
+            a Hashtable provides an Enumeration of its keys.\n
+            The Hashtable class is considered to be a legacy class.
+        </item>
+    </string-array>
+
+    <string-array name="array_and_arraylist_">
+        <item name = "definition">What differences exist between HashMap and Hashtable ?</item>
+        <item name = "code">
+            The Array and ArrayList classes differ on the following features:
+            Arrays can contain primitive or objects, while an ArrayList can contain only objects.
+            Arrays have fixed size, while an ArrayList is dynamic.
+            An ArrayListprovides more methods and features, such as addAll, removeAll, iterator, etc.
+            For a list of primitive data types, the collections use autoboxing to reduce the coding effort. However, this approach
+        </item>
+    </string-array>
+
+    <string-array name="arraylist_and_linkedlist_">
+        <item name = "definition">What is difference between ArrayList and LinkedList ? </item>
+        <item name = "code">
+            Both the ArrayList and LinkedList classes implement the List interface, but they differ on the following features:
+            An ArrayList is an index based data structure backed by an Array. It provides random access to its elements with a performance equal to O\(1\).\n
+            On the other hand, a LinkedList stores its data as list of elements and every element is linked to its previous and next element.\n
+            In this case, the search operation for an element has execution time equal to O\(n\).\n
+            The Insertion, addition and removal operations of an element are faster in a LinkedList compared to an ArrayList, because there is no need of
+            resizing an array or updating the index when an element is added in some arbitrary position inside the collection.\n
+            A LinkedList consumes more memory than an ArrayList, because every node in a LinkedList stores two references, one for its previous element
+            and one for its next element.\n
+            Check also our article ArrayList vs. LinkedList.
+        </item>
+    </string-array>
+
+    <string-array name="comparable_and_comparator_interface_">
+        <item name = "definition">What is Comparable and Comparator interface ? List their differences.</item>
+        <item name = "code">
+            Java provides the Comparable interface, which contains only one method, called compareTo. This method compares two objects, in order to
+            impose an order between them. Specifically, it returns a negative integer, zero, or a positive integer to indicate that the input object
+            is less than, equal or greater than the existing object. Java provides the Comparator interface, which contains two methods, called compare
+            and equals. The first method compares its two input arguments and imposes an order between them. It returns a negative integer, zero, or a
+            positive integer to indicate that the first argument is less than, equal to, or greater than the second. The second method requires an object
+            as a parameter and aims to decide whether the input object is equal to the comparator. The method returns true, only if the specified object
+            is also a comparator and it imposes the same ordering as the comparator.
+        </item>
+    </string-array>
+
+    <string-array name="java_priority_queue_">
+        <item name = "definition"> What are pass by reference and pass by value ?</item>
+        <item name = "code">
+            The PriorityQueue is an unbounded queue, based on a priority heap and its elements are ordered in their natural order. At the time of its creation,
+            we can provide a Comparator that is responsible for ordering the elements of the PriorityQueue. A PriorityQueue doesn’t allow null values, those objects that doesn’t provide natural ordering, or those objects that don’t have any comparator associated with them. Finally, the Java PriorityQueue is not thread-safe and it requires O(log(n)) time for its enqueing and dequeing operations.
+        </item>
+    </string-array>
+
+    <string-array name="big_o_notation_">
+        <item name = "definition">What do you know about the big O notation and can you give some examples with respect to different data structures ?</item>
+        <item name = "code">
+            The Big-O notation simply describes how well an algorithm scales or performs in the worst case scenario as the number of elements in a data structure increases. The Big-O notation can also be used to describe other behavior such as memory consumption. Since the collection classes are actually data structures, we usually use the Big-O notation to chose the best implementation to use, based on time, memory and performance. Big-O notation can give a good indication about performance for large amounts of data.
+        </item>
+    </string-array>
+
+    <string-array name="unordered_array_">
+        <item name = "definition">What is the tradeoff between using an unordered array versus an ordered array ?</item>
+        <item name = "code">
+            The major advantage of an ordered array is that the search times have time complexity of O\(log n\), compared to that of an unordered array, which is O (n). The disadvantage of an ordered array is that the insertion operation has a time complexity of O(n), because the elements with higher values must be moved to make room for the new element. Instead, the insertion operation for an unordered array takes constant time of O\(1\).
+        </item>
+    </string-array>
+
+    <string-array name="java_collection_framework_">
+        <item name = "definition"> What are some of the best practices relating to the Java Collection framework ?</item>
+        <item name = "code">
+           Choosing the right type of the collection to use, based on the application’s needs, is very crucial for its performance. For example if the size of the elements is fixed and know a priori, we shall use an Array, instead of an ArrayList.
+Some collection classes allow us to specify their initial capacity. Thus, if we have an estimation on the number of elements that will be stored, we can use it to avoid rehashing or resizing.
+Always use Generics for type-safety, readability, and robustness. Also, by using Generics you avoid the ClassCastException during runtime.
+Use immutable classes provided by the Java Development Kit (JDK) as a key in a Map, in order to avoid the implementation of the hashCode and equals methods for our custom class.
+Program in terms of interface not implementation.
+Return zero-length collections or arrays as opposed to returning a null in case the underlying collection is actually empty.
+        </item>
+    </string-array>
+
+    <string-array name="enumeration_and_iterator_interfaces_">
+        <item name = "definition"> What are some of the best practices relating to the Java Collection framework ?</item>
+        <item name = "code">
+            Enumeration is twice as fast as compared to an Iterator and uses very less memory. However, the Iterator is much safer compared to Enumeration, because other threads are not able to modify the collection object that is currently traversed by the iterator. Also, Iteratorsallow the caller to remove elements from the underlying collection, something which is not possible with
+        </item>
+    </string-array>
+
+    <string-array name="hashset_and_treeset_">
+        <item name = "definition"> What is the difference between HashSet and TreeSet ?</item>
+        <item name = "code">
+            The HashSet is Implemented using a hash table and thus, its elements are not ordered. The add, remove, and contains methods of a HashSet have constant time complexity O(1). On the other hand, a TreeSet is implemented using a tree structure. The elements in a TreeSet are sorted, and thus, the add, remove, and contains methods have time complexity of O\(logn\).es.
+        </item>
+    </string-array>
+
+    <!--<string name="next"></string>-->
+    <string-array name="java_collections_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="garbage_collectors_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="exception_handling_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item> name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="java_applets_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="swing_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="jdbc_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="remote_method_invocation_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="servlets_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="jsp_">
+        <item name = "definition"> What is the Difference between JDK and JRE ?</item>
+        <item name = "code">
+            The Java Runtime Environment (JRE) is basically the Java Virtual Machine (JVM) where your Java programs are being executed. It also includes
+            browser plugins for applet execution. The Java Development Kit (JDK) is the full featured Software Development Kit for Java, including the JRE,
+            the compilers and tools (like JavaDoc, and Java Debugger), in order for a user to develop, compile and execute Java applications.
+        </item>
+    </string-array>
+
+    <string-array name="purpose_of_garbage_collection_">
+        <item name = "definition"> Explain different ways of creating a thread. Which one would you prefer and why ?</item>
+        <item name = "code">
+            The purpose of garbage collection is to identify and discard those objects that are no longer needed by the application,
+            in order for the resources to be reclaimed and reused.
+        </item>
+    </string-array>
+
+    <string-array name="system_and_runtime_">
+        <item name = "definition">What does System.gc() and Runtime.gc() methods do ?</item>
+        <item name = "code">
+            These methods can be used as a hint to the JVM, in order to start a garbage collection. However, this it is up to the Java Virtual
+            Machine (JVM) to start the garbage collection immediately or later in time.
+        </item>
+    </string-array>
+
+    <string-array name="finalization_">
+        <item name = "definition">When is the finalize() called ? What is the purpose of finalization ?</item>
+        <item name = "code">
+            The finalize method is called by the garbage collector, just before releasing the object’s memory. It is normally
+            advised to release resources held by the object inside the finalize method.
+        </item>
+    </string-array>
+
+    <string-array name="object_reference_">
+        <item name = "definition">If an object reference is set to null, will the Garbage Collector immediately free the memory held by that object ?</item>
+        <item name = "code">
+            No, the object will be available for garbage collection in the next cycle of the garbage collector.
+        </item>
+    </string-array>
+    <string-array name="java_heap_">
+        <item name = "definition"> What is structure of Java Heap ? What is Perm Gen space in Heap ?</item>
+        <item name = "code">
+            The JVM has a heap that is the runtime data area from which memory for all class instances and arrays is allocated. It is created at the JVM start-up.
+            Heap memory for objects is reclaimed by an automatic memory management system which is known as a garbage collector. Heap memory consists of live and
+            dead objects. Live objects are accessible by the application and will not be a subject of garbage collection. Dead objects are those which will never
+            be accessible by the application, but have not been collected by the garbage collector yet. Such objects occupy the heap memory space until they are
+            eventually collected by the garbage collector.
+        </item>
+    </string-array>
+    <string-array name="serial_and_throughput_garbage_">
+        <item name = "definition">What is the difference between Serial and Throughput Garbage collector ?</item>
+        <item name = "code">
+            The throughput garbage collector uses a parallel version of the young generation collector and is
+            meant to be used with applications that have medium to large data sets. On the other hand, the serial
+            collector is usually adequate for most small applications (those requiring heaps of up to approximately 100MB on modern processors).
+        </item>
+    </string-array>
+    <string-array name="garbage_collection_">
+        <item name = "definition">When does an Object becomes eligible for Garbage collection in Java ?</item>
+        <item name = "code">
+            A Java object is subject to garbage collection when it becomes unreachable to the program in which it is currently used.
+        </item>
+    </string-array>
+    <string-array name="permanent_generation_space_">
+        <item name = "definition">Does Garbage collection occur in permanent generation space in JVM ?</item>
+        <item name = "code">
+            Garbage Collection does occur in PermGen space and if PermGen space is full or cross a threshold, it can trigger a full garbage collection.
+            If you look carefully at the output of the garbage collector, you will find that PermGen space is also garbage collected. This is the reason
+            why correct sizing of PermGen space is important to avoid frequent full garbage collections. Also check our article Java 8: PermGen to Metaspace.
+        </item>
+    </string-array>
+
+    <string-array name="exceptions_in_java_">
+        <item name = "definition">What are the two types of Exceptions in Java ? Which are the differences between them ?</item>
+        <item name = "code">
+            Java has two types of exceptions: checked exceptions and unchecked exceptions. Unchecked exceptions do not need to be declared
+            in a method or a constructor’s throws clause, if they can be thrown by the execution of the method or the constructor,
+            and propagate outside the method or constructor boundary. On the other hand, checked exceptions must be declared in a
+            method or a constructor’s throws clause.
+        </item>
+    </string-array>
+
+    <string-array name="exception_and_error_">
+        <item name = "definition">What is the difference between Exception and Error in java ?</item>
+        <item name = "code">
+            Exception and Error classes are both subclasses of the Throwable class. The Exception class is used for exceptional conditions that
+            a user’s program should catch. The Error class defines exceptions that are not excepted to be caught by the user program.
+        </item>
+    </string-array>
+
+    <string-array name="throw_and_throws_">
+        <item name = "definition">What is the difference between Exception and Error in java ?</item>
+        <item name = "code">
+            Exception and Error classes are both subclasses of the Throwable class. The Exception class is used for exceptional conditions that
+            a user’s program should catch. The Error class defines exceptions that are not excepted to be caught by the user program.
+        </item>
+    </string-array>
+
+    <string-array name="finally_block_">
+        <item name = "definition">What is the importance of finally block in exception handling ?</item>
+        <item name = "code">
+            A finally block will always be executed, whether or not an exception is actually thrown. Even in the case where the catch statement
+            is missing and an exception is thrown, the finally block will still be executed. Last thing to mention is that the finally block is
+            used to release resources like I/O buffers, database connections, etc.
+        </item>
+    </string-array>
+
+    <string-array name="exception_object_">
+        <item name = "definition">What will happen to the Exception object after exception handling ?</item>
+        <item name = "code">
+            The Exception object will be garbage collected in the next garbage collection.
+        </item>
+    </string-array>
+
+    <string-array name="finalize_block_">
+        <item name = "definition">How does finally block differ from finalize() method ?</item>
+        <item name = "code">
+            A finally block will be executed whether or not an exception is thrown and is used to release
+            those resources held by the application. Finalize is a protected method of the Object class,
+            which is called by the Java Virtual Machine (JVM) just before an object is garbage collected.
+        </item>
+    </string-array>
+    <!--<item>applet is loaded</item>-->
+    <!--<item>Applet and a Java Application</item>-->
+    <!--<item>restrictions imposed on Java applets</item>-->
+    <!--<item>untrusted applets</item>-->
+    <!--<item>applets loaded over the internet and applets loaded via the file system</item>-->
+    <!--<item>applet class loader</item>-->
+    <!--<item>applet security manager</item>-->
+    <string-array name="what_is_an_applet_">
+        <item name = "definition">What is an Applet ?</item>
+        <item name = "code">
+            A java applet is program that can be included in a HTML page and be executed in a java enabled client browser.
+            Applets are used for creating dynamic and interactive web applications.
+        </item>
+    </string-array>
+
+    <string-array name="life_cycle_of_an_applet_">
+        <item name = "definition">Explain the life cycle of an Applet.</item>
+        <item name = "code">
+            An applet may undergo the following states:\n
+            Init: An applet is initialized each time is loaded.\n
+            Start: Begin the execution of an applet.\n
+            Stop: Stop the execution of an applet.\n
+            Destroy: Perform a final cleanup, before unloading the applet.
+        </item>
+    </string-array>
+    <string-array name="applet_is_loaded_">
+        <item name = "definition">What happens when an applet is loaded ?</item>
+        <item name = "code">
+            First of all, an instance of the applet’s controlling class is created. Then, the applet initializes itself and finally, it starts running.
+        </item>
+    </string-array>
+
+    <string-array name="applet_and_a_java_application_">
+        <item name = "definition">What is the difference between an Applet and a Java Application ?</item>
+        <item name = "code">
+            Applets are executed within a java enabled browser, but a Java application is a standalone Java program that can be executed outside of a browser.
+            However, they both require the existence of a Java Virtual Machine (JVM). Furthermore, a Java application requires a main method with a specific signature,
+            in order to start its execution. Java applets don’t need such a method to start their execution. Finally, Java applets typically use a restrictive
+            security policy, while Java applications usually use more relaxed security policies.
+        </item>
+    </string-array>
+    <string-array name="restrictions_imposed_on_java_applets_">
+        <item name = "definition">What are the restrictions imposed on Java applets ?</item>
+        <item name = "code">
+            Mostly due to security reasons, the following restrictions are imposed on Java applets:
+            An applet cannot load libraries or define native methods.\n
+            An applet cannot ordinarily read or write files on the execution host.\n
+            An applet cannot read certain system properties.\n
+            An applet cannot make network connections except to the host that it came from.\n
+            An applet cannot start any program on the host that’s executing it.
+        </item>
+    </string-array>
+    <string-array name="untrusted_applets_">
+        <item name = "definition">What are untrusted applets ?</item>
+        <item name = "code">
+            Untrusted applets are those Java applets that cannot access or execute local system files. By default, all downloaded applets are considered as untrusted.
+        </item>
+    </string-array>
+    <string-array name="applets_loaded_">
+        <item name = "definition">What is the difference between applets loaded over the internet and applets loaded via the file system ?</item>
+        <item name = "code">
+            Regarding the case where an applet is loaded over the internet, the applet is loaded by the applet classloader and is subject to the restrictions enforced
+            by the applet security manager. Regarding the case where an applet is loaded from the client’s local disk, the applet is loaded by the file system loader.
+            Applets loaded via the file system are allowed to read files, write files and to load libraries on the client. Also, applets loaded via the file system are
+            allowed to execute processes and finally, applets loaded via the file system are not passed through the byte code verifier.
+        </item>
+    </string-array>
+    <string-array name="applet_class_loader_">
+        <item name = "definition">What is the applet class loader, and what does it provide ?</item>
+        <item name = "code">
+            When an applet is loaded over the internet, the applet is loaded by the applet classloader. The class loader enforces the Java name space hierarchy.
+            Also, the class loader guarantees that a unique namespace exists for classes that come from the local file system, and that a unique namespace exists
+            for each network source. When a browser loads an applet over the net, that applet’s classes are placed in a private namespace associated with the
+            applet’s origin. Then, those classes loaded by the class loader are passed through the verifier.The verifier checks that the class file conforms to
+            the Java language specification . Among other things, the verifier ensures that there are no stack overflows or underflows and that the parameters to
+            all bytecode instructions are correct
+        </item>
+    </string-array>
+    <string-array name="applet_security_manager_">
+        <item name = "definition">What is the applet security manager, and what does it provide ?</item>
+        <item name = "code">
+            The applet security manager is a mechanism to impose restrictions on Java applets. A browser may only have one security manager. The security manager
+            is established at startup, and it cannot thereafter be replaced, overloaded, overridden, or extended.
+        </item>
+    </string-array>
+
+
+    <!--<item>Scrollbar</item>-->
+    <!--<item>threadsafe</item>-->
+    <!--<item>layout managers provide over traditional windowing systems</item>-->
+    <!--<item>design pattern</item>-->
+    <string-array name="choice_and_a_list_">
+        <item name = "definition">What is the difference between a Choice and a List ?</item>
+        <item name = "code">
+            A Choice is displayed in a compact form that must be pulled down, in order for a user to be able to see the list of all available choices.
+            Only one item may be selected from a Choice. A List may be displayed in such a way that several List items are visible. A List supports
+            the selection of one or more List items.
+        </item>
+    </string-array>
+
+    <string-array name="layout_manager_">
+        <item name = "definition">What is a layout manager ?</item>
+        <item name = "code">
+            A layout manager is the used to organize the components in a container.
+        </item>
+    </string-array>
+
+    <string-array name="scrollbar_">
+        <item name = "definition">What is the difference between a Scrollbar and a JScrollPane ?</item>
+        <item name = "code">
+            A Scrollbar is a Component, but not a Container. A ScrollPane is a Container. A ScrollPane handles its own events and performs its own scrolling.
+        </item>
+    </string-array>
+    <string-array name="threadsafe_">
+        <item name = "definition">Which Swing methods are thread-safe ?</item>
+        <item name = "code">
+            There are only three thread-safe methods: repaint, revalidate, and invalidate.
+        </item>
+    </string-array>
+    <string-array name="component_subclasses_">
+        <item name = "definition">Name three Component subclasses that support painting. </item>
+        <item name = "code">
+            The Canvas, Frame, Panel, and Applet classes support painting.
+        </item>
+    </string-array>
+    <string-array name="clipping_">
+        <item name = "definition">What is clipping ?</item>
+        <item name = "code">
+            Clipping is defined as the process of confining paint operations to a limited area or shape.
+        </item>
+    </string-array>
+    <string-array name="menuitem_and_a_checkboxmenuitem_">
+        <item name = "definition">What is the difference between a MenuItem and a CheckboxMenuItem ? </item>
+        <item name = "code">
+            The CheckboxMenuItem class extends the MenuItem class and supports a menu item that may be either checked or unchecked.
+        </item>
+    </string-array>
+    <string-array name="borderlayout_">
+    <item name = "definition">How are the elements of a BorderLayout organized ? </item>
+        <item name = "code">
+            The elements of a BorderLayout are organized at the borders (North, South, East, and West) and the center of a container.
+        </item>
+    </string-array>
+    <string-array name="gridbaglayout_">
+        <item name = "definition">How are the elements of a GridBagLayout organized ?</item>
+        <item name = "code">
+            The elements of a GridBagLayout are organized according to a grid. The elements are of different sizes and may occupy more
+            than one row or column of the grid. Thus, the rows and columns may have different sizes.
+        </item>
+    </string-array>
+    <string-array name="window_and_a_frame_">
+    <item name = "definition">What is the difference between a Window and a Frame ?</item>
+    <item name = "code">
+        The Frame class extends the Window class and defines a main application window that can have a menu bar.
+    </item>
+    </string-array>
+    <string-array name="clipping_and_repainting_">
+        <item name = "definition">What is the relationship between clipping and repainting ?</item>
+        <item name = "code">
+            When a window is repainted by the AWT painting thread, it sets the clipping regions to the area of the window that requires repainting.
+        </item>
+        </string-array>
+    <string-array name="event_listener_">
+        <item name = "definition">What is the relationship between an event-listener interface and an event-adapter class ?</item>
+        <item name = "code">
+            An event-listener interface defines the methods that must be implemented by an event handler for a particular event. An event adapter provides
+            a default implementation of an event-listener interface.
+        </item>
+    </string-array>
+
+    <string-array name="gui_component_">
+        <item name = "definition">How can a GUI component handle its own events ?</item>
+        <item name = "code">
+            A GUI component can handle its own events, by implementing the corresponding event-listener interface and adding itself as its own event listener.
+        </item>
+    </string-array>
+
+    <string-array name="traditional_windowing_systems_">
+        <item name = "definition">What advantage do Java’s layout managers provide over traditional windowing systems ? </item>
+        <item name = "code">
+            Java uses layout managers to lay out components in a consistent manner, across all windowing platforms. Since layout managers aren’t tied to absolute
+            sizing and positioning, they are able to accomodate platform-specific differences among windowing systems.
+        </item>
+    </string-array>
+    <string-array name="design_pattern_">
+        <item name = "definition">What is the design pattern that Java uses for all Swing components ?</item>
+        <item name = "code">
+            The design pattern used by Java for all Swing components is the Model View Controller (MVC) pattern.
+        </item>
+    </string-array>
+
+    <!--<item>Class.forName</item>-->
+    <!--<item>advantage of PreparedStatement over Statement</item>-->
+    <!--<item>CallableStatement</item>-->
+    <!--<item>Connection pooling</item>-->
+    <string-array name="what_is_jdbc_">
+        <item name = "definition">What is JDBC ?</item>
+        <item name = "code">
+            JDBC is an abstraction layer that allows users to choose between databases. JDBC enables developers to write database applications
+            in Java, without having to concern themselves with the underlying details of a particular databas
+        </item>
+    </string-array>
+
+    <string-array name="driver_in_jdbc_">
+        <item name = "definition">Explain the role of Driver in JDBC.</item>
+        <item name = "code">
+            The JDBC Driver provides vendor-specific implementations of the abstract classes provided by the JDBC API. Each driver must provide
+            implementations for the following classes of the java.sql package:Connection, Statement, PreparedStatement, CallableStatement, ResultSet and Driver.
+        </item>
+    </string-array>
+
+    <string-array name="class_forname_">
+        <item name = "definition">Explain the role of Driver in JDBC.</item>
+        <item name = "code">
+            The JDBC Driver provides vendor-specific implementations of the abstract classes provided by the JDBC API. Each driver must provide
+            implementations for the following classes of the java.sql package:Connection, Statement, PreparedStatement, CallableStatement, ResultSet and Driver.
+        </item>
+    </string-array>
+
+    <string-array name="prepared_statement_">
+        <item name = "definition">Explain the role of Driver in JDBC.</item>
+        <item name = "code">
+            The JDBC Driver provides vendor-specific implementations of the abstract classes provided by the JDBC API. Each driver must provide
+            implementations for the following classes of the java.sql package:Connection, Statement, PreparedStatement, CallableStatement, ResultSet and Driver.
+        </item>
+    </string-array>
+
+    <string-array name="callablestatement_">
+        <item name = "definition">Explain the role of Driver in JDBC.</item>
+        <item name = "code">
+            The JDBC Driver provides vendor-specific implementations of the abstract classes provided by the JDBC API. Each driver must provide
+            implementations for the following classes of the java.sql package:Connection, Statement, PreparedStatement, CallableStatement, ResultSet and Driver.
+        </item>
+    </string-array>
+
+    <string-array name="connection_pooling_">
+        <item name = "definition">Explain the role of Driver in JDBC.</item>
+        <item name = "code">
+            The JDBC Driver provides vendor-specific implementations of the abstract classes provided by the JDBC API. Each driver must provide
+            implementations for the following classes of the java.sql package:Connection, Statement, PreparedStatement, CallableStatement, ResultSet and Driver.
+        </item>
+    </string-array>
+
+    <!--<item>RMI Architecture</item>-->
+    <!--<item>Remote Interface in RMI</item>-->
+    <!--<item>java.rmi.Naming Class</item>-->
+    <!--<item>binding in RMI</item>-->
+    <!--<item>bind and rebind methods of Naming Class</item>-->
+    <!--<item>steps involved to make work a RMI program</item>-->
+    <!--<item>role of stub</item>-->
+    <!--<item>DGC</item>-->
+    <!--<item>Marshalling and demarshalling</item>-->
+    <!--<item>Serialization and Deserialization</item>-->
+    <string-array name="what_is_rmi_">
+        <item name = "definition">What is RMI ?</item>
+        <item name = "code">
+            The Java Remote Method Invocation (Java RMI) is a Java API that performs the object-oriented equivalent of remote procedure calls (RPC),
+            with support for direct transfer of serialized Java classes and distributed garbage collection. Remote Method Invocation (RMI) can also
+            be seen as the process of activating a method on a remotely running object. RMI offers location transparency because a user feels that
+            a method is executed on a locally running object.
+        </item>
+    </string-array>
+
+    <string-array name="basic_principle_of_rmi_">
+        <item name = "definition">What is the basic principle of RMI architecture ?</item>
+        <item name = "code">
+            The RMI architecture is based on a very important principle which states that the definition of the behavior and the implementation of
+            that behavior, are separate concepts. RMI allows the code that defines the behavior and the code that implements the behavior to remain
+            separate and to run on separate JVMs.
+        </item>
+    </string-array>
+
+
+    <!--<item>Applet and a Servlet</item>-->
+    <!--<item>GenericServlet and HttpServlet</item>-->
+    <!--<item>life cycle of a Servlet</item>-->
+    <!--<item>doGet and doPost</item>-->
+    <!--<item>Web Application</item>-->
+    <!--<item>Server Side Include</item>-->
+    <!--<item>Servlet Chaining</item>-->
+    <!--<item>client machine</item>-->
+    <!--<item>structure of the HTTP response</item>-->
+    <!--<item>session and cookie</item>-->
+    <!--<item>browser and servlet</item>-->
+    <!--<item>HTTP Tunneling</item>-->
+    <!--<item>sendRedirect and forward methods</item>-->
+    <!--<item>URL Encoding and URL Decoding</item>-->
+    <string-array name="what_is_a_servlet_">
+        <item name = "definition">What is a Servlet ?</item>
+        <item name = "code">
+            The servlet is a Java programming language class used to process client requests and generate dynamic web content.
+            Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state
+            information that does not exist in the stateless HTTP protocol.
+        </item>
+    </string-array>
+
+    <string-array name="architechure_of_a_servlet_">
+        <item name = "definition">Explain the architechure of a Servlet.</item>
+        <item name = "code">
+            The core abstraction that must be implemented by all servlets is the javax.servlet.Servlet interface. Each servlet
+            must implement it either directly or indirectly, either by extending javax.servlet.GenericServlet or javax.servlet.http.HTTPServlet.
+            Finally, each servlet is able to serve multiple requests in parallel using multithreading.
+        </item>
+    </string-array>
+
+    <!--<string-array name="what_is_a_servlet_">-->
+        <!--<item name = "definition">What is a Servlet ?</item>-->
+        <!--<item name = "code">-->
+            <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+            <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+            <!--information that does not exist in the stateless HTTP protocol.-->
+        <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+
+    <!--<string-array name="what_is_a_servlet_">-->
+    <!--<item name = "definition">What is a Servlet ?</item>-->
+    <!--<item name = "code">-->
+    <!--The servlet is a Java programming language class used to process client requests and generate dynamic web content.-->
+    <!--Servlets are mostly used to process or store data submitted by an HTML form, provide dynamic content and manage state-->
+    <!--information that does not exist in the stateless HTTP protocol.-->
+    <!--</item>-->
+    <!--</string-array>-->
+    <string-array name="jsp_page_">
+        <item name = "definition">What is a JSP Page ? </item>
+        <item name = "code">
+            A Java Server Page (JSP) is a text document that contains two types of text: static data and JSP elements. Static
+            data can be expressed in any text-based format, such as HTML or XML. JSP is a technology that mixes static content with dynamically-generated content.
+        </item>
+    </string-array>
+
+    <string-array name="jsp_requests_handled_">
+        <item name = "definition">How are the JSP requests handled ?</item>
+        <item name = "code">
+            On the arrival of a JSP request, the browser first requests a page with a .jsp extension. Then, the Web server reads
+            the request and using the JSP compiler, the Web server converts the JSP page into a servlet class. Notice that the JSP
+            file is compiled only on the first request of the page, or if the JSP file has changed.The generated servlet class is
+            invoked, in order to handle the browser’s request. Once the execution of the request is over, the servlet sends a
+            response back to the client.
+        </item>
+    </string-array>
+
     <string-array name="algorithm">
         <item>Data Structure</item>
         <item>Basic Sorting</item>
@@ -26,8 +1334,8 @@
         <item>Reverse</item>
         <item>Binary Tree</item>
         <item>Binary Search Tree</item>
-        <item>Backtracking</item>
-        <item>Dynamic Programing</item>
+        <item>Back Tracking</item>
+        <item>Dynamic Programming</item>
     </string-array>
 
     <string-array name="basics">
@@ -42,7 +1350,7 @@
         <item>Priority Queue</item>
     </string-array>
 
-    <string-array name="basics_sorting">
+    <string-array name="basic_sorting">
         <item>Bubble Sort</item>
         <item>Selection Sort</item>
         <item>Insertion Sort</item>
@@ -53,7 +1361,7 @@
         <item>Counting Sort</item>
     </string-array>
 
-    <string-array name="basics_misc">
+    <string-array name="basic_misc">
         <item>Bit Manipulation</item>
     </string-array>
 
@@ -77,9 +1385,9 @@
         <item>Product of Array Exclude Itself</item>
         <item>Partition Array</item>
         <item>First Missing Positive</item>
-        <item>2 Sum</item>
-        <item>3 Sum</item>
-        <item>3 Sum Closest</item>
+        <item>Two Sum</item>
+        <item>Three Sum</item>
+        <item>Three Sum Closest</item>
         <item>Remove Duplicates from Sorted Array</item>
         <item>Remove Duplicates from Sorted Array II</item>
         <item>Merge Sorted Array</item>
@@ -104,7 +1412,7 @@
     <string-array name="math_and_bit_manipulation">
         <item>Single Number</item>
         <item>Single Number II</item>
-        <item>O(1) Check Power of 2</item>
+        <item>O 1 Check Power of 2</item>
         <item>Convert Integer A to Integer B</item>
         <item>Factorial Trailing Zeroes</item>
     </string-array>
@@ -123,7 +1431,7 @@
         <item>Merge Two Sorted Lists</item>
         <item>Merge k Sorted Lists</item>
         <item>Sort List</item>
-        <item>Reorder List</item>
+        <item>Recorder List</item>
     </string-array>
 
     <string-array name="reverse">
@@ -232,7 +1540,7 @@ public class Solution {\n
 </string-array>
 
 <string-array name="huffman_compression_">
-        <item name = "definition"> Huffman coding is an entropy encoding algorithm used for lossless
+        <item name ="algorithm"> Huffman coding is an entropy encoding algorithm used for lossless
             data compression. The term refers to the use of a variable-length code table for encoding
             a source symbol (such as a character in a file) where the variable-length code table has
             been derived in a particular way based on the estimated probability of occurrence for
@@ -874,7 +2182,7 @@ public List&lt;Integer&gt; majorityElement(int[] nums) {\n
         </item>
 </string-array>
 
-<string-array name="strStr_">
+<string-array name="strstr_">
         <item name="definition">
             strstr (a.k.a find sub string), is a useful function in string operation.
 You task is to implement this function.
@@ -932,7 +2240,7 @@ class Solution {\n
         </item>
 </string-array>
 
-<string-array name="two_string_are_anagrams_">
+<string-array name="two_strings_are_anagrams_">
     <item name="definition">
 Write a method anagram(s,t) to decide if two strings are anagrams or not.
 \n
@@ -1446,7 +2754,7 @@ public class Solution {\n
 </item>
 </string-array>
 
-<string-array name="three_sum_closet_">
+<string-array name="three_sum_closest_">
 <item name="definition">
 Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.
 \n
@@ -1456,33 +2764,33 @@ Given an array S of n integers, find three integers in S such that the sum is cl
 </item>
 <item name="code">
 public int threeSumClosest(int[] nums, int target) {\n
-    int min = Integer.MAX_VALUE;\n
-	int result = 0;\n
+\t    int min = Integer.MAX_VALUE;\n
+\t	  int result = 0;\n
 \n
-	Arrays.sort(nums);\n
+\t	Arrays.sort(nums);\n
 \n
-	for (int i = 0; i &lt; nums.length; i++) {\n
-		int j = i + 1;\n
-		int k = nums.length - 1;\n
-		while (j &lt; k) {\n
-			int sum = nums[i] + nums[j] + nums[k];\n
-			int diff = Math.abs(sum - target);\n
+\t	for (int i = 0; i &lt; nums.length; i++) {\n
+\t\t		int j = i + 1;\n
+\t\t		int k = nums.length - 1;\n
+\t\t		while (j &lt; k) {\n
+\t\t\t			int sum = nums[i] + nums[j] + nums[k];\n
+\t\t\t			int diff = Math.abs(sum - target);\n
 \n
-			if(diff == 0) return sum;\n
+\t\t\t			if(diff == 0) return sum;\n
 \n
-			if (diff &lt; min) {\n
-				min = diff;\n
-				result = sum;\n
-			}\n
-			if (sum &lt;= target) {\n
-				j++;\n
-			} else {\n
-				k--;\n
-			}\n
-		}\n
-	}\n
+\t\t\t			if (diff &lt; min) {\n
+\t\t\t\t				min = diff;\n
+\t\t\t\t				result = sum;\n
+\t\t\t			}\n
+\t\t\t			if (sum &lt;= target) {\n
+\t\t\t\t				j++;\n
+\t\t\t			} else {\n
+\t\t\t\t				k--;\n
+\t\t\t			}\n
+\t\t		}\n
+\t	}\n
 \n
-	return result;\n
+\t	return result;\n
 }
 </item>
 </string-array>
@@ -1516,35 +2824,35 @@ Your function should return length = 2, and A is now [1,2].
  */\n
 public class S26 {\n
 \n
-	public static void main(String[] args) {\n
-		int[] A = {1, 1, 2};\n
-		System.out.println(removeDuplicates(A));\n
-	}\n
+\t	public static void main(String[] args) {\n
+\t\t		int[] A = {1, 1, 2};\n
+\t\t		System.out.println(removeDuplicates(A));\n
+\t	}\n
 \n
-	public static int removeDuplicates(int[] A) {\n
-		int len = A.length;\n
-        if(len &lt; 2){\n
-        	return len;\n
-        }\n
+\t	public static int removeDuplicates(int[] A) {\n
+\t\t		int len = A.length;\n
+\t\t        if(len &lt; 2){\n
+\t\t\t        	return len;\n
+\t\t        }\n
 \n
-        int i = 0, j = 1;\n
-        while(i&lt;len &amp;&amp; j&lt;len){\n
-        	if(A[i] == A[j]){\n
-        		j++;\n
-        	}else{\n
-        		i++;\n
-        		A[i] = A[j];\n
-        		j++;\n
-        	}\n
-        }\n
+\t\t        int i = 0, j = 1;\n
+\t\t        while(i&lt;len &amp;&amp; j&lt;len){\n
+\t\t\t        	if(A[i] == A[j]){\n
+\t\t\t\t        		j++;\n
+\t\t\t        	}else{\n
+\t\t\t\t        		i++;\n
+\t\t\t\t        		A[i] = A[j];\n
+\t\t\t\t        		j++;\n
+\t\t\t        	}\n
+\t\t        }\n
         //\n
-        return i+1;\n
-    }\n
+\t\t        return i+1;\n
+\t    }\n
 }
 </item>
 </string-array>
 
-<string-array name="remove_duplicates_from_sorted_array_two_">
+<string-array name="remove_duplicates_from_sorted_array_ii_">
 <item name="definition">
 Follow up for "Remove Duplicates":
 What if duplicates are allowed at most twice?
@@ -1557,28 +2865,28 @@ Example\n
 </item>
 <item name="code">
 public class Solution {\n
-    public int removeDuplicates(int[] A) {\n
-        if(A == null || A.length == 0)\n
-            return 0;\n
-        int pre = A[0];\n
-        boolean flag = false;\n
-        int count = 0;\n
-        for(int i=1; i&lt;A.length; i++){\n
-            int curr = A[i];\n
-            if(curr == pre){\n
-                if(!flag){\n
-                	flag = true;\n
-                    continue;\n
-                }else{\n
-                    count++;\n
-                }\n
-            }else{\n
-                pre = curr;\n
-                flag = false;\n
-            }\n
-        }\n
-        return A.length - count;\n
-    }\n
+\t    public int removeDuplicates(int[] A) {\n
+\t\t        if(A == null || A.length == 0)\n
+\t\t\t            return 0;\n
+\t\t        int pre = A[0];\n
+\t\t        boolean flag = false;\n
+\t\t        int count = 0;\n
+\t\t        for(int i=1; i&lt;A.length; i++){\n
+\t\t\t            int curr = A[i];\n
+\t\t\t            if(curr == pre){\n
+\t\t\t\t                if(!flag){\n
+\t\t\t\t\t                	flag = true;\n
+\t\t\t\t\t                    continue;\n
+\t\t\t\t                }else{\n
+\t\t\t\t\t                    count++;\n
+\t\t\t\t                }\n
+\t\t\t            }else{\n
+\t\t\t\t                pre = curr;\n
+\t\t\t\t                flag = false;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return A.length - count;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -1605,27 +2913,27 @@ class Solution {
      * @param B: sorted integer array B which has n elements\n
      * @return: void\n
      */\n
-    public void mergeSortedArray(int[] A, int m, int[] B, int n) {\n
-        int i = m-1, j = n-1, index = m + n - 1;\n
-        while (i >= 0 &amp;&amp; j >= 0) {\n
-            if (A[i] > B[j]) {\n
-                A[index--] = A[i--];\n
-            } else {\n
-                A[index--] = B[j--];\n
-            }\n
-        }\n
-        while (i >= 0) {\n
-            A[index--] = A[i--];\n
-        }\n
-        while (j >= 0) {\n
-            A[index--] = B[j--];\n
-        }\n
-    }\n
+\t    public void mergeSortedArray(int[] A, int m, int[] B, int n) {\n
+\t\t        int i = m-1, j = n-1, index = m + n - 1;\n
+\t\t        while (i >= 0 &amp;&amp; j >= 0) {\n
+\t\t\t            if (A[i] > B[j]) {\n
+\t\t\t\t                A[index--] = A[i--];\n
+\t\t\t            } else {\n
+\t\t\t\t                A[index--] = B[j--];\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        while (i >= 0) {\n
+\t\t\t            A[index--] = A[i--];\n
+\t\t        }\n
+\t\t        while (j >= 0) {\n
+\t\t\t            A[index--] = B[j--];\n
+\t\t        }\n
+\t    }\n
 }\n
 </item>
 </string-array>
 
-<string-array name="merge_sorted_array_two_">
+<string-array name="merge_sorted_array_ii_">
 <item name="definition">
 Given two sorted integer arrays A and B, merge B into A as one sorted array.
 \n
@@ -1645,23 +2953,23 @@ class Solution {\n
      * @param B: sorted integer array B which has n elements\n
      * @return: void\n
      */\n
-    public void mergeSortedArray(int A[], int m, int B[], int n) {\n
-        int index = n + m;\n
+\t    public void mergeSortedArray(int A[], int m, int B[], int n) {\n
+\t\t        int index = n + m;\n
 \n
-        while (m > 0 &amp;&amp; n > 0) {\n
-            if (A[m - 1] > B[n - 1]) {\n
-                A[--index] = A[--m];\n
-            } else {\n
-                A[--index] = B[--n];\n
-            }\n
-        }\n
-        while (n > 0) {\n
-            A[--index] = B[--n];\n
-        }\n
-        while (m > 0) {\n
-            A[--index] = A[--m];\n
-        }\n
-    }\n
+\t\t        while (m > 0 &amp;&amp; n > 0) {\n
+\t\t\t            if (A[m - 1] > B[n - 1]) {\n
+\t\t\t\t                A[--index] = A[--m];\n
+\t\t\t            } else {\n
+\t\t\t\t                A[--index] = B[--n];\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        while (n > 0) {\n
+\t\t\t            A[--index] = B[--n];\n
+\t\t        }\n
+\t\t        while (m > 0) {\n
+\t\t\t            A[--index] = A[--m];\n
+\t\t        }\n
+\t    }\n
 };
 </item>
 </string-array>
@@ -1687,34 +2995,34 @@ If the count of numbers is bigger than MAXINT, can your code work properly?
      * @param target: Target to find.\n
      * @return: The first position of target. Position starts from 0.\n
      */\n
-    public int binarySearch(int[] nums, int target) {\n
-        if (nums == null || nums.length == 0) {\n
-            return -1;\n
-        }\n
+\t    public int binarySearch(int[] nums, int target) {\n
+\t\t        if (nums == null || nums.length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
 \n
-        int start = 0;\n
-        int end = nums.length - 1;\n
-        int mid;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start) / 2; // avoid overflow when (end + start)\n
-            if (target &lt; nums[mid]) {\n
-                end = mid;\n
-            } else if (target > nums[mid]) {\n
-                start = mid;\n
-            } else {\n
-                end = mid;\n
-            }\n
-        }\n
+\t\t        int start = 0;\n
+\t\t        int end = nums.length - 1;\n
+\t\t        int mid;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start) / 2; // avoid overflow when (end + start)\n
+\t\t\t            if (target &lt; nums[mid]) {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            } else if (target > nums[mid]) {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        if (nums[start] == target) {\n
-            return start;\n
-        }\n
-        if (nums[end] == target) {\n
-            return end;\n
-        }\n
+\t\t        if (nums[start] == target) {\n
+\t\t\t            return start;\n
+\t\t        }\n
+\t\t        if (nums[end] == target) {\n
+\t\t\t            return end;\n
+ \t\t       }\n
 \n
-        return -1;\n
-    }\n
+\t\t        return -1;\n
+\t    }\n
 }\n
 </item>
 </string-array>
@@ -1738,36 +3046,36 @@ Example\n
      * param target :  an integer to be inserted\n
      * return : an integer\n
      */\n
-    public int searchInsert(int[] A, int target) {\n
-        if (A == null) {\n
-            return -1;\n
-        }\n
-        if (A.length == 0) {\n
-            return 0;\n
-        }\n
+\t    public int searchInsert(int[] A, int target) {\n
+\t        if (A == null) {\n
+\t\t            return -1;\n
+\t\t        }\n
+\t\t        if (A.length == 0) {\n
+\t\t\t            return 0;\n
+\t\t        }\n
 \n
-        int start = 0, end = A.length - 1;\n
-        int mid;\n
+\t\t        int start = 0, end = A.length - 1;\n
+\t\t        int mid;\n
 \n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start) / 2;\n
-            if (A[mid] == target) {\n
-                return mid; // no duplicates, if not `end = target;`\n
-            } else if (A[mid] &lt; target) {\n
-                start = mid;\n
-            } else {\n
-                end = mid;\n
-            }\n
-        }\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start) / 2;\n
+\t\t\t            if (A[mid] == target) {\n
+\t\t\t\t                return mid; // no duplicates, if not `end = target;`\n
+\t\t\t            } else if (A[mid] &lt; target) {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        if (A[start] >= target) {\n
-            return start;\n
-        } else if (A[end] >= target) {\n
-            return end; // in most cases\n
-        } else {\n
-            return end + 1; // A[end] &lt; target;\n
-        }\n
-    }\n
+\t\t        if (A[start] >= target) {\n
+\t\t\t            return start;\n
+\t\t        } else if (A[end] >= target) {\n
+\t\t\t            return end; // in most cases\n
+\t\t        } else {\n
+\t\t\t            return end + 1; // A[end] &lt; target;\n
+\t\t        }\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -1791,61 +3099,61 @@ public class Solution {\n
      *@param target :  an integer to be inserted\n
      *return : a list of length 2, [index1, index2]\n
      */\n
-    public ArrayList searchRange(ArrayList A, int target) {\n
-        ArrayList result = new ArrayList();\n
-        int start, end, mid;\n
-        result.add(-1);\n
-        result.add(-1);\n
+\t    public ArrayList searchRange(ArrayList A, int target) {\n
+\t\t        ArrayList result = new ArrayList();\n
+\t\t        int start, end, mid;\n
+\t\t        result.add(-1);\n
+\t\t        result.add(-1);\n
 \n
-        if (A == null || A.size() == 0) {\n
-            return result;\n
-        }\n
+\t\t        if (A == null || A.size() == 0) {\n
+\t\t\t            return result;\n
+\t\t        }\n
 \n
-        // search for left bound\n
-        start = 0;\n
-        end = A.size() - 1;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start) / 2;\n
-            if (A.get(mid) == target) {\n
-                end = mid; // set end = mid to find the minimum mid\n
-            } else if (A.get(mid) > target) {\n
-                end = mid;\n
-            } else {\n
-                start = mid;\n
-            }\n
-        }\n
-        if (A.get(start) == target) {\n
-            result.set(0, start);\n
-        } else if (A.get(end) == target) {\n
-            result.set(0, end);\n
-        } else {\n
-            return result;\n
-        }\n
+\t\t        // search for left bound\n
+\t\t        start = 0;\n
+\t\t        end = A.size() - 1;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start) / 2;\n
+\t\t            if (A.get(mid) == target) {\n
+\t\t\t                end = mid; // set end = mid to find the minimum mid\n
+\t\t            } else if (A.get(mid) > target) {\n
+\t\t\t                end = mid;\n
+\t\t            } else {\n
+\t\t\t                start = mid;\n
+\t\t            }\n
+\t        }\n
+\t        if (A.get(start) == target) {\n
+\t\t            result.set(0, start);\n
+\t        } else if (A.get(end) == target) {\n
+\t\t            result.set(0, end);\n
+\t        } else {\n
+\t\t            return result;\n
+\t        }\n
 \n
-        // search for right bound\n
-        start = 0;\n
-        end = A.size() - 1;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start) / 2;\n
-            if (A.get(mid) == target) {\n
-                start = mid; // set start = mid to find the maximum mid\n
-            } else if (A.get(mid) > target) {\n
-                end = mid;\n
-            } else {\n
-                start = mid;\n
-            }\n
-        }\n
-        if (A.get(end) == target) {\n
-            result.set(1, end);\n
-        } else if (A.get(start) == target) {\n
-            result.set(1, start);\n
-        } else {\n
-            return result;\n
-        }\n
+\t        // search for right bound\n
+\t        start = 0;\n
+\t        end = A.size() - 1;\n
+\t        while (start + 1 &lt; end) {\n
+\t\t            mid = start + (end - start) / 2;\n
+\t\t            if (A.get(mid) == target) {\n
+\t\t\t                start = mid; // set start = mid to find the maximum mid\n
+\t\t            } else if (A.get(mid) > target) {\n
+\t\t\t                end = mid;\n
+\t\t            } else {\n
+\t\t\t                start = mid;\n
+\t\t            }\n
+\t        }\n
+\t        if (A.get(end) == target) {\n
+\t\t            result.set(1, end);\n
+\t        } else if (A.get(start) == target) {\n
+\t\t            result.set(1, start);\n
+\t        } else {\n
+\t\t            return result;\n
+\t        }\n
 \n
-        return result;\n
-        // write your code here\n
-    }\n
+\t        return result;\n
+\t\t        // write your code here\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -1868,35 +3176,35 @@ class Solution {\n
      * @param n: An integers.\n
      * @return: An integer which is the first bad version.\n
      */\n
-    public int findFirstBadVersion(int n) {\n
-        // write your code here\n
-        if (n == 0) {\n
-            return -1;\n
-        }\n
+\t    public int findFirstBadVersion(int n) {\n
+\t\t        // write your code here\n
+\t\t        if (n == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
 \n
-        int start = 1, end = n, mid;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start)/2;\n
-            if (VersionControl.isBadVersion(mid) == false) {\n
-                start = mid;\n
-            } else {\n
-                end = mid;\n
-            }\n
-        }\n
+\t\t        int start = 1, end = n, mid;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start)/2;\n
+\t\t\t            if (VersionControl.isBadVersion(mid) == false) {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        if (VersionControl.isBadVersion(start) == true) {\n
-            return start;\n
-        } else if (VersionControl.isBadVersion(end) == true) {\n
-            return end;\n
-        } else {\n
-            return -1; // not found\n
-        }\n
-    }\n
+\t\t        if (VersionControl.isBadVersion(start) == true) {\n
+\t\t\t            return start;\n
+\t\t        } else if (VersionControl.isBadVersion(end) == true) {\n
+\t\t\t            return end;\n
+\t\t        } else {\n
+\t\t\t            return -1; // not found\n
+\t\t        }\n
+\t    }\n
 }
 </item>
 </string-array>
 
-<string-array name="search_a_2D_matrix_">
+<string-array name="search_a_2d_matrix_">
 <item name="definition">
 Write an efficient algorithm that searches for a value in an m x n matrix.
 \n
@@ -1917,36 +3225,35 @@ Given target = 3, return true.
 Challenge\n
 O(log(n) + log(m)) time
 </item>
-
 <item name="code">
     public class Solution {\n
-    public boolean searchMatrix(int[][] matrix, int target) {\n
-        if(matrix==null || matrix.length==0 || matrix[0].length==0)\n
-            return false;\n
+\t    public boolean searchMatrix(int[][] matrix, int target) {\n
+\t\t        if(matrix==null || matrix.length==0 || matrix[0].length==0)\n
+\t\t\t            return false;\n
 \n
-        int m = matrix.length;\n
-        int n = matrix[0].length;\n
+\t\t        int m = matrix.length;\n
+\t\t        int n = matrix[0].length;\n
 \n
-        int start = 0;\n
-        int end = m*n-1;\n
+\t\t        int start = 0;\n
+\t\t        int end = m*n-1;\n
 \n
-        while(start&lt;=end){\n
-            int mid=(start+end)/2;\n
-            int midX=mid/n;\n
-            int midY=mid%n;\n
+\t\t        while(start&lt;=end){\n
+\t\t\t            int mid=(start+end)/2;\n
+\t\t\t            int midX=mid/n;\n
+\t\t\t            int midY=mid%n;\n
 \n
-            if(matrix[midX][midY]==target)\n
-                return true;\n
+\t\t\t            if(matrix[midX][midY]==target)\n
+\t\t\t\t                return true;\n
 
-            if(matrix[midX][midY]&lt;target){\n
-                start=mid+1;\n
-            }else{\n
-                end=mid-1;\n
-            }\n
-        }\n
+\t\t\t            if(matrix[midX][midY]&lt;target){\n
+\t\t\t\t                start=mid+1;\n
+\t\t\t            }else{\n
+\t\t\t\t                end=mid-1;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        return false;\n
-    }\n
+\t\t        return false;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -1979,30 +3286,30 @@ class Solution {\n
      * @param A: An integers array.\n
      * @return: return any of peek positions.\n
      */\n
-    public int findPeak(int[] A) {\n
-        // write your code here\n
-        if (A == null) {\n
-            return -1;\n
-        }\n
-        if (A.length == 0) {\n
-            return 0;\n
-        }\n
+\t    public int findPeak(int[] A) {\n
+\t\t        // write your code here\n
+\t\t        if (A == null) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
+\t\t        if (A.length == 0) {\n
+\t\t\t            return 0;\n
+\t\t        }\n
 \n
-        int start = 0, end = A.length - 1, mid = end / 2;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start)/2;\n
-            if (A[mid] &lt; A[mid - 1]) {\n
-                end = mid;\n
-            } else if (A[mid] &lt; A[mid + 1]) {\n
-                start = mid;\n
-            } else {\n
-                return mid;\n
-            }\n
-        }\n
+\t\t        int start = 0, end = A.length - 1, mid = end / 2;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start)/2;\n
+\t\t\t            if (A[mid] &lt; A[mid - 1]) {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            } else if (A[mid] &lt; A[mid + 1]) {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                return mid;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        mid = (A[start] &gt; A[end]) ? start : end;\n
-        return mid;\n
-    }\n
+\t\t        mid = (A[start] &gt; A[end]) ? start : end;\n
+\t\t        return mid;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2037,41 +3344,41 @@ public class Solution {\n
      *@param target :  an integer to be searched\n
      *return : an integer\n
      */\n
-    public int search(int[] A, int target) {\n
-        // write your code here\n
-        if (A == null || A.length == 0) {\n
-            return -1;\n
-        }\n
+\t    public int search(int[] A, int target) {\n
+\t\t        // write your code here\n
+\t\t        if (A == null || A.length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
 \n
-        int start = 0, end = A.length - 1, mid = 0;\n
-        while (start + 1 &lt; end) {\n
-            mid = start + (end - start)/2;\n
-            if (A[mid] == target) {\n
-                return mid;\n
-            }\n
-            if (A[start] &lt; A[mid]) {//part 1\n
-                if (A[start] &lt;= target &amp;&amp; target &lt;= A[mid]) {\n
-                    end = mid;\n
-                } else {\n
-                    start = mid;\n
-                }\n
-            } else { //part 2\n
-                if (A[mid] &lt;= target &amp;&amp; target &lt;= A[end]) {\n
-                    start = mid;\n
-                } else {\n
-                    end = mid;\n
-                }\n
-            }\n
-        } // end while\n
+\t\t        int start = 0, end = A.length - 1, mid = 0;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            mid = start + (end - start)/2;\n
+\t\t\t            if (A[mid] == target) {\n
+\t\t\t\t                return mid;\n
+\t\t\t            }\n
+\t\t\t            if (A[start] &lt; A[mid]) {//part 1\n
+\t\t\t\t                if (A[start] &lt;= target &amp;&amp; target &lt;= A[mid]) {\n
+\t\t\t\t\t                    end = mid;\n
+\t\t\t\t                } else {\n
+\t\t\t\t\t                    start = mid;\n
+\t\t\t\t                }\n
+\t\t\t            } else { //part 2\n
+\t\t\t\t                if (A[mid] &lt;= target &amp;&amp; target &lt;= A[end]) {\n
+\t\t\t\t\t                    start = mid;\n
+\t\t\t\t                } else {\n
+\t\t\t\t\t                    end = mid;\n
+\t\t\t\t                }\n
+\t\t\t            }\n
+\t\t        } // end while\n
 \n
-        if (A[start] == target) {\n
-            return start;\n
-        } else if (A[end] == target) {\n
-            return end;\n
-        } else {\n
-            return -1; // not found\n
-        }\n
-    }\n
+\t\t        if (A[start] == target) {\n
+\t\t\t            return start;\n
+\t\t        } else if (A[end] == target) {\n
+\t\t\t            return end;\n
+\t\t        } else {\n
+\t\t\t            return -1; // not found\n
+\t\t        }\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2094,33 +3401,33 @@ public class Solution {\n
      * @param num: a rotated sorted array\n
      * @return: the minimum number in the array\n
      */\n
-    public int findMin(int[] nums) {\n
-        if (nums == null || nums.length == 0) {\n
-            return -1;\n
-        }\n
+\t    public int findMin(int[] nums) {\n
+\t\t        if (nums == null || nums.length == 0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
 \n
-        int start = 0, end = nums.length - 1;\n
-        int target = nums[nums.length - 1];\n
+\t\t        int start = 0, end = nums.length - 1;\n
+\t\t        int target = nums[nums.length - 1];\n
 \n
-        // find the first element &lt;= target\n
-        while (start + 1 &lt; end) {\n
-            int mid = start + (end - start) / 2;\n
-            if (nums[mid] &lt;= target) {\n
-                end = mid;\n
-            } else {\n
-                start = mid;\n
-            }\n
-        }\n
-        if (nums[start] &lt;= target) {\n
-            return nums[start];\n
-        } else {\n
-            return nums[end];\n
-        }\n
-    }\n
+\t\t        // find the first element &lt;= target\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            int mid = start + (end - start) / 2;\n
+\t\t\t            if (nums[mid] &lt;= target) {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        if (nums[start] &lt;= target) {\n
+\t\t\t            return nums[start];\n
+\t\t        } else {\n
+\t\t\t            return nums[end];\n
+\t\t        }\n
+\t    }\n
 }
 </item>
 </string-array>
-<string-array name="search_a_2D_matrix_two_">
+<string-array name="search_a_2d_matrix_ii_">
 <item name="definition">
 Write an efficient algorithm that searches for a value in an m x n matrix, return the occurrence of it.\n
 This matrix has the following properties:\n
@@ -2145,38 +3452,38 @@ public class Solution {\n
      * @param: A number you want to search in the matrix\n
      * @return: An integer indicate the occurrence of target in the given matrix\n
      */\n
-    public int searchMatrix(int[][] matrix, int target) {\n
-        int occurence = 0;\n
+\t    public int searchMatrix(int[][] matrix, int target) {\n
+\t\t        int occurence = 0;\n
 \n
-        if (matrix == null || matrix.length == 0) {\n
-            return occurence;\n
-        }\n
-        if (matrix[0] == null || matrix[0].length == 0) {\n
-            return occurence;\n
-        }\n
+\t\t        if (matrix == null || matrix.length == 0) {\n
+\t\t\t            return occurence;\n
+\t\t        }\n
+\t\t        if (matrix[0] == null || matrix[0].length == 0) {\n
+\t\t\t            return occurence;\n
+\t\t        }\n
 \n
-        int row = matrix.length - 1;\n
-        int column = matrix[0].length - 1;\n
-        int index_row = 0, index_column = column;\n
-        int number;\n
+\t\t        int row = matrix.length - 1;\n
+\t\t        int column = matrix[0].length - 1;\n
+\t\t        int index_row = 0, index_column = column;\n
+\t\t        int number;\n
 \n
-        if (target &lt; matrix[0][0] || target &gt; matrix[row][column]) {\n
-            return occurence;\n
-        }\n
+\t\t        if (target &lt; matrix[0][0] || target &gt; matrix[row][column]) {\n
+\t\t\t            return occurence;\n
+\t\t        }\n
 \n
-        while (index_row &lt; row + 1 &amp;&amp; index_column + 1 > 0) {\n
-            number = matrix[index_row][index_column];\n
-            if (target == number) {\n
-                occurence++;\n
-                index_column--;\n
-            } else if (target &lt; number) {\n
-                index_column--;\n
-            } else if (target &gt; number) {\n
-                index_row++;\n
-            }\n
-        }\n
-        return occurence;\n
-    }\n
+\t\t        while (index_row &lt; row + 1 &amp;&amp; index_column + 1 > 0) {\n
+\t\t\t            number = matrix[index_row][index_column];\n
+\t\t\t            if (target == number) {\n
+\t\t\t\t                occurence++;\n
+\t\t\t\t                index_column--;\n
+\t\t\t            } else if (target &lt; number) {\n
+\t\t\t\t                index_column--;\n
+\t\t\t            } else if (target &gt; number) {\n
+\t\t\t\t                index_row++;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return occurence;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2199,39 +3506,39 @@ class Solution {\n
      * @param B: An integer array.\n
      * @return: a double whose format is *.5 or *.0\n
      */\n
-    public double findMedianSortedArrays(int[] A, int[] B) {\n
-        // write your code here\n
-        int len = A.length + B.length;\n
-        if (len % 2 == 0) {\n
-            return (findKth(A, 0, B, 0, len/2) + findKth(A, 0, B, 0, len/2+1)) / 2.0;\n
-        } else {\n
-            return findKth(A, 0, B, 0, len/2 + 1);\n
-        }\n
-    }\n
+\t    public double findMedianSortedArrays(int[] A, int[] B) {\n
+\t\t        // write your code here\n
+\t\t        int len = A.length + B.length;\n
+\t\t        if (len % 2 == 0) {\n
+\t\t\t            return (findKth(A, 0, B, 0, len/2) + findKth(A, 0, B, 0, len/2+1)) / 2.0;\n
+\t\t        } else {\n\t
+\t\t\t            return findKth(A, 0, B, 0, len/2 + 1);\n
+\t\t        }\n
+\t    }\n
 \n
-    //find kth number of two sorted array\n
-    public static int findKth(int[] A, int A_start, int[] B, int B_start, int k) {\n
-        if (A_start >= A.length) {\n
-            return B[B_start + k - 1];\n
-        }\n
-        if (B_start >= B.length) {\n
-            return A[A_start + k - 1];\n
-        }\n
-        if (k == 1) {\n
-            return Math.min(A[A_start], B[B_start]);\n
-        }\n
+\t    //find kth number of two sorted array\n
+\t    public static int findKth(int[] A, int A_start, int[] B, int B_start, int k) {\n
+\t\t        if (A_start >= A.length) {\n
+\t\t\t            return B[B_start + k - 1];\n
+\t\t        }\n
+\t\t        if (B_start >= B.length) {\n
+\t\t\t            return A[A_start + k - 1];\n
+\t\t        }\n
+\t\t        if (k == 1) {\n
+\t\t\t            return Math.min(A[A_start], B[B_start]);\n
+\t\t        }\n
 \n
-        int A_key = (A_start + k/2 - 1 &lt; A.length) // if one array is too short
+\t\t        int A_key = (A_start + k/2 - 1 &lt; A.length) // if one array is too short
                     ? A[A_start + k/2 - 1] : Integer.MAX_VALUE; // trick\n
-        int B_key = (B_start + k/2 - 1 &lt; B.length) // if one array is too short
+\t\t        int B_key = (B_start + k/2 - 1 &lt; B.length) // if one array is too short
                     ? B[B_start + k/2 - 1] : Integer.MAX_VALUE; // trick\n
 \n
-        if (A_key &lt; B_key) {\n
-            return findKth(A, A_start + k/2, B, B_start, k - k/2);\n
-        } else {\n
-            return findKth(A, A_start, B, B_start + k/2, k - k/2);\n
-        }\n
-    }\n
+\t\t        if (A_key &lt; B_key) {\n
+\t\t\t            return findKth(A, A_start + k/2, B, B_start, k - k/2);\n
+\t\t        } else {\n
+\t\t\t            return findKth(A, A_start, B, B_start + k/2, k - k/2);\n
+\t\t        }\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2243,20 +3550,20 @@ Compute and return the square root of x.
 </item>
 <item name="code">
 public class Solution {\n
-    public int sqrt(int x) {\n
-        long i = 0;\n
-        long j = x / 2 + 1;\n
-        while (i &lt;= j) {\n
-            long mid = (i + j) / 2;\n
-            if (mid * mid == x)\n
-                return (int)mid;\n
-            if (mid * mid &lt; x)\n
-                i = mid + 1;\n
-            else\n
-                j = mid - 1;\n
-        }\n
-        return (int)j;\n
-    }\n
+\t    public int sqrt(int x) {\n
+\t\t        long i = 0;\n
+\t\t        long j = x / 2 + 1;\n
+\t\t        while (i &lt;= j) {\n
+\t\t\t            long mid = (i + j) / 2;\n
+\t\t\t            if (mid * mid == x)\n
+\t\t\t\t                return (int)mid;\n
+\t\t\t            if (mid * mid &lt; x)\n
+\t\t\t\t                i = mid + 1;\n
+\t\t\t            else\n
+\t\t\t\t                j = mid - 1;\n
+\t\t        }\n
+\t\t        return (int)j;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2283,39 +3590,39 @@ public class Solution {\n
      *@param k: An integer\n
      *return: The maximum length of the small pieces.\n
      */\n
-    public int woodCut(int[] L, int k) {\n
-        int max = 0;\n
-        for (int i = 0; i &lt; L.length; i++) {\n
-            max = Math.max(max, L[i]);\n
-        }\n
+\t    public int woodCut(int[] L, int k) {\n
+\t\t        int max = 0;\n
+\t\t        for (int i = 0; i &lt; L.length; i++) {\n
+\t\t\t            max = Math.max(max, L[i]);\n
+\t\t        }\n
 \n
-        // find the largest length that can cut more than k pieces of wood.\n
-        int start = 1, end = max;\n
-        while (start + 1 &lt; end) {\n
-            int mid = start + (end - start) / 2;\n
-            if (count(L, mid) &gt;= k) {\n
-                start = mid;\n
-            } else {\n
-                end = mid;\n
-            }\n
-        }\n
+\t\t        // find the largest length that can cut more than k pieces of wood.\n
+\t\t        int start = 1, end = max;\n
+\t\t        while (start + 1 &lt; end) {\n
+\t\t\t            int mid = start + (end - start) / 2;\n
+\t\t\t            if (count(L, mid) &gt;= k) {\n
+\t\t\t\t                start = mid;\n
+\t\t\t            } else {\n
+\t\t\t\t                end = mid;\n
+\t\t\t            }\n
+\t\t        }\n
 \n
-        if (count(L, end) &gt;= k) {\n
-            return end;\n
-        }\n
-        if (count(L, start) &gt;= k) {\n
-            return start;\n
-        }\n
-        return 0;\n
-    }\n
+\t\t        if (count(L, end) &gt;= k) {\n
+\t\t\t            return end;\n
+\t\t        }\n
+ \t\t       if (count(L, start) &gt;= k) {\n
+ \t\t\t           return start;\n
+\t\t        }\n
+\t\t        return 0;\n
+\t    }\n
 \n
-    private int count(int[] L, int length) {\n
-        int sum = 0;\n
-        for (int i = 0; i &lt; L.length; i++) {\n
-            sum += L[i] / length;\n
-        }\n
-        return sum;\n
-    }\n
+\t    private int count(int[] L, int length) {\n
+\t\t        int sum = 0;\n
+\t\t        for (int i = 0; i &lt; L.length; i++) {\n
+\t\t\t            sum += L[i] / length;\n
+\t\t        }\n
+\t\t        return sum;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2329,17 +3636,17 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 </item>
 <item name="code">
     public int singleNumber(int[] A) {\n
-	HashSet&lt;Integer&gt; set = new HashSet&lt;Integer&gt;();\n
-	for (int n : A) {\n
-		if (!set.add(n))\n
-			set.remove(n);\n
-	}\n
-	Iterator&lt;Integer&gt; it = set.iterator();\n
-	return it.next();\n
+\t	HashSet&lt;Integer&gt; set = new HashSet&lt;Integer&gt;();\n
+\t	for (int n : A) {\n
+\t\t		if (!set.add(n))\n
+\t\t\t			set.remove(n);\n
+\t	}\n
+\t	Iterator&lt;Integer&gt; it = set.iterator();\n
+\t	return it.next();\n
 }
 </item>
 </string-array>
-<string-array name="single_number_two_">
+<string-array name="single_number_ii_">
 <item name="definition">
 Given an array of integers, every element appears three times except for one. Find that single one.
 \n
@@ -2348,30 +3655,30 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 </item>
 <item name="code">
     int singleNumber(int A[], int n) {\n
-          vector&lt;int&gt; bit(32,0);\n
+\t          vector&lt;int&gt; bit(32,0);\n
 \n
-          for(int i =0; i&lt; n; ++i)\n
-          {\n
-              int k=1;\n
-              for(int j =0; j&lt;32; ++j)\n
-              {\n
-                 int rotated;\n
-                 if((rotated = A[i]&gt;&gt;j) == 0) break;\n
-                 bit[j] += rotated &amp; k;\n
-             }\n
-         }\n
+\t          for(int i =0; i&lt; n; ++i)\n
+\t          {\n
+\t\t              int k=1;\n
+\t\t              for(int j =0; j&lt;32; ++j)\n
+\t\t              {\n
+\t\t\t                 int rotated;\n
+\t\t\t                 if((rotated = A[i]&gt;&gt;j) == 0) break;\n
+\t\t\t                 bit[j] += rotated &amp; k;\n
+\t\t             }\n
+\t         }\n
 \n
-         int target=0;\n
-         for(int i =0; i&lt;32; ++i)\n
-         {\n
-             target += (bit[i]%3 &lt;&lt;i);\n
-         }\n
-         return target;\n
+\t         int target=0;\n
+\t         for(int i =0; i&lt;32; ++i)\n
+\t         {\n
+\t\t             target += (bit[i]%3 &lt;&lt;i);\n
+\t         }\n
+\t         return target;\n
      }
 </item>
 </string-array>
 
-<string-array name="o_1_check_power_of_2_source_">
+<string-array name="o_1_check_power_of_2_">
 <item name="definition">
 Using O(1) time to check whether an integer n is a power of 2.
 \n
@@ -2389,13 +3696,13 @@ O(1) time
      * @param n: An integer\n
      * @return: True or false\n
      */\n
-    public boolean checkPowerOf2(int n) {\n
-        if (n &lt; 1) {\n
-            return false;\n
-        } else {\n
-            return (n &amp; (n - 1)) == 0;\n
-        }\n
-    }\n
+\t    public boolean checkPowerOf2(int n) {\n
+\t\t        if (n &lt; 1) {\n
+\t\t\t            return false;\n
+\t\t        } else {\n
+\t\t\t            return (n &amp; (n - 1)) == 0;\n
+\t\t        }\n
+\t    }\n
 };
 </item>
 </string-array>
@@ -2416,15 +3723,15 @@ Given n = 31, m = 14,return 2
      *@param a, b: Two integer\n
      *return: An integer\n
      */\n
-    public static int bitSwapRequired(int a, int b) {\n
-        int count = 0;\n
-        int a_xor_b = a ^ b;\n
-        while (a_xor_b != 0) {\n
-            ++count;\n
-            a_xor_b &amp;= (a_xor_b - 1);\n
-        }\n
-        return count;\n
-    }\n
+\t    public static int bitSwapRequired(int a, int b) {\n
+\t\t        int count = 0;\n
+\t\t        int a_xor_b = a ^ b;\n
+\t\t        while (a_xor_b != 0) {\n
+\t\t\t            ++count;\n
+\t\t\t            a_xor_b &amp;= (a_xor_b - 1);\n
+\t\t        }\n
+\t\t        return count;\n
+\t    }\n
 };\n
 </item>
 </string-array>
@@ -2440,16 +3747,16 @@ O(log N) time
 </item>
 <item name="code">
     public class Solution {\n
-    public int trailingZeroes(int n) {\n
-        if (n &lt;0) {\n
-            return -1;\n
-        }\n
-        int count = 0;\n
-        for (; n &gt; 0; n /= 5) {\n
-            count += (n / 5);\n
-        }\n
-        return count;\n
-    }\n
+\t    public int trailingZeroes(int n) {\n
+\t\t        if (n &lt;0) {\n
+\t\t\t            return -1;\n
+\t\t        }\n
+\t\t        int count = 0;\n
+\t\t        for (; n &gt; 0; n /= 5) {\n
+\t\t\t            count += (n / 5);\n
+\t\t        }\n
+\t\t        return count;\n
+\t    }\n
 }\n
 </item>
 </string-array>
@@ -2468,24 +3775,24 @@ Given 1->1->2->3->3, return 1->2->3.
  */\n
 
 public class Solution {\n
-    public ListNode deleteDuplicates(ListNode head) {\n
-        if (head == null) {\n
-            return null;\n
-        }\n
-        ListNode node = head;\n
-        while (node.next != null) {\n
-            if (node.val == node.next.val) {\n
-                node.next = node.next.next;\n
-            } else {\n
-                node = node.next;\n
-            }\n
-        }\n
-        return head;\n
-    }\n
+\t    public ListNode deleteDuplicates(ListNode head) {\n
+\t\t        if (head == null) {\n
+\t\t\t            return null;\n
+\t\t        }\n
+\t\t        ListNode node = head;\n
+\t\t        while (node.next != null) {\n
+\t\t\t            if (node.val == node.next.val) {\n
+\t\t\t\t                node.next = node.next.next;\n
+\t\t\t            } else {\n
+\t\t\t\t                node = node.next;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        return head;\n
+\t    }\n
 }\n
 </item>
 </string-array>
-<string-array name="remove_duplicates_from_sorted_list_two_">
+<string-array name="remove_duplicates_from_sorted_list_ii_">
 <item name="definition">
 Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
 \n
@@ -2495,20 +3802,20 @@ Given 1->1->1->2->3, return 2->3.
 </item>
 <item name="code">
 public ListNode deleteDuplicates(ListNode head) {\n
-    ListNode t = new ListNode(0);\n
-    t.next = head;\n
-    ListNode p = t;\n
-    while(p.next!=null&amp;&amp;p.next.next!=null){\n
-        if(p.next.val == p.next.next.val){\n
-            int dup = p.next.val;\n
-            while(p.next!=null&amp;&amp;p.next.val==dup){\n
-                p.next = p.next.next;\n
-            }\n
-        }else{\n
-            p=p.next;\n
-        }\n
-    }\n
-    return t.next;\n
+\t    ListNode t = new ListNode(0);\n
+\t    t.next = head;\n
+\t    ListNode p = t;\n
+\t    while(p.next!=null&amp;&amp;p.next.next!=null){\n
+\t\t        if(p.next.val == p.next.next.val){\n
+\t\t\t            int dup = p.next.val;\n
+\t\t\t            while(p.next!=null&amp;&amp;p.next.val==dup){\n
+\t\t\t\t                p.next = p.next.next;\n
+\t\t\t            }\n
+\t\t        }else{\n
+\t\t\t            p=p.next;\n
+\t\t        }\n
+\t    }\n
+\t    return t.next;\n
 }
 </item>
 </string-array>
@@ -2524,33 +3831,33 @@ return 1->2->2->4->3->5->null.
 </item>
 <item name="code">
     public class Solution {\n
-    public ListNode partition(ListNode head, int x) {\n
-        if(head == null) return null;\n
+\t    public ListNode partition(ListNode head, int x) {\n
+\t\t        if(head == null) return null;\n
 \n
-        ListNode fakeHead1 = new ListNode(0);\n
-        ListNode fakeHead2 = new ListNode(0);\n
-        fakeHead1.next = head;\n
+\t\t        ListNode fakeHead1 = new ListNode(0);\n
+\t\t        ListNode fakeHead2 = new ListNode(0);\n
+\t\t        fakeHead1.next = head;\n
 \n
-        ListNode p = head;\n
-        ListNode prev = fakeHead1;\n
-        ListNode p2 = fakeHead2;\n
-
-        while(p != null){\n
-            if(p.val &lt; x){\n
-                p = p.next;\n
-                prev = prev.next;\n
-            }else{\n
-                p2.next = p;\n
-                prev.next = p.next;\n
-                p = prev.next;\n
-                p2 = p2.next;\n
-            }\n
-        }\n
-        // close the list\n
-        p2.next = null;\n
-        prev.next = fakeHead2.next;\n
-        return fakeHead1.next;\n
-    }\n
+\t\t        ListNode p = head;\n
+\t\t        ListNode prev = fakeHead1;\n
+\t\t        ListNode p2 = fakeHead2;\n
+\n
+\t\t        while(p != null){\n
+\t\t\t            if(p.val &lt; x){\n
+\t\t\t\t                p = p.next;\n
+\t\t\t\t                prev = prev.next;\n
+\t\t\t            }else{\n
+\t\t\t\t                p2.next = p;\n
+\t\t\t\t                prev.next = p.next;\n
+\t\t\t\t                p = prev.next;\n
+\t\t\t\t                p2 = p2.next;\n
+\t\t\t            }\n
+\t\t        }\n
+\t\t        // close the list\n
+\t\t        p2.next = null;\n
+\t\t        prev.next = fakeHead2.next;\n
+\t\t        return fakeHead1.next;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2565,27 +3872,27 @@ Given two lists, 3->1->5->null and 5->9->2->null, return 8->0->8->null
 </item>
 <item name="code">
     public class Solution {\n
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {\n
-       int carry =0;\n
-        ListNode newHead = new ListNode(0);\n
-        ListNode p1 = l1, p2 = l2, p3=newHead;\n
-        while(p1 != null || p2 != null){\n
-            if(p1 != null){\n
-                carry += p1.val;\n
-                p1 = p1.next;\n
-            }\n
-            if(p2 != null){\n
-                carry += p2.val;\n
-                p2 = p2.next;\n
-            }\n
-            p3.next = new ListNode(carry%10);\n
-            p3 = p3.next;\n
-            carry /= 10;\n
-        }\n
-        if(carry==1)\n
-            p3.next=new ListNode(1);\n
-        return newHead.next;\n
-    }\n
+\t    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {\n
+\t\t       int carry =0;\n
+\t\t        ListNode newHead = new ListNode(0);\n
+\t\t        ListNode p1 = l1, p2 = l2, p3=newHead;\n
+\t\t        while(p1 != null || p2 != null){\n
+\t\t\t            if(p1 != null){\n
+\t\t\t\t                carry += p1.val;\n
+\t\t\t                p1 = p1.next;\n
+\t\t            }\n
+\t\t            if(p2 != null){\n
+\t\t\t                carry += p2.val;\n
+\t\t\t                p2 = p2.next;\n
+\t\t            }\n
+\t\t            p3.next = new ListNode(carry%10);\n
+\t\t            p3 = p3.next;\n
+\t\t            carry /= 10;\n
+\t        }\n
+\t        if(carry==1)\n
+\t\t            p3.next=new ListNode(1);\n
+\t\t        return newHead.next;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2730,34 +4037,34 @@ O(n) time
 </item>
 <item name="code">
 public ListNode removeNthFromEnd(ListNode head, int n) {\n
-    if(head == null)\n
-        return null;\n
+\t    if(head == null)\n
+\t\t        return null;\n
 \n
-    //get length of list\n
-    ListNode p = head;\n
-    int len = 0;\n
-    while(p != null){\n
-        len++;\n
-        p = p.next;\n
-    }\n
+\t\t    //get length of list\n
+\t\t    ListNode p = head;\n
+\t\t    int len = 0;\n
+\t\t    while(p != null){\n
+\t\t\t        len++;\n
+\t\t\t        p = p.next;\n
+\t\t    }\n
 \n
-    //if remove first node\n
-    int fromStart = len-n+1;\n
-    if(fromStart==1)\n
-        return head.next;\n
+\t\t    //if remove first node\n
+\t\t    int fromStart = len-n+1;\n
+\t\t    if(fromStart==1)\n
+\t\t\t        return head.next;\n
 \n
-    //remove non-first node\n
-    p = head;\n
-    int i=0;\n
-    while(p!=null){\n
-        i++;\n
-        if(i==fromStart-1){\n
-            p.next = p.next.next;\n
-        }\n
-        p=p.next;\n
-    }\n
+\t\t    //remove non-first node\n
+\t\t    p = head;\n
+\t\t    int i=0;\n
+\t\t    while(p!=null){\n
+\t\t\t        i++;\n
+\t\t\t        if(i==fromStart-1){\n
+\t\t\t            p.next = p.next.next;\n
+\t\t        }\n
+\t\t        p=p.next;\n
+\t    }\n
 \n
-    return head;\n
+\t    return head;\n
 }
 </item>
 </string-array>
@@ -2774,26 +4081,26 @@ Can you solve it without using extra space?
 </item>
 <item name="code">
     public class Solution {\n
-    public Boolean hasCycle(ListNode head) {\n
-        if (head == null || head.next == null) {\n
-            return false;\n
-        }\n
+\t    public Boolean hasCycle(ListNode head) {\n
+\t\t        if (head == null || head.next == null) {\n
+\t\t\t            return false;\n
+\t\t        }\n
 \n
-        ListNode fast, slow;\n
-        fast = head.next;\n
-        slow = head;\n
-        while (fast != slow) {\n
-            if(fast==null || fast.next==null)\n
-                return false;\n
-            fast = fast.next.next;\n
-            slow = slow.next;\n
-        }\n
-        return true;\n
-    }\n
+\t\t        ListNode fast, slow;\n
+\t\t        fast = head.next;\n
+\t\t        slow = head;\n
+\t\t        while (fast != slow) {\n
+\t\t\t            if(fast==null || fast.next==null)\n
+\t\t\t\t                return false;\n
+\t\t\t            fast = fast.next.next;\n
+\t\t\t            slow = slow.next;\n
+\t\t        }\n
+\t\t        return true;\n
+\t    }\n
 }
 </item>
 </string-array>
-<string-array name="linked_list_cycle_two_">
+<string-array name="linked_list_cycle_ii_">
 <item name="definition">
 Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
 \n
@@ -2806,27 +4113,27 @@ Can you solve it without using extra space?
 </item>
 <item name="code">
 public class Solution {\n
-    public ListNode detectCycle(ListNode head) {\n
-        if (head == null || head.next==null) {\n
-            return null;\n
-        }\n
+\t    public ListNode detectCycle(ListNode head) {\n
+\t\t        if (head == null || head.next==null) {\n
+\t\t\t            return null;\n
+\t\t        }\n
 \n
-        ListNode fast, slow;\n
-        fast = head.next;\n
-        slow = head;\n
-        while (fast != slow) {\n
-            if(fast==null || fast.next==null)\n
-                return null;\n
-            fast = fast.next.next;\n
-            slow = slow.next;\n
-        }\n
+\t\t        ListNode fast, slow;\n
+\t\t        fast = head.next;\n
+\t\t        slow = head;\n
+\t\t        while (fast != slow) {\n
+\t\t\t            if(fast==null || fast.next==null)\n
+\t\t\t\t                return null;\n
+\t\t\t            fast = fast.next.next;\n
+\t\t\t            slow = slow.next;\n
+\t\t        }\n
 \n
-        while (head != slow.next) {\n
-            head = head.next;\n
-            slow = slow.next;\n
-        }\n
-        return head;\n
-    }\n
+\t\t        while (head != slow.next) {\n
+\t\t\t            head = head.next;\n
+\t\t\t            slow = slow.next;\n
+\t\t        }\n
+\t\t        return head;\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -2870,7 +4177,7 @@ public class Solution {\n
 }
 </item>
 </string-array>
-<string-array name="reverse_linked_list_two">
+<string-array name="reverse_linked_list_ii_">
 <item name="definition">
 Reverse a linked list from position m to n.
 \n
@@ -2928,7 +4235,7 @@ public class Solution {\n
 }
 </item>
 </string-array>
-<string-array name="merge_two_sorted_lists">
+<string-array name="merge_two_sorted_lists_">
 <item name="definition">
 Merge two sorted linked lists and return it as a new list.
 The new list should be made by splicing together the nodes of the first two lists.
@@ -2964,7 +4271,7 @@ public class Solution {\n
 }
 </item>
 </string-array>
-<string-array name="merge_k_sorted_lists">
+<string-array name="merge_k_sorted_lists_">
 <item name="definition">
 Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 </item>
@@ -3232,7 +4539,7 @@ public class Solution {\n
 }
 </item>
 </string-array>
-<string-array name="reverse_words_in_a_string">
+<string-array name="reverse_words_in_a_string_">
 <item name="definition">
 Given an input string, reverse the string word by word.
 \n
@@ -3739,6 +5046,7 @@ public class Solution {\n
 }
 </item>
 </string-array>
+
 <string-array name="insert_node_in_a_binary_search_tree_">
 <item name="definition">
 Given a binary search tree  and a new tree node, insert the node into the tree. You should keep the tree still be a valid binary search tree.
@@ -3849,11 +5157,11 @@ Example\n
 An example:\n
 \n
    1\n
-  / \\n
+  / \'\n
  2   3\n
     /\n
    4\n
-    \\n
+    \'\n
      5\n
 The above binary tree is serialized as \"{1,2,3,#,#,4,#,#,5}\".
 </item>
@@ -3936,9 +5244,9 @@ Return all the keys in ascending order.\n
 Example\n
 For example, if k1 = 10 and k2 = 22, then your function should print 12, 20 and 22.\n
           20 \n
-       /        \ \n
+       /      \' \n
     8           22 \n
-  /     \ \n
+  /    \' \n
 4       12 \n
 </item>
 <item name="code">
@@ -3954,32 +5262,32 @@ For example, if k1 = 10 and k2 = 22, then your function should print 12, 20 and 
  * }\n
  */\n
 public class Solution {\n
-    private ArrayList&lt;Integer&gt; results;\n
+\t    private ArrayList&lt;Integer&gt; results;\n
     /**\n
      * @param root: The root of the binary search tree.\n
      * @param k1 and k2: range k1 to k2.\n
      * @return: Return all keys that k1&lt;=key&lt;=k2 in increasing order.\n
      */\n
-    public ArrayList&lt;Integer&gt; searchRange(TreeNode root, int k1, int k2) {\n
-        results = new ArrayList&lt;Integer&gt;();\n
-        helper(root, k1, k2);\n
-        return results;\n
-    }\n
+\t    public ArrayList&lt;Integer&gt; searchRange(TreeNode root, int k1, int k2) {\n
+\t\t        results = new ArrayList&lt;Integer&gt;();\n
+\t\t        helper(root, k1, k2);\n
+\t\t        return results;\n
+\t    }\n
 \n
-    private void helper(TreeNode root, int k1, int k2) {\n
-        if (root == null) {\n
-            return;\n
-        }\n
-        if (root.val &gt; k1) {\n
-            helper(root.left, k1, k2);\n
-        }\n
-        if (root.val &gt;= k1 &amp;&amp; root.val &lt;= k2) {\n
-            results.add(root.val);\n
-        }\n
-        if (root.val &lt; k2) {\n
-            helper(root.right, k1, k2);\n
-        }\n
-    }\n
+\t    private void helper(TreeNode root, int k1, int k2) {\n
+\t\t        if (root == null) {\n
+\t\t\t            return;\n
+\t\t        }\n
+\t\t        if (root.val &gt; k1) {\n
+\t\t\t            helper(root.left, k1, k2);\n
+\t\t        }\n
+\t\t        if (root.val &gt;= k1 &amp;&amp; root.val &lt;= k2) {\n
+\t\t\t            results.add(root.val);\n
+\t\t        }\n
+\t\t        if (root.val &lt; k2) {\n
+\t\t\t            helper(root.right, k1, k2);\n
+\t\t        }\n
+\t    }\n
 }
 </item>
 </string-array>
@@ -4488,7 +5796,7 @@ public class Solution {\n
 }\n
 </item>
 </string-array>
-<string-array name="minimum_path_sum">
+<string-array name="minimum_path_sum_">
 <item name="definition">
 Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.
 \n

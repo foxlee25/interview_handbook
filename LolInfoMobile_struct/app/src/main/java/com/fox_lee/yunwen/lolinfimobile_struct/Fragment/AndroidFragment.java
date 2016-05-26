@@ -4,44 +4,36 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.fox_lee.yunwen.lolinfimobile_struct.Adapter.AlgorithmAdapter;
-import com.fox_lee.yunwen.lolinfimobile_struct.Adapter.AlgorithmSubAdapter;
+import com.fox_lee.yunwen.lolinfimobile_struct.Adapter.AndroidAdapter;
+import com.fox_lee.yunwen.lolinfimobile_struct.Adapter.JavaAdapter;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
-
-import java.util.ArrayList;
 
 /**
  * Created by Yunwen on 2/11/2016.
  */
-public class AlgorithmSubFragment extends  Fragment{
+public class AndroidFragment extends  Fragment{
     RecyclerView mRecyclerView;
-    private AlgorithmSubAdapter algorithmsubAdapter;
-    private String[] dataContent;
-    public void changeData(String[] dataContent) {
-        this.dataContent = dataContent;
-    }
+    private AndroidAdapter javaAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
-
         return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //display details
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        algorithmsubAdapter = new AlgorithmSubAdapter(getActivity(),dataContent);
-        mRecyclerView.setAdapter(algorithmsubAdapter);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        javaAdapter = new AndroidAdapter(getActivity());
+        mRecyclerView.setAdapter(javaAdapter);
     }
 
     private void writeBoard() {

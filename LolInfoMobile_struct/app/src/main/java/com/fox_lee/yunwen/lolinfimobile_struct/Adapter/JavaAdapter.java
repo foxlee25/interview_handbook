@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
 import com.fox_lee.yunwen.lolinfimobile_struct.Interface.IndexCallback;
@@ -17,12 +16,12 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CodeMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class JavaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
     public enum ITEM_TYPE {
         ITEM_TYPE_IMAGE,
         ITEM_TYPE_TEXT
     }
-
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
     private String[] mTitles;
@@ -32,8 +31,8 @@ public class CodeMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.indexCallback = indexCallback;
     }
 
-    public CodeMenuAdapter(Context context) {
-        mTitles = context.getResources().getStringArray(R.array.titles);
+    public JavaAdapter(Context context) {
+        mTitles = context.getResources().getStringArray(R.array.java);
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
     }
@@ -45,24 +44,27 @@ public class CodeMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        if (holder instanceof TextViewHolder)
+        if (holder instanceof TextViewHolder) {
             ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
-
-        ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            ((TextViewHolder) holder).mTextView.setTextSize(16);
+            ((TextViewHolder) holder).mTextView.setTextColor(mContext.getResources().getColor(R.color.colorText));
+            ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                 if (mContext instanceof View.OnClickListener) {
-                    switch (((TextViewHolder) holder).mTextView.getText().toString()) {
-                        case "Algorithm": /* start activity accordingly */
-                            ((MainActivity) mContext).startAlgorithmFragment(mTitles[position]);
-                            break;
-                        default:
-                            Toast.makeText(mContext, "Coming soon", Toast.LENGTH_SHORT).show();
-                            break;
+                    String pack = mContext.getPackageName();
+                    String id = ((TextViewHolder) holder).mTextView.getText().toString().toLowerCase().replace(" ", "_");
+                    int resId = mContext.getResources().getIdentifier(id, "array", pack);
+                    String[] res = mContext.getResources().getStringArray(resId);
+                    Log.d("AlgorithmAdapter", " The resource id is: " + id);
+                    for(int i = 0; i < res.length; i++) {
+                        Log.d("DbFavorite","The array is: " + res[i]);
                     }
+                    ((MainActivity) mContext).startSubFragment(res);
                 }
-            }
-        });
+                }
+            });
+        }
     }
 
     @Override

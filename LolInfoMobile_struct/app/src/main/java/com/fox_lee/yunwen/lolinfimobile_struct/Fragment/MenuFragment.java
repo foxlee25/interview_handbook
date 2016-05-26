@@ -6,25 +6,23 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.fox_lee.yunwen.lolinfimobile_struct.Adapter.CodeMenuAdapter;
+import com.fox_lee.yunwen.lolinfimobile_struct.Adapter.MenuAdapter;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 /**
  * Created by Yunwen on 2/10/2016.
  */
-public class CodeMenuFragment extends Fragment{
+public class MenuFragment extends Fragment{
     RecyclerView mRecyclerView;
-    private CodeMenuAdapter codeInterviewAdapter;
+    private MenuAdapter codeInterviewAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
-
         return view;
     }
 
@@ -33,7 +31,7 @@ public class CodeMenuFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
-        codeInterviewAdapter = new CodeMenuAdapter(getActivity());
+        codeInterviewAdapter = new MenuAdapter(getActivity());
         mRecyclerView.setAdapter(codeInterviewAdapter);
     }
 

@@ -18,30 +18,26 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public enum ITEM_TYPE {
         ITEM_TYPE_IMAGE,
         ITEM_TYPE_TEXT
     }
     String[] values = new String[] { "" };
-
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
     final ArrayList<String> list = new ArrayList<String>();
-
     private String[] mTitles;
     private static IndexCallback indexCallback;
-
     public void onIndexUpdate(IndexCallback indexCallback) {
         this.indexCallback = indexCallback;
     }
 
-    public AlgorithmSubAdapter(Context context, String[] var) {
+    public SubAdapter(Context context, String[] var) {
         mTitles = var;
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
     }
-
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -51,10 +47,16 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
+        ((TextViewHolder) holder).mTextView.setTextSize(16);
+        ((TextViewHolder) holder).mTextView.setTextColor(mContext.getResources().getColor(R.color.colorText));
         ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+            try {
                 ((MainActivity) mContext).startContentFragment(mTitles[position].toString());
+            }catch(Exception e) {
+                Log.d("FragmentAdapter", e.toString());
+            }
             }
         });
     }
@@ -77,7 +79,6 @@ public class AlgorithmSubAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             super(view);
             ButterKnife.bind(this, view);
         }
-
         @OnClick(R.id.cv_text)
         void onItemClick() {
             Log.d("TextViewHolder", "onClick--> position = " + getPosition());
