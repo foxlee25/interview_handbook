@@ -57,7 +57,6 @@ public class ContentFragment extends  Fragment {
 //        Typeface typeFace =Typeface.createFromAsset(getActivity().getAssets(),"fonts/HelveticaNeue.ttf");
 //        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/HelveticaNeueMed.ttf");
 //        tvTitle.setTypeface(font);
-
         float length =500/ data.length();
         if(length >25) {
             tvTitle.setTextSize(25);
