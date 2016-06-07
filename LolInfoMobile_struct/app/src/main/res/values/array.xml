@@ -37,12 +37,6 @@
         <item>SQLite database</item>
     </string-array>
 
-    <!--<item>Services</item>-->
-    <!--<item>Receivers</item>-->
-    <!--<item>Adapters</item>-->
-    <!--<item>Graphics and animations</item>-->
-    <!--<item>Http and WebServers</item>-->
-    <!--<item>Securities and permissions</item>    -->
     <string-array name="android_basics">
         <item>Android Architecture</item>
         <item>ANR</item>
@@ -63,8 +57,8 @@
 
     </string-array>
     <string-array name="sqlite_database">
-        <item>Subsets</item>
-        <item>Permutation</item>
+        <item>SQLite Helper</item>
+        <item>Cursor</item>
     </string-array>
 
     <string-array name="android_architecture_">
@@ -139,6 +133,22 @@
         <item name = "code">
             Activities can be closed, or terminated anytime the user wishes. On the other hand, services are designed to run behind the scenes, and can act
             independently. Most services run continuously, regardless of whether there are certain or no activities being executed.
+        </item>
+    </string-array>
+
+    <string-array name="sqlite_helper_">
+        <item name = "definition">What is the use of SQLite open helper class in SQLite?</item>
+        <item name = "code">
+            A helper class allow database management, creation and version management. This is the class where we will create all the tables, and
+            upgrade tables.
+        </item>
+    </string-array>
+
+    <string-array name="cursor_">
+        <item name = "definition">How to show SQLite Database table information in android application?</item>
+        <item name = "code">
+            Showing database information will be better suited with table layout since table layout is not an adapter view, you can\'t use cursor adapter with it.
+            So use table layout with cursor to show data table information.
         </item>
     </string-array>
     <!--<string-array name="Services">-->

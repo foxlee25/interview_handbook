@@ -1,13 +1,21 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Activity;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.FragmentManager;
+import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
+import android.preference.PreferenceManager;
+import android.provider.SyncStateContract;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -39,8 +47,17 @@ import com.fox_lee.yunwen.lolinfimobile_struct.Utility.SlidingLayout;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    public enum AppStart {
+        FIRST_TIME, FIRST_TIME_VERSION, NORMAL;
+    }
+    ProgressDialog dialog = null;
+    int counter = 0;
+    Thread t =null;
+    private static final String LAST_APP_VERSION = "last_app_version";
     private SlidingLayout slidingLayout;
     boolean doubleBackToExitPressedOnce = false;
     LinearLayout ll1;
@@ -94,7 +111,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toolbar.getMenu().clear();
         this.startAlgorithmFragment("");
 
-    }
+        switch (checkAppStart()) {
+            case NORMAL:
+                // We don't want to get on the user's nerves
+                t = new Thread() {
+                    public void run() {
+//                  register();
+                        try {
+                            while(counter<1){
+                                //do something
+                                updateGallery(0);
+                                Thread.sleep(5000*2);
+                                updateGallery(1);
+                                Thread.sleep(1000*2);
+                            }
+                        }catch(Exception ex){
+                            ex.printStackTrace();
+                        }
+                    }
+                };
+                t.start();
+                break;
+            case FIRST_TIME_VERSION:
+                // TODO show what's new
+                break;
+            case FIRST_TIME:
+                // TODO show a tutorial
+                break;
+            default:
+            break;
+        }
+}
+
 
     private void createView(){
         ll1 = (LinearLayout) findViewById(R.id.rowIconAlgorithm);
@@ -115,25 +163,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setListener(){
-        tv1.setOnClickListener(this);
-        tv2.setOnClickListener(this);
-        tva.setOnClickListener(this);
-        tv3.setOnClickListener(this);
-        tv4.setOnClickListener(this);
-        tv5.setOnClickListener(this);
-        tv7.setOnClickListener(this);
-
+        tv1.setOnClickListener(this);tv2.setOnClickListener(this);tva.setOnClickListener(this);tv3.setOnClickListener(this);
+        tv4.setOnClickListener(this);tv5.setOnClickListener(this);tv7.setOnClickListener(this);
     }
 
     private void changeColor(){
 //        ll1.setBackgroundColor(getResources().getColor(R.color.colorGreen));
-//        ll2.setBackgroundColor(getResources().getColor(R.color.colorGreen));
-//        lla.setBackgroundColor(getResources().getColor(R.color.colorGreen));
-//        ll3.setBackgroundColor(getResources().getColor(R.color.colorGreen));
-//        ll4.setBackgroundColor(getResources().getColor(R.color.colorGreen));
-//        ll5.setBackgroundColor(getResources().getColor(R.color.colorGreen));
-//        ll6.setBackgroundColor(getResources().getColor(R.color.colorGreen));
-//        ll7.setBackgroundColor(getResources().getColor(R.color.colorGreen));
     }
 
     public void onClick(View v) {
@@ -211,38 +246,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startAboutFragment();
             return true;
         }
-//        if (id == R.id.db_algorithm) {
-//            // START THE about activity
-//            startDbLoadFragment("");
-//            return true;
-//        }
-//        if (id == R.id.action_rate) {
-//            // START the rating function
-//            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-//            alertDialog.setTitle(R.string.about_rate);
-//            alertDialog.setMessage(this.getString(R.string.rate_app_confirm));
-//            alertDialog.setIcon(R.drawable.menu_icon);
-//            // Setting OK Button
-//            alertDialog.setButton("Remind Me Later", new DialogInterface.OnClickListener() {
-//                public void onClick(DialogInterface dialog, int which) {
-//                    // cancel dialog
-//                    dialog.cancel();
-//                }
-//            });
-//            alertDialog.setButton2("Rate Us Now", new DialogInterface.OnClickListener() {
-//                public void onClick(DialogInterface dialog, int which) {
-//                    // Write your code here to execute after dialog closed
-//                    final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
-//                    try {
-//                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName + "&hl=en")));
-//                    } catch (ActivityNotFoundException anfe) {
-//                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName + "&hl=en")));
-//                    }
-//                }
-//            });
-//            alertDialog.show();
-//            return true;
-//        }
         if (id == R.id.alarm) {
             // to do
             Intent myIntent = new Intent(MainActivity.this, AlarmActivity.class);
@@ -260,6 +263,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case 0: {
+                ++counter;
+                dialog = new ProgressDialog(this);
+                if(counter==1){
+                    dialog.setMessage("Registering...");
+                }else{
+                    dialog.setMessage("Registered successfully");
+                }
+                dialog.setIndeterminate(true);
+                dialog.setCancelable(true);
+
+            }
+
+        }
+        return dialog;
+    }
     @Override
     public void onStop()
     {
@@ -290,6 +313,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }, 350);
     }
+
+
     public void startContentFragment(String var, ArrayList array){
         ContentFragment contentFragment = new ContentFragment();
         getFragmentManager().beginTransaction().replace(R.id.container, contentFragment, "SubFragment")
@@ -355,4 +380,62 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getFragmentManager().beginTransaction().replace(R.id.container, aboutFragment, "AboutFragment")
                 .addToBackStack("AboutFragment").commit();
     }
+
+    public AppStart checkAppStart() {
+        PackageInfo pInfo;
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        AppStart appStart = AppStart.NORMAL;
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            int lastVersionCode = sharedPreferences
+                    .getInt(LAST_APP_VERSION, -1);
+            int currentVersionCode = pInfo.versionCode;
+            appStart = checkAppStart(currentVersionCode, lastVersionCode);
+            // Update version in preferences
+            sharedPreferences.edit()
+                    .putInt(LAST_APP_VERSION, currentVersionCode).commit();
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.w("Check Start",
+                    "Unable to determine current app version from pacakge manager. Defenisvely assuming normal app start.");
+        }
+        return appStart;
+    }
+
+    public AppStart checkAppStart(int currentVersionCode, int lastVersionCode) {
+        if (lastVersionCode == -1) {
+            return AppStart.FIRST_TIME;
+        } else if (lastVersionCode < currentVersionCode) {
+            return AppStart.FIRST_TIME_VERSION;
+        } else if (lastVersionCode > currentVersionCode) {
+            Log.d("Check Start", "Current version code (" + currentVersionCode
+                    + ") is less then the one recognized on last startup ("
+                    + lastVersionCode
+                    + "). Defenisvely assuming normal app start.");
+            return AppStart.NORMAL;
+        } else {
+            return AppStart.NORMAL;
+        }
+    }
+
+    public void updateGallery(int actionsToBePerformedOnScreen) {
+        Message msg = new Message();
+        msg.what = actionsToBePerformedOnScreen;
+        galleryListHandler.sendMessage(msg);
+    }
+
+    public Handler galleryListHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 0:
+                    showDialog(0);
+                    break;
+                case 1:
+                    // clear all images in the list
+                    removeDialog(0);
+                    break;
+            }
+        }
+    };
 }
