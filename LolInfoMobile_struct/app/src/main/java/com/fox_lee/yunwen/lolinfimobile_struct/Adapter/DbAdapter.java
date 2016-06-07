@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.flurry.android.FlurryAgent;
 import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
 import com.fox_lee.yunwen.lolinfimobile_struct.Interface.IndexCallback;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DbFavorite;
@@ -53,8 +54,6 @@ public class DbAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder,  int position) {
-//        if (holder instanceof TextViewHolder)
-//            ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
         try {
             Log.d("DbFragment", data.get(position).get("id"));
             Log.d("DbFragment", data.get(position).get("topic"));
@@ -66,6 +65,7 @@ public class DbAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 public void onClick(View v) {   //goto this page
                     if (!dataContent.isEmpty()) {
                         ((MainActivity) mContext).startContentFragment(dataContent,data);
+
                     } else {
                         Toast.makeText(mContext, "Coming soon", Toast.LENGTH_SHORT).show();
                     }

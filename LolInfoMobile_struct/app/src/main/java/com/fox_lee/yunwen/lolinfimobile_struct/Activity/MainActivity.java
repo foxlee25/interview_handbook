@@ -167,16 +167,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Snackbar.make(v, "Open Favorite List", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 this.startDbFragment();
+                FlurryAgent.logEvent("Favorite List");
+                FlurryAgent.endTimedEvent("Favorite List");
                 break;
             case R.id.text_rowIconAbout: /** AlerDialog when click on 3rd icon */
                 Snackbar.make(v, "Open About", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 this.startAboutFragment();
+                FlurryAgent.logEvent("About");
+                FlurryAgent.endTimedEvent("About");
                 break;
             case R.id.text_rowIcon5: /** AlerDialog when click on 3rd icon */
                 Snackbar.make(v, "Open Feedback", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 this.startFeedbackFragment("");
+                FlurryAgent.logEvent("Feedback");
+                FlurryAgent.endTimedEvent("Feedback");
                 break;
             default:
                 Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
