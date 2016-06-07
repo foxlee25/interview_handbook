@@ -9,9 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.flurry.android.FlurryAgent;
 import com.fox_lee.yunwen.lolinfimobile_struct.Adapter.AndroidAdapter;
 import com.fox_lee.yunwen.lolinfimobile_struct.Adapter.JavaAdapter;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Yunwen on 2/11/2016.

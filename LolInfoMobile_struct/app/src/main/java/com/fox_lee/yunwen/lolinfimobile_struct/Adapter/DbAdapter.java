@@ -60,11 +60,12 @@ public class DbAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             Log.d("DbFragment", data.get(position).get("topic"));
             ((TextViewHolder) holder).mTextView.setText(data.get(position).get("topic"));
             final String dataContent = ((TextViewHolder) holder).mTextView.getText().toString();
+//            final String dataArray[]=data.toArray(new String[data.size()]);
             ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {   //goto this page
                     if (!dataContent.isEmpty()) {
-                        ((MainActivity) mContext).startContentFragment(dataContent);
+                        ((MainActivity) mContext).startContentFragment(dataContent,data);
                     } else {
                         Toast.makeText(mContext, "Coming soon", Toast.LENGTH_SHORT).show();
                     }

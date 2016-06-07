@@ -12,11 +12,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fox_lee.yunwen.lolinfimobile_struct.Activity.MainActivity;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.Algorithm;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.AlgorithmRepo;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DbFavorite;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DbRepo;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 /**
  * Created by Yunwen on 2/11/2016.
@@ -24,10 +28,12 @@ import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 //implements View.OnClickListener
 public class ContentFragment extends  Fragment {
-    private String dataContent;
+    private String data;
+    private ArrayList<String> dataContent;
     private String[] strings;
     private static boolean showingFirst = true;
-    public void changeData(String dataContent) {
+    public void changeData(String data, ArrayList dataContent ) {
+        this.data = data;
         this.dataContent = dataContent;
     }
 
@@ -46,24 +52,24 @@ public class ContentFragment extends  Fragment {
         ImageView imageFavorite = (ImageView) view.findViewById(R.id.img_favorite);
         TextView tvQuestion= (TextView) view.findViewById(R.id.text_question);
         Button btnAnswer= (Button) view.findViewById(R.id.btn_getAnswer);
+        Button btnNext = (Button) view.findViewById(R.id.move_next);
+        Button btnPre = (Button) view.findViewById(R.id.move_pre);
 //        Typeface typeFace =Typeface.createFromAsset(getActivity().getAssets(),"fonts/HelveticaNeue.ttf");
 //        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/HelveticaNeueMed.ttf");
 //        tvTitle.setTypeface(font);
-        float length =300/dataContent.length();
-        if(length >26) {
-            tvTitle.setTextSize(26);
+
+        float length =500/ data.length();
+        if(length >25) {
+            tvTitle.setTextSize(25);
         }else {
             tvTitle.setTextSize(length);
         }
-        tvTitle.setText(dataContent);
-        tvTitle.setTextColor(getResources().getColor(R.color.colorWhite));
-
-        btnAnswer.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
+        tvTitle.setText(data);
+        tvTitle.setTextColor(getResources().getColor(R.color.colorBlack));
         btnAnswer.setTextColor(getResources().getColor(R.color.colorWhite));
         final TextView tvAnswer = (TextView) view.findViewById(R.id.text_getAnswer);
         tvAnswer.setTextColor(getResources().getColor(R.color.colorBlack));
         final ImageView imgAnswer = (ImageView) view.findViewById(R.id.img_getAnswer);
-
         imageFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +80,7 @@ public class ContentFragment extends  Fragment {
             dbFavorite = repo.getColumnById(_algorithm_id);
             dbFavorite.age = 25;
             dbFavorite.content = "";//should be definition
-            dbFavorite.topic = dataContent;
+            dbFavorite.topic = data;
             dbFavorite.algorithm_ID=_algorithm_id;
             if(_algorithm_id==0){
                 _algorithm_id=repo.insert(dbFavorite);
@@ -83,6 +89,20 @@ public class ContentFragment extends  Fragment {
                 repo.update(dbFavorite);
                 Toast.makeText(v.getContext(),"Content Record updated",Toast.LENGTH_SHORT).show();
             }
+            }
+        });
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //add to favorite
+                moveToNext();
+            }
+        });
+        btnPre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //add to favorite
+                moveToPrevious();
             }
         });
         btnAnswer.setVisibility(view.VISIBLE);
@@ -102,15 +122,11 @@ public class ContentFragment extends  Fragment {
             }
         });
         String pack = getActivity().getPackageName();
-        String id = dataContent.toLowerCase().replace(" ", "_") + "_";
+        String id = data.toLowerCase().replace(" ", "_") + "_";
         int resId = getActivity().getResources().getIdentifier(id, "array", pack);
         strings = getActivity().getResources().getStringArray(resId);
-        Log.d("ContentFragment", " The resource id is: " + id);
-//        for(int i = 0; i < strings.length; i++) {
-//            Log.d("ContentFragment","The array is: " + strings[i]);
-//        }
         AlgorithmRepo repo = new AlgorithmRepo(getActivity());
-        Algorithm algorithm = repo.getColumnByTopic(dataContent);
+        Algorithm algorithm = repo.getColumnByTopic(data);
 //        tvQuestion.setText(algorithm.content);
 //        tvAnswer.setText(algorithm.code);
         tvQuestion.setText(strings[0]);
@@ -130,5 +146,23 @@ public class ContentFragment extends  Fragment {
 
     private void writeBoard() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+    }
+
+    private void moveToNext() {
+        try{
+            int i = dataContent.indexOf(data);
+            ((MainActivity) getActivity()).startContent2Fragment(dataContent.get(i+1),dataContent);
+        }catch(Exception e){
+            Toast.makeText(getActivity(),"Last Content of this group",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void moveToPrevious() {
+        try{
+            int i = dataContent.indexOf(data);
+            ((MainActivity) getActivity()).startContent2Fragment(dataContent.get(i-1),dataContent);
+        }catch(Exception e){
+            Toast.makeText(getActivity(),"First Content of this group",Toast.LENGTH_SHORT).show();
+        }
     }
 }

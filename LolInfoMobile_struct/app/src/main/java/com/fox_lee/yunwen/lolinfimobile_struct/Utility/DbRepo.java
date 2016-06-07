@@ -42,11 +42,9 @@ public class DbRepo {
     public void update(DbFavorite dbFavorite){
         SQLiteDatabase db=dbHelper.getWritableDatabase();
         ContentValues values=new ContentValues();
-
         values.put(DbFavorite.KEY_age, dbFavorite.age);
         values.put(DbFavorite.KEY_content, dbFavorite.content);
         values.put(DbFavorite.KEY_topic, dbFavorite.topic);
-
         db.update(DbFavorite.TABLE, values, DbFavorite.KEY_ID + "=?", new String[]{String.valueOf(dbFavorite.algorithm_ID)});
         db.close();
     }
