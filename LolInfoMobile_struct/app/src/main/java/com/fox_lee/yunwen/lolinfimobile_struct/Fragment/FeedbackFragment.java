@@ -71,7 +71,6 @@ public class FeedbackFragment extends Fragment {
         Intent email = new Intent(Intent.ACTION_SEND, Uri.parse("mailto:"));
         // prompts email clients only
         email.setType("message/rfc822");
-
         email.putExtra(Intent.EXTRA_EMAIL, recipients);
         email.putExtra(Intent.EXTRA_SUBJECT, subject.getText().toString());
         email.putExtra(Intent.EXTRA_TEXT, body.getText().toString());
@@ -79,7 +78,6 @@ public class FeedbackFragment extends Fragment {
         try {
             // the user can choose the email client
             startActivity(Intent.createChooser(email, "Choose an email client from..."));
-
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(getActivity(), "No email client installed.",
                     Toast.LENGTH_LONG).show();
