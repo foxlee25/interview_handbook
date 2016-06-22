@@ -23,5 +23,5 @@
         android:layout_height="33dp"
         android:id="@+id/algorithm_delete"
         android:paddingTop="6dp"
-        android:src="@drawable/symbol_delete" />
+        android:src="@drawable/del" />
 </LinearLayout>

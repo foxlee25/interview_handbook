@@ -47,16 +47,12 @@ public class ContentFragment extends  Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         showingFirst = true;
-       // ScrollView mRelativelayout = (ScrollView) view.findViewById(R.id.detail_layout);
         TextView tvTitle = (TextView) view.findViewById(R.id.text_title);
         ImageView imageFavorite = (ImageView) view.findViewById(R.id.img_favorite);
         TextView tvQuestion= (TextView) view.findViewById(R.id.text_question);
         Button btnAnswer= (Button) view.findViewById(R.id.btn_getAnswer);
         Button btnNext = (Button) view.findViewById(R.id.move_next);
         Button btnPre = (Button) view.findViewById(R.id.move_pre);
-//        Typeface typeFace =Typeface.createFromAsset(getActivity().getAssets(),"fonts/HelveticaNeue.ttf");
-//        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/HelveticaNeueMed.ttf");
-//        tvTitle.setTypeface(font);
         float length =500/ data.length();
         if(length >25) {
             tvTitle.setTextSize(25);
@@ -68,19 +64,22 @@ public class ContentFragment extends  Fragment {
         btnAnswer.setTextColor(getResources().getColor(R.color.colorWhite));
         final TextView tvAnswer = (TextView) view.findViewById(R.id.text_getAnswer);
         tvAnswer.setTextColor(getResources().getColor(R.color.colorBlack));
+        tvAnswer.setBackgroundColor(getResources().getColor(R.color.colorLightGrey));
         final ImageView imgAnswer = (ImageView) view.findViewById(R.id.img_getAnswer);
         imageFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //add to favorite
+            //if not exist in the Db then add to favorite
             int _algorithm_id =0;
             DbRepo repo = new DbRepo(v.getContext());
             DbFavorite dbFavorite = new DbFavorite();
+
             dbFavorite = repo.getColumnById(_algorithm_id);
             dbFavorite.age = 25;
             dbFavorite.content = "";//should be definition
             dbFavorite.topic = data;
             dbFavorite.algorithm_ID=_algorithm_id;
+
             if(_algorithm_id==0){
                 _algorithm_id=repo.insert(dbFavorite);
                 Toast.makeText(v.getContext(), "Add to Favorite Menu", Toast.LENGTH_SHORT).show();
@@ -90,6 +89,7 @@ public class ContentFragment extends  Fragment {
             }
             }
         });
+
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,6 +126,7 @@ public class ContentFragment extends  Fragment {
         strings = getActivity().getResources().getStringArray(resId);
         AlgorithmRepo repo = new AlgorithmRepo(getActivity());
         Algorithm algorithm = repo.getColumnByTopic(data);
+
 //        tvQuestion.setText(algorithm.content);
 //        tvAnswer.setText(algorithm.code);
         tvQuestion.setText(strings[0]);

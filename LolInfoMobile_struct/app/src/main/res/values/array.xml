@@ -35,6 +35,8 @@
         <item>Intent</item>
         <item>Services</item>
         <item>SQLite database</item>
+        <item>UI</item>
+        <item>Http and Webservers</item>
     </string-array>
 
     <string-array name="android_basics">
@@ -54,11 +56,18 @@
     </string-array>
     <string-array name="services">
         <item>Differentiate Activities</item>
-
     </string-array>
     <string-array name="sqlite_database">
         <item>SQLite Helper</item>
         <item>Cursor</item>
+    </string-array>
+    <string-array name="ui">
+        <item>Weight</item>
+        <item>Recyclerview</item>
+    </string-array>
+    <string-array name="http_and_webservers">
+        <item>Send Email</item>
+        <item>Http Post</item>
     </string-array>
 
     <string-array name="android_architecture_">
@@ -143,12 +152,66 @@
             upgrade tables.
         </item>
     </string-array>
-
     <string-array name="cursor_">
         <item name = "definition">How to show SQLite Database table information in android application?</item>
         <item name = "code">
             Showing database information will be better suited with table layout since table layout is not an adapter view, you can\'t use cursor adapter with it.
             So use table layout with cursor to show data table information.
+        </item>
+    </string-array>
+
+    <string-array name="weight_">
+        <item name = "definition">Where do we defineweight sum and write them?</item>
+        <item name = "code">
+            weight property says how much portion of remaining space has to be taken by this view. weight sum says sum of its child view\'s weights.
+            If weight sum is not provided to the layout, then it will be automatically calculated by summing the weight of child views in that layout.
+            Use weight sum in the layout only if you are not going to add a new child view to your layout. It may create problem if you want to modify
+            or add a new child view with a new weight to your existing layout. Then again you have to make sure that you modify the parent layout\'s
+            weight sum as well. Else it will not work as desired.
+        </item>
+    </string-array>
+    <string-array name="recyclerview_">
+        <item name = "definition">What is the difference between RecyclerView and ListView</item>
+        <item name = "code">
+            1) ViewHolder Pattern\n
+            In a ListView, it was recommended to use the ViewHolder pattern but it was never a compulsion. In case of RecyclerView, this is mandatory using the RecyclerView.ViewHolderclass. This is one of the major differences between the ListView and the RecyclerView.
+            It makes things a bit more complex in RecyclerView but a lot of problems that we faced in the ListView are solved efficiently.\n
+            2) LayoutManager\n
+            This is another massive enhancement brought to the RecyclerView. In a ListView, the only type of view available is the vertical ListView. There is no official way to even implement a horizontal ListView.
+            Now using a RecyclerView, we can have a\n
+            i) LinearLayoutManager - which supports both vertical and horizontal lists,\n
+            ii) StaggeredLayoutManager - which supports Pinterest like staggered lists,\n
+            iii) GridLayoutManager - which supports displaying grids as seen in Gallery apps.\n
+            And the best thing is that we can do all these dynamically as we want.\n
+            3) Item Animator\n
+            ListViews are lacking in support of good animations, but the RecyclerView brings a whole new dimension to it. Using the RecyclerView.ItemAnimator class, animating the views becomes so much easy and intuitive.
+            \n
+            4) Item Decoration\n
+            In case of ListViews, dynamically decorating items like adding borders or dividers was never easy. But in case of RecyclerView, the RecyclerView.ItemDecorator class gives huge control to the developers but makes things a bit more time consuming and complex.
+            \n
+            5) OnItemTouchListener\n
+            Intercepting item clicks on a ListView was simple, thanks to itsAdapterView.OnItemClickListener interface. But the RecyclerView gives much more power and control to its developers by the RecyclerView.OnItemTouchListener but it complicates things a bit for the developer.
+        </item>
+    </string-array>
+
+    <string-array name="send_email_">
+        <item name = "definition">How to Send Email using intent?</item>
+        <item name = "code">
+           Intent email = new Intent(Intent.ACTION_SEND); \n
+            email.setType("message/rfc822"); \n
+            email.putExtra(Intent.EXTRA_EMAIL, \n
+            new String[] {"info@skillgun.com"}); \n
+            email.putExtra(Intent.EXTRA_SUBJECT, "Hi, This is a test mail.."); \n
+            startActivity(Intent.createChooser(email, "Choose an Email Client"));\n
+        </item>
+    </string-array>
+    <string-array name="http_post_">
+        <item name = "definition">How to excute HTTP POST Request?</item>
+        <item name = "code">
+            HTTP Post is part of a deprecated HTTP classes like org.apache.http and AndroidHttpClient as of Android 5.1.[1] Migrate your code to the
+            HttpURLConnection classes which includes Posting functionality. HTTP Post is used in Java to request that a specific web server receive
+            and store data submitted within a request form. The data is submitted and stored in name-value pairs. Examples of pairs include:
+            email-your email address; username-your username; and password-your password.
         </item>
     </string-array>
     <!--<string-array name="Services">-->
