@@ -52,7 +52,7 @@
     <string name="slide_android">Android</string>
     <string name="slide_about">About</string>
     <string name="slide_favorite">Favorite List</string>
-    <string name="slide_version">V1.3.1</string>
+    <string name="slide_version">V1.4.1</string>
     <string name="slide_feedback">Feedback</string>
 
     <string name="rta_dialog_title">Rate this app</string>
@@ -60,4 +60,12 @@
     <string name="rta_dialog_ok">Rate now</string>
     <string name="rta_dialog_cancel">Later</string>
     <string name="rta_dialog_no">No, thanks</string>
+
+    <string name="rateme__dialog_first_title">Rate your experience</string>
+    <string name="rateme__dialog_first_message">How would you rate our app?</string>
+    <string name="rateme__dialog_first_button_rate">Rate our app in the Play Store</string>
+    <string name="rateme__dialog_first_thanks">Thanks for the rating!</string>
+    <string name="rateme__dialog_feedback_message">Would you mind sharing your feedback?</string>
+    <string name="rateme__email_subject">Feedback for %1$s</string>
+    <string name="rateme__icon_content_description">Icon</string>
 </resources>

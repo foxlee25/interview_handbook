@@ -1,23 +1,19 @@
 package com.fox_lee.yunwen.lolinfimobile_struct.Activity;
 
-import android.app.AlertDialog;
+
 import android.app.Dialog;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
-import android.content.ActivityNotFoundException;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Parcel;
 import android.preference.PreferenceManager;
-import android.provider.SyncStateContract;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -29,7 +25,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.flurry.android.FlurryAgent;
 import com.fox_lee.yunwen.lolinfimobile_struct.Constants.Key;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AboutFragment;
@@ -41,14 +36,13 @@ import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.DbLoadFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.FeedbackFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.JavaFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.SubFragment;
-import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DbFavorite;
-import com.fox_lee.yunwen.lolinfimobile_struct.Utility.DbRepo;
+import com.fox_lee.yunwen.lolinfimobile_struct.RateMe.OnRatingListener;
+import com.fox_lee.yunwen.lolinfimobile_struct.RateMe.RateMeDialog;
+import com.fox_lee.yunwen.lolinfimobile_struct.RateMe.RateMeDialogTimer;
 import com.fox_lee.yunwen.lolinfimobile_struct.Utility.SlidingLayout;
 import com.fox_lee.yunwen.lolinfomobile_struct.R;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public enum AppStart {
@@ -77,18 +71,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView tv6;
     TextView tv7;
 
+    public void onPlainRateMeButtonClick(View view) {
+        showPlainRateMeDialog();
+    }
+
+    public void onCustomRateMeButtonClick(View view) {showCustomRateMeDialog();}
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // init Flurry
+        initFlurry();
+        createView();//create icon in the slide menu
+        setListener();//set onclick listener in the slide menu
+        changeColor();
+        this.startAlgorithmFragment("");
+        switch (checkAppStart()) {
+            case NORMAL:
+                // We don't want to get on the user's nerves
+                break;
+            case FIRST_TIME_VERSION:
+                // TODO show what's new
+                setRatingDialog();
+                break;
+            case FIRST_TIME:
+                // TODO show a tutorial
+                setRatingDialog();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void initFlurry(){
         FlurryAgent.init(this, Key.FLURRY_API_KEY);
         FlurryAgent.onStartSession(this, Key.FLURRY_API_KEY);
         FlurryAgent.setLogEnabled(true);
         FlurryAgent.setLogEvents(true);
         FlurryAgent.setLogLevel(Log.VERBOSE);
-
-        createView();//create icon in the slide menu
+    }
+    private void createView(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.menu_icon);
@@ -106,45 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
-        setListener();//set onclick listener in the slide menu
-        changeColor();
         toolbar.getMenu().clear();
-        this.startAlgorithmFragment("");
-
-        switch (checkAppStart()) {
-            case NORMAL:
-                // We don't want to get on the user's nerves
-                t = new Thread() {
-                    public void run() {
-//                  register();
-                        try {
-                            while(counter<1){
-                                //do something
-                                updateGallery(0);
-                                Thread.sleep(5000*2);
-                                updateGallery(1);
-                                Thread.sleep(1000*2);
-                            }
-                        }catch(Exception ex){
-                            ex.printStackTrace();
-                        }
-                    }
-                };
-                t.start();
-                break;
-            case FIRST_TIME_VERSION:
-                // TODO show what's new
-                break;
-            case FIRST_TIME:
-                // TODO show a tutorial
-                break;
-            default:
-            break;
-        }
-}
-
-
-    private void createView(){
         ll1 = (LinearLayout) findViewById(R.id.rowIconAlgorithm);
         ll2 = (LinearLayout) findViewById(R.id.rowIconJava);
         lla = (RelativeLayout) findViewById(R.id.rowIconAndroid);
@@ -167,6 +152,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tv4.setOnClickListener(this);tv5.setOnClickListener(this);tv7.setOnClickListener(this);
     }
 
+    private void setRatingDialog(){
+        t = new Thread() {
+            public void run() {
+                try {
+                    while(counter<1){
+                        //do something
+                        updateGallery(0);
+                        Thread.sleep(5000*5);
+                        updateGallery(1);
+                        Thread.sleep(1000*5);
+                        showCustomRateMeDialog();
+                    }
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        };
+        t.start();
+    }
     private void changeColor(){
 //        ll1.setBackgroundColor(getResources().getColor(R.color.colorGreen));
     }
@@ -269,19 +273,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (id) {
             case 0: {
                 ++counter;
-                dialog = new ProgressDialog(this);
+//                dialog = new ProgressDialog(this);
                 if(counter==1){
-                    dialog.setMessage("Registering...");
+//                    dialog.setMessage("Registering...");
                 }else{
-                    dialog.setMessage("Registered successfully");
+//                    dialog.setMessage("Registered successfully");
                 }
-                dialog.setIndeterminate(true);
-                dialog.setCancelable(true);
-
+//                dialog.setIndeterminate(true);
+//                dialog.setCancelable(true);
             }
-
         }
         return dialog;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        final int launchTimes = 3;
+        final int installDate = 7;
+
+        RateMeDialogTimer.onStart(this);
+        if (RateMeDialogTimer.shouldShowRateDialog(this, installDate, launchTimes)) {
+            showPlainRateMeDialog();
+        }
+
     }
     @Override
     public void onStop()
@@ -313,7 +329,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }, 350);
     }
-
 
     public void startContentFragment(String var, ArrayList array){
         ContentFragment contentFragment = new ContentFragment();
@@ -438,4 +453,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     };
+
+    private void showPlainRateMeDialog() {
+        new RateMeDialog.Builder(getPackageName(), getString(R.string.app_name))
+                .build()
+                .show(getFragmentManager(), "plain-dialog");
+    }
+
+    private void showCustomRateMeDialog() {
+        new RateMeDialog.Builder(getPackageName(), getString(R.string.app_name))
+                .setHeaderBackgroundColor(getResources().getColor(R.color.colorDarkBlue))
+                .setBodyBackgroundColor(getResources().getColor(R.color.colorWhite))
+                .setBodyTextColor(getResources().getColor(R.color.colorBlack))
+                .enableFeedbackByEmail("email@example.com")
+                .showAppIcon(R.drawable.ic_launcher)
+                .setShowShareButton(true)
+                .setRateButtonBackgroundColor(getResources().getColor(R.color.colorGreen))
+                .setRateButtonPressedBackgroundColor(getResources().getColor(R.color.colorGrey))
+                .setOnRatingListener(new OnRatingListener() {
+                    @Override
+                    public void onRating(RatingAction action, float rating) {
+                        Toast.makeText(MainActivity.this,
+                                "Rate Me action: " + action + " (rating: " + rating + ")", Toast.LENGTH_LONG).show();
+                    }
+                    @Override
+                    public int describeContents() {
+                        return 0;
+                    }
+
+                    @Override
+                    public void writeToParcel(Parcel dest, int flags) {
+                        // Nothing to write
+                    }
+                })
+                .build()
+                .show(getFragmentManager(), "custom-dialog");
+    }
 }
