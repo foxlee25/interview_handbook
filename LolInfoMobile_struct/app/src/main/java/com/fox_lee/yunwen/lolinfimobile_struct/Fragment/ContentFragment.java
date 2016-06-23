@@ -53,11 +53,15 @@ public class ContentFragment extends  Fragment {
         Button btnAnswer= (Button) view.findViewById(R.id.btn_getAnswer);
         Button btnNext = (Button) view.findViewById(R.id.move_next);
         Button btnPre = (Button) view.findViewById(R.id.move_pre);
-        float length =500/ data.length();
-        if(length >25) {
-            tvTitle.setTextSize(25);
-        }else {
-            tvTitle.setTextSize(length);
+        try {
+            float length = 500 / data.length();
+            if (length > 25) {
+                tvTitle.setTextSize(25);
+            } else {
+                tvTitle.setTextSize(length);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
         tvTitle.setText(data);
         tvTitle.setTextColor(getResources().getColor(R.color.colorBlack));
@@ -66,27 +70,22 @@ public class ContentFragment extends  Fragment {
         tvAnswer.setTextColor(getResources().getColor(R.color.colorBlack));
         tvAnswer.setBackgroundColor(getResources().getColor(R.color.colorLightGrey));
         final ImageView imgAnswer = (ImageView) view.findViewById(R.id.img_getAnswer);
+        DbRepo repo = new DbRepo(getActivity());
+        DbFavorite dbFavorite = repo.getColumnByTopic(data);
+        try{
+            if(dbFavorite.topic.equals(data)){
+                imageFavorite.setImageResource(R.drawable.favorite_red_rev);
+            }
+        }catch (Exception e){
+//            Toast.makeText(getActivity(),"Not in Favorite",Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+
         imageFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             //if not exist in the Db then add to favorite
-            int _algorithm_id =0;
-            DbRepo repo = new DbRepo(v.getContext());
-            DbFavorite dbFavorite = new DbFavorite();
-
-            dbFavorite = repo.getColumnById(_algorithm_id);
-            dbFavorite.age = 25;
-            dbFavorite.content = "";//should be definition
-            dbFavorite.topic = data;
-            dbFavorite.algorithm_ID=_algorithm_id;
-
-            if(_algorithm_id==0){
-                _algorithm_id=repo.insert(dbFavorite);
-                Toast.makeText(v.getContext(), "Add to Favorite Menu", Toast.LENGTH_SHORT).show();
-            }else{
-                repo.update(dbFavorite);
-                Toast.makeText(v.getContext(),"Content Record updated",Toast.LENGTH_SHORT).show();
-            }
+            addToFavorite();
             }
         });
 
@@ -124,11 +123,8 @@ public class ContentFragment extends  Fragment {
         String id = data.toLowerCase().replace(" ", "_") + "_";
         int resId = getActivity().getResources().getIdentifier(id, "array", pack);
         strings = getActivity().getResources().getStringArray(resId);
-        AlgorithmRepo repo = new AlgorithmRepo(getActivity());
-        Algorithm algorithm = repo.getColumnByTopic(data);
-
-//        tvQuestion.setText(algorithm.content);
-//        tvAnswer.setText(algorithm.code);
+//        AlgorithmRepo repo = new AlgorithmRepo(getActivity());
+//        Algorithm algorithm = repo.getColumnByTopic(data);
         tvQuestion.setText(strings[0]);
         tvAnswer.setText(strings[1]);
     }
@@ -148,6 +144,23 @@ public class ContentFragment extends  Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
     }
 
+    private void addToFavorite(){
+        int _algorithm_id =0;
+        DbRepo repo = new DbRepo(getActivity());
+        DbFavorite dbFavorite = repo.getColumnById(_algorithm_id);
+        dbFavorite.age = 25;
+        dbFavorite.content = "";//should be definition
+        dbFavorite.topic = data;
+        dbFavorite.algorithm_ID=_algorithm_id;
+        if(_algorithm_id==0){
+            _algorithm_id=repo.insert(dbFavorite);
+            Toast.makeText(getActivity(), "Add to Favorite Menu", Toast.LENGTH_SHORT).show();
+            ((MainActivity)getActivity()).startContentFragment(data,dataContent);
+        }else{
+            repo.update(dbFavorite);
+            Toast.makeText(getActivity(),"Content Record updated",Toast.LENGTH_SHORT).show();
+        }
+    }
     private void moveToNext() {
         try{
             int i = dataContent.indexOf(data);
