@@ -32,6 +32,8 @@ public class ContentFragment extends  Fragment {
     private ArrayList<String> dataContent;
     private String[] strings;
     private static boolean showingFirst = true;
+    private static boolean existFavorite = false;
+
     public void changeData(String data, ArrayList dataContent ) {
         this.data = data;
         this.dataContent = dataContent;
@@ -75,6 +77,7 @@ public class ContentFragment extends  Fragment {
         try{
             if(dbFavorite.topic.equals(data)){
                 imageFavorite.setImageResource(R.drawable.favorite_red_rev);
+                existFavorite = true;
             }
         }catch (Exception e){
 //            Toast.makeText(getActivity(),"Not in Favorite",Toast.LENGTH_LONG).show();
@@ -152,13 +155,17 @@ public class ContentFragment extends  Fragment {
         dbFavorite.content = "";//should be definition
         dbFavorite.topic = data;
         dbFavorite.algorithm_ID=_algorithm_id;
-        if(_algorithm_id==0){
-            _algorithm_id=repo.insert(dbFavorite);
-            Toast.makeText(getActivity(), "Add to Favorite Menu", Toast.LENGTH_SHORT).show();
-            ((MainActivity)getActivity()).startContentFragment(data,dataContent);
-        }else{
-            repo.update(dbFavorite);
-            Toast.makeText(getActivity(),"Content Record updated",Toast.LENGTH_SHORT).show();
+        try {
+            if (!existFavorite) {
+                _algorithm_id = repo.insert(dbFavorite);
+                Toast.makeText(getActivity(), "Add to Favorite Menu", Toast.LENGTH_SHORT).show();
+                ((MainActivity) getActivity()).startContentFragment(data, dataContent);
+            } else {
+                repo.update(dbFavorite);
+                Toast.makeText(getActivity(), "Content Record updated", Toast.LENGTH_SHORT).show();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
     private void moveToNext() {
