@@ -34,6 +34,7 @@ public class AlarmActivity extends Activity {
         Intent alarmIntent = new Intent(AlarmActivity.this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(AlarmActivity.this, 0, alarmIntent, 0);
 
+        //initial alarm time of the date?
         findViewById(R.id.startAlarm).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,9 +82,9 @@ public class AlarmActivity extends Activity {
 
         calendar.setTime(new Date()); //
         calendar.set(Calendar.HOUR, 12);
-        calendar.add(Calendar.YEAR, 0); // Add 5 years to current year
-        calendar.add(Calendar.DATE, 0); // Add 5 days to current date
-        calendar.add(Calendar.MONTH, 0); // Add 5 months to current month
+        calendar.add(Calendar.YEAR, 0); // Add 0 years to current year
+        calendar.add(Calendar.DATE, 0); // Add 0 days to current date
+        calendar.add(Calendar.MONTH, 0); // Add 0 months to current month
         Log.d("AlarmActivity", "The setting time is: " + calendar.getTimeInMillis());
 
 //        Log.d("AlarmActivity","The language is: " + Locale.getDefault().getDisplayLanguage());

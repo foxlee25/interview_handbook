@@ -77,7 +77,7 @@ public class ContentFragment extends  Fragment {
         try{
             if(dbFavorite.topic.equals(data)){
                 imageFavorite.setImageResource(R.drawable.favorite_red_rev);
-                existFavorite = true;
+                //data exist
             }
         }catch (Exception e){
 //            Toast.makeText(getActivity(),"Not in Favorite",Toast.LENGTH_LONG).show();
@@ -150,21 +150,25 @@ public class ContentFragment extends  Fragment {
     private void addToFavorite(){
         int _algorithm_id =0;
         DbRepo repo = new DbRepo(getActivity());
-        DbFavorite dbFavorite = repo.getColumnById(_algorithm_id);
-        dbFavorite.age = 25;
-        dbFavorite.content = "";//should be definition
-        dbFavorite.topic = data;
-        dbFavorite.algorithm_ID=_algorithm_id;
+
+        DbFavorite dbFavorite = repo.getColumnByTopic(data);
         try {
-            if (!existFavorite) {
-                _algorithm_id = repo.insert(dbFavorite);
-                Toast.makeText(getActivity(), "Add to Favorite Menu", Toast.LENGTH_SHORT).show();
-                ((MainActivity) getActivity()).startContentFragment(data, dataContent);
-            } else {
+            if (dbFavorite.topic.equals(data)) {
                 repo.update(dbFavorite);
                 Toast.makeText(getActivity(), "Content Record updated", Toast.LENGTH_SHORT).show();
+            } else {
+//                _algorithm_id = repo.insert(dbFavorite);
+//                Toast.makeText(getActivity(), "Add to Favorite Menu", Toast.LENGTH_SHORT).show();
+//                ((MainActivity) getActivity()).startContentFragment(data, dataContent);
             }
         }catch (Exception e){
+            dbFavorite.age = 25;
+            dbFavorite.content = "";//should be definition
+            dbFavorite.topic = data;
+            dbFavorite.algorithm_ID=_algorithm_id;
+            _algorithm_id = repo.insert(dbFavorite);
+            Toast.makeText(getActivity(), "Add to Favorite Menu", Toast.LENGTH_SHORT).show();
+            ((MainActivity) getActivity()).startContentFragment(data, dataContent);
             e.printStackTrace();
         }
     }

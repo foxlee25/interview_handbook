@@ -22,9 +22,11 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        showNotification(context);
+    }
+    public void showNotification(Context context) {
         // For our recurring task, we'll just display a message
         Toast.makeText(context, "Time to practice coding", Toast.LENGTH_SHORT).show();
-
         long when = System.currentTimeMillis();
         NotificationManager notificationManager = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
@@ -34,7 +36,6 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
                 notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
 
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
