@@ -344,18 +344,17 @@
     <string-array name="remote_method_invocation">
         <item>What is RMI</item>
         <item>Basic principle of RMI</item>
+        <item>RMI Architecture</item>
+        <item>Remote Interface in RMI</item>
+        <item>Java Rmi Naming Class</item>
+        <item>Binding in RMI</item>
+        <item>Bind and Rebind Methods of Naming Class</item>
+        <item>Steps involved to make work a RMI program</item>
+        <item>Role of Stub</item>
+        <item>DGC</item>
+        <item>Marshalling and Demarshalling</item>
+        <item>Serialization and Deserialization</item>
     </string-array>
-        <!--<item>RMI Architecture</item>-->
-        <!--<item>Remote Interface in RMI</item>-->
-        <!--<item>java.rmi.Naming Class</item>-->
-        <!--<item>binding in RMI</item>-->
-        <!--<item>bind and rebind methods of Naming Class</item>-->
-        <!--<item>steps involved to make work a RMI program</item>-->
-        <!--<item>role of stub</item>-->
-        <!--<item>DGC</item>-->
-        <!--<item>Marshalling and demarshalling</item>-->
-        <!--<item>Serialization and Deserialization</item>-->
-    <!--</string-array>-->
 
     <string-array name="servlets">
         <item>What is a Servlet</item>
@@ -562,25 +561,6 @@
         </item>
     </string-array>
 
-    <!--<string-array name="java_collections">-->
-        <!--<item>Java Collections Framework</item>-->
-        <!--<item>Cloneable and Serializable Interfaces</item>-->
-        <!--<item>Iterator</item>-->
-        <!--<item>Iterator and ListIterator</item>-->
-        <!--<item>fail fast and fail safe</item>-->
-        <!--<item>HashMap</item>-->
-        <!--<item>hashCode</item>-->
-        <!--<item>HashMap and Hashtable</item>-->
-        <!--<item>Array and ArrayList</item>-->
-        <!--<item>Comparable and Comparator interface</item>-->
-        <!--<item>Java Priority Queue</item>-->
-        <!--<item>big O notation</item>-->
-        <!--<item>unordered array</item>-->
-        <!--<item>Enumeration and Iterator interfaces</item>-->
-        <!--<item>Java Collection framework</item>-->
-        <!--<item>HashSet and TreeSet</item>-->
-    <!--</string-array>-->
-
     <string-array name="java_collections_framework_">
         <item name = "definition"> Explain different ways of creating a thread. Which one would you prefer and why ?</item>
         <item name = "code">
@@ -728,26 +708,31 @@
     <string-array name="java_collection_framework_">
         <item name = "definition"> What are some of the best practices relating to the Java Collection framework ?</item>
         <item name = "code">
-           Choosing the right type of the collection to use, based on the application’s needs, is very crucial for its performance. For example if the size of the elements is fixed and know a priori, we shall use an Array, instead of an ArrayList.
-Some collection classes allow us to specify their initial capacity. Thus, if we have an estimation on the number of elements that will be stored, we can use it to avoid rehashing or resizing.
-Always use Generics for type-safety, readability, and robustness. Also, by using Generics you avoid the ClassCastException during runtime.
-Use immutable classes provided by the Java Development Kit (JDK) as a key in a Map, in order to avoid the implementation of the hashCode and equals methods for our custom class.
-Program in terms of interface not implementation.
-Return zero-length collections or arrays as opposed to returning a null in case the underlying collection is actually empty.
+            Choosing the right type of the collection to use, based on the application’s needs, is very crucial for its performance. For example if the size
+            of the elements is fixed and know a priori, we shall use an Array, instead of an ArrayList.Some collection classes allow us to specify their initial
+            capacity. Thus, if we have an estimation on the number of elements that will be stored, we can use it to avoid rehashing or resizing.Always use
+            Generics for type-safety, readability, and robustness. Also, by using Generics you avoid the ClassCastException during runtime.\n
+            Use immutable classes provided by the Java Development Kit (JDK) as a key in a Map, in order to avoid the implementation of the hashCode and equals
+            methods for our custom class.Program in terms of interface not implementation.Return zero-length collections or arrays as opposed to returning a null
+            in case the underlying collection is actually empty.
         </item>
     </string-array>
 
     <string-array name="enumeration_and_iterator_interfaces_">
         <item name = "definition"> What are some of the best practices relating to the Java Collection framework ?</item>
         <item name = "code">
-            Enumeration is twice as fast as compared to an Iterator and uses very less memory. However, the Iterator is much safer compared to Enumeration, because other threads are not able to modify the collection object that is currently traversed by the iterator. Also, Iteratorsallow the caller to remove elements from the underlying collection, something which is not possible with
+            Enumeration is twice as fast as compared to an Iterator and uses very less memory. However, the Iterator is much safer compared to Enumeration,
+            because other threads are not able to modify the collection object that is currently traversed by the iterator. Also, Iteratorsallow the caller
+            to remove elements from the underlying collection, something which is not possible with
         </item>
     </string-array>
 
     <string-array name="hashset_and_treeset_">
         <item name = "definition"> What is the difference between HashSet and TreeSet ?</item>
         <item name = "code">
-            The HashSet is Implemented using a hash table and thus, its elements are not ordered. The add, remove, and contains methods of a HashSet have constant time complexity O(1). On the other hand, a TreeSet is implemented using a tree structure. The elements in a TreeSet are sorted, and thus, the add, remove, and contains methods have time complexity of O\(logn\).es.
+            The HashSet is Implemented using a hash table and thus, its elements are not ordered. The add, remove, and contains methods of a HashSet have constant
+            time complexity O(1). On the other hand, a TreeSet is implemented using a tree structure. The elements in a TreeSet are sorted, and thus, the add,
+            remove, and contains methods have time complexity of O\(logn\).es.
         </item>
     </string-array>
 
@@ -946,13 +931,7 @@ Return zero-length collections or arrays as opposed to returning a null in case 
             which is called by the Java Virtual Machine (JVM) just before an object is garbage collected.
         </item>
     </string-array>
-    <!--<item>applet is loaded</item>-->
-    <!--<item>Applet and a Java Application</item>-->
-    <!--<item>restrictions imposed on Java applets</item>-->
-    <!--<item>untrusted applets</item>-->
-    <!--<item>applets loaded over the internet and applets loaded via the file system</item>-->
-    <!--<item>applet class loader</item>-->
-    <!--<item>applet security manager</item>-->
+
     <string-array name="what_is_an_applet_">
         <item name = "definition">What is an Applet ?</item>
         <item name = "code">
@@ -1032,11 +1011,6 @@ Return zero-length collections or arrays as opposed to returning a null in case 
         </item>
     </string-array>
 
-
-    <!--<item>Scrollbar</item>-->
-    <!--<item>threadsafe</item>-->
-    <!--<item>layout managers provide over traditional windowing systems</item>-->
-    <!--<item>design pattern</item>-->
     <string-array name="choice_and_a_list_">
         <item name = "definition">What is the difference between a Choice and a List ?</item>
         <item name = "code">
@@ -1137,10 +1111,6 @@ Return zero-length collections or arrays as opposed to returning a null in case 
         </item>
     </string-array>
 
-    <!--<item>Class.forName</item>-->
-    <!--<item>advantage of PreparedStatement over Statement</item>-->
-    <!--<item>CallableStatement</item>-->
-    <!--<item>Connection pooling</item>-->
     <string-array name="what_is_jdbc_">
         <item name = "definition">What is JDBC ?</item>
         <item name = "code">
@@ -1189,16 +1159,6 @@ Return zero-length collections or arrays as opposed to returning a null in case 
         </item>
     </string-array>
 
-    <!--<item>RMI Architecture</item>-->
-    <!--<item>Remote Interface in RMI</item>-->
-    <!--<item>java.rmi.Naming Class</item>-->
-    <!--<item>binding in RMI</item>-->
-    <!--<item>bind and rebind methods of Naming Class</item>-->
-    <!--<item>steps involved to make work a RMI program</item>-->
-    <!--<item>role of stub</item>-->
-    <!--<item>DGC</item>-->
-    <!--<item>Marshalling and demarshalling</item>-->
-    <!--<item>Serialization and Deserialization</item>-->
     <string-array name="what_is_rmi_">
         <item name = "definition">What is RMI ?</item>
         <item name = "code">
@@ -1217,7 +1177,94 @@ Return zero-length collections or arrays as opposed to returning a null in case 
             separate and to run on separate JVMs.
         </item>
     </string-array>
-
+    <string-array name="rmi_architecture_">
+        <item name = "definition">What are the layers of RMI Architecture ?</item>
+        <item name = "code">
+            Stub and Skeleton layer: This layer lies just beneath the view of the developer. This layer is responsible for intercepting method calls
+            made by the client to the interface and redirect these calls to a remote RMI Service.\n
+            Remote Reference Layer: The second layer of the RMI architecture deals with the interpretation of references made from the client to the
+            server’s remote objects. This layer interprets and manages references made from clients to the remote service objects. The connection is
+            a one-to-one (unicast) link.\n
+            Transport layer: This layer is responsible for connecting the two JVM participating in the service. This layer is based on TCP/IP connections
+            between machines in a network. It provides basic connectivity, as well as some firewall penetration strategies.
+        </item>
+    </string-array>
+    <string-array name="remote_interface_in_rmi_">
+    <item name = "definition">What is the role of Remote Interface in RMI ?</item>
+    <item name = "code">
+        The Remote interface serves to identify interfaces whose methods may be invoked from a non-local virtual machine. Any object that is a remote
+        object must directly or indirectly implement this interface. A class that implements a remote interface should declare the remote interfaces being
+        implemented, define the constructor for each remote object and provide an implementation for each remote method in all remote interfaces.
+    </item>
+    </string-array>
+    <string-array name="java_rmi_naming_class_">
+    <item name = "definition">What is the role of the java.rmi.Naming Class ?</item>
+    <item name = "code">
+        The java.rmi.Naming class provides methods for storing and obtaining references to remote objects in the remote object registry. Each method of
+        the Naming class takes as one of its arguments a name that is a String in URL format.
+    </item>
+    </string-array>
+    <string-array name="binding_in_rmi_">
+    <item name = "definition">What is meant by binding in RMI ?</item>
+    <item name = "code">
+        Binding is the process of associating or registering a name for a remote object, which can be used at a later time, in order to look up that
+        remote object. A remote object can be associated with a name using the bind or rebind methods of the Naming class.
+    </item>
+    </string-array>
+    <string-array name="bind_and_rebind_methods_of_naming_class_">
+    <item name = "definition">What is the difference between using bind() and rebind() methods of Naming Class ?</item>
+    <item name = "code">
+        The bind method bind is responsible for binding the specified name to a remote object, while the rebind method is responsible for rebinding the
+        specified name to a new remote object. In case a binding exists for that name, the binding is replaced.
+    </item>
+    </string-array>
+    <string-array name="steps_involved_to_make_work_a_rmi_program_">
+    <item name = "definition">What are the steps involved to make work a RMI program ?</item>
+    <item name = "code">
+        The following steps must be involved in order for a RMI program to work properly:
+        Compilation of all source files.\n
+        Generatation of the stubs using rmic.\n
+        Start the rmiregistry.\n
+        Start the RMIServer.\n
+        Run the client program.
+    </item>
+    </string-array>
+    <string-array name="role_of_stub_">
+    <item name = "definition"> What is the role of stub in RMI ? </item>
+    <item name = "code">
+        A stub for a remote object acts as a client’s local representative or proxy for the remote object. The caller invokes a method on the local stub, which
+        is responsible for executing the method on the remote object. When a stub’s method is invoked, it undergoes the following steps:
+        It initiates a connection to the remote JVM containing the remote object.\n
+        It marshals the parameters to the remote JVM.\n
+        It waits for the result of the method invocation and execution.\n
+        It unmarshals the return value or an exception if the method has not been successfully executed.\n
+        It returns the value to the caller.
+    </item>
+    </string-array>
+    <string-array name="dgc_">
+    <item name = "definition">What is DGC ? And how does it work ?</item>
+    <item name = "code">
+        DGC stands for Distributed Garbage Collection. Remote Method Invocation (RMI) uses DGC for automatic garbage collection. Since RMI involves remote
+        object references across JVM’s, garbage collection can be quite difficult. DGC uses a reference counting algorithm to provide automatic memory
+        management for remote objects.
+    </item>
+    </string-array>
+    <string-array name="marshalling_and_demarshalling_">
+    <item name = "definition">Explain Marshalling and demarshalling</item>
+    <item name = "code">
+        When an application wants to pass its memory objects across a network to another host or persist it to storage, the in-memory representation must be
+        converted to a suitable format. This process is called marshalling and the revert operation is called demarshalling.
+    </item>
+    </string-array>
+    <string-array name="serialization_and_deserialization_">
+    <item name = "definition">Explain Serialization and Deserialization.</item>
+    <item name = "code">
+        Java provides a mechanism, called object serialization where an object can be represented as a sequence of bytes and includes the object’s data, as
+        well as information about the object’s type, and the types of data stored in the object. Thus, serialization can be seen as a way of flattening
+        objects, in order to be stored on disk, and later, read back and reconstituted. Deserialisation is the reverse process of converting an object from
+        its flattened state to a live object.
+    </item>
+    </string-array>
 
     <!--<item>Applet and a Servlet</item>-->
     <!--<item>GenericServlet and HttpServlet</item>-->
