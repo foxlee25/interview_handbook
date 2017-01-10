@@ -214,30 +214,6 @@
             email-your email address; username-your username; and password-your password.
         </item>
     </string-array>
-    <!--<string-array name="Services">-->
-    <!--<item>Subsets</item>-->
-    <!--<item>Permutation</item>-->
-    <!--</string-array>-->
-    <!--<string-array name="Receivers">-->
-    <!--<item>Subsets</item>-->
-    <!--<item>Permutation</item>-->
-    <!--</string-array>-->
-    <!--<string-array name="Adapters">-->
-        <!--<item>Subsets</item>-->
-        <!--<item>Permutation</item>-->
-    <!--</string-array>-->
-    <!--<string-array name="Graphics_and_animations">-->
-        <!--<item>Subsets</item>-->
-        <!--<item>Permutation</item>-->
-    <!--</string-array>-->
-    <!--<string-array name="Http_and_WebServers">-->
-        <!--<item>Subsets</item>-->
-        <!--<item>Permutation</item>-->
-    <!--</string-array>-->
-    <!--<string-array name="Securities_and_permissions">-->
-        <!--<item>Subsets</item>-->
-        <!--<item>Permutation</item>-->
-    <!--</string-array>-->
 
     <string-array name="general_questions">
         <item>JVM</item>
@@ -378,15 +354,14 @@
     <string-array name="jsp">
         <item>JSP Page</item>
         <item>JSP requests handled</item>
+        <item>Advantages of JSP</item>
+        <item>Directives Available in JSP</item>
+        <item>JSP Actions</item>
+        <item>Scriptlets</item>
+        <item>Decalarations</item>
+        <item>Expressions</item>
+        <item>Implicit Objects</item>
     </string-array>
-        <!--<item>advantages of JSP</item>-->
-        <!--<item>Directives available in JSP</item>-->
-        <!--<item>JSP actions</item>-->
-        <!--<item>Scriptlets</item>-->
-        <!--<item>Decalarations</item>-->
-        <!--<item>Expressions</item>-->
-        <!--<item>implicit objects</item>-->
-    <!--</string-array>-->
 
     <!--<string-array name="general_questions">-->
     <string-array name="jvm_">
@@ -1265,20 +1240,6 @@
     </item>
     </string-array>
 
-    <!--<item>Applet and a Servlet</item>-->
-    <!--<item>GenericServlet and HttpServlet</item>-->
-    <!--<item>Life Cycle of a Servlet</item>-->
-    <!--<item>doGet and doPost</item>-->
-    <!--<item>Web Application</item>-->
-    <!--<item>Server Side Include</item>-->
-    <!--<item>Servlet Chaining</item>-->
-    <!--<item>Client machine</item>-->
-    <!--<item>Structure of the HTTP response</item>-->
-    <!--<item>Session and cookie</item>-->
-    <!--<item>Browser and servlet</item>-->
-    <!--<item>HTTP Tunneling</item>-->
-    <!--<item>SendRedirect and forward methods</item>-->
-    <!--<item>URL Encoding and URL Decoding</item>-->
     <string-array name="what_is_a_servlet_">
         <item name = "definition">What is a Servlet ?</item>
         <item name = "code">
@@ -1429,8 +1390,13 @@
         </item>
     </string-array>
 
-
-
+    <!--<item>Advantages of JSP</item>-->
+    <!--<item>Directives Available in JSP</item>-->
+    <!--<item>JSP Actions</item>-->
+    <!--<item>Scriptlets</item>-->
+    <!--<item>Decalarations</item>-->
+    <!--<item>Expressions</item>-->
+    <!--<item>Implicit Objects</item>-->
     <string-array name="jsp_page_">
         <item name = "definition">What is a JSP Page ? </item>
         <item name = "code">
@@ -1447,6 +1413,83 @@
             file is compiled only on the first request of the page, or if the JSP file has changed.The generated servlet class is
             invoked, in order to handle the browser’s request. Once the execution of the request is over, the servlet sends a
             response back to the client.
+        </item>
+    </string-array>
+
+    <string-array name="advantages_of_jsp_">
+        <item name = "definition">What are the advantages of JSP ?</item>
+        <item name = "code">
+            The advantages of using the JSP technology are shown below:\n
+            JSP pages are dynamically compiled into servlets and thus, the developers can easily make updates to presentation code.\n
+            JSP pages can be pre-compiled.\n
+            JSP pages can be easily combined to static templates, including HTML or XML fragments, with code that generates dynamic content.\n
+            Developers can offer customized JSP tag libraries that page authors access using an XML-like syntax.\n
+            Developers can make logic changes at the component level, without editing the individual pages that use the application’s logic.
+        </item>
+    </string-array>
+
+    <string-array name="directives_available_in_jsp_">
+    <item name = "definition">What are Directives ? What are the different types of Directives available in JSP ?</item>
+        <item name = "code">
+            Directives are instructions that are processed by the JSP engine, when the page is compiled to a servlet. Directives are used to set page-level
+            instructions, insert data from external files, and specify custom tag libraries. Directives are defined between &lt; ? and ? &gt;.The different types
+            of directives are shown below: \n
+            Include directive: it is used to include a file and merges the content of the file with the current page.\n
+            Page directive: it is used to define specific attributes in the JSP page, like error page and buffer.\n
+            Taglib: it is used to declare a custom tag library which is used in the page.
+        </item>
+    </string-array>
+
+    <string-array name="jsp_actions_">
+    <item name = "definition">What are JSP actions ?</item>
+        <item name = "code">
+            JSP actions use constructs in XML syntax to control the behavior of the servlet engine. JSP actions are executed when a JSP page is requested.
+            They can be dynamically inserted into a file, re-use JavaBeans components, forward the user to another page, or generate HTML for the Java plugin.
+            Some of the available actions are listed below:\n
+            jsp:include – includes a file, when the JSP page is requested.\n
+            jsp:useBean – finds or instantiates a JavaBean.\n
+            jsp:setProperty – sets the property of a JavaBean.\n
+            jsp:getProperty – gets the property of a JavaBean.\n
+            jsp:forward – forwards the requester to a new page.\n
+            jsp:plugin – generates browser-specific code.
+        </item>
+    </string-array>
+    <string-array name="scriptlets_">
+    <item name = "definition">What are Scriptlets ?</item>
+        <item name = "code">
+            In Java Server Pages (JSP) technology, a scriptlet is a piece of Java-code embedded in a JSP page. The scriptlet is everything inside the tags.
+            Between these tags, a user can add any valid scriplet.
+        </item>
+    </string-array>
+    <string-array name="decalarations_">
+    <item name = "definition">What are Decalarations ?</item>
+        <item name = "code">
+            Declarations are similar to variable declarations in Java. Declarations are used to declare variables for subsequent use in expressions or scriptlets.
+            To add a declaration, you must use the sequences to enclose your declarations.
+        </item>
+    </string-array>
+    <string-array name="expressions_">
+    <item name = "definition">What are Expressions ?</item>
+        <item name = "code">
+            A JSP expression is used to insert the value of a scripting language expression, converted into a string, into the data stream returned to the client,
+            by the web server. Expressions are defined between &lt;? = and ? &gt; tags.
+        </item>
+    </string-array>
+    <string-array name="implicit_objects_">
+    <item name = "definition">What is meant by implicit objects and what are they ?</item>
+        <item name = "code">
+            JSP implicit objects are those Java objects that the JSP Container makes available to developers in each page. A developer can call them directly,
+            without being explicitly declared. JSP Implicit Objects are also called pre-defined variables.The following objects are considered implicit in a JSP
+            page:\n
+            application\n
+            page\n
+            request\n
+            response\n
+            session\n
+            exception\n
+            out\n
+            config\n
+            pageContext
         </item>
     </string-array>
 

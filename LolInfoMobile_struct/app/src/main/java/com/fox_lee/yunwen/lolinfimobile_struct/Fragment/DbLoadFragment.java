@@ -74,7 +74,6 @@ public class DbLoadFragment extends Fragment implements View.OnClickListener {
             String[] dataContent = getResources().getStringArray(R.array.dynamic_programming);
             for(int i = 0; i < dataContent.length ; i++) {
                 String pack = getActivity().getPackageName();
-//                strings = getActivity().getResources().getStringArray(resId);
                 Log.d("DbLoadFragment","The topic is: " + dataContent[i]);
                 String id = dataContent[i].toLowerCase().replace(" ", "_") + "_";
                 int resId = getActivity().getResources().getIdentifier(id, "array", pack);

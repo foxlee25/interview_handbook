@@ -33,16 +33,6 @@ public class FeedbackFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        Intent i = new Intent(Intent.ACTION_SEND);
-//        i.setType("message/rfc822");
-//        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"yunwenl@gmail.com"});
-//        i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
-//        i.putExtra(Intent.EXTRA_TEXT, "body of email");
-//        try {
-//            startActivity(Intent.createChooser(i, "Send mail..."));
-//        } catch (android.content.ActivityNotFoundException ex) {
-//            Toast.makeText(getActivity(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-//        }
         recipient = (EditText) view.findViewById(R.id.recipient);
         subject = (EditText) view.findViewById(R.id.subject);
         body = (EditText) view.findViewById(R.id.body);

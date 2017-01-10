@@ -26,7 +26,6 @@ import java.util.HashMap;
  * Created by Yunwen on 4/11/2016.
  */
 public class DbFragment extends Fragment implements View.OnClickListener{
-//public class DbFragment extends Fragment{
     private RecyclerView mRecyclerView;
     private DbAdapter dbAdapter;
     private Button btnAdd,btnGetAll, btnDelete, btnGoto;

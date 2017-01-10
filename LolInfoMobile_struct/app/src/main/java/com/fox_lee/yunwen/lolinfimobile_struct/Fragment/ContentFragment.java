@@ -77,10 +77,8 @@ public class ContentFragment extends  Fragment {
         try{
             if(dbFavorite.topic.equals(data)){
                 imageFavorite.setImageResource(R.drawable.favorite_red_rev);
-                //data exist
             }
         }catch (Exception e){
-//            Toast.makeText(getActivity(),"Not in Favorite",Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
 
@@ -126,8 +124,6 @@ public class ContentFragment extends  Fragment {
         String id = data.toLowerCase().replace(" ", "_") + "_";
         int resId = getActivity().getResources().getIdentifier(id, "array", pack);
         strings = getActivity().getResources().getStringArray(resId);
-//        AlgorithmRepo repo = new AlgorithmRepo(getActivity());
-//        Algorithm algorithm = repo.getColumnByTopic(data);
         tvQuestion.setText(strings[0]);
         tvAnswer.setText(strings[1]);
     }

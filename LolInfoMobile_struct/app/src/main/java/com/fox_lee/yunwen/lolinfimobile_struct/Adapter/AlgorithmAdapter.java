@@ -84,14 +84,4 @@ public class AlgorithmAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             ButterKnife.bind(this, view);
         }
     }
-
-//    private String getStringResourceByName(String aString) {
-//        String packageName = mContext.getPackageName();
-//        int resId = mContext.getResources().getIdentifier(aString, "string", packageName);
-//        String pack = mContext.getPackageName();
-//        String id = "tab_Books_" + Central.lang;
-//        int i = Central.Res.getIdentifier(id, "string", pack);
-//        String str = Central.Res.getString(i);
-//        return "";
-//    }
 }
