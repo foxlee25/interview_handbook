@@ -14,9 +14,12 @@ import android.os.Message;
 import android.os.Parcel;
 import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,6 +34,7 @@ import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AboutFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AlgorithmFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.AndroidFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.ContentFragment;
+import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.DataBaseFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.DbFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.DbLoadFragment;
 import com.fox_lee.yunwen.lolinfimobile_struct.Fragment.FeedbackFragment;
@@ -50,26 +54,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     ProgressDialog dialog = null;
     int counter = 0;
-    Thread t =null;
+    Thread t = null;
     private static final String LAST_APP_VERSION = "last_app_version";
-    private SlidingLayout slidingLayout;
+//    private SlidingLayout slidingLayout;
+    ActionBarDrawerToggle mDrawerToggle;
     boolean doubleBackToExitPressedOnce = false;
-    LinearLayout ll1;
-    LinearLayout ll2;
+    LinearLayout ll1;LinearLayout ll2;   LinearLayout ll3;LinearLayout ll4;LinearLayout ll5;RelativeLayout ll6;LinearLayout ll7;
     RelativeLayout lla;
-    LinearLayout ll3;
-    LinearLayout ll4;
-    LinearLayout ll5;
-    LinearLayout ll6;
-    LinearLayout ll7;
-    TextView tv1;
-    TextView tv2;
-    TextView tva;
-    TextView tv3;
-    TextView tv4;
-    TextView tv5;
-    TextView tv6;
-    TextView tv7;
+
+    TextView tv1;TextView tv2;TextView tva;TextView tv3;
+    TextView tv4;TextView tv5;TextView tv6;TextView tv7;
 
     public void onPlainRateMeButtonClick(View view) {
         showPlainRateMeDialog();
@@ -81,12 +75,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // init Flurry
+
         initFlurry();
         createView();//create icon in the slide menu
         setListener();//set onclick listener in the slide menu
         changeColor();
         this.startAlgorithmFragment("");
+
         switch (checkAppStart()) {
             case NORMAL:
                 // We don't want to get on the user's nerves
@@ -114,21 +109,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void createView(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         toolbar.setNavigationIcon(R.drawable.menu_icon);
-        LinearLayout appBarLayout = (LinearLayout) findViewById(R.id.menu_layout);
-        slidingLayout = (SlidingLayout) findViewById(R.id.slidingLayout);
-        slidingLayout.setScrollEvent(appBarLayout);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer_layout, toolbar, R.string.openDrawer, R.string.closeDrawer) {
             @Override
-            public void onClick(View v) {
-                // click to achieve menu left slide layout，click again to hide left slide layout
-                if (slidingLayout.isLeftLayoutVisible()) {
-                    slidingLayout.scrollToRightLayout();
-                } else {
-                    slidingLayout.scrollToLeftLayout();
-                }
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
             }
-        });
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+            }
+        };
+
+        mDrawer_layout.setDrawerListener(mDrawerToggle);
+        mDrawerToggle.syncState();
+
+//        slidingLayout = (SlidingLayout) findViewById(R.id.slidingLayout);
+//        slidingLayout.setScrollEvent(appBarLayout);
+
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // click to achieve menu left slide layout，click again to hide left slide layout
+//                if (slidingLayout.isLeftLayoutVisible()) {
+//                    slidingLayout.scrollToRightLayout();
+//                } else {
+//                    slidingLayout.scrollToLeftLayout();
+//                }
+//            }
+//        });
         toolbar.getMenu().clear();
         ll1 = (LinearLayout) findViewById(R.id.rowIconAlgorithm);
         ll2 = (LinearLayout) findViewById(R.id.rowIconJava);
@@ -136,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ll3 = (LinearLayout) findViewById(R.id.rowIconFavorite);
         ll4 = (LinearLayout) findViewById(R.id.rowIconAbout);
         ll5 = (LinearLayout) findViewById(R.id.rowIcon5);
-        ll6 = (LinearLayout) findViewById(R.id.rowIcon6);
+        ll6 = (RelativeLayout) findViewById(R.id.rowIconDB);
         ll7 = (LinearLayout) findViewById(R.id.rowIcon7);
         tv1 = (TextView) findViewById(R.id.text_rowAlgorithm);
         tv2 = (TextView) findViewById(R.id.text_rowJava);
@@ -144,12 +156,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tv3 = (TextView) findViewById(R.id.text_rowIconFavorite);
         tv4 = (TextView) findViewById(R.id.text_rowIconAbout);
         tv5 = (TextView) findViewById(R.id.text_rowIcon5);
+        tv6 = (TextView) findViewById(R.id.text_rowIconDB);
         tv7 = (TextView) findViewById(R.id.text_rowIcon7);
     }
 
     private void setListener(){
         tv1.setOnClickListener(this);tv2.setOnClickListener(this);tva.setOnClickListener(this);tv3.setOnClickListener(this);
-        tv4.setOnClickListener(this);tv5.setOnClickListener(this);tv7.setOnClickListener(this);
+        tv4.setOnClickListener(this);tv5.setOnClickListener(this);tv6.setOnClickListener(this);tv7.setOnClickListener(this);
     }
 
     private void setRatingDialog(){
@@ -172,14 +185,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         t.start();
     }
     private void changeColor(){
-//        ll1.setBackgroundColor(getResources().getColor(R.color.colorGreen));
     }
 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.text_rowAlgorithm: /** Start a new fragment */
-                Snackbar.make(v, "Open Algorithm coding", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
                 clearBackStack();
                 this.startAlgorithmFragment("");
                 //Log the timed event when the user starts reading the article
@@ -189,45 +200,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 FlurryAgent.endTimedEvent("Algorithm");
                 break;
             case R.id.text_rowJava: /** Start a new fragment LolRecyclerViewFragment.java */
-                Snackbar.make(v, "Open Core Java Question", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
                 this.startJavaFragment("");
                 FlurryAgent.logEvent("Java");
                 FlurryAgent.endTimedEvent("Java");
                 break;
             case R.id.text_rowAndroid: /** Start a new fragment LolRecyclerViewFragment.java */
-                Snackbar.make(v, "Open Core Android Question", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
                 this.startAndroidFragment();
                 FlurryAgent.logEvent("Android");
                 FlurryAgent.endTimedEvent("Android");
                 break;
             case R.id.text_rowIconFavorite: /** AlerDialog when click on 3rd icon */
-                Snackbar.make(v, "Open Favorite List", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
                 this.startDbFragment();
                 FlurryAgent.logEvent("Favorite List");
                 FlurryAgent.endTimedEvent("Favorite List");
                 break;
             case R.id.text_rowIconAbout: /** AlerDialog when click on 3rd icon */
-                Snackbar.make(v, "Open About", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
                 this.startAboutFragment();
                 FlurryAgent.logEvent("About");
                 FlurryAgent.endTimedEvent("About");
                 break;
             case R.id.text_rowIcon5: /** AlerDialog when click on 3rd icon */
-                Snackbar.make(v, "Open Feedback", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
                 this.startFeedbackFragment("");
                 FlurryAgent.logEvent("Feedback");
                 FlurryAgent.endTimedEvent("Feedback");
+                break;
+            case R.id.text_rowIconDB: /** AlerDialog when click on 3rd icon */
+
+                this.startDataBaseFragment("");
+                FlurryAgent.logEvent("Database");
+                FlurryAgent.endTimedEvent("Database");
                 break;
             default:
                 Snackbar.make(v, "Coming Soon", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
         }
-        slidingLayout.scrollToRightLayout();
+        DrawerLayout mDrawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawer_layout.closeDrawer(Gravity.LEFT);
+//        slidingLayout.scrollToRightLayout();
     }
 
     @Override
@@ -251,9 +264,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return true;
         }
         if (id == R.id.alarm) {
-            // to do
-            Intent myIntent = new Intent(MainActivity.this, AlarmActivity.class);
-            MainActivity.this.startActivity(myIntent);
+            Intent alarmIntent = new Intent(MainActivity.this, AlarmActivity.class);
+            MainActivity.this.startActivity(alarmIntent);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -325,7 +337,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                doubleBackToExitPressedOnce=false;
+                doubleBackToExitPressedOnce = false;
             }
         }, 350);
     }
@@ -387,7 +399,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         DbFragment dbFragment = new DbFragment();
         getFragmentManager().beginTransaction()
                 .replace(R.id.container, dbFragment, "DbFragment")
-                .addToBackStack( "DbFragment")
+                .addToBackStack("DbFragment")
                 .commit();
     }
     public void startAboutFragment(){
@@ -396,6 +408,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .addToBackStack("AboutFragment").commit();
     }
 
+    public void startDataBaseFragment(String var){
+        DataBaseFragment dbFragment = new DataBaseFragment();
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, dbFragment, "DataBaseFragment")
+                .addToBackStack( "DataBaseFragment")
+                .commit();
+    }
     public AppStart checkAppStart() {
         PackageInfo pInfo;
         SharedPreferences sharedPreferences = PreferenceManager

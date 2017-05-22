@@ -39,6 +39,80 @@
         <item>Http and Webservers</item>
     </string-array>
 
+    <string-array name="database">
+        <item>DBMS</item>
+        <item>Prime and Foreign Key</item>
+    </string-array>
+
+    <!--<item>Table</item>-->
+    <!--<item>Locks</item>-->
+    <!--<item>Key</item>-->
+    <!--<item>Statement</item>-->
+
+    <string-array name="dbms">
+        <item>What is DBMS</item>
+        <item>Various kinds of interactions catered by DBMS</item>
+        <item>Advantages of DBMS</item>
+    </string-array>
+
+    <string-array name="prime_and_foreign_key">
+        <item>Super primary candidate and foreign keys</item>
+        <item>Primary key and unique constraints</item>
+        <item>Relationships of database</item>
+    </string-array>
+
+    <string-array name="what_is_dbms_">
+        <item name = "definition"> What is DBMS?</item>
+        <item name = "code">
+            Database Management Systems (DBMS) are applications designed especially which enable user interaction with other applications.
+        </item>
+    </string-array>
+    <string-array name="various_kinds_of_interactions_catered_by_dbms_">
+        <item name = "definition"> What are Various kinds of interactions catered by DBMS?</item>
+        <item name = "code">
+    \n– Data definition
+    \n– Update
+    \n– Retrieval
+    \n– Administration
+        </item>
+    </string-array>
+    <string-array name="advantages_of_dbms_">
+        <item name = "definition">What are advantages of DBMS over traditional file based systems?</item>
+        <item name = "code">Database management systems were developed to handle the following difﬁculties of typical ﬁle-processing systems supported by conventional operating systems.
+        \n 1. Data redundancy and inconsistency
+        \n 2. Difﬁculty in accessing data
+        \n 3. Data isolation – multiple ﬁles and formats
+        \n 4. Integrity problems
+        \n 5. Atomicity of updates
+        \n 6. Concurrent access by multiple users
+        \n 7. Security problems
+        </item>
+    </string-array>
+    <string-array name="super_primary_candidate_and_foreign_keys_">
+        <item name = "definition">What are super, primary, candidate and foreign keys?</item>
+        <item name = "code">A superkey is a set of attributes of a relation schema upon which all attributes of the schema are functionally dependent. No two rows can have the same value of super key attributes.
+            A Candidate key is minimal superkey, i.e., no proper subset of Candidate key attributes can be a superkey.
+            A Primary Key is one of the candidate keys. One of the candidate keys is selected as most important and becomes the primary key. There cannot be more that one primary keys in a table.
+            Foreign key is a field (or collection of fields) in one table that uniquely identifies a row of another table. See this for an example.
+        </item>
+    </string-array>
+
+    <string-array name="primary_key_and_unique_constraints_">
+        <item name = "definition">What is the difference between primary key and unique constraints?</item>
+        <item name = "code">A superkey is a set of attributes of a relation schema upon which all attributes of the schema are functionally dependent. No two rows can have the same value of super key attributes.
+            Primary key cannot have NULL value, the unique constraints can have NULL values. There is only one primary key in a table, but there can be multiple unique constrains.
+        </item>
+    </string-array>
+    <string-array name="relationships_of_database_">
+        <item name = "definition"> Enlist the various relationships of database.</item>
+        <item name = "code">A superkey is a set of attributes of a relation schema upon which all attributes of the schema are functionally dependent. No two rows can have the same value of super key attributes.
+            The various relationships of database are:
+        \n    One-to-one: Single table having drawn relationship with another table having similar kind of columns.
+        \n    One-to-many: Two tables having primary and foreign key relation.
+        \n    Many-to-many: Junction table having many tables related to many tables.
+        </item>
+    </string-array>
+
     <string-array name="android_basics">
         <item>Android Architecture</item>
         <item>ANR</item>

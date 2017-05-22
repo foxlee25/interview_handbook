@@ -24,6 +24,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         showNotification(context);
     }
+
     public void showNotification(Context context) {
         // For our recurring task, we'll just display a message
         Toast.makeText(context, "Time to practice coding", Toast.LENGTH_SHORT).show();

@@ -20,7 +20,7 @@ public class SlidingLayout extends LinearLayout implements View.OnTouchListener 
     /**
      * 滚动显示和隐藏左侧布局时，手指滑动需要达到的速度。
      */
-    public static final int SNAP_VELOCITY = 200;
+    public static final int SNAP_VELOCITY = 100;
 
     /**
      * 屏幕宽度值。
@@ -119,14 +119,14 @@ public class SlidingLayout extends LinearLayout implements View.OnTouchListener 
      * 将屏幕滚动到左侧布局界面，滚动速度设定为30.
      */
     public void scrollToLeftLayout() {
-        new ScrollTask().execute(75);
+        new ScrollTask().execute(150);
     }
 
     /**
      * 将屏幕滚动到右侧布局界面，滚动速度设定为-30.
      */
     public void scrollToRightLayout() {
-        new ScrollTask().execute(-75);
+        new ScrollTask().execute(-150);
     }
 
     /**

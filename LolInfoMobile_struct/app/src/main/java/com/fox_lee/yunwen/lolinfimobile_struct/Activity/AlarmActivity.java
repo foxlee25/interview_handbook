@@ -87,24 +87,6 @@ public class AlarmActivity extends Activity {
         calendar.add(Calendar.MONTH, 0); // Add 0 months to current month
         Log.d("AlarmActivity", "The setting time is: " + calendar.getTimeInMillis());
 
-//        Log.d("AlarmActivity","The language is: " + Locale.getDefault().getDisplayLanguage());
-//        switch (Locale.getDefault().getDisplayLanguage()) {
-//            case "English":
-//                calendar.set(Calendar.HOUR_OF_DAY, 23);
-//                calendar.set(Calendar.MINUTE, 16);
-//            case "zh_CN":
-//                calendar.set(Calendar.HOUR_OF_DAY, 3);
-//                calendar.set(Calendar.MINUTE, 0);
-//            case "zh_TW":
-//                calendar.set(Calendar.HOUR_OF_DAY, 3);
-//                calendar.set(Calendar.MINUTE, 0);
-//            default:
-//                calendar.set(Calendar.HOUR_OF_DAY, 12);
-//                calendar.set(Calendar.MINUTE, 0);
-//        }
-//        pendingIntent = new Intent(this, LongRunning.class);
-//        //开启关闭Service
-//        startService(intent);
         /* Repeating on every day interval */
         manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 interval, pendingIntent);

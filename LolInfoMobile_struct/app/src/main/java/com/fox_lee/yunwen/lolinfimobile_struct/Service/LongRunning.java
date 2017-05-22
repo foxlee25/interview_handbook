@@ -39,7 +39,6 @@ public class LongRunning extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
         //在Service结束后关闭AlarmManager
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
         Intent i = new Intent(this, AlarmReceiver.class);
